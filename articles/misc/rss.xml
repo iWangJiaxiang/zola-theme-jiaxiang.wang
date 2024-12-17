@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>zola-theme-jiaxiang.wang</title>
+      <link>/articles/misc/</link>
+      <description>为创造者而生的开源 Zola 主题，地址 https:&#x2F;&#x2F;github.com&#x2F;iWangJiaxiang&#x2F;zola-theme-jiaxiang.wang</description>
+      <generator uri="https://www.getzola.org/">Zola</generator>
+      <language>en</language>
+      <atom:link href="/articles/misc/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Tue, 17 Dec 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Lorem Ipsum 3</title>
+          <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+          <author>zola-theme-jiaxiang.wang</author>
+          <link>/articles/misc/lorem-ipsum-3/</link>
+          <guid>/articles/misc/lorem-ipsum-3/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-3/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum 4</title>
+          <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+          <author>zola-theme-jiaxiang.wang</author>
+          <link>/articles/misc/lorem-ipsum-4/</link>
+          <guid>/articles/misc/lorem-ipsum-4/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-4/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum 5</title>
+          <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+          <author>zola-theme-jiaxiang.wang</author>
+          <link>/articles/misc/lorem-ipsum-5/</link>
+          <guid>/articles/misc/lorem-ipsum-5/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-5/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum 6</title>
+          <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+          <author>zola-theme-jiaxiang.wang</author>
+          <link>/articles/misc/lorem-ipsum-6/</link>
+          <guid>/articles/misc/lorem-ipsum-6/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-6/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum 2</title>
+          <pubDate>Mon, 16 Dec 2024 00:00:00 +0000</pubDate>
+          <author>zola-theme-jiaxiang.wang</author>
+          <link>/articles/misc/lorem-ipsum-2/</link>
+          <guid>/articles/misc/lorem-ipsum-2/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-2/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum</title>
+          <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+          <author>zola-theme-jiaxiang.wang</author>
+          <link>/articles/misc/lorem-ipsum/</link>
+          <guid>/articles/misc/lorem-ipsum/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+    </channel>
+</rss>
