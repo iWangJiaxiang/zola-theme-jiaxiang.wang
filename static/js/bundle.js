@@ -483,6 +483,26 @@ var lazyloadImg = () => {
     })
 }
 
+// 渐进加载
+function progressiveImgLazyload() {
+  
+    var placeholder = document.querySelector('.placeholder'),
+        small = placeholder.querySelector('.img-small')
+    
+    var img = new Image();
+    img.src = small.src;
+    img.onload = function () {
+     small.classList.add('loaded');
+    };
+    
+    var imgLarge = new Image();
+    imgLarge.src = placeholder.dataset.large; 
+    imgLarge.onload = function () {
+      imgLarge.classList.add('loaded');
+    };
+    placeholder.appendChild(imgLarge);
+}
+
 // 右下角悬浮操作按钮
 var rightSideFn = {
     switchReadMode: () => { // read-mode
@@ -922,6 +942,7 @@ function initBlogLazy() {
     }
 
     GLOBAL_CONFIG.lazyload.enable && lazyloadImg()
+    progressiveImgLazyload()
 
     document.getElementById('rightside').addEventListener('click', function (e) {
         const $target = e.target.id || e.target.parentNode.id
