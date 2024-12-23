@@ -43,8 +43,8 @@
             {% set post = get_page(path=data.post.today_recommend.post_path ) %}
             {% set url = post.permalink %}
             {# 便于从 content 文件夹提取封面 #}
-            {% set cover = macro::post_cover(post=post, for_url=false) %}
-            {% set cover_url = macro::post_cover(post=post, for_url=true) %}
+            {% set cover = macro::post_cover(post=post, local_url=true) %}
+            {% set cover_url = macro::post_cover(post=post, local_url=false) %}
             {% set title = post.title %}
         {% else %}
             {% set url = data.post.today_recommend.url %}
