@@ -155,7 +155,6 @@ function checkAvif() {
     }
 }
 
-
 // 运行区
 
 // 浏览器版本检测
@@ -209,19 +208,17 @@ function initBlog() {
 
 $(document).ready((function () {
     initBlog()
-}
-)),
+})),
 
-    document.addEventListener("pjax:complete", (function () {
-        initBlog();
-        // 首次加载使用浏览器事件，之后pjax加载在此触发
-        typeof initBlogLazy === 'function' && initBlogLazy();
-        // 解决 katex pjax问题
-        if ((GLOBAL_CONFIG.htmlType == 'post' || GLOBAL_CONFIG.htmlType == 'page') && typeof window.renderKaTex != 'undefined') {
-            window.renderKaTex();
-        }
+document.addEventListener("pjax:complete", (function () {
+    initBlog();
+    // 首次加载使用浏览器事件，之后pjax加载在此触发
+    typeof initBlogLazy === 'function' && initBlogLazy();
+    // 解决 katex pjax问题
+    if ((GLOBAL_CONFIG.htmlType == 'post' || GLOBAL_CONFIG.htmlType == 'page') && typeof window.renderKaTex != 'undefined') {
+        window.renderKaTex();
     }
-    ));
+}));
 
 document.addEventListener('DOMContentLoaded', function () {
     const $blogName = document.getElementById('site-name')
