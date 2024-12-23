@@ -39,11 +39,12 @@
 
     <!-- 今日推荐 -->
     {% if config.extra.top.banner_right.today_recommend.enable %}
-        {% if data.post.today_recommend %}
+        {% if data.post.today_recommend.post_path %}
             {% set post = get_page(path=data.post.today_recommend.post_path ) %}
             {% set url = post.permalink %}
             {# 便于从 content 文件夹提取封面 #}
-            {% set cover = macro::post_cover(post=post) %}
+            {% set cover = macro::post_cover(post=post, for_url=false) %}
+            {% set cover_url = macro::post_cover(post=post, for_url=true) %}
             {% set title = post.title %}
         {% else %}
             {% set url = data.post.today_recommend.url %}
@@ -56,10 +57,7 @@
                 <div class="todayCard-tips">{{ data.post.today_recommend.small_title }}</div>
                 <div class="todayCard-title">{{ title }}</div>
             </div>
-            <div class="placeholder todayCard-cover" data-large="{{ macro::thumbnail(url=cover, width=500, height=300,) | trim | safe }}">
-                <img src="{{ macro::thumbnail(url=cover, width=16, height=9, format="webp", quality=1) | trim | safe }}" class="img-small">
-                <div style="padding-bottom: 66.6%;"></div>
-            </div>
+            {{ macro::img_progressive_loading(src=cover, web_url=cover_url, alt="Daily recommended post cover", class="todayCard-cover") }}
             <div class="banner-button-group">
                 <button class="banner-button" onclick="window.event.cancelBubble=!0;wjx.hideTodayCard()">
                     <i class="icon-circle-plus"></i>

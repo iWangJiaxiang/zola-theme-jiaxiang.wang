@@ -155,6 +155,36 @@ function checkAvif() {
     }
 }
 
+
+// 获取具有特定 class 的兄弟节点，返回第一个
+function getSiblingNodesWithClass(element, className) {
+    const parent = element.parentNode;
+
+    // Iterate through the child nodes of the parent
+    for (let i = 0; i < parent.children.length; i++) {
+        const sibling = parent.children[i];
+        // Check if the sibling has the specified class and is not the original element
+        if (sibling !== element && sibling.classList.contains(className)) {
+            return sibling;
+        }
+    }
+
+    return null;
+}
+
+// 渐进加载图片
+function progressiveLoad(element) {
+    if (!element) return;
+    // 隐藏缩略图
+    var sibing = getSiblingNodesWithClass(element, 'progressive-thumbnail')
+    if (sibing)
+        sibing.classList.add('loaded');
+    // 加载主图
+    element.classList.add('loaded');
+    // 去除模糊效果
+    element.parentNode.classList.add('loaded');
+}
+
 // 运行区
 
 // 浏览器版本检测

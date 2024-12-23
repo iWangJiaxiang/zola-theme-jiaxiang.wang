@@ -1,30 +1,49 @@
 @charset "UTF-8";
 
-.placeholder {
-  background-color: #f6f6f6;
-  background-size: cover;
-  background-repeat: no-repeat;
+.progressive-picture {
   position: relative;
+  display: block;
   overflow: hidden;
-}
-
-.placeholder img {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 0;
   width: 100%;
-  transition: opacity 1s linear;
-}
-
-.placeholder img.loaded {
-  opacity: 1;
-}
-
-.img-small {
+  background: radial-gradient(circle, #c3c3c3 0%, #d9dee4 100%);
+  transition: filter 0.3s ease-out;
   filter: blur(50px);
   /* this is needed so Safari keeps sharp edges */
   transform: scale(1);
+}
+
+.progressive-picture.loaded {
+  filter: none;
+}
+
+.progressive-thumbnail {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transition: opacity 0.3s ease-out;
+}
+
+.progressive-thumbnail.loaded {
+  opacity: 0;
+}
+
+.progressive-content {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transition: opacity 0.3s ease-out;
+}
+
+.progressive-content.loaded {
+  opacity: 1;
 }
   
 img {
