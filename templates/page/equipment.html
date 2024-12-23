@@ -32,11 +32,8 @@
                     <div class="equipment-item-content">
                         {% for equipment in group.items %}
                         <div class="equipment-item-content-item">
-                            <div class="equipment-item-content-item-cover">
-                                <img class="equipment-item-content-item-image"
-                                     alt="{{ equipment.name }}"
-                                     src="{{ config.extra.other.lazyload.loading_img | safe }}"
-                                     data-lazy-src="{{ equipment.img }}">
+                            <div class="equipment-item-content-item-cover">       
+                                {{ macro::img_progressive_loading(src=equipment.img, web_url=equipment.img, alt=equipment.name, class="equipment-item-content-item-image") }}                   
                             </div>
                             <div class="equipment-item-content-item-info">
                                 <div class="equipment-item-content-item-name"

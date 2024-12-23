@@ -8,10 +8,7 @@
         {% for post in recent_posts %}
             <div class="aside-list-item">
                 <a class="thumbnail" href="{{ post.permalink }}" title="{{ post.title }}">
-                    {% set img = macro::thumbnail_s(url=macro::post_cover(post=post)) %}
-                    <img alt="{{ post.title }}"
-                            src="{{ config.extra.other.lazyload.loading_img | trim | safe }}"
-                            data-lazy-src="{{ img | trim | safe }}"/>
+                    {{ macro::img_progressive_loading_post_cover(post=post, class="post_bg") }}
                 </a>
                 <div class="content">
                     <a class="title" href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }}</a>

@@ -194,7 +194,7 @@
 
 {# 生成缩略图，跳过avif格式和webp格式 {{ macro::thumbnail(url=post.cover) }} #}
 {% macro thumbnail(url, width=800, height=500, op="fit", format="webp") %}
-{% if url is ending_with(".avif") %}
+{% if url is ending_with(".avif") or url is ending_with(".svg") %}
     {{ url | trim | safe }}
 {% else %}
     {% if url %}    
@@ -304,13 +304,13 @@
 {# 内部使用 去除空格 #}
 {% macro post_cover_internal(post, local_url=true) %}
     {% if local_url %}
-    {# 从 运行时的 url 获取封面 #}
-    {% set path_prefix = post.colocated_path %}
+        {# 从 content 文件夹提取封面 #}
+        {% set path_prefix = post.colocated_path %}
     {% else %}
-    {# 便于从 content 文件夹提取封面 #}
-    {% set path_prefix = post.path %}
+        {# 从 运行时的 url 获取封面 #}
+        {% set path_prefix = post.path %}
     {% endif %}
-    {% if post.extra.cover and post.path %}
+    {% if post.extra.cover %}
         {# 使用绝对地址的封面 #}
         {%- set cover = path_prefix ~ post.extra.cover %}
     {% elif post.extra.global_cover %}
@@ -320,7 +320,7 @@
         {# 默认封面 #}
         {%- set cover = config.extra.site.default_cover %}
     {% endif %}
-    {{ cover }}
+    {{- cover -}}
 {% endmacro %}
 
 
@@ -341,12 +341,12 @@ src="{{ src | safe | trim }}"
 
 
 {# 渐进式加载图片 src 本地路径 web_url 为了临时解决手动加载avif的问题 #}
-{% macro img_progressive_loading(src, web_url="", alt="", class="") %}
+{% macro img_progressive_loading(src, web_url="", alt="", id="", class="") %}
 {% set thumb_src = macro::get_webp_of_webp(src=src) %}
 {% if web_url != "" %}
     {% set src = web_url %}
 {% endif %}
-<picture class="{% if class != "" %}{{ class }} {% endif %}progressive-picture">
+<picture {% if id != "" %}id="{{ id }}" {% endif %} class="{% if class != "" %}{{ class }} {% endif %}progressive-picture">
     {#- the small image that will be blurred -#}
     <img class="progressive-thumbnail" src="{{ macro::thumbnail(url=thumb_src, width=16, height=9, op="fill", format="webp", quality=1) | trim | safe }}">
     {#- a lazy responsive image with data-srcset -#}
@@ -362,6 +362,21 @@ src="{{ src | safe | trim }}"
     </noscript>
 </picture>
 {% endmacro %}
+
+{% macro img_progressive_loading_post_cover(post, alt="", id="", class="") %}
+{% set cover = macro::post_cover(post=post, local_url=true) %}
+{# 只有 avif 避免处理路径 #}
+{% if cover is ending_with(".avif") %}
+{% set cover_url = macro::post_cover(post=post, local_url=false) %}
+{% else %}
+{% set cover_url = "" %}
+{% endif %}
+{% if alt != "" %}
+    {% set alt = alt %}
+{% endif %}
+{{ macro::img_progressive_loading(src=cover, web_url=cover_url, alt=alt, id=id, class=class) }}
+{% endmacro %}
+
 
 {# 渐进式加载图片，因为现在还不支持转换 avif 图片，需要从 avif 转换成 webp 文件路径 #}
 {% macro get_webp_of_webp(src) %}

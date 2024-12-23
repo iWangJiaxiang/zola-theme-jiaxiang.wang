@@ -34,10 +34,9 @@
                 <div class="article-sort">
                     <div class="article-sort-item year">{{ year }}</div>
                     {% for post in archive | sort(attribute="date") | reverse %}
-                        {% set img = macro::thumbnail_s(url=macro::post_cover(post=post)) %}
                         <div class="article-sort-item">
                             <a class="article-sort-item-img" href="{{ post.permalink }}" title="{{ post.title }}">
-                                <img alt="{{ post.title }}" src="{{ img | safe }}">
+                                {{ macro::img_progressive_loading_post_cover(post=post) }}
                             </a>
                             <div class="article-sort-item-info">
                                 <!--

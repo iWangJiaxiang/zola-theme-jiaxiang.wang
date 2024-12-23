@@ -38,13 +38,11 @@
             {% set posts = section.pages  | slice(start=0, end=6) %}
             <div class="aside-list-group">
                 {% for post in posts %}
-                    {% set img = macro::thumbnail_s(url=macro::post_cover(post=post)) %}
                     <div class="aside-list-item">
                         <a class="thumbnail div_border"
                            href="{{ post.permalink }}"
                            title="{{ post.title }}">
-                           {% set img = macro::thumbnail_s(url=macro::post_cover(post=post)) %}
-                           <img alt="{{ post.title }}" {{ macro::img_src(src=img) }}>
+                           {{ macro::img_progressive_loading_post_cover(post=post) }}
                         </a>
                         <div class="content">
                             <a class="title" href="{{ post.permalink }}"

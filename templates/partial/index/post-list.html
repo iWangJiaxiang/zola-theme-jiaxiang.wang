@@ -12,15 +12,7 @@
         onclick="pjax.loadUrl('{{ post.permalink }}')">
         <div class="post_cover left_radius">
             <a title="{{ post.title }}" href="{{ post.permalink }}">
-                {% set img = macro::thumbnail_m(url=macro::post_cover(post=post)) | trim %}
-                <img class="post_bg"
-                     alt="{{ post.title }}"
-                     {% if config.extra.other.lazyload.enable %}
-                         data-lazy-src="{{ img | safe }}"
-                         src="{{ config.extra.other.lazyload.loading_img | safe }}"
-                     {% else %}
-                         src="{{ img | safe }}"
-                     {% endif %}>
+                {{ macro::img_progressive_loading_post_cover(post=post, class="post_bg") }}
             </a>
         </div>
         <div class="recent-post-info">

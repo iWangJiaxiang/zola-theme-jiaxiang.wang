@@ -16,15 +16,8 @@
             <div class="recent-post-item">
                 <div class="post_cover {% if loop.index0 % 2 == 0 %}left_radius{% else %}right_radius{% endif %}">
                     <a href="{{ post.permalink }}" title="{{ post.title }}" >
-                        <span class="recent-post-top-text" onclick="pjax.loadUrl('{{ post.permalink }}')">荐</span>
-                        {% set img = macro::thumbnail_s(url=macro::post_cover(post=post)) %}
-                        <img class="post_bg" alt="{{ post.title }}"
-                            {% if config.extra.other.lazyload.enable %}
-                                src="{{ config.extra.other.lazyload.loading_img | trim | safe }}"
-                                data-lazy-src="{{ img | trim | safe }}"
-                            {% else %}
-                                src="{{ img | trim | safe }}"
-                            {% endif %}>
+                        <span class="recent-post-top-text" onclick="pjax.loadUrl('{{ post.permalink }}')">荐</span>  
+                        {{ macro::img_progressive_loading_post_cover(post=post, class="post_bg") }}
                     </a>
                 </div>
                 <div class="recent-post-info">
@@ -49,6 +42,7 @@
         {% else %}
             {% set url = data.post.today_recommend.url %}
             {% set cover = data.post.today_recommend.cover %}
+            {% set cover_url = data.post.today_recommend.cover %}
             {% set title = data.post.today_recommend.title %}
         {% endif %}
 

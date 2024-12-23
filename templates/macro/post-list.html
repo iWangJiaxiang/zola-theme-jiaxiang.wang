@@ -13,9 +13,7 @@
 
                 <div class="post_cover left_radius">
                     <a title="{{ post.title }}" href="{{ post.permalink }}">
-                        {% set img = macro::thumbnail_s(url=macro::post_cover(post=post)) %}
-                        <img class="post_bg" {{ macro::img_src(src=img) }}
-                             alt="{{ post.title }}">
+                        {{ macro::img_progressive_loading_post_cover(post=post, class="post_bg") }}
                     </a>
                 </div>
                 <div class="recent-post-info">

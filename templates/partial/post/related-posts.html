@@ -30,11 +30,8 @@
                         {% if index <= 6 %}
                             {% if not page.title == post.title %}
                             <div>
-                                {% set img = macro::thumbnail_s(url=macro::post_cover(post=post)) %}
                                 <a href="{{ post.permalink }}" title="{{ post.title }}">
-                                    <img alt="cover" class="cover" id="preimg"
-                                         src="{{ img | safe }}"
-                                         data-lazy-src="{{ img | safe }}">
+                                    {{ macro::img_progressive_loading_post_cover(post=post, id="preimg", class="cover") }}
                                     <div class="content is-center">
                                         <div class="date" style="color: white">
                                             <i class="far fa-calendar-alt fa-fw"></i>
@@ -57,11 +54,8 @@
                         {% if index <= 2 %}
                             {% if not page.title == post.title %}
                             <div>
-                                {% set img = macro::thumbnail_s(url=macro::post_cover(post=post)) %}
                                 <a href="{{ post.permalink }}" title="{{ post.title }}">
-                                    <img class="cover" alt="cover"
-                                         src="{{ img | safe }}"
-                                         data-lazy-src="{{ img | safe }}">
+                                    {{ macro::img_progressive_loading_post_cover(post=post, class="cover") }}
                                     <div class="content is-center">
                                         <div class="date">
                                             <i class="far fa-calendar-alt fa-fw"></i>

@@ -1,4 +1,4 @@
 {% set document = page | default(value=section) -%} {# this ensures the shortcode works in both pages and sections -#}
 {% set mdata = get_image_metadata(path=document.colocated_path ~ img_name) %}
-{% set image = resize_image(format="auto", path=document.colocated_path ~ img_name, width=(mdata.width * scale)|int, op="fit_width") %}
+{% set image = resize_image(format="auto", path=document.colocated_path ~ img_name | trim, width=(mdata.width * scale)|int, op="fit_width") %}
 <img src="{{ image.url }}" />
