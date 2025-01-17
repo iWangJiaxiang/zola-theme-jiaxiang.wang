@@ -38,7 +38,9 @@
     - [x] Twikoo
     - [ ] Artalk
     - [ ] Waline
-  - [x] 搜索（Algolia）
+  - [x] 搜索
+    - [x] Algolia
+    - [X] MeiliSearch
   - [x] Markdown
   - [x] Katex
   - [x] Prism 代码高亮

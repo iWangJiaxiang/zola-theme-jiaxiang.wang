@@ -134,10 +134,21 @@
             enable_height_limit: {{ config.extra.code.enable_height_limit }}
         },
         {% if config.extra.nav.right.search %}
-        algolia:{
-            appId: "{{ config.extra.other.algolia.app_id }}",
-            apiKey: "{{ config.extra.other.algolia.app_key }}",
-            indexName: "{{ config.extra.other.algolia.index_name }}",
+        search: {
+            engine: "{{ config.extra.nav.right.search_engine }}",
+            {% if config.extra.nav.right.search_engine == 'algolia' %}
+            algolia: {
+                appId: "{{ config.extra.search.algolia.app_id }}",
+                apiKey: "{{ config.extra.search.algolia.app_key }}",
+                indexName: "{{ config.extra.search.algolia.index_name }}",
+            },
+            {% elif config.extra.nav.right.search_engine == 'meilisearch' %}
+            meilisearch: {
+                host: "{{ config.extra.search.meilisearch.host | safe}}",
+                apiKey: "{{ config.extra.search.meilisearch.key }}",
+                indexName: "{{ config.extra.search.meilisearch.index_name }}",
+            },
+            {% endif %}
             hits:{
                 per_page: 6
             },

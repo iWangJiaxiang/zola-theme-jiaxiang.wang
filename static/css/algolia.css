@@ -111,12 +111,17 @@
   }
   
   #algolia-search .search-dialog .ais-Hits-list .ais-Hits-item:hover a {
+    color: #ffffff82;
+  }
+
+  #algolia-search .search-dialog .ais-Hits-list .ais-Hits-item:hover mark {
     color: var(--wjx-white);
+    text-decoration: underline;
   }
   
-  #algolia-search .search-dialog .ais-Hits-list mark {
+  #algolia-search mark {
     background: transparent;
-    color: var(--search-keyword-highlight);
+    color: var(--wjx-main);
     font-weight: bold;
   }
   

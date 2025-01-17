@@ -284,6 +284,23 @@ dark_mode = true
 console_enable = true
 # 启用搜索
 search = false
+# 搜索引擎 选项: "meilisearch", "algolia"
+search_engine = "algolia"
+
+# Meilisearch 搜索
+[extra.search.meilisearch]
+# 服务器地址
+host = ""
+# search key
+key = ""
+# 索引名称
+index_name = ""
+
+# Algolia 搜索
+[extra.search.algolia]
+app_id = ""
+app_key = ""
+index_name = ""
 
 # 顶部设置
 [extra.top]
@@ -1073,9 +1090,3 @@ settings = [
     { greeting = "19点喽, 奖励一顿丰盛的大餐吧🍔。", start_time = 19, end_time = 19 },
     { greeting = "晚上好👋, 在属于自己的时间好好放松😌~", start_time = 20, end_time = 24 },
 ]
-
-# Algolia 搜索
-[extra.other.algolia]
-app_id = ""
-app_key = ""
-index_name = ""

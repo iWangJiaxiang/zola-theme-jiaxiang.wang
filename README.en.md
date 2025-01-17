@@ -38,7 +38,9 @@
     - [x] Twikoo
     - [ ] Artalk
     - [ ] Waline
-  - [x] Search (Algolia)
+  - [x] Search
+    - [x] Algolia
+    - [x] MeiliSearch
   - [x] Markdown
   - [x] Katex
   - [x] Prism Code Highlighting

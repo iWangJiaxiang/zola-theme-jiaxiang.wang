@@ -65,16 +65,31 @@ window.addEventListener("load", () => {
       document.querySelector("#algolia-search .search-close-button").addEventListener("click", closeSearch);
     };
   
-    const algolia = GLOBAL_CONFIG.algolia;
-    const isAlgoliaValid = algolia.appId && algolia.apiKey && algolia.indexName;
-    if (!isAlgoliaValid) {
-      return console.error("Algolia setting is invalid!");
+    const searchConfig = GLOBAL_CONFIG.search;
+    var searchClient;
+    var indexName;
+
+    if(searchConfig.engine == 'algolia') {
+      const config = searchConfig.algolia;
+      const isAlgoliaValid = config.appId && config.apiKey && config.indexName;
+      if (!isAlgoliaValid) {
+        return console.error("Algolia Search setting is invalid!");
+      }
+      searchClient = algoliasearch(config.appId, config.apiKey);
+      indexName = config.indexName;
+    } else if (searchConfig.engine == 'meilisearch') {
+      const config = searchConfig.meilisearch;
+      const isAlgoliaValid = config.host && config.apiKey && config.indexName;
+      if (!isAlgoliaValid) {
+        return console.error("Algolia Search setting is invalid!");
+      }
+      searchClient = instantMeiliSearch(config.host, config.apiKey).searchClient;
+      indexName = config.indexName;
     }
   
     const search = instantsearch({
-      indexName: algolia.indexName,
-      /* global algoliasearch */
-      searchClient: algoliasearch(algolia.appId, algolia.apiKey),
+      indexName: indexName,
+      searchClient: searchClient,
       searchFunction(helper) {
         if (helper.state.query) {
           let innerLoading = '<i class="icon-spinner spin"></i>';
@@ -85,25 +100,62 @@ window.addEventListener("load", () => {
     });
   
     const configure = instantsearch.widgets.configure({
-      hitsPerPage: algolia.hits.per_page ?? 5,
+      hitsPerPage: searchConfig.hits.per_page ?? 5,
     });
   
     const searchBox = instantsearch.widgets.searchBox({
       container: "#algolia-search-input",
       showReset: false,
       showSubmit: false,
-      placeholder: algolia.languages.input_placeholder,
+      placeholder: searchConfig.languages.input_placeholder,
       showLoadingIndicator: true,
       searchOnEnterKeyPressOnly: true,
-      searchAsYouType: false,
+      searchAsYouType: true,
     });
   
+    const algoliaHitItemTemplate = function (hit, { html, components }) {
+      const link = hit.url ? hit.url : GLOBAL_CONFIG.root + hit.path;
+      const result = hit._highlightResult;
+      return `
+        <a href="${link}" class="algolia-hit-item-link">
+        <span class="algolia-hits-item-title">${result.content.value || "no-title"}</span>
+        </a>`;
+    };
+
+    const meilisearchHitItemTemplate = function (hit, { html, components }) {
+      const link = hit.url ? hit.url : GLOBAL_CONFIG.root + hit.path;
+      const result = hit._highlightResult;
+      const category = hit.hierarchy_lvl0 ? result.hierarchy_lvl0.value : "";
+      const tag = hit.hierarchy_lvl1 ? result.hierarchy_lvl1.value : "";
+      const title = hit.hierarchy_lvl2 ? result.hierarchy_lvl2.value : "";
+      const description = hit.hierarchy_lvl3 ? result.hierarchy_lvl3.value : "";
+      const h1 = hit.hierarchy_lvl3 ? result.hierarchy_lvl3.value : "";
+      const h2 = hit.hierarchy_lvl4 ? result.hierarchy_lvl4.value : "";
+      const h3 = hit.hierarchy_lvl5 ? result.hierarchy_lvl5.value : "";
+      const content = hit.content ? result.content.value : "";
+      const l1 = title ? title : "";
+      const l3 = content ? content : "";
+      return `
+        <a href="${link}" class="algolia-hit-item-link">
+          <div class="algolia-hit-item-title">
+            <span style="font-size: x-small;">${category}</span>
+            ${title}
+            <span style="font-size: x-small;">${tag}</span>
+          </div>
+          <div class="" style="font-size: x-small;">
+            ${h1} ${h2} ${h3}
+          </div>
+          <div class="" style="font-size: small;">
+              <span class="algolia-hits-item-title">${description}${l3}</span>
+          </div>
+        </a>
+        `;
+    };
+
     const hits = instantsearch.widgets.hits({
       container: "#algolia-hits",
       templates: {
-        item(data) {
-          const link = data.url ? data.url : GLOBAL_CONFIG.root + data.path;
-          const result = data._highlightResult;
+        item(hit, { html, components }) {
           const loadingLogo = document.querySelector("#algolia-hits .icon-spinner");
           if (loadingLogo) {
             loadingLogo.style.display = "none";
@@ -111,12 +163,13 @@ window.addEventListener("load", () => {
           setTimeout(() => {
             document.querySelector("#algolia-search .ais-SearchBox-input").focus();
           }, 200);
-          console.log(data);
-          console.log('yes');
-          return `
-            <a href="${link}" class="algolia-hit-item-link">
-            <span class="algolia-hits-item-title">${result.content.value || "no-title"}</span>
-            </a>`;
+          console.log(hit);
+          if (searchConfig.engine == 'meilisearch') {
+            return meilisearchHitItemTemplate(hit, { html, components });
+          }
+          else if (searchConfig.engine == 'algolia') {
+            return algoliaHitItemTemplate(hit, { html, components });
+          }
         },
         empty: function (data) {
           const loadingLogo = document.querySelector("#algolia-hits .icon-spinner");
@@ -129,7 +182,7 @@ window.addEventListener("load", () => {
           }, 200);
           return (
             '<div id="algolia-hits-empty">' +
-            GLOBAL_CONFIG.algolia.languages.hits_empty.replace(/\$\{query}/, data.query) +
+            GLOBAL_CONFIG.search.languages.hits_empty.replace(/\$\{query}/, data.query) +
             "</div>"
           );
         },
@@ -143,7 +196,7 @@ window.addEventListener("load", () => {
       container: "#algolia-info > .algolia-stats",
       templates: {
         text: function (data) {
-          const stats = GLOBAL_CONFIG.algolia.languages.hits_stats
+          const stats = GLOBAL_CONFIG.search.languages.hits_stats
             .replace(/\$\{hits}/, data.nbHits)
             .replace(/\$\{time}/, data.processingTimeMS);
           return `<hr>${stats}`;
@@ -151,13 +204,9 @@ window.addEventListener("load", () => {
       },
     });
   
-    const powerBy = instantsearch.widgets.poweredBy({
-      container: "#algolia-info > .algolia-poweredBy",
-    });
-  
     const pagination = instantsearch.widgets.pagination({
       container: "#algolia-pagination",
-      totalPages: algolia.hits.per_page ?? 5,
+      totalPages: searchConfig.hits.per_page ?? 5,
       templates: {
         first: '<i class="icon-angle-double-left"></i>',
         last: '<i class="icon-angle-double-right"></i>',
@@ -175,8 +224,8 @@ window.addEventListener("load", () => {
       },
     });
   
-    search.addWidgets([configure, searchBox, hits, stats, powerBy, pagination]); // add the widgets to the instantsearch instance
-  
+    search.addWidgets([configure, searchBox, hits, stats, pagination]);
+
     search.start();
   
     searchClickFn();
