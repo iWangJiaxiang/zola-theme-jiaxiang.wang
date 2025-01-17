@@ -142,19 +142,16 @@
     {% include "partial/nav/search-dialog.html" %}
     <script>
         var searchLibLoaded = false
-        {% if config.extra.nav.right.search_engine == 'algolia' %}
         const searchFiles = [
+        {% if config.extra.nav.right.search_engine == 'algolia' %}
             { type: 'css', path: '/libs/algolia/algoliasearchNetlify.css' },
             { type: 'js', path: '/libs/algolia/algoliasearchNetlify.js' },
-            { type: 'js', path: '/libs/algolia/instantsearch.production.min.js' },
-            { type: 'js', path: '/libs/algolia/algoliasearch-lite.umd.js' }
-        ];
+            { type: 'js', path: '/libs/algolia/algoliasearch-lite.umd.js' },
         {% elif config.extra.nav.right.search_engine == 'meilisearch' %}
-        const searchFiles = [
             { type: 'js', path: '/libs/meilisearch/instant-meilisearch.umd.min.js' },
-            { type: 'js', path: '/libs/meilisearch/instantsearch-production.min-4.77.0.js' },
-        ];
         {% endif %}
+            { type: 'js', path: '/libs/instantsearch/instantsearch-production.min-4.77.0.js' }
+        ];
     </script>
     <link rel="preload" as="style" href="/css/algolia.css" onload="this.onload=null;this.rel='stylesheet'"/>
     <noscript><link rel="stylesheet" href="/css/algolia.css"></noscript>
