@@ -140,16 +140,22 @@
 
 {% if config.extra.nav.right.search %}
     {% include "partial/nav/search-dialog.html" %}
-    {% if config.extra.nav.right.search_engine == 'algolia' %}
-        <link rel="preload" as="style" href="/libs/algolia/algoliasearchNetlify.css" onload="this.onload=null;this.rel='stylesheet'"/>
-        <noscript><link rel="stylesheet" href="/libs/algolia/algoliasearchNetlify.css"></noscript>
-        <script defer type="text/javascript" src="/libs/algolia/algoliasearchNetlify.js"></script>
-        <script defer type="text/javascript" src="/libs/algolia/instantsearch.production.min.js"></script>
-        <script defer type="text/javascript" src="/libs/algolia/algoliasearch-lite.umd.js"></script>
-    {% elif config.extra.nav.right.search_engine == 'meilisearch' %}
-        <script src="/libs/meilisearch/instant-meilisearch.umd.min.js"></script>
-        <script src="/libs/meilisearch/instantsearch.js@4"></script>
-    {% endif %}
+    <script>
+        var searchLibLoaded = false
+        {% if config.extra.nav.right.search_engine == 'algolia' %}
+        const searchFiles = [
+            { type: 'css', path: '/libs/algolia/algoliasearchNetlify.css' },
+            { type: 'js', path: '/libs/algolia/algoliasearchNetlify.js' },
+            { type: 'js', path: '/libs/algolia/instantsearch.production.min.js' },
+            { type: 'js', path: '/libs/algolia/algoliasearch-lite.umd.js' }
+        ];
+        {% elif config.extra.nav.right.search_engine == 'meilisearch' %}
+        const searchFiles = [
+            { type: 'js', path: '/libs/meilisearch/instant-meilisearch.umd.min.js' },
+            { type: 'js', path: '/libs/meilisearch/instantsearch-production.min-4.77.0.js' },
+        ];
+        {% endif %}
+    </script>
     <link rel="preload" as="style" href="/css/algolia.css" onload="this.onload=null;this.rel='stylesheet'"/>
     <noscript><link rel="stylesheet" href="/css/algolia.css"></noscript>
     <script defer src='/js/search/algolia.js'></script>

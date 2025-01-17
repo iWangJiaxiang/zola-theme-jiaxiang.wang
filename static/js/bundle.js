@@ -580,6 +580,42 @@ var jqLoadAndRun = () => {
     }
 }
 
+// 按需加载 js 或 css 文件，全部完成后调用 success 回调函数。 files: [{ path: '/js/file1.js', type: 'js' }, { path: '/css/file2.css', type: 'css' }]
+function loadFiles(files, success) {
+    let loadedCount = 0;
+
+    files.forEach(file => {
+        let element;
+
+        if (file.type === 'js') {
+            element = document.createElement('script');
+            element.src = file.path;
+        } else if (file.type === 'css') {
+            element = document.createElement('link');
+            element.rel = 'stylesheet';
+            element.href = file.path;
+        }
+
+        element.onload = () => {
+            loadedCount++;
+            // 所有文件加载完成后调用 success 函数
+            if (loadedCount === files.length) {
+                success(); 
+            }
+        };
+        element.onerror = () => {
+            // 加载失败仍然继续
+            loadedCount++;
+        };
+
+        if (file.type === 'js') {
+            document.body.appendChild(element);
+        } else if (file.type === 'css') {
+            document.head.appendChild(element);
+        }
+    });
+}
+
 // 側邊欄sub-menu 展開/收縮
 // 解決menus在觸摸屏下，滑動屏幕menus_item_child不消失的問題（手機hover的bug)
 var clickFnOfSubMenu = function () {
