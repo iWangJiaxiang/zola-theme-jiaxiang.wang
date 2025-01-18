@@ -20,12 +20,16 @@ window.addEventListener("load", () => {
       fixSafariHeight();
       window.addEventListener("resize", fixSafariHeight);
 
-      const searchInput = document.getElementsByClassName("ais-SearchBox-input")[0];
-      searchInput.disabled = true;
-      loadFiles(searchFiles, () => {
-        initSearch();
-        //searchInput.disabled = false;
-      });
+      if (!searchLibLoaded) {
+        searchLibLoaded = true;
+        const searchInput = document.getElementsByClassName("ais-SearchBox-input")[0];
+        searchInput.disabled = true;
+        loadFiles(searchFiles, () => {
+          initSearch();
+          searchInput.disabled = false;
+        });
+      }
+
     };
 
     // shortcut: shift+S
