@@ -138,6 +138,10 @@
 <script defer src='/js/commentBarrage.js'></script>
 {% endif %}
 
+{# 延迟执行的不重要脚本 #}
+<script data-pjax defer src='/js/bundle.js'></script>
+<script defer src="/js/tw_cn.js"></script>
+
 {% if config.extra.nav.right.search %}
     {% include "partial/nav/search-dialog.html" %}
     <script>
@@ -157,10 +161,6 @@
     <noscript><link rel="stylesheet" href="/css/algolia.css"></noscript>
     <script defer src='/js/search/algolia.js'></script>
 {% endif %}
-
-{# 延迟执行的不重要脚本 #}
-<script data-pjax defer src='/js/bundle.js'></script>
-<script defer src="/js/tw_cn.js"></script>
 
 {# https://instant.page/ 网站预加载， 放在 </body> 之前 #}
 <script defer src="/libs/instantpage/instantpage.min.js" type="module"></script>
