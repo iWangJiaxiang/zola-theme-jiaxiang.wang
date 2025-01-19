@@ -879,7 +879,7 @@ window.addEventListener("resize", (function () {
 ));
 
 // 阻止滚动
-// document.querySelector('#algolia-search').addEventListener('wheel', (e) => {
+// document.querySelector('#site-search').addEventListener('wheel', (e) => {
 //   e.preventDefault()
 // })
 document.querySelector('#console') && document.querySelector('#console').addEventListener('wheel', (e) => {

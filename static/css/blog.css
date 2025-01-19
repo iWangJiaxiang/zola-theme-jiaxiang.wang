@@ -6714,7 +6714,7 @@ body[data-type=music] .page #nav #site-name span {
 }
 
 /* 搜索 */
-#algolia-search .ais-hits--item.algolia-hit-item a {
+#site-search .ais-hits--item.algolia-hit-item a {
     color: var(--wjx-fontcolor);
 }
 
@@ -6793,7 +6793,7 @@ body[data-type=music] .page #nav #site-name span {
 }
 
 /* 搜索结果文字 */
-#algolia-search .search-dialog .ais-hits--item.algolia-hit-item a {
+#site-search .search-dialog .ais-hits--item.algolia-hit-item a {
     color: var(--wjx-fontcolor);
     width: auto;
     max-width: 100%;

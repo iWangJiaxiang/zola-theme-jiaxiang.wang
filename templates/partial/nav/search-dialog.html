@@ -1,4 +1,4 @@
-<div id="algolia-search">
+<div id="site-search">
   <div class="search-dialog">
     <nav class="search-nav">
       <span class="search-dialog-title">搜索</span><button class="search-close-button">
@@ -6,7 +6,7 @@
       </button>
     </nav>
     <div class="search-wrap">
-      <div id="algolia-search-input">
+      <div id="site-search-input">
         <div class="ais-SearchBox">
           <form action="" role="search" class="ais-SearchBox-form" novalidate="">
             <input class="ais-SearchBox-input" type="search" placeholder="输入关键词后按下回车查找" autocomplete="off"
@@ -38,7 +38,7 @@
         </div>
       </div>
       <hr />
-      <div id="algolia-search-results">
+      <div id="site-search-results">
         <div id="algolia-hits">
           <!--<a
             class="tag-list"
@@ -56,9 +56,9 @@
             >Hexo</a
         >-->
         </div>
-        <div id="algolia-pagination"></div>
-        <div id="algolia-info">
-          <div class="algolia-stats"></div>
+        <div id="search-pagination"></div>
+        <div id="search-info">
+          <div class="search-stats"></div>
         </div>
       </div>
     </div>
@@ -66,24 +66,24 @@
   <div id="search-mask"></div>
   {% if config.extra.nav.right.search_engine == 'meilisearch' %}
   <style>
-    #algolia-search .search-dialog .ais-Hits-list .ais-Hits-item .algolia-hit-item-link:hover {
+    #site-search .search-dialog .ais-Hits-list .ais-Hits-item .algolia-hit-item-link:hover {
       cursor: pointer;
       transition: all .2s;
     }
 
-    #algolia-search .search-dialog .ais-Hits-list .ais-Hits-item .algolia-hit-item-link .search-result-item:hover {
+    #site-search .search-dialog .ais-Hits-list .ais-Hits-item .algolia-hit-item-link .search-result-item:hover {
       background: var(--wjx-main-op);
       cursor: pointer;
       transition: all .2s;
     }
 
-    #algolia-search .search-dialog .ais-Hits-list .ais-Hits-item .algolia-hit-item-link .search-result-item span {
+    #site-search .search-dialog .ais-Hits-list .ais-Hits-item .algolia-hit-item-link .search-result-item span {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
     
-    #algolia-search .search-dialog .ais-Hits-list .ais-Hits-item .algolia-hit-item-link:hover mark {
+    #site-search .search-dialog .ais-Hits-list .ais-Hits-item .algolia-hit-item-link:hover mark {
       color: var(--wjx-main-op-deep);
       text-decoration: underline;
     }
@@ -91,17 +91,17 @@
   {% endif %}
   {% if config.extra.nav.right.search_engine == 'algolia' %}
   <style>
-    #algolia-search .search-dialog .ais-Hits-list .ais-Hits-item:hover {
+    #site-search .search-dialog .ais-Hits-list .ais-Hits-item:hover {
       background: var(--wjx-main);
       cursor: pointer;
       transition: all .2s;
     }
     
-    #algolia-search .search-dialog .ais-Hits-list .ais-Hits-item:hover a {
+    #site-search .search-dialog .ais-Hits-list .ais-Hits-item:hover a {
       color: #ffffff82;
     }
     
-    #algolia-search .search-dialog .ais-Hits-list .ais-Hits-item:hover mark {
+    #site-search .search-dialog .ais-Hits-list .ais-Hits-item:hover mark {
       color: var(--wjx-white);
       text-decoration: underline;
     }

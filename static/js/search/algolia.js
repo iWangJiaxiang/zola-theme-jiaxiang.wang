@@ -1,12 +1,12 @@
 window.addEventListener("load", () => {
     const $searchMask = document.getElementById("search-mask");
-    const $searchDialog = document.querySelector("#algolia-search .search-dialog");
+    const $searchDialog = document.querySelector("#site-search .search-dialog");
 
     const openSearch = () => {
       btf.animateIn($searchMask, "to_show 0.5s");
       $searchDialog.style.display = "block";
       setTimeout(() => {
-        document.querySelector("#algolia-search .ais-SearchBox-input").focus();
+        document.querySelector("#site-search .ais-SearchBox-input").focus();
       }, 100);
   
       // shortcut: ESC
@@ -39,11 +39,11 @@ window.addEventListener("load", () => {
           console.info(selectTextNow);
           if (selectTextNow) {
             openSearch();
-            const t = document.querySelector("#algolia-search-input > div > form > input");
+            const t = document.querySelector("#site-search-input > div > form > input");
             t.value = selectTextNow;
             t.dispatchEvent(new Event("input"));
             setTimeout(() => {
-              document.querySelector("#algolia-search-input > div > form > button.ais-SearchBox-submit").click();
+              document.querySelector("#site-search-input > div > form > button.ais-SearchBox-submit").click();
             }, 64);
           } else {
             openSearch();
@@ -73,7 +73,7 @@ window.addEventListener("load", () => {
   
     const searchFnOnce = () => {
       $searchMask.addEventListener("click", closeSearch);
-      document.querySelector("#algolia-search .search-close-button").addEventListener("click", closeSearch);
+      document.querySelector("#site-search .search-close-button").addEventListener("click", closeSearch);
     };
   
     const initSearch = () => {
@@ -116,7 +116,7 @@ window.addEventListener("load", () => {
       });
     
       const searchBox = instantsearch.widgets.searchBox({
-        container: "#algolia-search-input",
+        container: "#site-search-input",
         showReset: false,
         showSubmit: false,
         placeholder: searchConfig.languages.input_placeholder,
@@ -199,7 +199,7 @@ window.addEventListener("load", () => {
               loadingLogo.style.display = "none";
             }
             setTimeout(() => {
-              document.querySelector("#algolia-search .ais-SearchBox-input").focus();
+              document.querySelector("#site-search .ais-SearchBox-input").focus();
             }, 200);
             console.log(hit);
             if (searchConfig.engine == 'meilisearch') {
@@ -216,7 +216,7 @@ window.addEventListener("load", () => {
               loadingLogo.style.display = "none";
             }
             setTimeout(() => {
-              document.querySelector("#algolia-search .ais-SearchBox-input").focus();
+              document.querySelector("#site-search .ais-SearchBox-input").focus();
             }, 200);
             return (
               '<div id="algolia-hits-empty">' +
@@ -231,7 +231,7 @@ window.addEventListener("load", () => {
       });
     
       const stats = instantsearch.widgets.stats({
-        container: "#algolia-info > .algolia-stats",
+        container: "#search-info > .search-stats",
         templates: {
           text: function (data) {
             const stats = GLOBAL_CONFIG.search.languages.hits_stats
@@ -243,7 +243,7 @@ window.addEventListener("load", () => {
       });
     
       const pagination = instantsearch.widgets.pagination({
-        container: "#algolia-pagination",
+        container: "#search-pagination",
         totalPages: searchConfig.hits.per_page ?? 5,
         templates: {
           first: '<i class="icon-angle-double-left"></i>',
