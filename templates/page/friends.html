@@ -30,9 +30,9 @@
             {% else %}
                 {{ macro_content_links::content_links() }}
             {% endif %}
-
-            {{ page.content | safe }}
-
+            <div id="article-container">
+                {{ page.content | safe }}
+            </div>
             {# 评论组件 #}
             {% include "partial/common/comment.html" %}
 

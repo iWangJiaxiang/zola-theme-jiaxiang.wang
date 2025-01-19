@@ -6,16 +6,16 @@ async function loadFriendLinks() {
 
         // render
         var tagsGroupHtml = "";
-        var articleGroupHtml = "";
+        var friendGroupHtml = "";
         var odd = true;
         groups.forEach(group => {
             if (group.display_name) {
-                articleGroupHtml += `<h2><a class="headerlink" href="#${group.display_name}-${group.links.length}" title="${group.display_name}(${group.links.length})"></a>${group.display_name} (${group.links.length})</h2>`;
+                friendGroupHtml += `<h2><a class="headerlink" href="#${group.display_name}-${group.links.length}" title="${group.display_name}(${group.links.length})"></a>${group.display_name} (${group.links.length})</h2>`;
             }
             if (group.description) {
-                articleGroupHtml += `<div class="flink-desc">${group.description}</div>`;
+                friendGroupHtml += `<div class="flink-desc">${group.description}</div>`;
             }
-            articleGroupHtml += '<div class="site-card-group">';
+            friendGroupHtml += '<div class="site-card-group">';
 
             group.links.forEach(link => {
                 if (odd) {
@@ -27,7 +27,7 @@ async function loadFriendLinks() {
                         <img title="${link.display_name}" src="${img}" loading="lazy">
                     </a>
                 `;
-                articleGroupHtml += `
+                friendGroupHtml += `
                     <div class="site-card">
                         ${link.label ? `<span style="background-color:${link.label_color}" class="site-card-tag">${link.label}</span>` : ''}
                         <a class="img" target="_blank" href="${link.url}" title="${link.display_name}" rel="external nofollow noopener">
@@ -50,15 +50,15 @@ async function loadFriendLinks() {
                 }
                 odd = !odd;
             });
-            articleGroupHtml += '</div>';
+            friendGroupHtml += '</div>';
         });
         if (!odd) {
             tagsGroupHtml += '</div>';
         }
         const tagsGroupWrapper = document.getElementById('tags-group-wrapper');
         tagsGroupWrapper.innerHTML = tagsGroupHtml;
-        const articleGroups = document.getElementById('article-groups');
-        articleGroups.innerHTML = articleGroupHtml;
+        const friendGroups = document.getElementById('friend-groups');
+        friendGroups.innerHTML = friendGroupHtml;
     } catch (error) {
         console.error('Error loading friend links:', error);
     }

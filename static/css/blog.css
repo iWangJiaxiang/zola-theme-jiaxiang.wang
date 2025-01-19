@@ -406,8 +406,8 @@ template {
 #pagination .prev_info,
 #sidebar #sidebar-menus .menus_items .site-page,
 #sidebar #sidebar-menus .site-data .data-item .data-item-link > a > div,
-.flink#article-container .flink-list > .flink-list-item a .flink-item-desc,
-.flink#article-container .flink-list > .flink-list-item a .flink-item-name,
+.flink#friend-container .flink-list > .flink-list-item a .flink-item-desc,
+.flink#friend-container .flink-list > .flink-list-item a .flink-item-name,
 .limit-one-line {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1374,17 +1374,17 @@ blockquote footer cite::before {
     width: 100% !important;
 }
 
-.flink#article-container .flink-desc {
+.flink#friend-container .flink-desc {
     margin: 0.2rem 0px 0.5rem;
 }
 
-.flink#article-container .flink-list {
+.flink#friend-container .flink-list {
     overflow: auto;
     padding: 10px 10px 0px;
     text-align: center;
 }
 
-.flink#article-container .flink-list > .flink-list-item {
+.flink#friend-container .flink-list > .flink-list-item {
     position: relative;
     float: left;
     overflow: hidden;
@@ -1397,45 +1397,45 @@ blockquote footer cite::before {
     transition: all 0.3s ease 0s;
 }
 
-.flink#article-container .flink-list.mini > .flink-list-item {
+.flink#friend-container .flink-list.mini > .flink-list-item {
     height: 60px;
 }
 
 @media screen and (max-width: 1200px) {
-    .flink#article-container .flink-list > .flink-list-item {
+    .flink#friend-container .flink-list > .flink-list-item {
         width: calc(25% - 12px) !important;
     }
 }
 
 @media screen and (max-width: 1024px) {
-    .flink#article-container .flink-list > .flink-list-item {
+    .flink#friend-container .flink-list > .flink-list-item {
         width: calc(33.3333% - 12px) !important;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .flink#article-container .flink-list > .flink-list-item {
+    .flink#friend-container .flink-list > .flink-list-item {
         width: calc(50% - 12px) !important;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .flink#article-container .flink-list > .flink-list-item {
+    .flink#friend-container .flink-list > .flink-list-item {
         width: calc(100% - 12px) !important;
     }
 }
 
-.flink#article-container .flink-list > .flink-list-item:hover {
+.flink#friend-container .flink-list > .flink-list-item:hover {
     background: rgb(0, 108, 242);
     transform: scale(1.05);
 }
 
-.flink#article-container .flink-list > .flink-list-item a {
+.flink#friend-container .flink-list > .flink-list-item a {
     color: var(--wjx-fontcolor);
     text-decoration: none;
 }
 
-.flink#article-container .flink-list > .flink-list-item a img {
+.flink#friend-container .flink-list > .flink-list-item a img {
     float: left;
     margin: 15px 10px;
     width: 60px;
@@ -1444,18 +1444,18 @@ blockquote footer cite::before {
     transition: all 0.3s ease 0s;
 }
 
-.flink#article-container .flink-list.mini > .flink-list-item a img {
+.flink#friend-container .flink-list.mini > .flink-list-item a img {
     width: 30px;
     height: 30px;
     min-width: 30px;
     min-height: 30px;
 }
 
-.flink#article-container .flink-list > .flink-list-item a .img-alt {
+.flink#friend-container .flink-list > .flink-list-item a .img-alt {
     display: none;
 }
 
-.flink#article-container .flink-list > .flink-list-item a .flink-item-name {
+.flink#friend-container .flink-list > .flink-list-item a .flink-item-name {
     display: block;
     padding: 0px 10px 0px 0px;
     font-weight: 700;
@@ -1466,18 +1466,18 @@ blockquote footer cite::before {
     white-space: nowrap;
 }
 
-.flink#article-container .flink-list > .flink-list-item a .flink-item-desc {
+.flink#friend-container .flink-list > .flink-list-item a .flink-item-desc {
     display: block;
     padding: 4px 10px 0px 0px;
     height: 50px;
     font-size: 0.93em;
 }
 
-.flink#article-container .flink-list.mini > .flink-list-item a .flink-item-desc {
+.flink#friend-container .flink-list.mini > .flink-list-item a .flink-item-desc {
     display: none;
 }
 
-.flink#article-container .site-card-group {
+.flink#friend-container .site-card-group {
     display: flex;
     flex-wrap: wrap;
     -webkit-box-pack: start;
@@ -1487,7 +1487,7 @@ blockquote footer cite::before {
     align-items: stretch;
 }
 
-.flink#article-container .site-card {
+.flink#friend-container .site-card {
     margin: 8px;
     width: calc(20% - 16px);
     display: block;
@@ -1496,30 +1496,30 @@ blockquote footer cite::before {
 }
 
 @media screen and (max-width: 1200px) {
-    .flink#article-container .site-card {
+    .flink#friend-container .site-card {
         width: calc(20% - 16px) !important;
     }
 }
 
 @media screen and (max-width: 1024px) {
-    .flink#article-container .site-card {
+    .flink#friend-container .site-card {
         width: calc(25% - 16px) !important;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .flink#article-container .site-card {
+    .flink#friend-container .site-card {
         width: calc(33.3333% - 16px) !important;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .flink#article-container .site-card {
+    .flink#friend-container .site-card {
         width: calc(50% - 16px) !important;
     }
 }
 
-.flink#article-container .site-card .img {
+.flink#friend-container .site-card .img {
     width: 100%;
     height: 120px;
     overflow: hidden;
@@ -1528,23 +1528,23 @@ blockquote footer cite::before {
 }
 
 @media screen and (max-width: 500px) {
-    .flink#article-container .site-card .img {
+    .flink#friend-container .site-card .img {
         height: 100px;
     }
 }
 
-.flink#article-container .site-card .img img {
+.flink#friend-container .site-card .img img {
     width: 100%;
     height: 100%;
     transition: transform 2s ease 0s;
     object-fit: cover;
 }
 
-.flink#article-container .site-card .info {
+.flink#friend-container .site-card .info {
     margin-top: 8px;
 }
 
-.flink#article-container .site-card .info img {
+.flink#friend-container .site-card .info img {
     width: 32px;
     height: 32px;
     border-radius: 16px;
@@ -1553,11 +1553,11 @@ blockquote footer cite::before {
     margin-top: 2px;
 }
 
-.flink#article-container .site-card .info span {
+.flink#friend-container .site-card .info span {
     display: block;
 }
 
-.flink#article-container .site-card .info .title {
+.flink#friend-container .site-card .info .title {
     font-weight: 600;
     color: rgb(68, 68, 68);
     display: -webkit-box;
@@ -1567,7 +1567,7 @@ blockquote footer cite::before {
     transition: all 0.3s ease 0s;
 }
 
-.flink#article-container .site-card .info .desc {
+.flink#friend-container .site-card .info .desc {
     overflow-wrap: break-word;
     line-height: 1.2;
     color: rgb(136, 136, 136);
@@ -1577,15 +1577,15 @@ blockquote footer cite::before {
     -webkit-line-clamp: 2;
 }
 
-.flink#article-container .site-card .img {
+.flink#friend-container .site-card .img {
     transition: all 0.3s ease 0s;
 }
 
-.flink#article-container .site-card .img-alt {
+.flink#friend-container .site-card .img-alt {
     display: none;
 }
 
-.flink#article-container .site-card:hover .info .title {
+.flink#friend-container .site-card:hover .info .title {
     color: rgb(255, 87, 34);
 }
 
@@ -13792,19 +13792,19 @@ figure.gallery-group:hover .gallery-group-name::after {
 /* ---------------------------------------------------------------- */
 
 /* 炙焰友链间距 */
-.flink#article-container .flink-list {
+.flink#friend-container .flink-list {
     padding: 0;
     margin: 0.5rem -6px 1rem -6px;
     overflow-x: hidden;
 }
 
-.flink#article-container .flink-desc {
+.flink#friend-container .flink-desc {
     margin: 0;
     color: var(--wjx-secondtext);
 }
 
 /* 友情描述 */
-.flink#article-container .flink-list > .flink-list-item a .flink-item-desc {
+.flink#friend-container .flink-list > .flink-list-item a .flink-item-desc {
     white-space: normal;
     padding: 5px 10px 16px 0;
     color: var(--wjx-fontcolor);
@@ -13818,7 +13818,7 @@ figure.gallery-group:hover .gallery-group-name::after {
     -webkit-line-clamp: 2;
 }
 
-.flink#article-container .flink-list > .flink-list-item:hover a .flink-item-desc {
+.flink#friend-container .flink-list > .flink-list-item:hover a .flink-item-desc {
     color: var(--wjx-card-bg);
 }
 
@@ -13835,18 +13835,18 @@ figure.gallery-group:hover .gallery-group-name::after {
     min-width: calc(100% - 20px);
 }
 
-.flink#article-container .flink-list > .flink-list-item a .flink-item-name {
+.flink#friend-container .flink-list > .flink-list-item a .flink-item-name {
     text-align: left;
     font-size: 19px;
     line-height: 20px;
     color: var(--wjx-fontcolor);
 }
 
-.flink#article-container .flink-list > .flink-list-item:hover a .flink-item-name {
+.flink#friend-container .flink-list > .flink-list-item:hover a .flink-item-name {
     color: var(--wjx-card-bg) !important;
 }
 
-.flink#article-container .flink-list > .flink-list-item a {
+.flink#friend-container .flink-list > .flink-list-item a {
     display: flex;
     border: none;
     width: 100%;
@@ -13854,12 +13854,12 @@ figure.gallery-group:hover .gallery-group-name::after {
     align-items: center;
 }
 
-.flink#article-container .flink-list > .flink-list-item a:hover {
+.flink#friend-container .flink-list > .flink-list-item a:hover {
     background: none;
 }
 
 /* 友链头像 */
-.flink#article-container .flink-list > .flink-list-item a img {
+.flink#friend-container .flink-list > .flink-list-item a img {
     border-radius: 32px;
     margin: 15px 20px 15px 15px;
     transition: 0.3s;
@@ -13870,7 +13870,7 @@ figure.gallery-group:hover .gallery-group-name::after {
 
 
 /* 悬浮状态头像 */
-.flink#article-container .flink-list > .flink-list-item:hover a img {
+.flink#friend-container .flink-list > .flink-list-item:hover a img {
     transition: 0.6s;
     width: 0;
     height: 0;
@@ -13904,18 +13904,18 @@ figure.gallery-group:hover .gallery-group-name::after {
 
 
 /* 标题和描述 */
-.flink#article-container .flink-list > .flink-list-item a span {
+.flink#friend-container .flink-list > .flink-list-item a span {
     transition: 0.3s;
 }
 
 /* 友链描述 */
-.flink#article-container .flink-list > .flink-list-item:hover a .flink-item-desc {
+.flink#friend-container .flink-list > .flink-list-item:hover a .flink-item-desc {
     overflow: hidden;
     width: 100%;
 }
 
 /* 修改初始动画 */
-.flink#article-container .flink-list > .flink-list-item {
+.flink#friend-container .flink-list > .flink-list-item {
     margin: 6px 6px;
     transition: 0.3s;
     border-radius: 12px;
@@ -13929,7 +13929,7 @@ figure.gallery-group:hover .gallery-group-name::after {
 }
 
 
-.flink#article-container .flink-list > .flink-list-item:hover {
+.flink#friend-container .flink-list > .flink-list-item:hover {
     transform: scale(1);
     background: var(--wjx-theme);
     border: var(--style-border-hover);
@@ -13941,11 +13941,11 @@ figure.gallery-group:hover .gallery-group-name::after {
 }
 
 @media screen and (min-width: 1300px) {
-    .flink#article-container .flink-list > .flink-list-item:hover {
+    .flink#friend-container .flink-list > .flink-list-item:hover {
         transform: scale(1.03);
     }
 
-    .flink#article-container .flink-list > .flink-list-item:active {
+    .flink#friend-container .flink-list > .flink-list-item:active {
         transform: scale(0.97);
     }
 }
@@ -13955,20 +13955,20 @@ figure.gallery-group:hover .gallery-group-name::after {
 
 /* 超级博主标题 */
 
-.flink#article-container .site-card .info .title {
+.flink#friend-container .site-card .info .title {
     color: var(--wjx-fontcolor);
     text-align: left;
 }
 
-.flink#article-container .site-card:hover .info .title {
+.flink#friend-container .site-card:hover .info .title {
     color: var(--wjx-card-bg);
 }
 
-.flink#article-container .site-card:hover .info {
+.flink#friend-container .site-card:hover .info {
     height: 120px;
 }
 
-.flink#article-container .site-card .site-card-text {
+.flink#friend-container .site-card .site-card-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -13976,7 +13976,7 @@ figure.gallery-group:hover .gallery-group-name::after {
 
 
 /* 超级博主描述 */
-.flink#article-container .site-card .info .desc {
+.flink#friend-container .site-card .info .desc {
     font-size: 0.7rem;
     color: var(--wjx-fontcolor);
     opacity: 0.7;
@@ -13984,28 +13984,28 @@ figure.gallery-group:hover .gallery-group-name::after {
     text-align: left;
 }
 
-.flink#article-container .site-card:hover .info .desc {
+.flink#friend-container .site-card:hover .info .desc {
     color: var(--wjx-card-bg);
 }
 
 @media screen and (min-width: 768px) {
-    .flink#article-container .site-card:hover .info .desc {
+    .flink#friend-container .site-card:hover .info .desc {
         -webkit-line-clamp: 4;
     }
 
-    .flink#article-container .site-card:hover .info .desc {
+    .flink#friend-container .site-card:hover .info .desc {
         transition: .3s;
         color: var(--wjx-card-bg);
         width: 100%
     }
 
-    .flink#article-container .site-card:hover .info {
+    .flink#friend-container .site-card:hover .info {
         background: var(--wjx-theme)
     }
 }
 
 /* 背景 */
-.flink#article-container .site-card {
+.flink#friend-container .site-card {
     border: var(--style-border);
     border-radius: 12px;
     transition: 0.3s;
@@ -14081,7 +14081,7 @@ figure.gallery-group:hover .gallery-group-name::after {
     box-shadow: var(--wjx-shadow-green);
 }
 
-.flink#article-container .site-card:hover .site-card-tag {
+.flink#friend-container .site-card:hover .site-card-tag {
     left: -50px;
 }
 
@@ -14090,7 +14090,7 @@ figure.gallery-group:hover .gallery-group-name::after {
     left: -50px;
 }
 
-.flink#article-container .site-card .info {
+.flink#friend-container .site-card .info {
     display: flex;
     border: none;
     padding: 0.5rem;
@@ -14101,25 +14101,25 @@ figure.gallery-group:hover .gallery-group-name::after {
 }
 
 /* 修复图片圆角 */
-.flink#article-container .site-card .img img {
+.flink#friend-container .site-card .img img {
     border-radius: 12px 12px 0 0;
     transform: scale(1.03);
     transition: 0.3s;
 }
 
 @media screen and (min-width: 769px) {
-    .flink#article-container .site-card:hover .img img {
+    .flink#friend-container .site-card:hover .img img {
         transform: scale(1.1);
         filter: brightness(0.3);
     }
 
-    .flink#article-container .site-card:hover .img {
+    .flink#friend-container .site-card:hover .img {
         height: 80px;
     }
 }
 
 
-.flink#article-container .site-card .img {
+.flink#friend-container .site-card .img {
     -webkit-mask-image: -webkit-radial-gradient(center, #fff, #000);
     border-radius: 0;
     height: 120px;
@@ -14131,7 +14131,7 @@ figure.gallery-group:hover .gallery-group-name::after {
 
 
 /* 头像 */
-.flink#article-container .site-card .info img {
+.flink#friend-container .site-card .info img {
     border-radius: 32px;
     transition: .3s ease-out !important;
     margin: 2px 8px 0 0;
@@ -14143,11 +14143,11 @@ figure.gallery-group:hover .gallery-group-name::after {
 }
 
 /* 边距 */
-.flink#article-container .site-card-group {
+.flink#friend-container .site-card-group {
     padding: 20px 0;
 }
 
-.flink#article-container .site-card:hover .info img {
+.flink#friend-container .site-card:hover .info img {
     width: 0;
     height: 0;
     opacity: 0;
@@ -14155,7 +14155,7 @@ figure.gallery-group:hover .gallery-group-name::after {
     min-height: 0;
 }
 
-.flink#article-container .site-card:hover {
+.flink#friend-container .site-card:hover {
     border: var(--style-border-hover);
     box-shadow: var(--wjx-shadow-main);
 }
