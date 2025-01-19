@@ -56,7 +56,7 @@
                 </div>
                 <div class="author-title">{{ config.author }}</div>
                 {{ macro_template::about(widgets=config.extra.about.widget_list) }}
-                <div class="author-content">
+                <div class="author-content" id="about-content">
                     <div class="create-site-post author-content-item single">{{ doc.content | safe }}</div>
                 </div>
                 {% include "partial/widget/about/about-reward.html" %}
