@@ -16,7 +16,8 @@
         {{ macro::nav(title = config.title) }}
     </header>
 
-    <main class="layout {{ config.extra.sidebar.location }}" id="content-inner">
+    <main class="layout {{ config.extra.sidebar.location }}" id="content-inner" style="flex-direction:column;">
+        <spac id="page-title" style="letter-spacing:6px;margin:0 auto;font-size:2rem;font-weight:bold">{{ page.title }}</spac>
         <article class="post-content {% if config.extra.code.enable_line %}line-numbers{% endif %}" id="article-container">
             {{ doc.content | safe }}
         </article>

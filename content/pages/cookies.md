@@ -1,5 +1,5 @@
 +++
-title = "Cookies政策"
+title = "Cookies 政策"
 template = "page/empty.html"
 path = "cookies"
 
@@ -9,7 +9,7 @@ type = "page"
 
 本政策的最近更新日期为：2024-11-15
 
-# Cookies
+# 总览
 
 为了确保网站和我开发的软件的可靠性、安全性和个性化，我使用 Cookies。当你接受 Cookies 时，这有助于通过识别你的身份、记住你的偏好或提供个性化用户体验来帮助我改善网站。
 
