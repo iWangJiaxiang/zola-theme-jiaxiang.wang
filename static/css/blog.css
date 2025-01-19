@@ -10799,7 +10799,7 @@ span.post-meta-categories:hover {
     background-color: var(--wjx-white);
 }
 
-a.post-meta-categories {
+span.post-meta-categories a {
     color: var(--wjx-white);
     font-size: 0.7rem;
     width: 100%;
@@ -10807,7 +10807,7 @@ a.post-meta-categories {
     display: flex;
 }
 
-span.post-meta-categories:hover a.post-meta-categories {
+span.post-meta-categories:hover a {
     color: var(--wjx-main);
 }
 

@@ -66,7 +66,7 @@
                         {% for category in post_categories %}
                         {% set category_url = get_taxonomy_url(kind="categories", name=category, lang=lang) %}
                             <span class="post-meta-categories">
-                                <a class="post-meta-categories" href="{{ category_url }}"
+                                <a href="{{ category_url }}"
                                    title="{{ macro::category_name(category=category) }}">
                                    {{ macro::category_name(category=category) }}
                                 </a>
