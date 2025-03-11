@@ -1,0 +1,11 @@
+
+<svg width="800px" height="800px" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <path d="M800,680 C800,746.277333 746.274667,800 680,800 L120,800 C53.7226667,800 0,746.277333 0,680 L0,120 C0,53.7253333 53.7253333,0 120,0 L680,0 C746.274667,0 800,53.7253333 800,120 L800,680 Z" fill-opacity="0.6" fill="#FCFCFC"></path>
+            <path d="M150,50 L50,50 L50,150 L150,150 C426.1425,150 650,373.8575 650,650 L650,750 L750,750 L750,650 C750,318.629 481.371,50 150,50 Z" fill-opacity="0.6" fill="#FCFCFC"></path>
+            <path d="M150,300 L50,300 L50,400 L150,400 C288.071,400 400,511.93 400,650 L400,750 L500,750 L500,650 C500,456.7005 343.2995,300 150,300 Z" fill-opacity="0.6" fill="#FCFCFC"></path>
+            <path d="M150,750 C205.2285,750 250,705.23 250,650 C250,594.77 205.2285,550 150,550 C94.7715,550 50,594.77 50,650 C50,705.23 94.7715,750 150,750 Z" fill-opacity="0.6" fill="#FCFCFC"></path>
+        </g>
+    </g>
+</svg>
