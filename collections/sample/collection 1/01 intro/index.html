@@ -1,0 +1,424 @@
+<!doctype html><html lang=zh-CN><head><title>01 介绍 | zola-theme-jiaxiang.wang</title><meta content=zola-theme-jiaxiang.wang property=og:site_name><meta content=article property=og:type><meta content="01 介绍" property=og:title><meta content="//collections/sample/collection 1/01 intro/" property=og:url><meta property=og:description><meta content=/processed_images/default-cover.273de5bb81a7e228.webp property=og:image><meta content=summary_large_image name=twitter:card><meta content="01 介绍" name=twitter:title><meta content="//collections/sample/collection 1/01 intro/" name=twitter:url><meta name=twitter:description><meta content=/processed_images/default-cover.273de5bb81a7e228.webp name=twitter:image><meta name=description><script id=ld-json type=application/ld+json>
+        {
+          "@context": "https://schema.org/",
+          "@type": "Article",
+          "headline": "01 介绍",
+          "author": {
+            "@type": "Person",
+            "name": "zola-theme-jiaxiang.wang",
+            "url": "/about"
+          },
+          "image": "/processed_images/default-cover.ec726f6c02475f09.webp",
+          "datePublished": "2025-09-18T00:00:00+00:00",
+          
+          "description": ""
+        }
+    </script><meta charset=UTF-8><meta content="IE=edge" http-equiv=X-UA-Compatible><meta content="width=device-width,initial-scale=1" name=viewport><meta content="telephone=no" name=format-detection><meta content=var(--wjx-card-bg) name=theme-color><link href=/manifest.json rel=manifest><link href=/img/logo.webp rel=icon type=image/x-icon><link href=/img/logo.webp rel=apple-touch-icon><link href=/img/logo.webp rel=bookmark><link href=/img/logo.webp rel=apple-touch-icon-precomposed sizes=180x180><script src=/libs/jquery/jquery-3.7.1.min.js></script><script src=/libs/pjax/pjax.min.js></script><script src=/production/js/utils.js></script><link href=/production/css/blog.css rel=stylesheet><link href=/css/custom.css rel=stylesheet><link onload="this.onload=null;this.rel='stylesheet'" as=style href=/libs/snackbar/snackbar.min.css rel=preload><noscript><link href=/libs/snackbar/snackbar.min.css rel=stylesheet></noscript><script>// Added non-passive event listener
+  !function(e){"function"==typeof define&&define.amd?define(e):e()}(function(){var e,t=["scroll","wheel","touchstart","touchmove","touchenter","touchend","touchleave","mouseout","mouseleave","mouseup","mousedown","mousemove","mouseenter","mousewheel","mouseover"];if(function(){var e=!1;try{var t=Object.defineProperty({},"passive",{get:function(){e=!0}});window.addEventListener("test",null,t),window.removeEventListener("test",null,t)}catch(e){}return e}()){var n=EventTarget.prototype.addEventListener;e=n,EventTarget.prototype.addEventListener=function(n,o,r){var i,s="object"==typeof r&&null!==r,u=s?r.capture:r;(r=s?function(e){var t=Object.getOwnPropertyDescriptor(e,"passive");return t&&!0!==t.writable&&void 0===t.set?Object.assign({},e):e}(r):{}).passive=void 0!==(i=r.passive)?i:-1!==t.indexOf(n)&&!0,r.capture=void 0!==u&&u,e.call(this,n,o,r)},EventTarget.prototype.addEventListener._original=e}});</script><script>((win) => {
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return;
+        const now = new Date();
+        const expiryDay = ttl * 86400000;
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        };
+        localStorage.setItem(key, JSON.stringify(item));
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key);
+
+        if (!itemStr) {
+          return undefined;
+        }
+        const item = JSON.parse(itemStr);
+        const now = new Date();
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key);
+          return undefined;
+        }
+        return item.value;
+      },
+    };
+
+    win.getScript = (url) =>
+      new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = url;
+        script.async = true;
+        script.onerror = reject;
+        script.onload = script.onreadystatechange = function () {
+          const loadState = this.readyState;
+          if (loadState && loadState !== "loaded" && loadState !== "complete")
+            return;
+          script.onload = script.onreadystatechange = null;
+          resolve();
+        };
+        document.head.appendChild(script);
+      });
+
+    win.getCSS = (url, id = false) =>
+      new Promise((resolve, reject) => {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = url;
+        if (id) link.id = id;
+        link.onerror = reject;
+        link.onload = link.onreadystatechange = function () {
+          const loadState = this.readyState;
+          if (loadState && loadState !== "loaded" && loadState !== "complete")
+            return;
+          link.onload = link.onreadystatechange = null;
+          resolve();
+        };
+        document.head.appendChild(link);
+      });
+
+    win.activateDarkMode = function () {
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.classList.add("color-scheme-dark");
+      wjx.initThemeColor();
+    };
+    win.activateLightMode = function () {
+      document.documentElement.setAttribute("data-theme", "light");
+      document.documentElement.classList.remove("color-scheme-dark");
+      wjx.initThemeColor();
+    };
+    const t = saveToLocal.get("theme");
+
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const isLightMode = window.matchMedia(
+      "(prefers-color-scheme: light)"
+    ).matches;
+    const isNotSpecified = window.matchMedia(
+      "(prefers-color-scheme: no-preference)"
+    ).matches;
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
+
+    if (t === undefined) {
+      if (isLightMode) activateLightMode();
+      else if (isDarkMode) activateDarkMode();
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date();
+        const hour = now.getHours();
+        const isNight = hour <= 6 || hour >= 18;
+        isNight ? activateDarkMode() : activateLightMode();
+      }
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addListener(function (e) {
+          if (saveToLocal.get("theme") === undefined) {
+            e.matches ? activateDarkMode() : activateLightMode();
+          }
+        });
+    } else if (t === "light") activateLightMode();
+    else activateDarkMode();
+
+    if ("system" === "dark")
+      activateDarkMode();
+    else activateLightMode();
+
+    const asideStatus = saveToLocal.get("aside-status");
+    if (asideStatus !== undefined) {
+      if (asideStatus === "hide") {
+        document.documentElement.classList.add("hide-aside");
+      } else {
+        document.documentElement.classList.remove("hide-aside");
+      }
+    }
+  })(window);</script><script data-pace-options='{ "restartOnRequestAfter":false,"eventLag":false}' src=/libs/pace/pace.min.js></script><script defer src=/libs/clipboard/clipboard.min.js></script><script src=/libs/countup/countup.js></script><link href=/icon/font.css rel=stylesheet><style>[data-theme=light]{--wjx-theme:#425aef!important;--wjx-theme-op:#425aef23!important;--wjx-theme-op-deep:#425aefdd!important;--wjx-theme-none:#425aef00!important}[data-theme=dark]{--wjx-theme:#f2b94b!important;--wjx-theme-op:#f2b94b23!important;--wjx-theme-op-deep:#f2b94bdd!important;--wjx-theme-none:#f2b94b00!important}:root{--halo-comment-widget-component-card-bg:var(--wjx-card-bg);--halo-comment-widget-component-theme-op:var(--wjx-theme-op);--halo-comment-widget-component-card-border:var(--wjx-card-border);--halo-comment-widget-component-shadow-border:var(--wjx-shadow-border);--halo-comment-widget-component-secondtext:var(--wjx-secondtext);--halo-comment-widget-component-lighttext:var(--wjx-lighttext);--halo-comment-widget-component-secondbg:var(--wjx-secondbg);--halo-comment-widget-component-fontcolor:var(--wjx-fontcolor);--halo-comment-widget-component-main:var(--wjx-main);--halo-comment-widget-component-background:var(--wjx-background);--halo-comment-widget-component-white:var(--wjx-white);--halo-comment-widget-component-shadow-black:var(--wjx-shadow-black)}#page{--halo-comment-widget-component-padding:1rem}.color-scheme-dark,.dark,[data-color-scheme=dark]{--halo-search-widget-color-modal-layer:var(--wjx-maskbgdeep);--halo-search-widget-color-modal-content-bg:var(--wjx-card-bg);--halo-search-widget-color-form-input:#fffc;--halo-search-widget-color-form-input-placeholder:#6b7280d9;--halo-search-widget-color-form-input-bg:var(--wjx-card-bg);--halo-search-widget-color-form-divider:#bbbbbb0f;--halo-search-widget-color-result-item-bg:var(--wjx-card-bg);--halo-search-widget-color-result-item-hover-bg:#90939914;--halo-search-widget-color-result-item-title:#fffc;--halo-search-widget-color-result-item-content:#ffffff82;--halo-search-widget-color-command-kbd-item:#c0c4ccb3;--halo-search-widget-color-command-kbd-border:#bbbbbb0f;--halo-search-widget-color-result-empty:#6b7280d9}[data-theme=light]{--halo-search-widget-color-result-item-title:#4b5563}</style><script id=site-config>var GLOBAL_CONFIG = {
+        
+                
+        
+        
+        
+        
+        htmlType: "post",
+        postTitle: "01 介绍",
+        isPost: true,
+        isHome: false,
+        passageTip: {
+            enable: true,
+            day: 60,
+        },
+        copyright: {
+            enable: false,
+            limitCount: 10,
+            languages: {
+                author: " 作者：zola-theme-jiaxiang.wang",
+                link: " 链接：",
+                source: " 来源：zola-theme-jiaxiang.wang",
+                info: " 提示：著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处并保留原文链接。"
+            }
+        },
+        lightbox: 'fancybox',
+        rightMenuEnable: true,
+        lazyload: {
+            enable: true,
+            error: "/img/404.svg"
+        },
+        umamiTrackExternalLink: true,
+        isFriendLinksInFooter: true,
+        loadingBox: true,
+        progress_bar: true,
+        navMusicEnable: false,
+        isMusic: false,
+        helloText: ["🤖️ 数码科技爱好者","🔯 全栈架构都在行","🏠 智能家居小能手","🤝 科研科普两不误","🎵 业余原创音乐人","🏃 文艺青年细节控","🔍 探索世界涉猎广","🤛 热爱分享交朋友"],
+        profileStyle: "one",
+        enable: true,
+        keyboard: true,
+        date_suffix: {
+            just: '刚刚',
+            min: '分钟前',
+            hour: '小时前',
+            day: '天前',
+            month: '个月前'
+        },
+        Snackbar: {
+            chs_to_cht: "你已切换为繁体",
+            cht_to_chs: "你已切换为简体",
+            day_to_night: "你已切换为深色模式",
+            night_to_day: "你已切换为浅色模式",
+            bgLight: "#425AEF",
+            bgDark: "#f2b94b",
+            position: "top-center"
+        },
+        translate: {
+            defaultEncoding: "2",
+            translateDelay: 0,
+            msgToTraditionalChinese: "繁",
+            msgToSimplifiedChinese: "简",
+            rightMenuMsgToTraditionalChinese: "轉為繁體",
+            rightMenuMsgToSimplifiedChinese: "转为简体"
+        },
+        prism: {
+            enable: true,
+            enable_title: true,
+            enable_hr: true,
+            enable_line: true,
+            enable_copy: true,
+            enable_expander: true,
+            prism_limit: 330,
+            enable_height_limit: false
+        },
+        
+        source: {
+            power: {
+                powerLink: "/",
+                showNum: 3
+            },
+            links: {
+                linksUrl: "/friends",
+                linksNum: 3
+            },
+            jQuery: '/libs/jquery/jquery.min.js',
+            justifiedGallery: {
+                js: '/libs/justified-gallery/fjGallery.min.js',
+                css: '/libs/justified-gallery/fjGallery.css'
+            },
+            fancybox: {
+                js: '/libs/fancybox/jquery.fancybox.min.js',
+                css: '/null'
+            },
+            comments: {
+                use: "twikoo",
+                maxBarrage: 1,
+                barrageTime: 4000,
+                mailMd5: "",
+                lazyload: false,
+                textarea: "el-textarea__inner"
+            },
+            post: {
+                dynamicBackground: true
+            },
+            tool: {
+                switch: false
+            },
+            postAi: {
+                
+                gptName: "本地",
+                modeName: "local"
+            },twikoo: {
+                js: "/libs/twikoo/twikoo.all.min.js",
+                twikooUrl: "https://your-api-url",
+            },
+            footer: {
+                default_enable: true
+            },
+            about: {
+                
+                rewardList: [],
+                rewardAmount: 10
+            }
+        }
+    };</script><style id=wjx-theme-styles>:root{--wjx-main:var(--wjx-theme)!important;--wjx-main-op:var(--wjx-theme-op)!important;--wjx-main-op-deep:var(--wjx-theme-op-deep)!important;--wjx-main-op-light:var(--wjx-theme-op-light)!important;--wjx-main-none:var(--wjx-theme-none)!important}</style><script>document.addEventListener('pjax:send', function () {
+      // removeEventListener toc scroll
+      window.removeEventListener('scroll', window.tocScrollFn);
+      typeof preloader === 'object' && preloader.initLoading();
+      
+      if (window.aplayers) {
+          for (let i = 0; i < window.aplayers.length; i++) {
+              if (!window.aplayers[i].options.fixed) {
+                  window.aplayers[i].destroy()
+              }
+          }
+      }
+      
+      typeof typed === 'object' && typed.destroy();
+      typeof window.initializationRegistry === 'object' && window.initializationRegistry.clear();
+      
+      //reset readmode
+      const $bodyClassList = document.body.classList
+      $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+  })
+  document.addEventListener('pjax:complete', function () {
+      window.refreshFn();
+      
+      document.querySelectorAll('script[data-pjax]').forEach(item => {
+                  const newScript = document.createElement('script')
+                  const content = item.text || item.textContent || item.innerHTML || ""
+                  Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+                  newScript.appendChild(document.createTextNode(content))
+                  item.parentNode.replaceChild(newScript, item)
+              }
+      );
+
+      typeof chatBtnFn === 'function' && chatBtnFn();
+      typeof panguInit === 'function' && panguInit();
+      
+      // google analytics
+      typeof gtag === 'function' && gtag('config', '', {
+          'page_path': window.location.pathname
+      });
+      
+      // baidu analytics
+      typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+      
+      typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting();
+      
+      // Analytics
+      if (false) {
+          MtaH5.pgv()
+      }
+      
+      // prismjs
+      typeof Prism === 'object' && Prism.highlightAll();
+      
+      typeof preloader === 'object' && preloader.endLoading();
+  })
+  document.addEventListener('pjax:error', (e) => {
+      if (e.request.status === 404 || e.request.status === 500) {
+          window.location.href = e.request.responseURL;
+      }
+  })</script><script data-pjax src=/production/js/main.js></script><script>let initTop = 0
+  let isChatShow = true
+  const innerHeight = window.innerHeight + 0
+  window.addEventListener('scroll', btf.throttle(function (e) {
+    const $rightside = document.getElementById('rightside')
+
+    const $header = document.getElementById('page-header')
+    const $cookies_window = document.getElementById('cookies-window')
+    const isChatBtnHide = typeof chatBtnHide === 'function'
+    const isChatBtnShow = typeof chatBtnShow === 'function'
+  
+    const currentTop = window.scrollY || document.documentElement.scrollTop
+    // 找到滚动方向 true is down & false is up
+    const isDown = currentTop > initTop
+    initTop = currentTop
+    if (currentTop > 0) {
+        if (isDown) {
+            if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible')
+            if (isChatBtnShow && isChatShow === true) {
+                chatBtnHide()
+                isChatShow = false
+            }
+        } else {
+            if (!$header.classList.contains('nav-visible')) $header.classList.add('nav-visible')
+            if (isChatBtnHide && isChatShow === false) {
+                chatBtnShow()
+                isChatShow = true
+            }
+        }
+        $header.classList.add('nav-fixed')
+        if($cookies_window!=null && $cookies_window!=''){
+            $cookies_window.classList.add('cw-hide')
+        }
+        if ($rightside && window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
+            $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+        }
+    } else {
+        if (currentTop === 0) {
+            $header.classList.remove('nav-fixed', 'nav-visible')
+        }
+        $rightside.style.cssText = "opacity: ''; transform: ''"
+    }
+    if (document.body.scrollHeight <= innerHeight) {
+        $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+    }
+  }, 200))</script><script defer src=/libs/katex/katex.min.js></script><body><style>#loading-box{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}#loading-box .loading-bg{background:var(--wjx-card-bg);z-index:1999;opacity:1;pointer-events:all;width:100%;height:100%;transition:all .2s;animation:.3s backwards showLoading;display:flex;position:fixed}#loading-box.loaded .loading-bg{pointer-events:none;transition:all .2s;animation:.3s forwards hideLoading}#loading-box .loading-img{width:100px;height:100px;margin:auto;animation-name:loadingAction;animation-duration:.2s;animation-iteration-count:infinite;animation-direction:alternate;overflow:hidden}#loading-box .loading-image-dot{background:#6bdf8f;border:6px solid #fff;border-radius:50%;width:30px;height:30px;position:absolute;top:50%;left:50%;-webkit-transform:translate(18px,24px);-moz-transform:translate(18px,24px);-ms-transform:translate(18px,24px);-o-transform:translate(18px,24px);transform:translate(18px,24px)}@keyframes loadingAction{0%{opacity:1}to{opacity:.6}}@keyframes hideLoading{0%{opacity:1}to{opacity:0}}@keyframes showLoading{0%{opacity:0}to{opacity:1}}</style><div id=loading-box onclick=wjx.hideLoading()><div class=loading-bg><picture class=loading-img style=border-radius:50%;width:100px;height:100px><source media="(min-width: 1em)" srcset=/processed_images/logo.21eeb8b123e2a315.avif><img alt=Loading decoding=async loading=lazy src=/processed_images/logo.caf14bfbf942dbfc.webp><noscript><img decoding=async loading=lazy src=/processed_images/logo.caf14bfbf942dbfc.webp></noscript></picture><div class=loading-image-dot></div></div></div><script>var preloader = {
+            endLoading: () => {
+                //- document.body.style.overflow = 'auto';
+                document.getElementById('loading-box').classList.add("loaded")
+            },
+            initLoading: () => {
+                //- document.body.style.overflow = '';
+                document.getElementById('loading-box').classList.remove("loaded")
+            }
+        }
+        window.addEventListener('load', preloader.endLoading())
+        setTimeout(function () {
+            preloader.endLoading();
+        }, 3000)</script><div id=an_music_bg></div><div class=post data-type=post id=body-wrap><header class=not-top-img id=page-header><nav class=show id=nav><div id=nav-group><div id=blog_name><div class=back-home-button tabindex=-1><i class="nav-icon back-home-button-icon icon-apps-fill" style=font-size:1rem></i><div class=back-menu-list-groups><div class=back-menu-list-group><div class=back-menu-list-title>作品</div><div class=back-menu-list><a class="back-menu-item nav-item" href=/articles/misc/lorem-ipsum>  <i class=icon-music style=font-size:.9em></i> <span class=back-menu-item-text>Lorem Ipsum</span> </a><a class="back-menu-item nav-item" href=/articles/misc/lorem-ipsum>  <i class=icon-music style=font-size:.9em></i> <span class=back-menu-item-text>Lorem Ipsum</span> </a></div></div></div></div><a class="nav-item icon-home" data-pjax href=/ id=site-name title=返回博客主页> <span>zola-theme-jiaxiang.wang</span> </a></div><div id=page-name-mask><div id=page-name><a clase=nav-item id=page-name-text onclick=btf.scrollToDest(0,500)> 01 介绍 </a></div></div><div id=menus><div class=menus_items><div class=menus_item><button class="site-page nav-item"><span>文章</span></button><div class=menus_item_child><div class=recursion_menus_item><a class="site-page child nav-item" href=/archives> <i class=icon-book-open style=font-size:.9em></i> <span>全部文章</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=/categories> <i class=icon-folder-open style=font-size:.9em></i> <span>分类列表</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=/tags> <i class=icon-tags style=font-size:.9em></i> <span>标签列表</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=javascript:toRandomPost()> <i class=icon-artstation style=font-size:.9em></i> <span>随机文章</span> </a></div></div></div><div class=menus_item><button class="site-page nav-item"><span>知识库</span></button><div class=menus_item_child><div class=recursion_menus_item><a class="site-page child nav-item" href=/collections> <i class=icon-book style=font-size:.9em></i> <span>进入知识库</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=/collections/docs> <i class=icon-book style=font-size:.9em></i> <span>文档</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=/collections/sample> <i class=icon-book style=font-size:.9em></i> <span>示例</span> </a></div></div></div><div class=menus_item><a class="site-page nav-item" href=/tags/work> <span>推荐</span> </a><div class="menus_item_child vertical_nav"><div class=recursion_menus_item><a class="site-page child nav-item" href=/articles/docs/readme> <i class=icon-music style=font-size:.9em></i> <span>博客主题介绍</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=/collections/docs/user> <i class=icon-book style=font-size:.9em></i> <span>用户文档</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=/articles/misc/lorem-ipsum> <i class=icon-music style=font-size:.9em></i> <span>Lorem Ipsum</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href="/collections/sample/collection 1"> <i class=icon-music style=font-size:.9em></i> <span>示例合集</span> </a></div></div></div><div class=menus_item><button class="site-page nav-item"><span>友链</span></button><div class=menus_item_child><div class=recursion_menus_item><a class="site-page child nav-item" href=/friends> <i class=icon-link style=font-size:.9em></i> <span>友链列表</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=javascript:travelling()> <i class=icon-paper-plane style=font-size:.9em></i> <span>随机发现</span> </a></div></div></div><div class=menus_item><button class="site-page nav-item"><span>我的</span></button><div class=menus_item_child><div class=recursion_menus_item><a class="site-page child nav-item" href=/about> <i class=icon-rocket style=font-size:.9em></i> <span>关于本人</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=/equipment> <i class=icon-artstation style=font-size:.9em></i> <span>我的装备</span> </a></div><div class=recursion_menus_item><a class="site-page child nav-item" href=/tags/project> <i class=icon-lightbulb style=font-size:.9em></i> <span>我的项目</span> </a></div></div></div></div></div><div id=nav-right><div class=nav-button id=randomPost_button><button class="site-page nav-item" href=javascript:void(0); onclick=toRandomPost() title=随机文章><i class="nav-icon icon-dice"></i></button></div><div class=nav-button id=darkmode_button><button class="site-page console_switchbutton nav-item" title="切换模式 - 日夜交替，黑白互换。" href=javascript:void(0); onclick=navFn.switchDarkMode();><i class="nav-icon icon-moon-clear-fill" style=font-size:1rem></i></button></div><div class=nav-button id=nav-console><button class="site-page console_switchbutton nav-item" href=javascript:void(0); onclick=wjx.showConsole() title=显示中控台><i class="nav-icon icon-dashboard"></i></button></div><div class=nav-button id=nav-totop onclick=btf.scrollToDest(0,500)><button class="totopbtn nav-item"><i class="nav-icon icon-arrow-up" style=font-size:1rem></i><span id=percent>0</span></button></div><div id=toggle-menu><button class="site-page nav-item"><i class="nav-icon icon-bars"></i></button></div></div></div></nav></header><main class="layout right-aside" id=content-inner><div id=post style=order:0><div class=collection-breadcrumb><a href=/collections/>合集</a><span class=separator>/</span><a href=/collections/sample/>示例</a><span class=separator>/</span><a href="/collections/sample/collection 1/">合集1</a></div><h1 class=post-title id=post-title>01 介绍</h1><div class=post-meta><span class=post-meta-date> <span class=post-meta-date> <i class="icon-calendar-days post-meta-icon"></i> <time title="2025-09-18 00:00:00" datetime=2025-09-18> 2025/09/18 </time> </span> <span class=post-meta-date> <i class="icon-pencil post-meta-icon" title=最后更新时间></i> <time title="2025-09-18 00:00:00" datetime=2025-09-18> 2025/09/18 </time> </span> <i class="icon-file-word post-meta-icon" title=字数></i> <span class=word-count>2</span> <span class=post-meta-separator></span> <i class="icon-clock post-meta-icon" title=阅读耗时></i> <span> 1 min</span> <a class=post-meta-pv data-flag-title=热度 title=热度> <i class="icon-fire post-meta-icon"></i> <span id=twikoo_visitors> <i class="icon-spinner fa-spin"></i> </span> </a> <a class=post-meta-commentcount data-flag-title=评论数 href=#post-comment title=评论数> <i class="icon-chat--fill post-meta-icon" style=font-size:17px></i> <span id=twikoo-count> <i class="icon-spinner fa-spin"></i> </span> </a> </span></div><div class=page-content id=post><article class="post-content line-numbers" id=article-container><p>介绍</article><div><div class=post-copyright><div class=post-copyright__author_group><a class=post-copyright__author_img href=/about> <picture class="post-copyright__author_img_back progressive-picture"><img class=progressive-thumbnail decoding=async loading=lazy src=/processed_images/logo.b2500878186a517a.webp><source media="(min-width: 1em)" srcset=/processed_images/logo.09afd0a3c40572a9.avif><img class=progressive-content decoding=async loading=lazy onload=progressiveLoad(this) src=/processed_images/logo.29fe3ee861abab74.webp><noscript><img decoding=async loading=lazy src=/processed_images/logo.29fe3ee861abab74.webp></noscript></picture> </a><div class=post-copyright__author_name>zola-theme-jiaxiang.wang</div><div class=post-copyright__author_desc>为创造者而生的开源 Zola 主题，地址 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang</div></div><div class=post-tools id=post-tools><div class=post-tools-left><div class=rewardLeftButton><div class="reward-link mode"><a class=reward-link-button href=/subscribe> <i class=icon-plant-fill></i>订阅 </a></div></div><div class=shareRight><div class="copyright-link mobile"><div class=copyright-qrcode><div class=copyright-button title=使用手机访问这篇文章><i class=icon-qrcode></i></div><div class=copyright-main><div class=copyright-main-all><div id=qrcode></div><div class=reward-dec>使用手机访问这篇文章</div></div></div></div></div><div class="copyright-link copyurl"><div class=copyright-button id=post-share-url onclick=rm.copyPageUrl() title=复制链接><i class=icon-link></i></div></div></div></div></div><div class=post-copyright__notice><span class=post-copyright-info> 本文是原创文章，采用 <a href=/copyright target=_blank>CC BY-NC-ND 4.0</a> 协议，转载请注明 <a href=/ target=_blank>本站名称及地址</a> </span></div></div><link href=/css/post-copyright-one.css rel=stylesheet></div><hr></div></div><div class="aside-content left-content" id=aside-content style=order:-1><div class=sticky_layout><div class="card-widget wjx-right-widget card-collection-tree" id=card-collection-tree><div class=card-content><a href="/collections/sample/collection 1/01 intro/"> <div class=item-headline><i class=icon-book-open></i><span>合集1</span></div> </a><div class=collection-tree><ul class=nav-tree><li class="tree-item tree-folder"><div class=tree-folder-header onclick=toggleFolder(this)><i class="tree-icon icon icon-folder-open"></i><span class=nav-title>文件夹</span></div> <div class=tree-folder-content><ul class=nav-tree><li class="tree-item nav-page"><a href="/collections/sample/collection 1/folder/01 intro/" class=tree-link> <i class="tree-icon icon icon-book"></i> <span class=nav-title>01 介绍</span> </a><li class="tree-item nav-page"><a href="/collections/sample/collection 1/folder/03 sample/" class=tree-link> <i class="tree-icon icon icon-book"></i> <span class=nav-title>03 示例</span> </a><li class="tree-item nav-page"><a href="/collections/sample/collection 1/folder/02 sample/" class=tree-link> <i class="tree-icon icon icon-book"></i> <span class=nav-title>02 示例</span> </a></ul></div><li class="tree-item nav-page"><a href="/collections/sample/collection 1/02 sample/" class=tree-link> <i class="tree-icon icon icon-book"></i> <span class=nav-title>02 示例</span> </a><li class="tree-item nav-page current"><a href="/collections/sample/collection 1/01 intro/" class=tree-link> <i class="tree-icon icon icon-book"></i> <span class=nav-title>01 介绍</span> </a><li class="tree-item nav-page"><a href="/collections/sample/collection 1/03 sample/" class=tree-link> <i class="tree-icon icon icon-book"></i> <span class=nav-title>03 示例</span> </a></ul></div></div></div></div></div><div class=aside-content id=aside-content><div class=sticky_layout><div class=card-widget id=card-toc><div class=item-headline><i class=icon-bars></i><span>文章目录</span><span class=toc-percentage></span></div><div class=toc-content></div></div><div class="card-widget wjx-right-widget" onclick="javascript:window.open('/subscribe')" id=card-wechat><div id=flip-wrapper><div id=flip-content><div style="background:url(/img/wechat/qr-green.avif) 50%/100% no-repeat" class=face></div><div class="back face" style="background:url(/img/wechat/qr-white.avif) 50%/100% no-repeat"></div></div></div><style>#aside-content .card-widget#card-wechat{background:#07c160}#aside-content .card-widget#card-wechat:before{content:"";background:url(/img/wechat/gzh_cover.avif) 50%/cover no-repeat;width:100%;height:90%;transition:all .2s cubic-bezier(.45,.04,.43,1.21);position:absolute;top:0;left:0}#aside-content .card-widget#card-wechat:hover:before{opacity:0;transition:all .3s ease-out;top:100%}</style></div><div class="card-widget card-recent-post"><div class=item-headline><i class=icon-chat--fill style=font-size:19px></i><span>最新评论</span></div><div class=aside-list id=newcomm></div></div><div class="card-widget card-recent-post"><div class=item-headline><i class=icon-eicon_map-2-line1></i><span>最近发布</span></div><div class=aside-list><div class=aside-list-item><a title="Lorem Ipsum 6" class=thumbnail href=/articles/misc/lorem-ipsum-6/> <picture class="post_bg progressive-picture"><img class=progressive-thumbnail decoding=async loading=lazy src=/processed_images/cover.fe456b115db22e7f.webp><source media="(min-width: 75em)" srcset="/processed_images/cover.a55b9c2cbbf9d4ee.avif?w=75em"><source media="(min-width: 60em)" srcset="/processed_images/cover.08b02e5e234c3489.avif?w=60em"><source media="(min-width: 45em)" srcset="/processed_images/cover.642c1bc436692218.avif?w=45em"><source media="(min-width: 30em)" srcset="/processed_images/cover.6cee4860a492291f.avif?w=30em"><source media="(min-width: 22em)" srcset="/processed_images/cover.ee097d2e3fdc78c3.avif?w=22em"><img src="/processed_images/cover.ffa1ded89dd85094.webp?w=30em" srcset="/processed_images/cover.9aca61b79dfcef37.webp?w=22em 360w,
+              /processed_images/cover.ffa1ded89dd85094.webp?w=30em 500w,
+              /processed_images/cover.49af1f03efacabf4.webp?w=45em 720w,
+              /processed_images/cover.3c60117d032df664.webp?w=60em 960w,
+              /processed_images/cover.37486ae4f964678a.webp?w=75em 1200w" class=progressive-content decoding=async loading=lazy onload=progressiveLoad(this)><noscript><img src="/processed_images/cover.ffa1ded89dd85094.webp?w=30em" decoding=async loading=lazy></noscript></picture> </a><div class=content><a title="Lorem Ipsum 6" class=title href=/articles/misc/lorem-ipsum-6/>Lorem Ipsum 6</a></div></div><div class=aside-list-item><a title="Lorem Ipsum 5" class=thumbnail href=/articles/misc/lorem-ipsum-5/> <picture class="post_bg progressive-picture"><img class=progressive-thumbnail decoding=async loading=lazy src=/processed_images/cover.fe456b115db22e7f.webp><source media="(min-width: 75em)" srcset="/processed_images/cover.a55b9c2cbbf9d4ee.avif?w=75em"><source media="(min-width: 60em)" srcset="/processed_images/cover.08b02e5e234c3489.avif?w=60em"><source media="(min-width: 45em)" srcset="/processed_images/cover.642c1bc436692218.avif?w=45em"><source media="(min-width: 30em)" srcset="/processed_images/cover.6cee4860a492291f.avif?w=30em"><source media="(min-width: 22em)" srcset="/processed_images/cover.ee097d2e3fdc78c3.avif?w=22em"><img src="/processed_images/cover.ffa1ded89dd85094.webp?w=30em" srcset="/processed_images/cover.9aca61b79dfcef37.webp?w=22em 360w,
+              /processed_images/cover.ffa1ded89dd85094.webp?w=30em 500w,
+              /processed_images/cover.49af1f03efacabf4.webp?w=45em 720w,
+              /processed_images/cover.3c60117d032df664.webp?w=60em 960w,
+              /processed_images/cover.37486ae4f964678a.webp?w=75em 1200w" class=progressive-content decoding=async loading=lazy onload=progressiveLoad(this)><noscript><img src="/processed_images/cover.ffa1ded89dd85094.webp?w=30em" decoding=async loading=lazy></noscript></picture> </a><div class=content><a title="Lorem Ipsum 5" class=title href=/articles/misc/lorem-ipsum-5/>Lorem Ipsum 5</a></div></div><div class=aside-list-item><a title="Lorem Ipsum 4" class=thumbnail href=/articles/misc/lorem-ipsum-4/> <picture class="post_bg progressive-picture"><img class=progressive-thumbnail decoding=async loading=lazy src=/processed_images/cover.fe456b115db22e7f.webp><source media="(min-width: 75em)" srcset="/processed_images/cover.a55b9c2cbbf9d4ee.avif?w=75em"><source media="(min-width: 60em)" srcset="/processed_images/cover.08b02e5e234c3489.avif?w=60em"><source media="(min-width: 45em)" srcset="/processed_images/cover.642c1bc436692218.avif?w=45em"><source media="(min-width: 30em)" srcset="/processed_images/cover.6cee4860a492291f.avif?w=30em"><source media="(min-width: 22em)" srcset="/processed_images/cover.ee097d2e3fdc78c3.avif?w=22em"><img src="/processed_images/cover.ffa1ded89dd85094.webp?w=30em" srcset="/processed_images/cover.9aca61b79dfcef37.webp?w=22em 360w,
+              /processed_images/cover.ffa1ded89dd85094.webp?w=30em 500w,
+              /processed_images/cover.49af1f03efacabf4.webp?w=45em 720w,
+              /processed_images/cover.3c60117d032df664.webp?w=60em 960w,
+              /processed_images/cover.37486ae4f964678a.webp?w=75em 1200w" class=progressive-content decoding=async loading=lazy onload=progressiveLoad(this)><noscript><img src="/processed_images/cover.ffa1ded89dd85094.webp?w=30em" decoding=async loading=lazy></noscript></picture> </a><div class=content><a title="Lorem Ipsum 4" class=title href=/articles/misc/lorem-ipsum-4/>Lorem Ipsum 4</a></div></div><div class=aside-list-item><a title="Lorem Ipsum 3" class=thumbnail href=/articles/misc/lorem-ipsum-3/> <picture class="post_bg progressive-picture"><img class=progressive-thumbnail decoding=async loading=lazy src=/processed_images/cover.fe456b115db22e7f.webp><source media="(min-width: 75em)" srcset="/processed_images/cover.a55b9c2cbbf9d4ee.avif?w=75em"><source media="(min-width: 60em)" srcset="/processed_images/cover.08b02e5e234c3489.avif?w=60em"><source media="(min-width: 45em)" srcset="/processed_images/cover.642c1bc436692218.avif?w=45em"><source media="(min-width: 30em)" srcset="/processed_images/cover.6cee4860a492291f.avif?w=30em"><source media="(min-width: 22em)" srcset="/processed_images/cover.ee097d2e3fdc78c3.avif?w=22em"><img src="/processed_images/cover.ffa1ded89dd85094.webp?w=30em" srcset="/processed_images/cover.9aca61b79dfcef37.webp?w=22em 360w,
+              /processed_images/cover.ffa1ded89dd85094.webp?w=30em 500w,
+              /processed_images/cover.49af1f03efacabf4.webp?w=45em 720w,
+              /processed_images/cover.3c60117d032df664.webp?w=60em 960w,
+              /processed_images/cover.37486ae4f964678a.webp?w=75em 1200w" class=progressive-content decoding=async loading=lazy onload=progressiveLoad(this)><noscript><img src="/processed_images/cover.ffa1ded89dd85094.webp?w=30em" decoding=async loading=lazy></noscript></picture> </a><div class=content><a title="Lorem Ipsum 3" class=title href=/articles/misc/lorem-ipsum-3/>Lorem Ipsum 3</a></div></div></div></div></div></div></main><footer id=footer><div id=wjx-footer-bar><div class=footer-logo>zola-theme-jiaxiang.wang</div><div class=footer-bar-description>为创造者而生的开源 Zola 主题，地址 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang</div><a class=footer-bar-link href=/about>了解更多</a></div><div id=footer_deal><a rel="external nofollow noopener noreferrer" class=deal_link href=mailto:mail@example.com target=_blank title=Mail> <i class=icon-envelope></i> </a><picture class="footer_mini_logo progressive-picture" onclick="btf.scrollToDest(0, 500)" style=border-radius:500px><img class=progressive-thumbnail decoding=async loading=lazy src=/processed_images/logo.b2500878186a517a.webp><source media="(min-width: 1em)" srcset=/processed_images/logo.09afd0a3c40572a9.avif><img alt=返回顶部 class=progressive-content decoding=async loading=lazy onload=progressiveLoad(this) src=/processed_images/logo.29fe3ee861abab74.webp><noscript><img alt=返回顶部 decoding=async loading=lazy src=/processed_images/logo.29fe3ee861abab74.webp></noscript></picture><a rel="external nofollow noopener noreferrer" class=deal_link href=https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang target=_blank title=Github> <i class=icon-github></i> </a></div><div id=wjx-footer><div class=footer-group><h3 class=footer-title>文库</h3><div class=footer-links><a class=footer-item data-pjax href=/archives target=_blank>全部文章</a><a class=footer-item data-pjax href=/categories target=_blank>分类列表</a><a class=footer-item data-pjax href=/tags target=_blank>标签列表</a><a class=footer-item data-pjax href=javascript:toRandomPost() target=_blank>随机文章</a></div></div><div class=footer-group><h3 class=footer-title>作品</h3><div class=footer-links><a class=footer-item data-pjax href=/articles/misc/lorem-ipsum target=_blank>Lorem Ipsum</a></div></div><div class=footer-group><h3 class=footer-title>协议</h3><div class=footer-links><a class=footer-item data-pjax href=/privacy target=_blank>隐私协议</a><a class=footer-item data-pjax href=/cookies target=_blank>Cookies</a><a class=footer-item data-pjax href=/copyright target=_blank>版权协议</a></div></div><div class=footer-group><div class=footer-title-group><h3 class=footer-title>友链</h3><button class=random-friends-btn id=footer-random-friends-btn onclick=javascript:wjx.addFriendLinksInFooter(); title=换一批友情链接><i class=icon-arrow-rotate-right style=font-size:16px></i></button></div><div class=footer-links id=friend-links-in-footer></div></div></div><div id=footer-bar style=padding:1rem><div class=footer-bar-links><div class=footer-bar-left><div id=footer-bar-tips><div class=copyright-group>© <span class=inline-word id=copyright-info>2024 - 2025</span>  By  <a class=footer-bar-link href=/ target=_blank> <picture class=progressive-picture id=copyright-logo><img class=progressive-thumbnail decoding=async loading=lazy src=/processed_images/logo.b2500878186a517a.webp><source media="(min-width: 1em)" srcset=/processed_images/logo.09afd0a3c40572a9.avif><img class=progressive-content decoding=async loading=lazy onload=progressiveLoad(this) src=/processed_images/logo.29fe3ee861abab74.webp><noscript><img decoding=async loading=lazy src=/processed_images/logo.29fe3ee861abab74.webp></noscript></picture> zola-theme-jiaxiang.wang </a><script defer>var startYear = 2024;
+                            var currentYear = new Date().getFullYear();
+                            var copyrightInfo = `${startYear !== currentYear ? startYear + ' - ' : ''}${currentYear}`;
+                            document.getElementById('copyright-info').innerHTML = copyrightInfo;</script></div><div class=compliance-group><a rel="noopener external nofollow noreferrer" class=footer-bar-link href=https://beian.miit.gov.cn/#/Integrated/index target=_blank> ICP </a><a class=footer-bar-link href=https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang> <div class=status-light></div> <span>本站及主题基于 Zola 构建</span> </a></div></div></div><div class=footer-bar-right><a class=footer-bar-link href=/subscribe target=_blank>订阅</a><a class=footer-bar-link href=https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang target=_blank>主题</a><a class=footer-bar-link href=/about>关于</a><a class=footer-bar-link href=mailto:mail@example.com target=_blank>反馈</a><a class="footer-bar-link cc" href=/copyright rel=license target=_blank title=CC版权协议> <i class=icon-copyright-line></i> <i class=icon-creative-commons-by-line></i> <i class=icon-creative-commons-nc-line></i> <i class=icon-creative-commons-nd-line></i> </a></div></div></div><div id=quit-box onclick=RemoveRewardMask()></div><div class="comment-barrage needEndHide" style=display:none></div><style>a.footer-bar-link.cloud{align-items:center;display:flex}img.entered.loading.cloud{height:32px}</style></footer><style>@media screen and (width>=1200px){.left-content{padding-left:0!important;padding-right:15px!important}}@media screen and (width>=1300px){.left-content{padding-left:0!important;padding-right:1rem!important}}.back-home-button-icon{color:#000!important}.post .layout#content-inner{background:var(--wjx-background)}@media screen and (width<=768px){.collection-breadcrumb{margin-top:1rem}}</style><script>function toggleFolder(folder){
+            const icon = folder.querySelector('.tree-icon');
+            const content = folder.nextElementSibling
+            
+            if (content && content.classList.contains('tree-folder-content')) {
+                const isExpanded = content.classList.contains('expanded');
+                
+                if (isExpanded) {
+                    content.classList.remove('expanded');
+                    icon.classList.remove('expanded');
+                    folder.classList.remove('expanded');
+                } else {
+                    content.classList.add('expanded');
+                    icon.classList.add('expanded');
+                    folder.classList.add('expanded');
+                }
+            }
+        }</script></div><div id=sidebar><div id=menu-mask></div><div id=sidebar-menus><span class=sidebar-menu-item-title>功能</span><div class=sidebar-menu-item><button class="darkmode_switchbutton menu-child" href=javascript:void(0); onclick=rm.switchDarkMode() title=显示模式切换><i class=icon-moon style=font-size:.9rem;line-height:2></i> <span>显示模式</span></button></div><div class=back-menu-list-groups><div class=back-menu-list-group><div class=back-menu-list-title>作品</div><div class=back-menu-list><a class="back-menu-item nav-item" href=/articles/misc/lorem-ipsum>  <i class=icon-music style=font-size:.9em></i> <span class=back-menu-item-text>Lorem Ipsum</span> </a><a class="back-menu-item nav-item" href=/articles/misc/lorem-ipsum>  <i class=icon-music style=font-size:.9em></i> <span class=back-menu-item-text>Lorem Ipsum</span> </a></div></div></div><div class=menus_items><div class=menus_item><button class=site-page><span>文章</span></button><ul class=menus_item_child><li><a class="site-page child faa-parent animated-hover" draggable=false href=/archives> <i class="icon-book-open faa-tada" style=font-size:.9em></i> <span>全部文章</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=/categories> <i class="icon-folder-open faa-tada" style=font-size:.9em></i> <span>分类列表</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=/tags> <i class="icon-tags faa-tada" style=font-size:.9em></i> <span>标签列表</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=javascript:toRandomPost()> <i class="icon-artstation faa-tada" style=font-size:.9em></i> <span>随机文章</span> </a></ul></div><div class=menus_item><button class=site-page><span>知识库</span></button><ul class=menus_item_child><li><a class="site-page child faa-parent animated-hover" draggable=false href=/collections> <i class="icon-book faa-tada" style=font-size:.9em></i> <span>进入知识库</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=/collections/docs> <i class="icon-book faa-tada" style=font-size:.9em></i> <span>文档</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=/collections/sample> <i class="icon-book faa-tada" style=font-size:.9em></i> <span>示例</span> </a></ul></div><div class=menus_item><a class=site-page href=/tags/work> <span>推荐</span> </a><ul class=menus_item_child><li><a class="site-page child faa-parent animated-hover" draggable=false href=/articles/docs/readme> <i class="icon-music faa-tada" style=font-size:.9em></i> <span>博客主题介绍</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=/collections/docs/user> <i class="icon-book faa-tada" style=font-size:.9em></i> <span>用户文档</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=/articles/misc/lorem-ipsum> <i class="icon-music faa-tada" style=font-size:.9em></i> <span>Lorem Ipsum</span> </a><li><a class="site-page child faa-parent animated-hover" href="/collections/sample/collection 1" draggable=false> <i class="icon-music faa-tada" style=font-size:.9em></i> <span>示例合集</span> </a></ul></div><div class=menus_item><button class=site-page><span>友链</span></button><ul class=menus_item_child><li><a class="site-page child faa-parent animated-hover" draggable=false href=/friends> <i class="icon-link faa-tada" style=font-size:.9em></i> <span>友链列表</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=javascript:travelling()> <i class="icon-paper-plane faa-tada" style=font-size:.9em></i> <span>随机发现</span> </a></ul></div><div class=menus_item><button class=site-page><span>我的</span></button><ul class=menus_item_child><li><a class="site-page child faa-parent animated-hover" draggable=false href=/about> <i class="icon-rocket faa-tada" style=font-size:.9em></i> <span>关于本人</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=/equipment> <i class="icon-artstation faa-tada" style=font-size:.9em></i> <span>我的装备</span> </a><li><a class="site-page child faa-parent animated-hover" draggable=false href=/tags/project> <i class="icon-lightbulb faa-tada" style=font-size:.9em></i> <span>我的项目</span> </a></ul></div></div><span class=sidebar-menu-item-title>标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class=item-headline></div><div class=card-tag-cloud><a class=tag-item href=/tags/blog/ style=font-size:1em title=博客>  博客<sup>7</sup> </a><a class=tag-item href=/tags/docs/ style=font-size:1em title=文档>  文档<sup>1</sup> </a><a class=tag-item href=/tags/featured/ style=font-size:1em title=必看>  必看<sup>6</sup> </a><a class=tag-item href=/tags/hot/ style=font-size:1em title=热门>  热门<sup>6</sup> </a><a class=tag-item href=/tags/project/ style=font-size:1em title=项目>  项目<sup>1</sup> </a><a class=tag-item href=/tags/work/ style=font-size:1em title=work>  work<sup>1</sup> </a></div></div></div></div><div id=console><div class=close-btn href=javascript:void(0); onclick=wjx.hideConsole()><i class=icon-circle-xmark></i></div><div class=console-card-group><div class=console-card-group-left><div class=console-card id=card-newest-comments onclick=wjx.hideConsole()><div class=card-content><div class=author-content-item-tips>互动</div><span class=author-content-item-title>最近评论</span></div><div class=aside-list><span>正在加载中...</span></div></div></div><div class=console-card-group-right><div class="console-card tags" onclick=wjx.hideConsole()><div class=card-content><div class=author-content-item-tips>标签</div><span class=author-content-item-title>寻找感兴趣的领域</span></div><div class=card-tag-cloud><a href=/tags/blog/ rel=tag style=color:#d3d3d3;font-size:1em> 博客<sup>7</sup> </a><a href=/tags/docs/ rel=tag style=color:#d3d3d3;font-size:1em> 文档<sup>1</sup> </a><a href=/tags/featured/ rel=tag style=color:#d3d3d3;font-size:1em> 必看<sup>6</sup> </a><a href=/tags/hot/ rel=tag style=color:#d3d3d3;font-size:1em> 热门<sup>6</sup> </a><a href=/tags/project/ rel=tag style=color:#d3d3d3;font-size:1em> 项目<sup>1</sup> </a><a href=/tags/work/ rel=tag style=color:#d3d3d3;font-size:1em> work<sup>1</sup> </a></div></div><div class="console-card history" onclick=wjx.hideConsole()><div class=item-headline><i class="fas fa-archive"></i><span>文章</span></div><ul class=card-archive-list><ul><li class=card-archive-list-item><a class=card-archive-list-link href=/archives> <span class=card-archive-list-date> 2024 12月 </span> <div class=card-archive-list-count-group><span class=card-archive-list-count>7</span><span class=card-archive-list-count-unit>篇</span></div> </a></ul></ul></div></div></div><div class=button-group><div class=console-btn-item><button rel="external nofollow" class=darkmode_switchbutton href=javascript:void(0); onclick=navFn.switchDarkMode(); title=显示模式切换><i class=icon-moon-clear-fill style=font-size:1rem></i></button></div><div class=console-btn-item id=consoleHideAside onclick=wjx.hideAsideBtn() title=边栏显示控制><button class=asideSwitch title=侧边栏开关><i class=icon-arrows-left-right></i></button></div><div class="console-btn-item on" id=consoleCommentBarrage onclick=wjx.switchCommentBarrage() title=热评开关><button class=commentBarrage><i class=icon-chat--fill></i></button></div></div><div class=console-mask href=javascript:void(0); onclick=wjx.hideConsole()></div></div><div id=rightside><div id=rightside-config-hide><button id=translateLink title=简繁转换 type=button>繁</button><button id=darkmode title=浅色和深色模式转换 type=button><i class=icon-circle-half-stroke></i></button><button id=hide-aside-btn title=单栏和双栏切换 type=button><i class=icon-arrows-left-right></i></button></div><div id=rightside-config-show><button id=rightside-config title=设置 type=button><i class=icon-gear></i></button><a href=#post-comment id=to_comment title=直达评论><i class=icon-chat--fill style=font-size:17px></i></a><button id=go-up title=回到顶部 type=button><i class=icon-arrow-up></i></button></div></div><link onload="this.onload=null;this.rel='stylesheet'" as=style href=/css/read-mode.css rel=preload><noscript><link href=/css/read-mode.css rel=stylesheet></noscript><div class=js-pjax><div id=rightMenu><div class="rightMenu-group rightMenu-small"><div class=rightMenu-item id=menu-backward><i class=icon-arrow-left></i></div><div class=rightMenu-item id=menu-forward><i class=icon-arrow-right></i></div><div class=rightMenu-item id=menu-refresh><i class=icon-arrow-rotate-right></i></div><div class=rightMenu-item id=menu-top><i class=icon-arrow-up></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class=rightMenu-item id=menu-copytext><i class=icon-copy></i><span>复制选中文本</span></div><div class=rightMenu-item id=menu-pastetext><i class=icon-paste></i><span>粘贴文本</span></div><a class=rightMenu-item id=menu-commenttext> <i class=icon-comment-medical></i> <span>引用到评论</span> </a><div class=rightMenu-item id=menu-newwindow><i class=icon-window-restore></i><span>新窗口打开</span></div><div class=rightMenu-item id=menu-copylink><i class=icon-link></i><span>复制链接地址</span></div><div class=rightMenu-item id=menu-copyimg><i class=icon-images></i><span>复制此图片</span></div><div class=rightMenu-item id=menu-downloadimg><i class=icon-download></i><span>下载此图片</span></div><div class=rightMenu-item id=menu-newwindowimg><i class=icon-window-restore></i><span>新窗口打开图片</span></div><div class=rightMenu-item id=menu-search><i class=icon-search--line></i><span>站内搜索</span></div><div class=rightMenu-item id=menu-searchBaidu><i class=icon-baidu></i><span>百度搜索</span></div><div class=rightMenu-item id=menu-music-toggle><i class=icon-play></i><span>播放音乐</span></div><div class=rightMenu-item id=menu-music-back><i class=icon-backward></i><span>切换到上一首</span></div><div class=rightMenu-item id=menu-music-forward><i class=icon-forward></i><span>切换到下一首</span></div><div onclick="javascript:window.open('https://y.qq.com/n/ryqq/playlist/xxxxx')" class=rightMenu-item id=menu-music-playlist><i class=icon-radio></i><span>查看所有歌曲</span></div><div class=rightMenu-item id=menu-music-copyMusicName><i class=icon-copy></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id=menu-randomPost onclick=toRandomPost()> <i class=icon-shuffle></i> <span>随便逛逛</span> </a><a class="rightMenu-item menu-link" href=../categories> <i class=icon-cube></i> <span>博客分类</span> </a><a class="rightMenu-item menu-link" href=../tags> <i class=icon-tags></i> <span>文章标签</span> </a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class=rightMenu-item id=menu-copy><i class=icon-copy></i><span>复制地址</span></div><div class=rightMenu-item draggable=false id=menu-commentBarrage style=display:flex><i class=icon-chat--fill style=font-size:19px></i><span class=menu-commentBarrage-text>显示热评</span></div><div class=rightMenu-item id=menu-darkmode><i class=icon-moon-clear-fill style=font-size:19px></i><span class=menu-darkmode-text>深色模式</span></div><div class=rightMenu-item id=menu-translate><i class=icon-fanti style=font-size:19px></i><span>轉為繁體</span></div></div></div><div id=rightmenu-mask></div></div><script defer onload src=/libs/qrcode/qrcode.min.js></script><script defer src=/libs/view-image/view-image.min.js></script><script defer src=/libs/tocbot/4.18.2/tocbot.min.js></script><link onload="this.onload=null;this.rel='stylesheet'" as=style href=/libs/tocbot/4.18.2/tocbot.css rel=preload><noscript><link href=/libs/tocbot/4.18.2/tocbot.css rel=stylesheet></noscript><script async src=/libs/snackbar/snackbar.min.js></script><script>var meting_api = "https:&#x2F;&#x2F;api.i-meto.com&#x2F;meting&#x2F;api?server=:server&amp;type=:type&amp;id=:id&amp;r=:r";</script><canvas height=880 id=universe width=1312></canvas><script defer src=/libs/canvas/dark.js></script><script src=/libs/waterfall/waterfall.min.js></script><script src=/libs/fast-average-color/index.browser.min.js></script><script>let pjaxSelectors = ['title', '#body-wrap', '#rightside-config-hide', '#rightside-config-show', '.js-pjax', '#site-config']
+          
+    pjaxSelectors.unshift('meta[property="og:type"]', 'meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]', 'meta[property="og:description"]'
+            , 'meta[name="twitter:title"]', 'meta[name="twitter:url"]', 'meta[name="twitter:description"]', 'meta[name="twitter:image"]', 'meta[name="description"]')
+    
+    var pjax = new Pjax({
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        //debug: true,        
+        analytics: false,
+        scrollRestoration: false
+    })</script><script defer src=/js/rightmenu.js></script><script data-pjax defer src=/production/js/abstract/local.js></script><script data-pjax defer src=/production/js/bundle.js></script><script defer src=/js/tw_cn.js></script><script defer src=/libs/instantpage/instantpage.min.js type=module></script><link onload="this.rel='stylesheet'" as=style href=/libs/prism/prism.min.css rel=preload><noscript><link href=/libs/prism/prism.min.css rel=stylesheet></noscript><link onload="this.rel='stylesheet'" as=style href=/libs/prism/code.css rel=preload><noscript><link href=/libs/prism/code.css rel=stylesheet></noscript><link onload="this.rel='stylesheet'" as=style data-code-theme=light href=/libs/prism/themes/prism-one-dark.css rel=preload><noscript><link href=/libs/prism/themes/prism-one-dark.css rel=stylesheet></noscript><link onload="this.rel='stylesheet'" as=style data-code-theme=dark href=/libs/prism/themes/prism-one-dark.css rel=preload><noscript><link href=/libs/prism/themes/prism-one-dark.css rel=stylesheet></noscript><script defer src=/libs/prism/prism.min.js></script><style>#article-container .code-toolbar pre.close{height:300px;overflow:hidden}</style>

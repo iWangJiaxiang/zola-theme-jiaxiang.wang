@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>zola-theme-jiaxiang.wang - docs</title>
+      <link>/</link>
+      <description>为创造者而生的开源 Zola 主题，地址 https:&#x2F;&#x2F;github.com&#x2F;iWangJiaxiang&#x2F;zola-theme-jiaxiang.wang</description>
+      <generator uri="https://www.getzola.org/">Zola</generator>
+      <language>en</language>
+      <atom:link href="/tags/docs/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Tue, 17 Dec 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>zola-theme-jiaxiang.wang 主题介绍</title>
+          <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+          <author>zola-theme-jiaxiang.wang</author>
+          <link>/articles/docs/readme/</link>
+          <guid>/articles/docs/readme/</guid>
+          <description xml:base="/articles/docs/readme/">介绍开源 Zola 博客主题 zola-theme-jiaxiang.wang</description>
+      </item>
+    </channel>
+</rss>

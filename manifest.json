@@ -1,0 +1,17 @@
+{
+    "short_name": "theme-jiaxiang.wang",
+    "name": "zola-theme-jiaxiang.wang",
+    "icons": [
+      {
+        "src": "/img/logo.webp",
+        "type": "image/webp",
+        "sizes": "192x192"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#000000"
+  }
+  
