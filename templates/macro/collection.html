@@ -221,7 +221,7 @@
         {% endfor %}
         
         <!-- 渲染当前文件夹的页面 -->
-        {% for section_page in section.pages | sort(attribute="date") %}
+        {% for section_page in section.pages | sort(attribute="title") %}
             <li class="tree-item nav-page{% if current_page and current_page.permalink == section_page.permalink %} current{% endif %}">
                 <a href="{{ section_page.permalink }}" class="tree-link">
                     <i class="tree-icon icon icon-book"></i>
