@@ -416,7 +416,7 @@ function addRightMenuClickEvent() {
     });
     $('#menu-copylink').on('click', rm.copyLink);
     $('#menu-downloadimg').on('click', function () {
-        wjx.downloadImage(domImgSrc, 'img-from-jiaxiang.wang');
+        wjx.downloadImage(domImgSrc, 'img-from-wondershine');
     });
     $('#menu-newwindowimg').on('click', function () {
         window.open(domImgSrc, "_blank");

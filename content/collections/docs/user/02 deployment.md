@@ -86,8 +86,8 @@ zola --version
 ### 2.1 方法一：克隆主题仓库（推荐用于主题开发）
 
 ```bash
-git clone --depth=1 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang.git
-cd zola-theme-jiaxiang.wang
+git clone --depth=1 https://github.com/iWangJiaxiang/zola-theme-wondershine.git
+cd zola-theme-wondershine
 ```
 
 ### 2.2 方法二：创建新项目并安装主题（推荐用于新站点）
@@ -116,7 +116,7 @@ mkdir themes
 cd themes
 
 # 克隆主题到 themes 目录
-git clone https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang.git jiaxiang-wang
+git clone https://github.com/iWangJiaxiang/zola-theme-wondershine.git wondershine
 cd ..
 ```
 
@@ -125,21 +125,21 @@ cd ..
 1. **复制主题配置文件**：
 ```bash
 # 复制主题的配置文件到项目根目录
-cp themes/jiaxiang-wang/config.toml config.toml
-cp themes/jiaxiang-wang/theme.toml theme.toml
-cp themes/jiaxiang-wang/data.toml data.toml
+cp themes/wondershine/config.toml config.toml
+cp themes/wondershine/theme.toml theme.toml
+cp themes/wondershine/data.toml data.toml
 ```
 
 2. **修改 config.toml**：
 在 `config.toml` 文件中添加或修改主题配置：
 ```toml
-theme = "jiaxiang-wang"
+theme = "wondershine"
 ```
 
 3. **复制示例内容**（可选）：
 ```bash
 # 复制主题的示例内容
-cp -r themes/jiaxiang-wang/content/* content/
+cp -r themes/wondershine/content/* content/
 ```
 
 #### 2.2.4 项目结构
@@ -154,7 +154,7 @@ my-blog/
 ├── content/             # 您的内容目录
 ├── static/              # 您的静态资源
 ├── themes/              # 主题目录
-│   └── jiaxiang-wang/   # 本主题
+│   └── wondershine/   # 本主题
 └── public/              # 构建输出目录（构建后生成）
 ```
 
@@ -163,7 +163,7 @@ my-blog/
 **方法一（克隆主题仓库）** 完成后，您将看到以下目录结构：
 
 ```bash
-zola-theme-jiaxiang.wang/
+zola-theme-wondershine/
 ├── config.toml          # 主配置文件
 ├── theme.toml           # 主题配置文件
 ├── data.toml            # 数据配置文件
@@ -337,5 +337,5 @@ sudo mv zola /usr/local/bin/
 如果在部署过程中遇到问题，可以：
 
 - 查看 [Zola 官方文档](https://www.getzola.org/documentation/)
-- 访问 [主题 GitHub 仓库](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang) 提交 Issue
+- 访问 [主题 GitHub 仓库](https://github.com/iWangJiaxiang/zola-theme-wondershine) 提交 Issue
 - 参考主题的示例配置文件

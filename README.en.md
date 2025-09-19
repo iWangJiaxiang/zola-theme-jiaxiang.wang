@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>Zola Theme for jiaxiang.wang</h1>
+<h1>Wonder Shine</h1>
 
 <h4>Open Source Zola Theme built for Creators</h4>
 
@@ -8,16 +8,18 @@
 
 [Preview](#-preview) | [Quick Start](#-quick-start) | [Discussion](#-discussion)
 
-[中文](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/blob/main/README.md) | [English](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/blob/main/README.en.md)
+[中文](https://github.com/iWangJiaxiang/zola-theme-wondershine/blob/main/README.md) | [English](https://github.com/iWangJiaxiang/zola-theme-wondershine/blob/main/README.en.md)
 
 </p>
 </div>
 
-[![preview](<https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/raw/refs/heads/main/content/articles/docs/01%20Read%20Me/preview.webp>)](https://blog.jiaxiang.wang)
+[![preview](<https://github.com/iWangJiaxiang/zola-theme-wondershine/raw/refs/heads/main/content/articles/docs/01%20Read%20Me/preview.webp>)](https://blog.jiaxiang.wang)
 
 ## ℹ️ About
 
-[zola-theme-jiaxiang.wang](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang) is a blog theme for [Zola](https://github.com/getzola/zola).
+[Wonder Shine](https://github.com/iWangJiaxiang/zola-theme-wondershine) is a blog theme for [Zola](https://github.com/getzola/zola).
+
+> This theme was originally named "zola-theme-jiaxiang.wang" and has now been renamed to "Wonder Shine", symbolizing miraculous light. May the creativity of all bloggers shine like miraculous light, illuminating the internet.
 
 > This theme was ported by [Jiaxiang Wang](https://blog.jiaxiang.wang) from the [Halo](https://github.com/halo-dev/halo) theme [Halo-Theme-Hao](https://github.com/chengzhongxue/halo-theme-hao), which was itself ported from [Hexo](https://hexo.io/zh-cn/index.html) by [Zhang Hong Heo](https://blog.zhheo.com/) as a modified and redesigned version of the [Hexo-Theme-Butterfly](https://github.com/chengzhongxue/halo-theme-hao) theme.
 
@@ -57,7 +59,7 @@
   - [x] Personal Equipment
   - [x] Friend Links
   - [ ] Donations
-    - [ ] Patreon
+    - [ ] Afdian
   - [x] Subscription
   - [x] About Me
   - [x] Music
@@ -85,13 +87,13 @@
 1. Clone this repository to your local machine.
 
     ```bash
-    git clone --depth=1 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang.git
+    git clone --depth=1 https://github.com/iWangJiaxiang/zola-theme-wondershine.git
     ```
 
 1. Navigate to the local repository.
 
     ```bash
-    cd zola-theme-jiaxiang.wang
+    cd zola-theme-wondershine
     ```
 
 1. Run the preview command, then open the suggested preview address in your browser.
@@ -113,4 +115,4 @@ If you have any suggestions or feedback about the theme, feel free to submit a P
 
 ## 🔐 License
 
-[zola-Theme-Jiaxiang](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang) is open-sourced under the [AGPL](./LICENSE) license, please comply with the open-source agreement.
+[Wonder Shine](https://github.com/iWangJiaxiang/zola-theme-wondershine) is open-sourced under the [AGPL](./LICENSE) license, please comply with the open-source agreement.

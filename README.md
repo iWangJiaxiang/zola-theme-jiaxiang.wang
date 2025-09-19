@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>Zola Theme for jiaxiang.wang</h1>
+<h1>奇光 Wonder Shine</h1>
 
 <h4>为创造者而生的开源 Zola 主题</h4>
 
@@ -8,16 +8,18 @@
 
 [主题预览](#-预览) | [快速上手](#-快速上手) | [加入讨论](#-讨论)
 
-[中文](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/blob/main/README.md) | [English](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/blob/main/README.en.md)
+[中文](https://github.com/iWangJiaxiang/zola-theme-wondershine/blob/main/README.md) | [English](https://github.com/iWangJiaxiang/zola-theme-wondershine/blob/main/README.en.md)
 
 </p>
 </div>
 
-[![preview](<https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/raw/refs/heads/main/content/articles/docs/01%20Read%20Me/preview.webp>)](https://blog.jiaxiang.wang)
+[![preview](<https://github.com/iWangJiaxiang/zola-theme-wondershine/raw/refs/heads/main/content/articles/docs/01%20Read%20Me/preview.webp>)](https://blog.jiaxiang.wang)
 
 ## ℹ️ 简介
 
-[zola-theme-jiaxiang.wang](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang) 是一款适用于 [Zola](https://github.com/getzola/zola) 的博客主题。
+[Wonder Shine](https://github.com/iWangJiaxiang/zola-theme-wondershine) 是一款适用于 [Zola](https://github.com/getzola/zola) 的博客主题。
+
+> 本主题原名为【zola-theme-jiaxiang.wang】，现更名为【Wonder Shine】，寓意奇迹般的光芒，愿各位博主的创造力如同奇迹之光，照亮互联网。
 
 > 本主题由 [王嘉祥](https://blog.jiaxiang.wang) 移植自 [Halo](https://github.com/halo-dev/halo) 主题 [Halo-Theme-Hao](https://github.com/chengzhongxue/halo-theme-hao)，[Halo-Theme-Hao](https://github.com/chengzhongxue/halo-theme-hao) 主题移植自 [Hexo](https://hexo.io/zh-cn/index.html) 社区中 [张洪 Heo](https://blog.zhheo.com/) 对 [Hexo-Theme-Butterfly](https://github.com/chengzhongxue/halo-theme-hao) 主题的魔改与重设计版本。
 
@@ -85,13 +87,13 @@
 1. 将本仓库克隆到本地
 
     ```bash
-    git clone --depth=1 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang.git
+    git clone --depth=1 https://github.com/iWangJiaxiang/zola-theme-wondershine.git
     ```
 
 1. 进入本地仓库
 
     ```bash
-    cd zola-theme-jiaxiang.wang
+    cd zola-theme-wondershine
     ```
 
 1. 运行预览命令，然后在浏览器打开提示的预览地址
@@ -113,5 +115,5 @@
 
 ## 🔐 许可
 
-[Zola-Theme-Jiaxiang](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang) 使用 [AGPL](./LICENSE) 协议开源，请遵守开源协议。
+[Zola-Theme-Jiaxiang](https://github.com/iWangJiaxiang/zola-theme-wondershine) 使用 [AGPL](./LICENSE) 协议开源，请遵守开源协议。
 

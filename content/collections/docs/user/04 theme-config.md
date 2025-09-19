@@ -17,7 +17,7 @@ weight = 0
 
 ```toml
 [extra.site]
-seo = "一个博客网站，基于 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang 主题构建"
+seo = "一个博客网站，基于 https://github.com/iWangJiaxiang/zola-theme-wondershine 主题构建"
 logo = "/img/logo.webp"
 favicon = "/img/logo.webp"
 default_cover = "/img/default-cover.webp"

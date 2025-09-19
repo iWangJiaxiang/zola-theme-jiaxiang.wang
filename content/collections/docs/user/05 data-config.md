@@ -74,7 +74,7 @@ weight = 6
 ```toml
 [[menu.main]]
 name = "GitHub"
-url = "https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang"
+url = "https://github.com/iWangJiaxiang/zola-theme-wondershine"
 weight = 7
 external = true
 ```
@@ -113,7 +113,7 @@ weight = 2
   
   [[menu.footer.links]]
   name = "主题仓库"
-  url = "https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang"
+  url = "https://github.com/iWangJiaxiang/zola-theme-wondershine"
   external = true
 ```
 

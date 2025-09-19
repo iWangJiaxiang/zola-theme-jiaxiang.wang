@@ -159,7 +159,7 @@ jiaxiang.wang 主题采用 **MIT 开源协议**，您可以：
 
 现在就开始使用 jiaxiang.wang 主题，打造属于您的独特博客吧！
 
-如果您觉得这个主题有用，请在 [GitHub](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang) 上给我们一个 ⭐️ 支持！
+如果您觉得这个主题有用，请在 [GitHub](https://github.com/iWangJiaxiang/zola-theme-wondershine) 上给我们一个 ⭐️ 支持！
 
 ---
 

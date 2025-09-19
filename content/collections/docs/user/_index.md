@@ -105,8 +105,8 @@ cover = "/img/default-cover.webp"
 
 1. **查阅文档** - 本文档涵盖了大部分使用场景
 2. **查看示例** - 参考主题仓库中的示例配置
-3. **提交 Issue** - 在 [GitHub](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/issues) 上报告问题
-4. **参与讨论** - 加入 [讨论区](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/discussions) 交流经验
+3. **提交 Issue** - 在 [GitHub](https://github.com/iWangJiaxiang/zola-theme-wondershine/issues) 上报告问题
+4. **参与讨论** - 加入 [讨论区](https://github.com/iWangJiaxiang/zola-theme-wondershine/discussions) 交流经验
 
 ## 🤝 贡献
 
@@ -125,4 +125,4 @@ cover = "/img/default-cover.webp"
 
 **开始您的博客之旅吧！** 🎉
 
-如果您觉得这个主题有用，请在 [GitHub](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang) 上给我们一个 ⭐️ 支持！
+如果您觉得这个主题有用，请在 [GitHub](https://github.com/iWangJiaxiang/zola-theme-wondershine) 上给我们一个 ⭐️ 支持！

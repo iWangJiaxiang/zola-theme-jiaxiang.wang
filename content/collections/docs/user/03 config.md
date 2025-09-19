@@ -16,9 +16,9 @@ weight = 0
 ### 1.1 站点标题和描述
 
 ```toml
-title = "zola-theme-jiaxiang.wang"
-author = "zola-theme-jiaxiang.wang"
-description = "为创造者而生的开源 Zola 主题，地址 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang"
+title = "zola-theme-wondershine"
+author = "zola-theme-wondershine"
+description = "为创造者而生的开源 Zola 主题，地址 https://github.com/iWangJiaxiang/zola-theme-wondershine"
 ```
 
 - `title`: 网站标题，显示在浏览器标签页和搜索结果中

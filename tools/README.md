@@ -6,7 +6,7 @@
 
 ## 命令格式
 
-> 如果将本主题安装到你的 zola 博客内，需要修改脚本路径为指向主题文件夹的相对路径，如`./tools/png-2-webp.sh`该为`./themes/zola-theme-jiaxiang.wang/tools/png-2-webp.sh`。下同。
+> 如果将本主题安装到你的 zola 博客内，需要修改脚本路径为指向主题文件夹的相对路径，如`./tools/png-2-webp.sh`该为`./themes/zola-theme-wondershine/tools/png-2-webp.sh`。下同。
 
 ```bash
 ./tools/png-2-webp.sh <目录：默认当前目录> <宽度：默认200> <高度：默认120> <质量：默认75>

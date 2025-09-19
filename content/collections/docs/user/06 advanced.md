@@ -595,9 +595,9 @@ console.log('Environment:', '{{/* get_env(name="ZOLA_ENV") /*}}');
 
 如果您在使用过程中遇到问题或有改进建议，欢迎：
 
-1. 提交 [GitHub Issues](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/issues)
-2. 发起 [Pull Request](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/pulls)
-3. 参与 [讨论区](https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang/discussions)
+1. 提交 [GitHub Issues](https://github.com/iWangJiaxiang/zola-theme-wondershine/issues)
+2. 发起 [Pull Request](https://github.com/iWangJiaxiang/zola-theme-wondershine/pulls)
+3. 参与 [讨论区](https://github.com/iWangJiaxiang/zola-theme-wondershine/discussions)
 
 ## 12. 下一步
 

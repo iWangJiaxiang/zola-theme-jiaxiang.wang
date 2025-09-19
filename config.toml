@@ -1,7 +1,7 @@
-title = "zola-theme-jiaxiang.wang"
+title = "Wonder Shine"
 # The default author for pages
-author = "zola-theme-jiaxiang.wang"
-description = "为创造者而生的开源 Zola 主题，地址 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang"
+author = "Jiaxiang Wang"
+description = "为创造者而生的开源 Zola 主题，地址 https://github.com/iWangJiaxiang/zola-theme-wondershine"
 
 # The URL the site will be built for
 # start with "https://"
@@ -205,7 +205,7 @@ index_format = "elasticlunr_javascript"
 # 站点设置
 [extra.site]
 # SEO 设置
-seo = "一个博客网站，基于 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang 主题构建"
+seo = "一个博客网站，基于 https://github.com/iWangJiaxiang/zola-theme-wondershine 主题构建"
 # 网站logo
 logo = "/img/logo.webp"
 # 网站favicon 尺寸比logo更小
@@ -351,7 +351,7 @@ video = ""
 # 大标题 支持HTML语法
 title_big = "<div class=\"banners-title-big\">jiaxiang.wang</div><div class=\"banners-title-big\"><a target=\"_blank]\" href=\"https://blog.jiaxiang.wang\">点击预览主题</a></div>"
 # 小标题 支持HTML语法
-title_small = "<br><a target=\"_blank]\" href=\"https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang\">点击访问开源代码仓库</a>"
+title_small = "<br><a target=\"_blank]\" href=\"https://github.com/iWangJiaxiang/zola-theme-wondershine\">点击访问开源代码仓库</a>"
 
 # 分组
 [[extra.top.banner_left.category_groups]]
@@ -488,7 +488,7 @@ background_img = "/img/sidebar/profile.webp"
 profile_desc = "为创造者而生的开源 Zola 主题~"
 # 社交媒体
 socialMedia = [
-    { icon = "icon-github", name = "GitHub", url = "https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang" },
+    { icon = "icon-github", name = "GitHub", url = "https://github.com/iWangJiaxiang/zola-theme-wondershine" },
 ]
 
 # 公众号
@@ -575,7 +575,7 @@ url = "mailto:mail@example.com"
 option_social_data = "icon"
 icon = "icon-github"
 name = "Github"
-url = "https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang"
+url = "https://github.com/iWangJiaxiang/zola-theme-wondershine"
 
 # 页脚友链
 [extra.footer.footer_group]
@@ -716,7 +716,7 @@ author_info_right_tags = [
 ]
 
 # 我的介绍 支持 HTML 语法
-content = "<div class=\"title1\">云海之中很高兴和你相遇👋</div> <div class=\"title2\">这里是 <span class=\"inline-word\">zola-theme-jiaxiang.wang</span> 博客主题预览站点</div>"
+content = "<div class=\"title1\">云海之中很高兴和你相遇👋</div> <div class=\"title2\">这里是 <span class=\"inline-word\">zola-theme-wondershine</span> 博客主题预览站点</div>"
 # 我的想法 支持 HTML 语法
 idea = "<div class=\"author-content-item-tips\">我的创作</div> <h2>主要围绕以下<span class=\"inline-word\"/>领域</span> <div class=\"mask\"> <span class=\"first-tips\" data-show=\"\">博客</span> <span>主题</span> <span data-up=\"\">………</span> </div> </h2>"
 
