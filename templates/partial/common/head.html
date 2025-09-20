@@ -23,7 +23,10 @@
 
 <script src="{{ macro::get_production_path(path="/js/utils.js") }}"></script>
 
-<link rel="stylesheet" href="{{ macro::get_production_path(path="/css/blog.css") }}" />
+<link rel="stylesheet" href="{{ macro::get_production_path(path="/css/blog-base.css") }}" />
+<link rel="stylesheet" href="{{ macro::get_production_path(path="/css/blog-desktop.css") }}" media="(min-width: 768px)">
+<link rel="stylesheet" href="{{ macro::get_production_path(path="/css/blog-tablet.css") }}" media="(max-width: 1300px)">
+<link rel="stylesheet" href="{{ macro::get_production_path(path="/css/blog-mobile.css") }}" media="(max-width: 768px)">
 
 <link rel="stylesheet" href="{{ macro::get_production_path(path="/css/custom.css") }}" />
 
