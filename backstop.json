@@ -1,0 +1,63 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 1000
+    },
+    {
+      "label": "tablet",
+      "width": 1024,
+      "height": 2000
+    },
+    {
+      "label": "desktop",
+      "width": 1368,
+      "height": 2000
+    },
+    {
+      "label": "desktop wide",
+      "width": 1600,
+      "height": 2000
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "BackstopJS Homepage",
+      "url": "http://127.0.0.1:1111/",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 1000,
+      "hideSelectors": [],
+      "removeSelectors": [".card-tag-cloud", ".tags-group-wrapper"],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["viewport"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser", "json", "CI"],
+  "engine": "playwright",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

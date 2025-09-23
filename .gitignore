@@ -3,3 +3,11 @@ public
 /static/processed_images/*
 
 .DS_Store
+
+node_modules
+
+backstop_data/bitmaps_reference/*
+
+backstop_data/bitmaps_test/*
+
+backstop_data/*_report
