@@ -7,6 +7,7 @@ weight = 1
 
 render = true
 template="page/collection-list.html"
+insert_anchor_links = "heading"
 
 [extra]
 type = "page"

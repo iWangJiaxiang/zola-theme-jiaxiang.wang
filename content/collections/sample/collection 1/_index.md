@@ -9,6 +9,7 @@ weight = 0
 template = "page/collection-detail.html"
 page_template = "page/collection-content.html"
 render = true
+insert_anchor_links = "heading"
 
 [extra]
 tags = ["文档", "用户", "主题"]

@@ -39,7 +39,7 @@ paginate_reversed = false
 # The default template can be overridden by creating an `anchor-link.html` file in the `templates` directory.
 # This value can be "left", "right", "heading" or "none".
 # "heading" means the full heading becomes the text of the anchor.
-insert_anchor_links = "none"
+insert_anchor_links = "heading"
 
 # If set to "true", the section pages will be in the search index. This is only used if
 # `build_search_index` is set to "true" in the Zola configuration file.

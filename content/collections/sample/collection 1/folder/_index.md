@@ -7,6 +7,7 @@ weight = 0
 
 # 勿动
 render = false
+insert_anchor_links = "heading"
 
 [extra]
 +++
