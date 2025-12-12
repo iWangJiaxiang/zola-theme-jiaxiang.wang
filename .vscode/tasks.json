@@ -3,9 +3,26 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "backstop test",
+            "type": "shell",
+            "command": "backstop test"
+        },
+        {
+            "label": "css build",
+            "type": "shell",
+            "command": "pnpm css:build"
+        },
+        {
+            "label": "css watch",
+            "type": "shell",
+            "command": "pnpm css:watch",
+            "problemMatcher": []
+        },
+        {
             "label": "zola serve",
             "type": "shell",
-            "command": "zola serve"
+            "command": "zola serve",
+            "problemMatcher": []
         }
     ]
 }
