@@ -1,0 +1,185 @@
+/* 标签云卡片 */
+#aside-content .card-tag-cloud a {
+    color: var(--wjx-fontcolor);
+    font-size: 0.8rem;
+    border-radius: 8px;
+}
+
+#aside-content .card-tag-cloud a:hover {
+    background: var(--wjx-theme);
+    color: var(--wjx-card-bg) !important;
+    box-shadow: var(--wjx-shadow-theme);
+}
+
+#aside-content .card-tag-cloud a.tags-cloud-more {
+    width: 100%;
+    text-align: center;
+    border-radius: 8px !important;
+    border: var(--style-border);
+    margin-top: 8px;
+    font-size: var(--global-font-size) !important;
+}
+
+
+@media screen and (min-width: 1300px) {
+
+    #aside-content .card-tag-cloud a:active {
+        transform: scale(0.97);
+    }
+}
+
+.article-sort .article-sort-item .article-sort-item-img {
+    border-radius: 12px;
+    min-width: 151px;
+    min-height: 80px;
+    background: var(--wjx-secondbg);
+    -webkit-mask-image: -webkit-radial-gradient(center, rgb(255, 255, 255), rgb(0, 0, 0));
+}
+
+@media screen and (max-width: 768px) {
+    .article-sort .article-sort-item .article-sort-item-img {
+        min-width: 80px;
+    }
+}
+
+#post .tag_share .post-meta__tag-list {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row
+}
+
+#post .tag_share .post-meta__tag-list a {
+    margin-bottom: 8px;
+    margin-right: 8px
+}
+
+#page .tag-cloud-list a {
+    display: flex;
+    width: fit-content;
+    color: var(--wjx-fontcolor) !important;
+    font-size: 1.4em !important;
+    padding: 0.2em .5em;
+    background: var(--wjx-card-bg);
+    margin: .5em .5em;
+    border-radius: 12px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    border: var(--style-border-always);
+    box-shadow: var(--wjx-shadow-border);
+    align-items: center
+}
+
+#page .tag-cloud-list a:hover {
+    background: var(--wjx-theme) !important;
+    box-shadow: var(--wjx-shadow-blue);
+    color: var(--wjx-card-bg) !important;
+    border: var(--style-border-hover);
+}
+
+.category-lists span.tagsPageCount {
+    margin-left: 4px;
+    background: var(--wjx-fontcolor);
+    color: var(--wjx-card-bg);
+    border-radius: 8px;
+    line-height: 1;
+    padding: 2px 4px;
+    transition: .2s;
+    font-size: 16px
+}
+
+.tag-cloud-list span.tagsPageCount {
+    margin-left: 4px;
+    background: var(--wjx-fontcolor);
+    color: var(--wjx-card-bg);
+    border-radius: 8px;
+    line-height: 1;
+    padding: 2px 4px;
+    transition: .2s;
+    font-size: 16px
+}
+
+#page .tag-cloud-list a:hover span.tagsPageCount {
+    color: var(--wjx-lighttext);
+    background: var(--wjx-card-bg)
+}
+
+#post .tag_share .post-meta__tags span.tagsPageCount,#tag-page-tags .tagsPageCount {
+    padding: 2px;
+    background: var(--wjx-fontcolor);
+    min-width: 22.5px;
+    display: inline-block;
+    border-radius: 4px;
+    text-align: center;
+    font-size: .6rem;
+    color: var(--wjx-card-bg);
+    margin-left: 4px;
+    line-height: 1;
+    transition: .2s
+}
+
+#post .tag_share .post-meta__tags:hover span.tagsPageCount {
+    background: var(--wjx-maskbgdeep);
+    color: var(--wjx-lighttext)
+}
+
+
+#tag #tag-page-tags a.select .tagsPageCount {
+    background: var(--wjx-card-bg);
+    color: var(--wjx-lighttext)
+}
+
+span.tags-punctuation::before {
+    content: "\e663";
+    font-family: "icon" !important;
+    opacity: 0.4;
+    margin-right: 2px;
+}
+
+#tag #tag-page-tags span.tags-punctuation::before {
+    font-size: 13px;
+}
+
+.hide-aside #page span.tags-punctuation::before {
+    font-size: 18px;
+}
+
+.recent-post-item span.tags-punctuation {
+    margin-right: 0px;
+    font-size: 13px;
+}
+
+.article-sort-item-tags a .tags-punctuation::before,.recent-post-item span.tags-punctuation::before {
+    font-size: 11px;
+}
+
+.category-lists span.tags-punctuation {
+    font-size: 18px;
+}
+
+.tags-name {
+    margin-left: 2px;
+}
+
+/* -------------------- 特殊标签高亮 -------------------- */
+
+#aside-content .card-tag-cloud a[href*="/tags/%E8%AE%BE%E8%AE%A1/"] {
+    color: var(--wjx-lighttext) !important;
+    font-weight: 500;
+}
+
+#aside-content .card-tag-cloud a[href*="/tags/%E5%B9%B2%E8%B4%A7/"] {
+    color: var(--wjx-lighttext) !important;
+    font-weight: 500;
+}
+
+#aside-content .card-tag-cloud a[href*="/tags/%E6%95%99%E7%A8%8B/"] {
+    color: var(--wjx-lighttext) !important;
+    font-weight: 500;
+}
+
+#aside-content .card-tag-cloud a sup {
+    opacity: 0.4;
+    margin-left: 2px;
+}

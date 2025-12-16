@@ -1,0 +1,46 @@
+/* ========================================
+   评论标签样式
+   合并自: all-tag.css, comment-blogger-tag-rounded.css,
+          comment-sticky.css, pending-comment.css
+   ======================================== */
+
+/* -------------------- 所有标签 -------------------- */
+
+.tk-tag {
+    transform: translateY(-2px);
+}
+
+/* -------------------- 博主标签（绿色） -------------------- */
+
+.tk-tag-green {
+    border-radius: 4px !important;
+    border: 0px solid #e1f3d8 !important;
+    font-size: 0.5rem !important;
+}
+
+[data-theme=dark] .tk-tag-green {
+    background-color: #3b70fc;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+}
+
+/* -------------------- 置顶标签（红色） -------------------- */
+
+.tk-tag-red {
+    border-radius: 4px !important;
+    border: 0px solid #f3d8d8 !important;
+    font-size: 0.5rem !important;
+}
+
+[data-theme=dark] .tk-tag-red {
+    background-color: #c23a3a21 !important;
+}
+
+/* -------------------- 审核中标签（黄色） -------------------- */
+
+.tk-tag-yellow {
+    border-radius: 4px !important;
+    border: 0px solid #e1f3d8 !important;
+    font-size: 0.5rem !important;
+}

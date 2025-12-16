@@ -1,0 +1,477 @@
+
+#recent-posts > .recent-post-item {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 15.5em;
+    border-radius: 12px 8px 8px 12px;
+    background: var(--card-bg);
+    box-shadow: var(--card-box-shadow);
+    transition: all 0.3s ease 0s;
+}
+
+@media screen and (max-width: 768px) {
+    #recent-posts > .recent-post-item {
+        border-radius: 12px 12px 8px 8px;
+    }
+}
+
+#recent-posts > .recent-post-item:hover {
+    box-shadow: var(--card-hover-box-shadow);
+}
+
+#recent-posts > .recent-post-item:hover .post_bg {
+    transform: scale(1.1);
+}
+
+#recent-posts > .recent-post-item.ads-wrap {
+    display: block !important;
+    height: auto !important;
+}
+
+#recent-posts > .recent-post-item .post_cover {
+    overflow: hidden;
+    width: 45%;
+    height: 100%;
+    -webkit-mask-image: -webkit-radial-gradient(center, rgb(255, 255, 255), rgb(0, 0, 0));
+}
+
+#recent-posts > .recent-post-item .post_cover .post_bg {
+    width: 100%;
+    height: 100%;
+    transition: all 0.6s ease 0s;
+    object-fit: cover;
+}
+
+#recent-posts > .recent-post-item > .recent-post-info.no-cover {
+    width: 100%;
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-title {
+    margin-bottom: 0.3rem;
+    color: var(--text-highlight-color);
+    font-size: 1.4em;
+    line-height: 1.4;
+    transition: all 0.2s ease-in-out 0s;
+    -webkit-line-clamp: 2;
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-title:hover {
+    color: rgb(48, 122, 246);
+}
+
+#recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap {
+    color: var(--wjx-fontcolor);
+    font-size: .7rem;
+    user-select: none
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap > .post-meta-date {
+    cursor: default;
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap .sticky {
+    color: rgb(255, 114, 66);
+}
+
+#recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap i {
+    margin: 0 .2rem 0 0
+}
+
+#recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap .article-meta-label {
+    padding-right: .2rem
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap .article-meta__separator {
+    margin: 0px 0.3rem;
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap .article-meta__link {
+    margin: 0px 0.2rem;
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap .fa-angle-right {
+    margin: 0px 0.2rem;
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap time {
+    display: none;
+}
+
+#recent-posts>.recent-post-item>.recent-post-info>.content {
+    margin-top: .3rem;
+    -webkit-line-clamp: 3
+}
+
+
+@media screen and (max-width: 768px) {
+
+    #recent-posts .recent-post-item {
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        height: auto !important;
+    }
+
+    #recent-posts .recent-post-item .post_cover {
+        width: 100%;
+        height: 230px;
+        border-radius: 5px 8px 0px 0px;
+        -webkit-box-ordinal-group: 1 !important;
+        order: 1 !important;
+    }
+
+    #recent-posts .recent-post-item .recent-post-info {
+        padding: 1rem 1rem 1.5rem;
+        width: 100%;
+        -webkit-box-ordinal-group: 2 !important;
+        order: 2 !important;
+    }
+
+    #recent-posts .recent-post-item .recent-post-info.no-cover {
+        padding: 1.5rem 1rem;
+    }
+
+    #recent-posts .recent-post-item .recent-post-info .article-title {
+        font-size: 18px;
+        line-height: 26px
+    }
+
+    #recent-posts .recent-post-item .recent-post-info .content {
+        height: auto;
+    }
+}
+
+/* 描述 */
+#recent-posts > .recent-post-item > .recent-post-info > .content {
+    line-height: 1.4;
+    color: var(--wjx-secondtext);
+    margin-top: 0px;
+    cursor: pointer;
+    transition: 0.3s;
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 0 40px;
+}
+
+@media screen and (min-width: 768px) {
+    #recent-posts > .recent-post-item > .recent-post-info > .content {
+        opacity: 0;
+        top: 120px;
+    }
+
+    #recent-posts > .recent-post-item:hover > .recent-post-info > .content {
+        opacity: 1;
+        top: 90px;
+    }
+
+    @media screen and (max-width: 1300px) {
+        #recent-posts > .post-card-large > .recent-post-info > .content {
+            opacity: 1 !important;
+        }
+
+        #recent-posts > .post-card-large:hover > .recent-post-info > .content {
+            top: 110px;
+        }
+
+        #recent-posts > .post-card-large > .recent-post-info > .content {
+            -webkit-line-clamp: 3 !important;
+        }
+
+        #recent-posts > .post-card-large:hover > .recent-post-info > .content {
+            -webkit-line-clamp: 5 !important;
+        }
+
+        /* 大文章高度 */
+        #recent-posts > .post-card-large {
+            height: 20em !important;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #recent-posts > .recent-post-item > .recent-post-info > .content {
+        top: 5rem;
+    }
+}
+
+/*
+#recent-posts > .recent-post-item >.recent-post-info > .content:hover{
+  opacity: 0.8;
+  transition: 0.3s;
+} */
+/* 封面 */
+.recent-post-top .recent-post-item .post_cover a {
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+}
+
+.recent-post-top .recent-post-item .post_cover img {
+    object-fit: cover;
+    width: 100%;
+    background: var(--wjx-secondbg);
+    border-radius: 12px 12px 0 0;
+}
+
+.recent-post-top .recent-post-item:hover .post_cover img {
+    transform: scale(1);
+}
+
+.recent-post-item .post_cover {
+    -webkit-mask-image: -webkit-radial-gradient(center,#fff,#000)
+}
+/* 图片在左侧 */
+#recent-posts > .recent-post-item.left, .recent-post-item.alternate.odd {
+    flex-direction: row !important;
+}
+
+#recent-posts > .recent-post-item.left .cover_radius, .recent-post-item.alternate.odd .cover_radius {
+    border-radius: 12px 0px 0px 12px !important;
+}
+/* 图片在右侧 */
+#recent-posts > .recent-post-item.right, .recent-post-item.alternate.even {
+    flex-direction: row-reverse !important;
+}
+
+#recent-posts > .recent-post-item.right .cover_radius, .recent-post-item.alternate.even .cover_radius {
+    border-radius: 0px 12px 12px 0px !important;
+}
+
+
+@media screen and (min-width: 1300px) {
+
+    #recent-posts > .recent-post-item {
+        flex-direction: column;
+    }
+
+    #recent-posts > .recent-post-item {
+        width: calc(50% - 0.5rem);
+        margin-top: 0.25rem;
+        margin-bottom: 0.75rem;
+        box-shadow: var(--wjx-shadow-border);
+        clip-path: inset(0 0 0 0 round 12px);
+    }
+
+    #category #recent-posts .recent-post-item, #tag #recent-posts .recent-post-item {
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+        position: relative;
+        overflow: hidden;
+        margin-top: 1rem;
+        animation: slide-in .6s .4s backwards;
+        will-change: transform;
+        width: calc(100% / 2 - .5rem);
+        margin-top: .25rem;
+        margin-bottom: .75rem;
+        box-shadow: var(--wjx-shadow-border)
+    }
+
+    /* 设置分列 */
+    /* 1 列：左右排列 */
+    #recent-posts > .recent-post-item.col1, #category #recent-posts .recent-post-item.col1, #tag #recent-posts .recent-post-item.col1 {
+        width: calc(100% - .5rem);
+
+    }
+
+    /* 2 列 */
+    #recent-posts > .recent-post-item.col2, #category #recent-posts .recent-post-item.col2, #tag #recent-posts .recent-post-item.col2 {
+        width: calc(100% / 2 - .5rem);
+    }
+
+    /* 3 列 */
+    #recent-posts > .recent-post-item.col3, #category #recent-posts .recent-post-item.col3, #tag #recent-posts .recent-post-item.col3 {
+        width: calc(100% / 3 - .5rem);
+    }
+
+    #category-bar {
+        margin-bottom: .75rem;
+        box-shadow: var(--wjx-shadow-border);
+        animation: slide-in .6s .3s backwards
+    }
+
+    #category #category-bar {
+        animation: none
+    }
+
+    /* 首页文章第一个 */
+    #recent-posts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-content: flex-start;
+        -webkit-user-select: none
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #category #recent-posts .recent-post-item, #tag #recent-posts .recent-post-item {
+        animation: slide-in .6s .4s backwards
+    }
+
+    #category-bar {
+        animation: slide-in .6s .3s backwards
+    }
+}
+
+#recent-posts {
+    position: relative
+}
+/* 主页卡片手机端美化 */
+@media screen and (max-width: 768px) {
+    #recent-posts > .recent-post-item {
+        border-radius: 0;
+    }
+
+    #recent-posts > .recent-post-item {
+        margin: 1.5rem 0;
+        border-radius: 12px;
+        margin-top: .5rem;
+        border: var(--style-border-always);
+        box-shadow: var(--wjx-shadow-border);
+        display: block;
+        position: relative;
+        clip-path: inset(0 0 0 0 round 12px)
+    }
+
+    #recent-posts {
+        padding: 0 1rem
+    }
+
+    #category #recent-posts, #tag #recent-posts {
+        padding: 0
+    }
+
+    #recent-posts .recent-post-item .post_cover {
+        border-radius: 0 !important;
+        width: 100%;
+    }
+
+    a.article-meta__categories {
+        left: 12px !important;
+        top: 12px !important;
+        border-radius: 4px !important;
+        padding: 2px 9px !important;
+        font-size: 12px
+    }
+}
+/* 首页文章标签样式 */
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap a:hover {
+    background-color: var(--wjx-main-op-light);
+    color: var(--wjx-lighttext);
+    cursor: pointer;
+}
+/* 描述行数限制 */
+#recent-posts > .recent-post-item > .recent-post-info > .content {
+    -webkit-line-clamp: 2;
+}
+/* 日期右侧显示 */
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap > .post-meta-date {
+    right: 0px;
+    text-align: right;
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap > .post-meta-date i {
+    display: none;
+}
+
+.post-meta-date .far {
+    opacity: 0.6;
+}
+
+.post-meta-date .article-meta-label {
+    display: none;
+}
+
+#post-meta .post-meta-date, #post-meta .post-meta-author {
+    opacity: .6;
+    margin-right: 0.8rem;
+}
+
+#post-info #post-meta a.post-meta-pv,
+#post-info #post-meta a.post-meta-commentcount,
+#post-info #post-meta a.post-meta-editor {
+    color: var(--wjx-white);
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+#post-info #post-meta a.post-meta-pv:hover,
+#post-info #post-meta a.post-meta-commentcount:hover,
+#post-info #post-meta a.post-meta-editor:hover {
+    opacity: 1;
+    background: var(--wjx-white-op)
+}
+/* 不显示分割线 */
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap .article-meta__separator {
+    display: none;
+}
+
+.article-meta {
+    margin: 0 8px 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+/* 置顶卡片数量优化 */
+@media screen and (min-width: 1300px) {
+    .topGroup .recent-post-item:nth-child(7) {
+        display: none;
+    }
+}
+/* 多分类兼容性调整 */
+#recent-posts > div > i .post_cover {
+    display: none;
+}
+/* 手机端精简优化 */
+@media screen and (max-width: 768px) {
+
+    /* 边栏头像 */
+    #sidebar-menus > div.author-avatar {
+        display: none;
+    }
+
+    /* 文章标签 */
+    #recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap {
+        bottom: 0.5rem !important;
+    }
+
+    #recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap time {
+        display: absolute;
+        right: 0;
+    }
+
+    /* 背景 */
+    #web_bg {
+        background: none !important;
+    }
+
+    #recent-posts > .recent-post-item .post_cover .post_bg {
+        border-radius: 12px 12px 0 0 !important;
+    }
+
+    #recent-posts > .recent-post-item .post_cover .post_bg:hover {
+        transform: scale(1);
+    }
+
+    #recent-posts > .recent-post-item:hover .post_bg {
+        transform: scale(1);
+    }
+
+    .recent-post-top .recent-post-item:hover .post_cover img {
+        transform: scale(1);
+    }
+
+    #recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap,
+    #recent-posts > .recent-post-item > .recent-post-info > .article-title,
+    #recent-posts > .recent-post-item > .recent-post-info > .content {
+        padding: 0 20px !important
+    }
+
+}

@@ -1,0 +1,108 @@
+/* ========================================
+   评论按钮样式
+   合并自: cancel-button.css, preview-button.css,
+          send-button-disabled-state.css, send-button-normal-state.css
+   ======================================== */
+
+/* -------------------- 取消按钮 -------------------- */
+
+button.el-button.tk-cancel.el-button--default.el-button--small {
+    background: var(--wjx-secondbg) !important;
+    border-radius: 8px !important;
+    color: var(--wjx-fontcolor) !important;
+}
+
+.tk-submit-action-icon.__markdown {
+    display: none;
+}
+
+/* -------------------- 预览按钮 -------------------- */
+
+.el-button {
+    background-color: var(--wjx-fontcolor) !important;
+    border: 0px solid var(--wjx-main) !important;
+    color: var(--wjx-background) !important;
+    border-radius: 8px !important;
+}
+
+.el-button:hover {
+    background: var(--wjx-main) !important;
+    color: var(--wjx-white) !important;
+}
+
+.el-button.tk-preview {
+    display: none !important;
+}
+
+#twikoo > div.tk-comments > div.tk-submit > div.tk-row.actions > a {
+    display: none !important;
+}
+
+/* -------------------- 发送按钮正常状态 -------------------- */
+
+.tk-comments .el-button--primary {
+    border-color: var(--wjx-fontcolor) !important;
+    color: var(--wjx-card-bg) !important;
+    border-radius: 12px !important;
+    box-shadow: var(--wjx-shadow-black);
+    transition: .3s;
+    width: 5rem;
+    position: absolute;
+    top: -43px;
+    right: 0;
+    margin-left: .5rem !important;
+    height: 32px
+}
+
+/* -------------------- 发送按钮禁用状态 -------------------- */
+
+.tk-comments .el-button--primary.is-disabled,
+.tk-comments .el-button--primary.is-disabled:active,
+.tk-comments .el-button--primary.is-disabled:focus,
+.tk-comments .el-button--primary.is-disabled:hover {
+    opacity: 0.2;
+}
+
+.tk-row-actions-start {
+    position: absolute;
+    top: -84px;
+    left: 17px
+}
+
+.tk-submit {
+    margin-top: .8rem !important
+}
+
+@media screen and (max-width: 768px) {
+    .tk-submit .el-button--primary {
+        width: 5rem;
+        height: 122px;
+        top: -132px
+    }
+
+    .tk-row-actions-start {
+        top: -176px
+    }
+}
+
+.tk-extras {
+    margin-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.tk-icon.__comments:first-child {
+    width: 0.6em
+}
+
+.tk-row.actions {
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    justify-content: space-around !important
+}
+
+.tk-meta-input {
+    position: relative !important;
+    margin-top: 8px;
+    width: calc(100% - 5.5rem);
+}

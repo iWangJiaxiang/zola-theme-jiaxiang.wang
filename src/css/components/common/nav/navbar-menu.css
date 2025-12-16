@@ -1,0 +1,250 @@
+/* ========================================
+   导航栏菜单样式
+   合并自: navbar-center.css (菜单相关部分)
+          navbar-style.css (菜单样式部分)
+          vertical-menu.css
+   ======================================== */
+
+/* -------------------- 菜单容器居中 -------------------- */
+
+#nav #menus {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    height: 60px;
+    left: 0;
+    margin: 0;
+}
+
+#nav .menus_items {
+    display: inline;
+    position: relative;
+    width: fit-content;
+    text-align: center;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* -------------------- 菜单项样式 -------------------- */
+
+#menus > div.menus_items .nav-item {
+    font-size: 16.8px;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    padding-left: 0.7rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 40px;
+}
+
+.recursion_menus_item .nav-item {
+    line-height: 2 !important;
+    height: auto !important;
+}
+
+#page-header.not-top-img #nav .nav-item {
+    color: var(--wjx-fontcolor);
+    text-shadow: none
+}
+
+.page #menus > div.menus_items > .menus_item:hover > .nav-item {
+    color: var(--wjx-card-bg) !important;
+}
+
+#nav .menus_items .menus_item {
+    position: relative;
+    display: inline-block;
+    padding: 0 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+#nav .menus_items .recursion_menus_item:hover > .menus_item_child,
+#nav .menus_items .menus_item:hover > .menus_item_child {
+    display: block;
+}
+
+#nav .menus_items .menus_item:hover i.expand {
+    transform: rotate(180deg) !important;
+}
+
+#nav .menus_items .menus_item i.expand {
+    padding: 4px;
+    transition: transform 0.3s ease 0s;
+}
+
+/* -------------------- 子菜单下拉框 -------------------- */
+
+#nav .menus_items .menus_item .menus_item_child {
+    position: absolute;
+    display: none;
+    margin-top: 8px;
+    padding: 6px 4px 8px 4px;
+    background-color: var(--wjx-card-bg);
+    box-shadow: var(--wjx-shadow-black);
+    border: var(--style-border);
+    animation: 0.3s ease 0.1s 1 normal both running sub_menus;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: 0.3s;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    top: 35px;
+}
+
+#nav .menus_items .menus_item .menus_item_child::before {
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    width: 100%;
+    height: 20px;
+    content: "";
+}
+
+#nav .menus_items .menus_item .menus_item_child:hover {
+    border: var(--style-border-hover);
+    box-shadow: var(--wjx-shadow-main);
+}
+
+#nav .menus_items .menus_item .menus_item_child > .recursion_menus_item:hover > a {
+    padding: 0.3rem 0.5rem;
+    background: var(--wjx-lighttext) !important;
+    color: var(--wjx-card-bg) !important;
+    box-shadow: var(--wjx-shadow-main);
+    margin: 0 auto;
+    transform: scale(1) !important;
+}
+
+#nav .menus_items .menus_item .menus_item_child > .recursion_menus_item a i:not(.fa-brands) {
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+#nav .menus_items .menus_item .menus_item_child > .recursion_menus_item {
+    display: inline-flex;
+    list-style: none;
+    border-radius: 5px;
+    margin: 0 4px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#nav .menus_items .menus_item .recursion_menus_item > .menus_item_child {
+    margin-top: 24px;
+}
+
+#nav .menus_items .menus_item .recursion_menus_item > .menus_item_child:before {
+    top: -20px;
+}
+
+/* -------------------- 子菜单项样式 -------------------- */
+
+#nav .menus_items .menus_item .menus_item_child {
+    padding: 2px 2px 4px 2px;
+    border-radius: 1.5rem;
+}
+
+#nav .menus_items .menus_item .menus_item_child > .recursion_menus_item:hover > a {
+    padding: 0.2rem 0.5rem;
+}
+
+#nav .menus_items .menus_item .menus_item_child > .recursion_menus_item > a {
+    letter-spacing: 0rem;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    padding: 0.2rem 0.5rem;
+    width: 100%;
+    color: var(--wjx-fontcolor) !important;
+    text-shadow: none !important;
+}
+
+/* -------------------- 固定导航栏菜单调整 -------------------- */
+
+#page-header.nav-fixed #nav #menus[style*="padding-right: 300px;"] .menus_items {
+    transform: translateX(-150px);
+}
+
+#page-header.nav-fixed #nav #menus > div.menus_items {
+    transition: 0.3s;
+    height: 40px;
+    margin: auto 0;
+}
+
+/* -------------------- 页面内容样式 -------------------- */
+
+#nav .site-page {
+    position: relative;
+    padding-bottom: 0.3rem;
+    text-shadow: rgba(0, 0, 0, 0.3) 0.05rem 0.05rem 0.1rem;
+    font-size: 0.78em;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.site-page i.fa-chevron-down {
+    display: none;
+}
+
+/* -------------------- 竖向菜单 -------------------- */
+
+#nav .menus_items .menus_item .menus_item_child.vertical_nav > .recursion_menus_item {
+    display: flex;
+    list-style: none;
+    border-radius: 5px;
+    margin: 0 4px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* -------------------- 下拉图标 -------------------- */
+
+#nav .menus_items .menus_item i.expand {
+    display: none;
+}
+
+/* -------------------- 第三级之后的菜单列 -------------------- */
+
+#nav .menus_items .menus_item .menus_item_child > .recursion_menus_item > .menus_item_child.vertical_nav {
+    margin-top: 24px;
+    border-radius: 24px;
+    padding: 2px 0px;
+}
+
+/* -------------------- 第三级之后的菜单项 -------------------- */
+
+#nav .menus_items .recursion_menus_item .menus_item_child.vertical_nav > .recursion_menus_item {
+    display: flex;
+    margin-top: 4px;
+    padding: 2px 0;
+}
+
+#nav .menus_items .recursion_menus_item .menus_item_child.vertical_nav > .recursion_menus_item:nth-child(1) {
+    margin-top: 0;
+}
+
+/* -------------------- 第四级以后的菜单列 -------------------- */
+
+#nav .menus_items .recursion_menus_item > .menus_item_child.vertical_nav > .recursion_menus_item > .menus_item_child {
+    position: absolute;
+    left: calc(100% + 12px);
+    top: 0;
+    margin-top: 0;
+}
+
+#nav .menus_items .recursion_menus_item > .menus_item_child.vertical_nav > .recursion_menus_item > .menus_item_child:before {
+    left: -20px;
+    height: 100%;
+    width: 30px;
+    top: 0;
+}

@@ -1,0 +1,97 @@
+/* 文章details折叠 */
+details:not(.tk-admin-config-group):not(.card-friend-class-name) {
+    display: block;
+    position: relative;
+    margin-bottom: 1rem;
+    min-height: 54px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: var(--style-border);
+    transition: border 0.3s;
+}
+
+details:not(.tk-admin-config-group):not(.card-friend-class-name):hover {
+    border: var(--style-border-hover-always);
+}
+
+details:not(.tk-admin-config-group):not(.card-friend-class-name) summary {
+    position: absolute;
+    padding: 0.5rem 1rem;
+    background: var(--wjx-card-bg);
+    margin: 0;
+    transition: 0.3s;
+    box-shadow: var(--wjx-shadow-border);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    font-weight: bold;
+    white-space: nowrap; /* 禁止换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 超出部分用省略号表示 */
+}
+
+details:not(.tk-admin-config-group):not(.card-friend-class-name) > *:nth-child(2) {
+    margin-top: calc(54px + 1rem) !important;
+}
+
+details[open]:not(.tk-admin-config-group):not(.card-friend-class-name) summary {
+    background: var(--wjx-main);
+    color: var(--wjx-white);
+}
+
+details:not(.tk-admin-config-group):not(.card-friend-class-name) summary::before {
+    content: '';
+    padding: 4px;
+}
+
+details:not(.tk-admin-config-group):not(.card-friend-class-name) summary:hover {
+    cursor: pointer;
+    background: var(--wjx-main);
+    color: var(--wjx-white);
+    transition: 0.3s;
+    box-shadow: var(--wjx-shadow-main);
+}
+
+details:not(.tk-admin-config-group):not(.card-friend-class-name) summary:focus {
+    outline: none;
+}
+
+details:not(.tk-admin-config-group):not(.card-friend-class-name) summary::marker {
+    color: var(--wjx-main);
+    transition: 0.3s;
+}
+
+details[open]:not(.tk-admin-config-group):not(.card-friend-class-name) summary::marker {
+    color: var(--wjx-white);
+}
+
+details:not(.tk-admin-config-group):not(.card-friend-class-name) summary:hover::marker {
+    color: var(--wjx-white);
+}
+
+details[open]:not(.tk-admin-config-group):not(.card-friend-class-name) {
+    border-radius: 12px;
+    border: var(--style-border-hover-always);
+    padding: 0 1.5rem;
+    background: var(--wjx-card-bg);
+}
+
+details:not(.tk-admin-config-group):not(.card-friend-class-name) summary:hover:after {
+    position: absolute;
+    content: '+';
+    text-align: center;
+    top: calc(50% - 2px);
+    transform: translateY(-50%);
+    right: 16px;
+    line-height: 1;
+}
+
+details[open]:not(.tk-admin-config-group):not(.card-friend-class-name) > summary:hover:after {
+    content: '-';
+}
+
+@media screen and (max-width: 768px) {
+    details[open]:not(.tk-admin-config-group):not(.card-friend-class-name) {
+        padding: 0 16px;
+    }
+}

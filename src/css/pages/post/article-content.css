@@ -1,0 +1,840 @@
+/* ========================================
+   文章内容混合样式
+   迁移自: styles/common/nav/navbar-icon-shadow.css
+   包含: article-container, gallery, hide-block 等
+   ======================================== */
+
+/* -------------------- 评论相关 -------------------- */
+
+#vcomment,
+#waline {
+    font-size: 1.1em;
+}
+
+#vcomment .vbtn,
+#waline .vbtn {
+    border: none;
+    background: var(--btn-bg);
+    color: var(--btn-color);
+}
+
+#vcomment .vbtn:hover,
+#waline .vbtn:hover {
+    background: var(--btn-hover-color);
+}
+
+#vcomment .vimg,
+#waline .vimg {
+    transition: all 0.3s ease 0s;
+}
+
+#vcomment .vimg:hover,
+#waline .vimg:hover {
+    transform: rotate(360deg);
+}
+
+#vcomment .vcards .vcard .vcontent.expand::after,
+#vcomment .vcards .vcard .vcontent.expand::before,
+#waline .vcards .vcard .vcontent.expand::after,
+#waline .vcards .vcard .vcontent.expand::before {
+    z-index: 22;
+}
+
+/* -------------------- 烟花效果 -------------------- */
+
+.fireworks {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* -------------------- 图片缩放 -------------------- */
+
+.medium-zoom-image--opened {
+    z-index: 99999 !important;
+    margin: 0px !important;
+}
+
+.medium-zoom-overlay {
+    z-index: 99999 !important;
+}
+
+/* -------------------- Mermaid 图表 -------------------- */
+
+.mermaid {
+    overflow: auto;
+    margin: 0px 0px 1rem;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+}
+
+.mermaid[data-processed] {
+    opacity: 1;
+    filter: none;
+}
+
+/* -------------------- 评论框架 -------------------- */
+
+.fb-comments iframe,
+.utterances {
+    width: 100% !important;
+}
+
+#gitalk-container .gt-meta {
+    margin: 0px 0px 0.8em;
+    padding: 0.3rem 0px 0.8em;
+}
+
+/* -------------------- 数学公式 -------------------- */
+
+.katex-wrap {
+    overflow: auto;
+}
+
+.katex-wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.mathjax-overflow {
+    overflow: auto hidden;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+    overflow: auto hidden;
+    padding-bottom: 0.3rem;
+}
+
+/* -------------------- APlayer 音乐播放器 -------------------- */
+
+#article-container .aplayer {
+    margin: 0px 0px 1rem;
+}
+
+#article-container .aplayer ol,
+#article-container .aplayer ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#article-container .aplayer ol li,
+#article-container .aplayer ul li {
+    margin: 0px;
+    padding: 0px 15px;
+}
+
+#article-container .aplayer ol li::before,
+#article-container .aplayer ul li::before {
+    content: none;
+}
+
+/* -------------------- 按钮美化 -------------------- */
+
+#article-container .btn-center {
+    margin: 0px 0px 1rem;
+    text-align: center;
+}
+
+#article-container .btn-beautify {
+    display: inline-block;
+    margin: 0px 0.2rem 0.3rem;
+    padding: 0px 1rem;
+    background-color: rgb(119, 119, 119);
+    color: rgb(255, 255, 255);
+    line-height: 2;
+}
+
+#article-container .btn-beautify i + span {
+    margin-left: 0.3rem;
+}
+
+#article-container .btn-beautify:not(.block) + .btn-beautify:not(.block) {
+    margin: 0px 0.2rem 1rem;
+}
+
+#article-container .btn-beautify.block {
+    display: block;
+    margin: 0px 0px 1rem;
+    width: fit-content;
+}
+
+#article-container .btn-beautify.block.center {
+    margin: 0px auto 1rem;
+}
+
+#article-container .btn-beautify.block.right {
+    margin: 0px 0px 1rem auto;
+}
+
+#article-container .btn-beautify.larger {
+    padding: 0.3rem 1.3rem;
+}
+
+#article-container .btn-beautify:hover {
+    text-decoration: none;
+}
+
+#article-container .btn-beautify.blue {
+    background-color: rgb(66, 139, 202);
+}
+
+#article-container .btn-beautify.pink {
+    background-color: rgb(255, 105, 180);
+}
+
+#article-container .btn-beautify.red {
+    background-color: red;
+}
+
+#article-container .btn-beautify.purple {
+    background-color: rgb(111, 66, 193);
+}
+
+#article-container .btn-beautify.orange {
+    background-color: rgb(255, 140, 0);
+}
+
+#article-container .btn-beautify.green {
+    background-color: rgb(92, 184, 92);
+}
+
+#article-container .btn-beautify.outline {
+    border: 1px solid rgb(119, 119, 119);
+    background-color: transparent;
+    color: rgb(119, 119, 119);
+    transition: all 0.3s ease 0s;
+}
+
+#article-container .btn-beautify.outline.button--animated::before {
+    background: rgb(119, 119, 119);
+}
+
+#article-container .btn-beautify.outline:hover {
+    color: rgb(255, 255, 255) !important;
+}
+
+#article-container .btn-beautify.outline.blue {
+    border-color: rgb(66, 139, 202);
+    color: rgb(66, 139, 202);
+}
+
+#article-container .btn-beautify.outline.blue.button--animated::before {
+    background: rgb(66, 139, 202);
+}
+
+#article-container .btn-beautify.outline.pink {
+    border-color: rgb(255, 105, 180);
+    color: rgb(255, 105, 180);
+}
+
+#article-container .btn-beautify.outline.pink.button--animated::before {
+    background: rgb(255, 105, 180);
+}
+
+#article-container .btn-beautify.outline.red {
+    border-color: red;
+    color: red;
+}
+
+#article-container .btn-beautify.outline.red.button--animated::before {
+    background: red;
+}
+
+#article-container .btn-beautify.outline.purple {
+    border-color: rgb(111, 66, 193);
+    color: rgb(111, 66, 193);
+}
+
+#article-container .btn-beautify.outline.purple.button--animated::before {
+    background: rgb(111, 66, 193);
+}
+
+#article-container .btn-beautify.outline.orange {
+    border-color: rgb(255, 140, 0);
+    color: rgb(255, 140, 0);
+}
+
+#article-container .btn-beautify.outline.orange.button--animated::before {
+    background: rgb(255, 140, 0);
+}
+
+#article-container .btn-beautify.outline.green {
+    border-color: rgb(92, 184, 92);
+    color: rgb(92, 184, 92);
+}
+
+#article-container .btn-beautify.outline.green.button--animated::before {
+    background: rgb(92, 184, 92);
+}
+
+/* -------------------- 图库组 -------------------- */
+
+.gallery-group {
+    width: calc(33.33% - 8px) !important;
+}
+
+figure.gallery-group {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 6px 4px;
+    width: calc(50% - 8px);
+    height: 250px;
+    border-radius: 8px;
+    background: #000;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+@media screen and (max-width: 600px) {
+    figure.gallery-group {
+        width: calc(100% - 8px);
+    }
+}
+
+figure.gallery-group:hover img {
+    opacity: 0.4;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+figure.gallery-group:hover .gallery-group-name::after {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+#aside-content .aside-list > .aside-list-item .content > .comment,
+#aside-content .aside-list > .aside-list-item .content > .name,
+#aside-content .aside-list > .aside-list-item .content > .title,
+#error-wrap .error-content .error-info .error_subtitle,
+#post-info .post-title,
+#recent-posts > .recent-post-item > .recent-post-info > .article-title,
+#recent-posts > .recent-post-item > .recent-post-info > .content,
+.article-sort-item-title,
+.limit-more-line,
+.relatedPosts > .relatedPosts-list .content .title,
+figure.gallery-group .gallery-group-name,
+figure.gallery-group p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+figure.gallery-group:hover p {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+figure.gallery-group img {
+    position: relative;
+    margin: 0;
+    max-width: none;
+    width: calc(100% + 20px);
+    height: 250px;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    opacity: 0.8;
+    -webkit-transition: all 0.3s, filter 375ms ease-in 0.2s;
+    -moz-transition: all 0.3s, filter 375ms ease-in 0.2s;
+    -o-transition: all 0.3s, filter 375ms ease-in 0.2s;
+    -ms-transition: all 0.3s, filter 375ms ease-in 0.2s;
+    transition: all 0.3s, filter 375ms ease-in 0.2s;
+    -webkit-transform: translate3d(-10px, 0, 0);
+    -moz-transform: translate3d(-10px, 0, 0);
+    -o-transform: translate3d(-10px, 0, 0);
+    -ms-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+    object-fit: cover;
+}
+
+figure.gallery-group figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+figure.gallery-group figcaption > a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    opacity: 0;
+}
+
+figure.gallery-group p {
+    margin: 0;
+    padding: 8px 0 0;
+    letter-spacing: 1px;
+    font-size: 1.1em;
+    line-height: 1.5;
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    -moz-transition: opacity 0.35s, -moz-transform 0.35s;
+    -o-transition: opacity 0.35s, -o-transform 0.35s;
+    -ms-transition: opacity 0.35s, -ms-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -o-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    -webkit-line-clamp: 4;
+}
+
+figure.gallery-group .gallery-group-name {
+    position: relative;
+    margin: 0;
+    padding: 8px 0;
+    font-weight: 700;
+    font-size: 1.65em;
+    line-height: 1.5;
+    -webkit-line-clamp: 2;
+}
+
+figure.gallery-group .gallery-group-name:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    content: "";
+    -webkit-transition: -webkit-transform 0.35s;
+    -moz-transition: -moz-transform 0.35s;
+    -o-transition: -o-transform 0.35s;
+    -ms-transition: -ms-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -o-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+
+.gallery-group-main {
+    overflow: auto;
+    padding: 0 0 16px;
+}
+
+.justified-gallery {
+    margin: 0px 0px 0.8rem;
+}
+
+.justified-gallery img {
+    opacity: 0;
+}
+
+.justified-gallery .img-alt {
+    display: none;
+}
+
+.justified-gallery .fancybox {
+    width: auto;
+    text-align: inherit;
+}
+
+/* -------------------- 引用块 -------------------- */
+
+blockquote.pullquote {
+    position: relative;
+    max-width: 45%;
+    font-size: 110%;
+}
+
+blockquote.pullquote.left {
+    float: left;
+    margin: 1em 0.5em 0px 0px;
+}
+
+blockquote.pullquote.right {
+    float: right;
+    margin: 1em 0px 0px 0.5rem;
+}
+
+/* -------------------- 视频容器 -------------------- */
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+    padding-top: 56.25%;
+    height: 0px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+/* -------------------- 隐藏块 -------------------- */
+
+.hide-block > .hide-button,
+.hide-inline > .hide-button {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background: rgb(48, 122, 246);
+    color: var(--white);
+}
+
+.hide-block > .hide-button.open,
+.hide-inline > .hide-button.open {
+    display: none;
+}
+
+.hide-block > .hide-button.open + div,
+.hide-inline > .hide-button.open + div {
+    display: block;
+}
+
+.hide-block > .hide-button.open + span,
+.hide-inline > .hide-button.open + span {
+    display: inline;
+}
+
+.hide-block > .hide-content,
+.hide-inline > .hide-content {
+    display: none;
+}
+
+.hide-inline > .hide-button {
+    margin: 0px 0.3rem;
+}
+
+.hide-inline > .hide-content {
+    margin: 0px 0.3rem;
+}
+
+.hide-block {
+    margin: 0px 0px 0.8rem;
+}
+
+.hide-toggle {
+    margin-bottom: 1rem;
+    border: 1px solid rgb(240, 240, 240);
+}
+
+.hide-toggle > .hide-button {
+    padding: 0.3rem 0.5rem;
+    background: rgb(240, 240, 240);
+    color: rgb(31, 45, 61);
+    cursor: pointer;
+}
+
+.hide-toggle > .hide-button > i {
+    font-size: 1.2em;
+    transition: all 0.3s ease 0s;
+}
+
+.hide-toggle > .hide-button.open i {
+    transform: rotate(90deg);
+}
+
+.hide-toggle > .hide-button.open + div {
+    display: block;
+}
+
+.hide-toggle > .hide-content {
+    display: none;
+    margin: 1.5rem 1.2rem;
+}
+
+/* -------------------- 内联图片 -------------------- */
+
+#article-container .inline-img {
+    display: inline;
+    margin: 0px 3px;
+    height: 1.1em;
+    vertical-align: text-bottom;
+}
+
+/* -------------------- 高亮标签 -------------------- */
+
+.hl-label {
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+}
+
+.hl-label.default {
+    background-color: rgb(119, 119, 119);
+}
+
+.hl-label.blue {
+    background-color: rgb(66, 139, 202);
+}
+
+.hl-label.pink {
+    background-color: rgb(255, 105, 180);
+}
+
+.hl-label.red {
+    background-color: red;
+}
+
+.hl-label.purple {
+    background-color: rgb(111, 66, 193);
+}
+
+.hl-label.orange {
+    background-color: rgb(255, 140, 0);
+}
+
+.hl-label.green {
+    background-color: rgb(92, 184, 92);
+}
+
+/* -------------------- 标签页 -------------------- */
+
+#article-container .tabs {
+    position: relative;
+    margin: 0px 0px 1rem;
+    border-right: 1px solid var(--tab-border-color);
+    border-bottom: 1px solid var(--tab-border-color);
+    border-left: 1px solid var(--tab-border-color);
+}
+
+#article-container .tabs > .nav-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 0px;
+    background: var(--tab-botton-bg);
+}
+
+#article-container .tabs > .nav-tabs > .tab {
+    margin: 4px;
+    padding: 0px;
+    list-style: none;
+}
+
+@media screen and (max-width: 768px) {
+    #article-container .tabs > .nav-tabs > .tab {
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+    }
+}
+
+#article-container .tabs > .nav-tabs > .tab button i {
+    width: 1.5em;
+}
+
+#article-container .tabs > .nav-tabs > .tab.active button {
+    border-top: 2px solid rgb(48, 122, 246);
+    background: var(--tab-button-active-bg);
+    cursor: default;
+}
+
+#article-container .tabs > .nav-tabs > .tab:not(.active) button:hover {
+    border-top: 2px solid var(--tab-button-hover-bg);
+    background: var(--tab-button-hover-bg);
+}
+
+#article-container .tabs > .tab-contents .tab-item-content {
+    position: relative;
+    display: none;
+    padding: 1.8rem 1.2rem;
+    background: var(--wjx-background);
+    border: var(--style-border-always);
+}
+
+@media screen and (max-width: 768px) {
+    #article-container .tabs > .tab-contents .tab-item-content {
+        padding: 1.2rem 0.7rem;
+    }
+}
+
+#article-container .tabs > .tab-contents .tab-item-content.active {
+    display: block;
+    animation: 0.5s ease 0s 1 normal none running tabshow;
+}
+
+#article-container .tabs .tab-to-top {
+    position: relative;
+    display: block;
+    margin: 16px 0px 0px auto;
+    color: rgb(153, 169, 191);
+}
+
+@-webkit-keyframes tabshow {
+    0% {
+        transform: translateY(15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes tabshow {
+    0% {
+        transform: translateY(15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* -------------------- 加粗文本颜色 -------------------- */
+
+b,
+strong {
+    color: var(--wjx-lighttext);
+}
+
+/* -------------------- 列表点样式 -------------------- */
+
+#article-container ul > li:not(.tab):hover:before {
+    border-color: var(--wjx-none);
+}
+
+/* -------------------- 列表编号样式 -------------------- */
+
+#article-container ol li:before,
+#article-container ul li:before {
+    background: var(--wjx-main);
+    cursor: default;
+}
+
+#article-container ol li:hover:before,
+#article-container ul li:hover:before {
+    transform: rotate(0deg);
+}
+
+#article-container .gutter {
+    opacity: 0.6;
+}
+
+#article-container .code-lang {
+    margin-left: 6px;
+}
+
+/* -------------------- 文章超链接 -------------------- */
+
+#article-container a {
+    text-decoration: none;
+    border-bottom: 2px dotted var(--wjx-main);
+    color: var(--wjx-fontcolor);
+    font-weight: 700;
+    padding: 0 4px;
+    border-radius: 4px 4px 0 0
+}
+
+#article-container .site-card:hover a:not(.fancybox) {
+    text-decoration: none;
+    border-bottom: 2px solid var(--wjx-none);
+    color: var(--wjx-white);
+    background: var(--wjx-main);
+    box-shadow: var(--wjx-shadow-main)
+}
+
+#article-container a.fancybox {
+    border-bottom: 0;
+    padding: 0;
+    margin: auto;
+    display: contents;
+    width: fit-content;
+    -webkit-user-select: none
+}
+
+#article-container a.fancybox img,
+#article-container a.fancybox picture {
+    cursor: zoom-in
+}
+
+.site-card-avatar a.fancybox {
+    padding: 0 !important;
+}
+
+#article-container p {
+    margin: 1rem 0;
+    text-align: left;
+    letter-spacing: 0.6px;
+}
+
+/* -------------------- 文章引用 -------------------- */
+
+blockquote {
+    border: var(--style-border-always);
+    background-color: var(--wjx-secondbg);
+    color: var(--wjx-secondtext);
+    border-radius: 8px;
+    margin: 1rem 0;
+    padding: 0.5rem 0.8rem;
+}
+
+blockquote p {
+    padding: 0;
+}
+
+/* -------------------- 文章表格间距 -------------------- */
+
+.table-wrap {
+    margin: 1rem 0px;
+    border-radius: 8px;
+}
+
+table th,
+table td {
+    border: var(--style-border-always);
+}
+
+table thead {
+    background: var(--wjx-secondbg);
+}
+
+/* -------------------- 文章 Tips -------------------- */
+
+.post-tips {
+    color: var(--wjx-gray);
+    font-size: 14px;
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+}
+
+.post-tips a {
+    color: var(--wjx-gray) !important;
+    border: none !important;
+}
+
+.post-tips a:hover {
+    color: var(--wjx-main) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .post-tips {
+        left: 1rem;
+    }
+}
+

@@ -1,0 +1,493 @@
+/* ========================================
+   页脚样式
+   合并自: footer-background-color.css, footer-base-background.css, 
+          footer-style-1.css, footer-style.css, logo-center.css,
+          new-footer.css, v3-footer.css
+   ======================================== */
+
+/* -------------------- footer背景色 -------------------- */
+
+#footer {
+    background: linear-gradient(180deg, var(--wjx-card-bg-none) 0%, var(--wjx-card-bg) 25%);
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    /* z-index: 1002; */
+}
+
+@media screen and (max-width: 768px) {
+    #footer {
+        background: linear-gradient(180deg, var(--wjx-background) 0%, var(--wjx-card-bg) 25%);
+        margin-top: 0;
+        z-index: 3;
+    }
+}
+
+/* -------------------- 页脚底层背景 -------------------- */
+
+#footer:before {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    content: '' !important;
+    z-index: -1;
+}
+
+
+div#wjx-footer-bar {
+    display: none
+}
+
+.post div#wjx-footer-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px
+}
+
+div#wjx-footer-bar a.footer-bar-link {
+    padding: 4px 16px;
+    background: var(--wjx-secondbg);
+    border-radius: 20px;
+    margin-top: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    border: var(--style-border-always)
+}
+
+div#wjx-footer-bar a.footer-bar-link:hover {
+    background: var(--wjx-main);
+    color: var(--wjx-white);
+    transform: scale(1.1);
+    border-color: var(--wjx-main)
+}
+
+div#wjx-footer-bar .footer-logo {
+    font-size: 24px
+}
+
+div#wjx-footer-bar .footer-bar-description {
+    color: var(--wjx-secondtext);
+    font-weight: 700
+}
+
+/* -------------------- 页脚样式 -------------------- */
+
+#footer-wrap {
+    color: var(--wjx-fontcolor);
+}
+
+#footer-wrap a {
+    color: var(--wjx-fontcolor);
+    height: 44px;
+    line-height: 36px;
+}
+
+#footer-wrap a:hover {
+    color: var(--wjx-hovertext);
+    background-color: var(--wjx-none);
+}
+
+div#footer_deal {
+    justify-content: center;
+    display: flex;
+    padding-top: 2rem;
+    align-items: center;
+}
+
+/* -------------------- 页脚动画样式 -------------------- */
+
+.icon.icon-heartbeat {
+    transition: 0.3s;
+    animation: heartbeat-bounce 2s ease-in-out infinite;
+    -webkit-font-smoothing: antialiased;
+    display: var(--fa-display, inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+
+.github-badge {
+    color: inherit;
+    text-decoration: inherit;
+    display: inline-flex;
+}
+
+#ghbdages .github-badge img {
+    height: 20px;
+    max-width: 150px;
+    border-radius: 4px;
+    pointer-events: none
+}
+
+#workboard img.boardsign {
+    width: 100%;
+    max-width: 130px;
+    border-radius: 0
+}
+
+@keyframes heartbeat-bounce {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10%,
+    30% {
+        transform: scale(0.9);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: scale(1.1);
+    }
+    50%,
+    70% {
+        transform: scale(1.1);
+    }
+}
+
+#workboard {
+    font-size: 12px;
+}
+
+/* -------------------- logo居中 -------------------- */
+
+#weblogo {
+    align-self: center;
+}
+
+#footer-wrap a#wjxblog_footerlogo:hover {
+    background: var(--wjx-none);
+}
+
+.wjxblog_footerlogo_img {
+    filter: drop-shadow(0 12px 12px #ee7d7936);
+}
+
+.wjxblog_footerlogo_img:hover {
+    transform: scale(1.03);
+}
+
+/* -------------------- 新页脚布局 -------------------- */
+
+@media screen and (max-width: 768px) {
+    #letlink {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    #letlogo {
+        display: none !important;
+    }
+
+    #footer-wrap {
+        margin-top: 1rem !important;
+    }
+    
+}
+
+.footer-bar-right {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 50px 0px 50px;
+    text-align: left !important;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+#footer-wrap h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+#footer-wrap h3 {
+    padding: 0 12px;
+}
+
+#footer-wrap p {
+    margin: 0 0 0 0.2rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+#footer-wrap i {
+    margin-right: 0.5rem;
+    width: 22px;
+    font-size: 18px;
+    display: inline-block;
+}
+
+#footer-wrap #letlogo {
+    display: flex;
+    flex-direction: column;
+    margin-right: 60px;
+    align-self: center;
+    margin: auto 0;
+    max-width: 200px;
+}
+
+#footer-wrap #letlink .link_group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    min-width: 180px;
+}
+
+#footer-wrap #letlink {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 0 1rem 0;
+}
+
+#weblogo i {
+    font-size: 2rem;
+    line-height: 2rem;
+    letter-spacing: -10px;
+}
+
+/* -------------------- v3页脚 -------------------- */
+
+#wjx-footer .footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+#wjx-footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+    margin: 1rem auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+#wjx-footer .footer-item {
+    font-size: .8rem;
+    line-height: .8rem;
+    margin: 4px 0;
+    color: var(--wjx-fontcolor);
+    margin-right: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 120px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 12px
+}
+
+#wjx-footer .footer-item:hover {
+    color: var(--wjx-lighttext);
+    background: var(--wjx-main-op-light)
+}
+
+[data-theme=dark] #wjx-footer .footer-item:hover {
+    background: var(--wjx-main-op)
+}
+
+#wjx-footer .footer-group {
+    min-width: 120px;
+}
+
+#wjx-footer .footer-title-group {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0 0.7rem 0;
+    color: var(--wjx-secondtext);
+    font-size: .8rem;
+    margin-left: 8px
+}
+
+#wjx-footer .footer-title-group a,
+#wjx-footer .footer-title-group button {
+    margin-left: 8px;
+}
+
+#wjx-footer .footer-title-group i {
+    line-height: 1;
+    color: var(--wjx-secondtext);
+    transition: 0.3s;
+    font-size: 12px;
+}
+
+
+#wjx-footer .footer-title-group a:hover i,
+#wjx-footer .footer-title-group button:hover i {
+    color: var(--wjx-main);
+}
+
+#wjx-footer .footer-title-group .footer-title {
+    margin: 0;
+}
+
+#wjx-footer .random-friends-btn {
+    display: flex;
+}
+
+#wjx-footer .footer-title {
+    color: var(--wjx-secondtext);
+    font-size: .8rem;
+    margin-left: 8px
+}
+
+#footer-bar {
+    padding: 1rem;
+    color: var(--wjx-fontcolor);
+    margin-top: 1rem;
+    background: var(--wjx-secondbg);
+    display: flex;
+    overflow: hidden;
+    z-index: 999;
+    transition: 0.3s;
+    border-top: var(--style-border-always);
+}
+
+#footer-bar .footer-bar-links {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: 1;
+}
+
+#footer-bar .footer-bar-left {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 32px;
+    align-items: center;
+}
+
+#footer-bar .footer-bar-link {
+    margin: 0 4px;
+    color: var(--wjx-fontcolor);
+    font-size: .8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    padding: 8px;
+    border-radius: 32px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#footer-bar .footer-bar-link.cc {
+    margin-right: 0rem;
+}
+
+#footer-bar .footer-bar-link.cc i:not(:last-child) {
+    margin-right: .5rem
+}
+
+#footer-bar .footer-bar-link.cc i {
+    font-size: 18px;
+}
+
+#footer-bar .footer-bar-link:hover {
+    color: var(--wjx-lighttext);
+    background: var(--wjx-main-op)
+}
+
+#footer-bar > div > div.footer-bar-left > span {
+    margin-right: 1rem;
+}
+
+#footer-bar .footer-bar-right a:hover {
+    color: var(--wjx-lighttext);
+}
+
+#footer_deal i {
+    font-size: 0.9rem;
+    line-height: 0.9rem;
+    height: 0.9rem;
+}
+
+
+#footer-bar .copyright-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#footer-bar .compliance-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#footer-bar .compliance-group .footer-bar-link {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0;
+    color: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+#footer-bar .compliance-group .footer-bar-link:hover {
+    background: none;
+}
+
+#footer-bar-tips {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+#copyright-logo {
+    width: 20px;
+    border-radius: 20px;
+    height: 20px;
+}
+
+.status-light::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--wjx-green);   
+}
+
+.status-light {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--wjx-green-op-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    #footer-bar .copyright-group,
+    #footer-bar .compliance-group {
+        justify-content: center;
+    }
+    #footer-bar .footer-bar-right {
+        order: 1;
+    }
+    #footer-bar .footer-bar-left {
+        order: 2;
+    }
+}

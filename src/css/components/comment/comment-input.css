@@ -1,0 +1,83 @@
+/* ========================================
+   评论输入框样式
+   合并自: comment-input.css, when-user-click-input-when-show.css
+   ======================================== */
+
+/* -------------------- 输入框基础样式 -------------------- */
+
+.el-textarea__inner {
+    background: var(--wjx-secondbg) !important;
+    color: var(--wjx-fontcolor) !important;
+    border-radius: 12px !important;
+    min-height: 100px !important;
+    padding: 16px 16px 40px 16px !important;
+    border: var(--style-border-always) !important;
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 768px) {
+    .el-textarea__inner {
+        background: var(--card-bg) !important;
+        overflow: hidden;
+        resize: none !important;
+    }
+}
+
+#page .el-textarea__inner {
+    background: var(--wjx-card-bg) !important;
+    box-shadow: var(--wjx-shadow-border);
+}
+
+.el-textarea__inner:focus {
+    border: var(--style-border-hover-always) !important;
+    box-shadow: var(--wjx-shadow-main);
+}
+
+#page .tk-meta-input .el-input {
+    box-shadow: var(--wjx-shadow-border);
+}
+
+#twikoo .tk-row .tk-col {
+    flex-direction: column-reverse !important;
+}
+
+.el-input--small .el-input__inner {
+    padding: 8px;
+    padding-left: 16px
+}
+
+/* -------------------- 用户点击输入框显示效果 -------------------- */
+
+.el-input.el-input--small.el-input-group.el-input-group--prepend:focus-within::before {
+    display: block;
+    animation: commonTipsIn 0.3s;
+}
+
+.el-input.el-input--small.el-input-group.el-input-group--prepend:focus-within::after {
+    display: block;
+    animation: commonTriangleIn 0.3s;
+}
+
+@keyframes commonTipsIn {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+
+    100% {
+        top: -55px;
+        opacity: 1;
+    }
+}
+
+@keyframes commonTriangleIn {
+    0% {
+        transform: translate(-50%, -36px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -46px);
+        opacity: 1;
+    }
+}

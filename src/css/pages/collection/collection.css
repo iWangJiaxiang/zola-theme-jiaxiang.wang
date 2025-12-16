@@ -1,0 +1,132 @@
+/* 合集系列页面 */
+.collection-breadcrumb {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+.collection-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+}
+.collection-breadcrumb a:hover {
+    text-decoration: underline;
+}
+.collection-breadcrumb .separator {
+    margin: 0 0.5rem;
+    opacity: 0.6;
+}
+.tree-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color-secondary);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.tree-toggle.active {
+    transform: rotate(180deg);
+}
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .collection-tree {
+        max-height: 400px;
+    }
+}
+.separator {
+    margin: 0 0.5rem;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+.collection-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.collection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.collection-header {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+.collection-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.collection-cover-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+.collection-body {
+    padding: 1.5rem;
+}
+.collection-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.collection-title a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.collection-title a:hover {
+    color: var(--theme-color);
+}
+.collection-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+}
+.collection-meta i {
+    margin-right: 0.5rem;
+}
+.collection-description {
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+.collection-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.tag {
+    background: var(--wjx-theme-op-deep);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+@media (max-width: 768px) {
+    .collections-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .collection-header {
+        height: 150px;
+    }
+    
+    .collection-body {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,41 @@
+/* ========================================
+   搜索样式
+   合并自: search.css, search-result-text.css
+   ======================================== */
+
+/* -------------------- 搜索按钮 -------------------- */
+
+#search-button > a > span {
+    display: none;
+}
+
+/* -------------------- 搜索结果 -------------------- */
+
+#site-search .ais-hits--item.algolia-hit-item a {
+    color: var(--wjx-fontcolor);
+}
+
+#site-search .search-dialog .ais-hits--item.algolia-hit-item a {
+    color: var(--wjx-fontcolor);
+    width: auto;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* -------------------- 标签列表 -------------------- */
+
+#algolia-hits .tag-list {
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    border: var(--style-border-always);
+    cursor: pointer;
+}
+
+#algolia-hits .tag-list:hover {
+    background: var(--wjx-main);
+    color: var(--wjx-white);
+}

@@ -1,0 +1,441 @@
+/* 喜欢的游戏 lol */
+.author-content-item.game-lol {
+    /* background: url(https://.webp) no-repeat top; */
+    background-color: #08AEEA;
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    background-size: cover;
+    min-height: 300px;
+    overflow: hidden;
+    color: var(--wjx-white);
+    width: 59%;
+}
+
+.author-content-item .card-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .author-content-item .card-content {
+        padding: 1rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .author-content-item {
+        animation: slide-in .6s 0s backwards
+    }
+}
+
+.author-content-item.game-lol::after {
+    box-shadow: 0 -69px 203px 11px #575d8b inset;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.loading-bar {
+    position: absolute;
+    /* top: 50%;
+    left: 50%; */
+    width: 500px;
+    height: 62.5px;
+    transform: translate(-25%, -50%) scale(0.5);
+    transition: all 0.5s;
+    user-select: none;
+    overflow: hidden;
+}
+
+.author-content-item.game-lol:hover .loading-bar::after {
+    animation: loading-bar 3.5s cubic-bezier(0.28, 0.11, 0.32, 1) infinite forwards;
+}
+
+@keyframes loading-bar {
+    0% {
+        width: 0;
+        background-size: 500px 62.5px;
+    }
+    16.6% {
+    }
+    33.2% {
+    }
+    49.8% {
+    }
+    66.4% {
+    }
+    83% {
+        width: 475px;
+    }
+    83.1% {
+        width: 475px;
+    }
+    83.2% {
+        width: 475px;
+    }
+    83.3% {
+        width: 475px;
+    }
+    83.4% {
+        width: 475px;
+    }
+    83.5% {
+        width: 475px;
+    }
+    83.6% {
+        width: 475px;
+    }
+    83.7% {
+        width: 475px;
+    }
+    83.8% {
+        width: 475px;
+    }
+    83.9% {
+        width: 475px;
+    }
+    84% {
+        width: 475px;
+    }
+    85% {
+        width: 475px;
+    }
+    86% {
+        width: 475px;
+    }
+    87% {
+        width: 475px;
+    }
+    100% {
+        width: 500px;
+    }
+}
+
+.author-content-item .content-bottom {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.author-content-item .content-bottom .icon-group {
+    display: flex;
+}
+
+.author-content-item .content-bottom .icon-group i {
+    display: inline-block;
+    width: 22px;
+    height: 18px;
+    margin-right: 0.5rem;
+}
+
+.icon-pos-sup {
+    /* background: url('https://.png'); */
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    }
+
+.icon-pos-mid {
+    /* background: url('https://'); */
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    
+}
+/* 喜欢的游戏 狼人杀 */
+.author-content-item.game-wolf {
+    width: 39%;
+    /* background: url(https://i51.webp) no-repeat top; */
+    background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    background-size: cover;
+    min-height: 300px;
+    overflow: hidden;
+    color: var(--wjx-white);
+}
+
+.author-content-item.game-wolf::after {
+    /* box-shadow: 0 -69px 203px 11px #415dc9 inset; */
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.author-content-item.comic-content {
+    width: 39%;
+    min-height: 300px;
+    overflow: hidden
+}
+
+.author-content-item.comic-content .comic-box {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+.author-content-item.comic-content .author-content-item-tips, .author-content-item.comic-content .author-content-item-title {
+    z-index: 2;
+    color: var(--wjx-white);
+    pointer-events: none
+}
+
+.author-content-item.comic-content .comic-item {
+    height: 100%;
+    color: #fff;
+    width: 20%;
+    -webkit-transform: skew(-10deg, 0deg);
+    -moz-transform: skew(-10deg, 0deg);
+    -o-transform: skew(-10deg, 0deg);
+    -ms-transform: skew(-10deg, 0deg);
+    transform: skew(-10deg, 0deg);
+    -webkit-transition: .8s;
+    -moz-transition: .8s;
+    -o-transition: .8s;
+    -ms-transition: .8s;
+    transition: .8s;
+    position: relative;
+    overflow: hidden
+}
+
+.author-content-item.comic-content .comic-item:hover {
+    width: 46%
+}
+
+.author-content-item.comic-content .comic-item:hover .comic-item-cover {
+    left: 16%;
+    -webkit-transform: skew(10deg, 0deg) scale(1.6);
+    -moz-transform: skew(10deg, 0deg) scale(1.6);
+    -o-transform: skew(10deg, 0deg) scale(1.6);
+    -ms-transform: skew(10deg, 0deg) scale(1.6);
+    transform: skew(10deg, 0deg) scale(1.6)
+}
+
+.author-content-item.comic-content .comic-item .comic-item-cover {
+    position: absolute;
+    top: 0;
+    left: -50%;
+    height: 100%;
+    -webkit-transform: skew(10deg, 0deg);
+    -moz-transform: skew(10deg, 0deg);
+    -o-transform: skew(10deg, 0deg);
+    -ms-transform: skew(10deg, 0deg);
+    transform: skew(10deg, 0deg);
+    object-fit: cover;
+    -webkit-transition: scale .2s, all .8s;
+    -moz-transition: scale .2s, all .8s;
+    -o-transition: scale .2s, all .8s;
+    -ms-transition: scale .2s, all .8s;
+    transition: scale .2s, all .8s
+}
+
+.author-content-item.comic-content .comic-item .comic-item-cover img {
+    height: 100%;
+    -webkit-transition: .8s;
+    -moz-transition: .8s;
+    -o-transition: .8s;
+    -ms-transition: .8s;
+    transition: .8s;
+    max-width: none;
+    border-radius: 0
+}
+
+.author-content-item.comic-content::after {
+    -webkit-box-shadow: 0 -48px 203px 11px #fbe9b8 inset;
+    box-shadow: 0 -48px 203px 11px #fbe9b8 inset;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0
+}
+/* 喜欢音乐 */
+.author-content-item.like-music {
+    /* background: url(https://iwebp) no-repeat top; */
+    background-color: #FF3CAC;
+    background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    background-size: cover;
+    min-height: 400px;
+    color: var(--wjx-white);
+    overflow: hidden;
+}
+
+.author-content-item.like-music::after {
+    box-shadow: 0 -69px 203px 11px #453e38 inset;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.author-content-item .card-content .author-content-item-title {
+    margin-bottom: 0.5rem;
+}
+
+.author-content-item .card-content .banner-button-group {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+}
+
+.author-content-item .card-content .banner-button-group .banner-button {
+    height: 40px;
+    width: 118px;
+    border-radius: 20px;
+    justify-content: center;
+    background: var(--wjx-black-op);
+    color: var(--wjx-white);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    transition: .3s;
+    cursor: pointer;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.author-content-item .card-content .banner-button-group .banner-button:hover {
+    background: var(--wjx-lighttext);
+    color: var(--wjx-card-bg)
+}
+
+.author-content-item .card-content .banner-button-group .banner-button i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .author-content-item .card-content .banner-button-group {
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .author-content-item .card-content .banner-button-group .banner-button {
+        background: none;
+        color: var(--wjx-white);
+        padding: 0;
+        width: fit-content;
+    }
+
+    .author-content-item .card-content .banner-button-group .banner-button i {
+        margin-right: 0;
+        font-size: 1.5rem;
+    }
+
+    .author-content-item .card-content .banner-button-group .banner-button-text {
+        display: none;
+    }
+}
+/* 豆瓣电影页面 */
+.author-content-item.single.like-movie {
+    height: 19rem;
+    /* background: url(https://i.webp) no-repeat top; */
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: cover;
+    color: var(--wjx-white);
+    overflow: hidden;
+}
+
+.author-content-item.single.like-movie::after {
+    box-shadow: 0 21px 133px 81px #1c1c1c inset;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#article-container .author-content-item.single.like-movie .banner-button-group .banner-button {
+    padding: 8px 12px;
+    background: var(--wjx-white);
+    border-radius: 12px;
+    color: var(--wjx-black);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+#article-container .author-content-item.single.like-movie .banner-button-group .banner-button:hover {
+    background: #d0b247;
+    color: var(--wjx-white);
+}
+
+#article-container .author-content-item.single.like-movie .banner-button-group .banner-button i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    #article-container .author-content-item.single.like-movie .banner-button-group {
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    #article-container .author-content-item.single.like-movie .banner-button-group .banner-button {
+        background: none;
+        color: var(--wjx-white);
+        padding: 0;
+    }
+
+    #article-container .author-content-item.single.like-movie .banner-button-group .banner-button i {
+        margin-right: 0;
+        font-size: 1.5rem;
+    }
+
+    #article-container .author-content-item.single.like-movie .banner-button-group .banner-button-text {
+        display: none;
+    }
+}
+/* 即刻短文 */
+.author-content.author-content-item.essayPage {
+    height: 19rem;
+    /* background: url(https://im02.jpg) no-repeat center; */
+    background-color: #A9C9FF;
+    background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+    background-size: cover;
+    color: var(--wjx-white);
+    overflow: hidden;
+    margin-top: 0;
+}
+
+
+/* 工具推荐 */
+.author-content.author-content-item.toolPage {
+    height: 19rem;
+    /* background: url(https://c.jpg) no-repeat top; */
+    background-color: #74EBD5;
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);    
+    background-size: cover;
+    color: var(--wjx-white);
+    overflow: hidden;
+    margin-top: 0;
+}

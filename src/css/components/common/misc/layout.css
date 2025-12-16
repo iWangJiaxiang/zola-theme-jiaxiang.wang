@@ -1,0 +1,97 @@
+/* ========================================
+   布局相关样式
+   合并自: hidden-home-header-image.css, other-page-cover-remove.css, 
+          remove-header-background.css, when-hidden-sidebar-when-show-1-0-0-%.css,
+          accessibility.css
+   ======================================== */
+
+/* -------------------- 无障碍 -------------------- */
+
+@media screen and (max-width: 768px) {
+    #assist-open {
+        display: none;
+    }
+}
+
+#mozi-assist {
+    position: fixed;
+    z-index: 999;
+}
+
+.topbar-html-content {
+    height: 160px !important;
+    align-items: flex-end;
+    padding-bottom: 12px;
+}
+
+.topbar-html {
+    box-shadow: none !important;
+}
+
+.bigtext-html-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar-html-content-item img {
+    border-radius: 12px !important;
+}
+
+/* -------------------- 隐藏主页头图 -------------------- */
+
+.full_page #post-cover {
+    display: none;
+}
+
+/* -------------------- 其他页面封面移除 -------------------- */
+
+.not-index-bg {
+    height: 2rem !important;
+    background-image: none !important;
+    background-color: var(--wjx-none) !important;
+}
+
+
+.not-index-bg img {
+    display: none;
+}
+
+.not-index-bg #page-site-info {
+    display: none;
+}
+
+/* -------------------- 去除header背景 -------------------- */
+
+#body-wrap .full_page:before {
+    background-color: var(--wjx-none) !important;
+    transition: 0ms !important;
+}
+
+.full_page #page-header:before {
+    display: none !important;
+}
+
+/* -------------------- 隐藏边栏布局 -------------------- */
+
+.layout.hide-aside > div:first-child {
+    width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+    /* 侧边栏在左侧时，显示 100% */
+    .layout.left-aside > div:first-child {
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -o-box-ordinal-group: 2;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2;
+    }
+
+    /* 侧栏在左侧时，关闭左边距，打开右边距 */
+    .layout.left-aside .aside-content {
+        padding-right: 15px;
+        padding-left: 0px !important;
+    }
+}

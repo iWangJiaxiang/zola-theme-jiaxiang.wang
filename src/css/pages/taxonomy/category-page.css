@@ -1,0 +1,133 @@
+/* 分类页 */
+#article-container > div > figure > figcaption > p {
+    margin: 0;
+}
+
+#page .category-lists ul li::before {
+    display: none;
+}
+
+#page .category-lists ul li {
+    margin: 0;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#page .category-lists ul {
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#page .category-lists ul li {
+    padding: 4px 16px;
+    width: 200px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: var(--style-border-always);
+}
+
+.tag-cloud-list a {
+    display: inline-block;
+    padding: 0px 0.4rem;
+    transition: all 0.3s ease 0s;
+}
+
+.tag-cloud-list a:hover {
+    transform: scale(1.1);
+    color: rgb(48, 122, 246) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .tag-cloud-list a {
+        zoom: 0.85;
+    }
+}
+
+.tag-cloud-title {
+    font-size: 2.57em;
+}
+
+@media screen and (max-width: 768px) {
+    .tag-cloud-title {
+        font-size: 2em;
+    }
+}
+
+
+#page .category-lists {
+    padding: 1rem 0px 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    #page .category-lists {
+        padding: 0px;
+    }
+}
+
+#page .category-lists .category-title {
+    font-size: 2.57em;
+}
+
+@media screen and (max-width: 768px) {
+    #page .category-lists .category-title {
+        font-size: 2em;
+    }
+}
+
+#page .category-lists .category-list a {
+    color: var(--wjx-fontcolor);
+}
+
+#page .category-lists .category-list a:hover {
+    color: rgb(48, 122, 246);
+}
+
+#page .category-lists .category-list .category-list-count {
+    margin-left: 0.4rem;
+    color: rgb(133, 133, 133);
+}
+
+#page .category-lists .category-list .category-list-count::before {
+    content: "(";
+}
+
+#page .category-lists .category-list .category-list-count::after {
+    content: ")";
+}
+
+#page .category-lists ul {
+    margin-top: 0.4rem;
+    padding: 0px 0px 0px 1rem;
+    list-style: none;
+    counter-reset: li 0;
+}
+
+#page .category-lists ul ul {
+    padding-left: 0.2rem;
+}
+
+#page .category-lists ul li {
+    position: relative;
+    margin: 0.3rem 0px;
+    padding: 0.12em 0.4em 0.12em 1.4em;
+}
+
+#page .category-lists ul li::before {
+    position: absolute;
+    left: 0px;
+    cursor: pointer;
+    transition: all 0.3s ease-out 0s;
+    top: 0.7em;
+    width: 0.43em;
+    height: 0.43em;
+    border: 0.215em solid rgb(48, 122, 246);
+    border-radius: 0.43em;
+    background: 0px 0px;
+    content: "";
+}
+
+#page .category-lists ul li:hover::before {
+    border-color: rgb(255, 114, 66);
+}

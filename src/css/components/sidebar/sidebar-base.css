@@ -1,0 +1,273 @@
+/* ========================================
+   侧边栏布局基础样式
+   合并自: sidebar-config.css, home-card-shadow.css, card-title.css,
+          ifexist-indicateneed-card-widgetkeep-distance.css,
+          ensure-no-card-widget-whenau-to-left-element-align.css,
+          select-first-card-left-element-align.css,
+          tablet-hidden-partial-sidebar.css, mobile-menu-background.css,
+          hidden-reading-progress.css, hidden-article-count-etc-info.css
+   ======================================== */
+
+/* -------------------- 侧边栏配置 -------------------- */
+
+@media screen and (min-width: 1300px) {
+    #aside-content {
+        padding-left: 1rem;
+        animation: slide-in .6s .3s backwards
+    }
+
+    #aside-content .sticky_layout {
+        top: calc(60px + 0.5rem);
+    }
+
+    #page-header.nav-visible + .layout > .aside-content > .sticky_layout {
+        top: calc(60px + 0.5rem);
+    }
+
+    [data-theme=dark] #aside-content > .card-widget.card-info {
+        border: var(--style-border);
+    }
+
+    .coverdiv {
+        height: 130%;
+    }
+}
+
+#aside-content #card-toc .toc-content {
+    position: relative;
+    overflow-y: auto;
+    max-height: calc(100vh - 300px);
+}
+
+@media screen and (max-width: 900px) {
+    #aside-content #card-toc .toc-content {
+        max-height: calc(100vh - 140px);
+    }
+}
+
+#aside-content #card-toc .toc-content .toc-child {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    #aside-content #card-toc .toc-content .toc-child {
+        display: block !important;
+    }
+}
+
+#aside-content #card-toc .toc-content .toc-item.active .toc-child {
+    display: block;
+}
+
+#aside-content #card-toc .toc-content li,
+#aside-content #card-toc .toc-content ol {
+    list-style: none;
+}
+
+#aside-content #card-toc .toc-content > ol {
+    padding: 0px !important;
+}
+
+#aside-content #card-toc .toc-content ol {
+    margin: 0px;
+    padding-left: 0.4rem;
+}
+
+#aside-content #card-toc .toc-content .toc-link {
+    display: block;
+    padding-left: 0.3rem;
+    border-left: 3px solid transparent;
+    color: var(--toc-link-color);
+    transition: all 0.2s ease-in-out 0s;
+}
+
+#aside-content #card-toc .toc-content .toc-link.active {
+    border-left-color: rgb(0, 97, 204);
+    background: rgb(0, 121, 255);
+    color: rgb(255, 255, 255);
+}
+
+#aside-content #card-toc .toc-content::before {
+    position: absolute;
+    top: 0.6rem;
+    right: 1.2rem;
+    color: #a9a9a9;
+    content: attr(progress-percentage);
+    font-style: italic;
+    font-size: 1.2rem
+}
+
+#aside-content :only-child > .card-widget {
+    margin-top: 1rem;
+}
+
+#aside-content :only-child > :first-child {
+    margin-top: 0rem;
+}
+
+#aside-content .card-more-btn {
+    float: right;
+    color: inherit;
+}
+
+#aside-content .card-more-btn:hover {
+    animation: 1s ease 0s infinite normal none running more-btn-move;
+}
+
+/* -------------------- 卡片阴影 -------------------- */
+
+#aside-content .card-widget {
+    box-shadow: var(--wjx-shadow-border);
+    background: var(--wjx-card-bg);
+    border: var(--style-border);
+    transition: 0.3s;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    padding: 1rem 1.2rem;
+}
+
+#recent-posts > .recent-post-item {
+    box-shadow: var(--wjx-shadow-light2black);
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-align: center;
+    align-items: center;
+    transition: all 0.3s ease 0s;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    animation: slide-in .6s .4s backwards;
+    will-change: transform
+}
+
+/* -------------------- 卡片标题 -------------------- */
+
+#aside-content .item-headline {
+    padding-bottom: 0;
+    margin-left: 8px;
+    font-size: 1em;
+    font-weight: 700;
+    display: flex;
+    align-items: center
+}
+
+#aside-content .item-headline span {
+    margin-left: 4px;
+}
+
+#aside-content .item-headline i {
+    min-width: 19.5px;
+}
+
+#aside-content .item-headline + div,
+#aside-content .item-headline + ul {
+    padding: 0;
+    -webkit-user-select: none;
+}
+
+@media screen and (min-width: 1300px) {
+    #aside-content .card-widget {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #aside-content .card-widget {
+        border-radius: 12px;
+    }
+}
+
+/* -------------------- 布局对齐 -------------------- */
+
+@media screen and (min-width: 1300px) {
+    #aside-content:has(+ .card-widget) .sticky_layout {
+        margin-top: 1rem;
+    }
+
+    #aside-content .sticky_layout {
+        margin-top: 0rem;
+    }
+}
+
+#aside-content .sticky_layout {
+    top: 80px;
+    transition: top 0s;
+}
+
+#aside-content .card-widget:hover {
+    box-shadow: var(--wjx-shadow-border);
+}
+
+#aside-content #card-funds {
+    margin-bottom: 1rem;
+    min-height: 260px;
+}
+
+#page-header.nav-visible + .layout > .aside-content > .sticky_layout {
+    top: 80px;
+}
+
+#aside-content {
+    width: 300px;
+}
+
+@media screen and (max-width: 1300px) {
+    #aside-content {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #aside-content {
+        display: none
+    }
+}
+
+#aside-content > .card-widget:first-child {
+    margin-top: 0px;
+}
+
+/* -------------------- 隐藏元素 -------------------- */
+
+#aside-content #card-toc .toc-content:before {
+    display: none;
+}
+
+#aside-content .card-info .card-info-data {
+    display: none;
+}
+
+/* -------------------- pad端响应式 -------------------- */
+
+@media screen and (max-width: 900px) {
+    #aside-content .card-announcement {
+        display: none;
+    }
+
+    #aside-content #card-funds {
+        display: none;
+    }
+}
+
+#aside-content .card-info .card-info-data > .card-info-data-item:hover {
+    background: var(--wjx-post-blockquote-bg);
+    transform: scale(0.97);
+}
+
+#aside-content > div.card-widget.card-info > div.card-content > div.card-info-data > .card-info-data-item:hover > a > div.headline,
+#aside-content > div.card-widget.card-info > div.card-content > div.card-info-data > .card-info-data-item:hover > a > div.length-num {
+    color: var(--wjx-blue);
+}
+
+/* -------------------- 手机端菜单背景 -------------------- */
+
+#mobile-sidebar #mobile-sidebar-menus.open {
+    background: var(--wjx-maskbg);
+}
+
+#aside-content .card-info .card-info-data > .card-info-data-item {
+    transition: .3s;
+}

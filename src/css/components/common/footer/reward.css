@@ -1,0 +1,62 @@
+/* ========================================
+   赞赏功能样式
+   合并自: reward-background.css, reward-description.css, reward-list-button.css
+   ======================================== */
+
+/* -------------------- 赞赏背景 -------------------- */
+
+#quit-box {
+    position: fixed;
+    width: 100vw;
+    height: calc(100vh);
+    background: rgba(0, 0, 0, .2);
+    opacity: 0.01;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 109;
+    margin: 0 !important
+}
+
+.post-tools-left #quit-box {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    #quit-box {
+        z-index: 109;
+        display: none !important;
+    }
+}
+
+/* -------------------- 赞赏描述 -------------------- */
+
+.reward-dec {
+    font-size: 0.6rem;
+}
+
+/* -------------------- 赞赏名单按钮 -------------------- */
+
+a.reward-main-btn {
+    background: var(--wjx-secondbg);
+    color: var(--wjx-fontcolor);
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 4px 0;
+    border: var(--style-border-always);
+    margin: 8px;
+    width: 100%;
+}
+
+a.reward-main-btn:hover {
+    color: var(--wjx-white);
+    background: var(--wjx-red);
+    background-image: url(../img/hua.gif);
+    box-shadow: var(--wjx-shadow-red);
+}
+
+.reward-title {
+    font-weight: bold;
+    color: var(--wjx-red);
+}

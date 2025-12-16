@@ -1,0 +1,146 @@
+/* 主页导航栏让位偏移 */
+/* .layout_page .recent-posts{
+  margin-top: 2em;
+}
+.layout_page .aside_content{
+  margin-top: 2em;
+} */
+
+.layout > div:first-child {
+    width: calc(100% - 300px);
+}
+/* 首页顶部banner区域 */
+#home_top {
+    max-width: 1400px;
+    margin: auto;
+    margin-top: .5rem;
+    padding: 0 1.5rem
+}
+
+@media screen and (max-width: 768px) {
+    #home_top {
+        padding:0;
+        margin-top: 0
+    }
+}
+/* 顶部遮罩 */
+#post-cover-rgb {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+    background: var(--wjx-lighttext);
+}
+
+.card-background-img {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+/* 标题 */
+.recent-post-top .recent-post-item .recent-post-info {
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem !important;
+    transition: 0.3s;
+}
+
+.recent-post-top .recent-post-item:hover .recent-post-info a {
+    color: var(--wjx-fontcolor);
+}
+
+@media screen and (max-width: 1300px) {
+    .recent-post-top .recent-post-item:hover .recent-post-info a {
+        color: var(--wjx-theme);
+        transition: 0.3s;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .recent-post-top .recent-post-item:hover .recent-post-info a {
+        color:var(--wjx-fontcolor)
+    }
+}
+
+.recent-post-top .recent-post-item .recent-post-info .article-title {
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.5;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: center;
+    padding-top: .5rem;
+    font-weight: bold;
+    font-size: 0.8rem !important;
+    padding: 0 !important;
+}
+
+.title-and-tips {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.title-and-tips .page-title {
+    line-height: 1;
+    margin: 0;
+}
+
+.title-and-tips .page-tips {
+    background: var(--wjx-yellow-op);
+    color: var(--wjx-yellow);
+    margin-bottom: auto;
+    border-radius: 8px;
+    padding: 2px 6px;
+    font-size: 0.5rem;
+    margin-left: 8px;
+}
+
+/* 标题 */
+#page .category-lists .category-title {
+    display: none;
+}
+
+.article-sort-item-title {
+    line-height: 1.3;
+    -webkit-line-clamp: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .article-sort-item-title {
+        -webkit-line-clamp: 2;
+    }
+}
+
+#page {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+@media screen and (min-width: 1300px) {
+    #page > div:not(.author-content-item) {
+        animation: slide-in .6s .2s backwards
+    }
+}
+
+/* 标题 */
+.bb-info {
+    display: inline;
+    float: right;
+    line-height: 1;
+    color: var(--wjx-secondtext);
+    margin-left: auto;
+    margin-bottom: 1rem;
+    margin-right: 0.5rem;
+}
+
+.bb-info:hover {
+    color: var(--wjx-hovertext);
+}
+
+#bber {
+    margin-top: 1rem;
+    width: 100%;
+}

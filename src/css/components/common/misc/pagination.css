@@ -1,0 +1,289 @@
+#Wpagination {
+    overflow: hidden;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+#pagination .pagination {
+    text-align: center;
+}
+
+#pagination .page-number {
+    display: inline-block;
+    margin: 0px 0.2rem;
+    min-width: 1.2rem;
+    height: 1.2rem;
+    text-align: center;
+    line-height: 1.2rem;
+    cursor: pointer;
+}
+
+#pagination .page-number.current {
+    background: rgb(0, 121, 255);
+    color: var(--wjx-card-bg);
+    cursor: default;
+    border-radius: 5px;
+}
+
+#pagination img.next-cover,
+#pagination img.prev-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    transition: all 0.6s ease 0s;
+    object-fit: cover;
+}
+
+#pagination .pagination-info {
+    position: absolute;
+    top: 50%;
+    padding: 1rem 2rem;
+    width: 100%;
+    transform: translate(0px, -50%);
+}
+
+#pagination .next-post .pagination-info {
+    text-align: right;
+}
+
+#pagination .pull-full {
+    width: 100% !important;
+}
+
+#pagination .next-post .label,
+#pagination .prev-post .label {
+    /* color: var(--light-grey); */
+    text-transform: uppercase;
+    font-size: 90%;
+}
+
+#pagination .next-post,
+#pagination .prev-post {
+    width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+
+    #pagination .next-post,
+    #pagination .prev-post {
+        width: 100%;
+    }
+}
+
+#pagination .next-post a,
+#pagination .prev-post a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 150px;
+}
+
+#pagination .next-post:hover img.next-cover,
+#pagination .next-post:hover img.prev-cover,
+#pagination .prev-post:hover img.next-cover,
+#pagination .prev-post:hover img.prev-cover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+#pagination.pagination-post {
+    margin-top: 2rem;
+    background: rgb(0, 0, 0);
+}
+
+
+/* 翻页 */
+a.extend.next {
+    right: 0;
+}
+
+a.extend.prev {
+    left: 0;
+}
+
+@media screen and (max-width: 768px) {
+    #pagination {
+        margin-bottom: 0rem;
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    #pagination {
+        margin-top: 0.25rem;
+    }
+}
+
+.lg-container {
+    display: none;
+}
+
+/* 文章页
+---------------------------------------------------------------- */
+
+/* 翻页 */
+@media screen and (max-width: 768px) {
+    #pagination .page-number {
+        display: none;
+    }
+
+    #pagination .pagination .space {
+        display: none;
+    }
+
+    #pagination .pagination .extend {
+        width: 100%;
+        height: 2.5rem;
+        margin: .2rem 0 1rem 0;
+        border-radius: 12px;
+        line-height: 2.5rem;
+        background: var(--wjx-card-bg);
+        border: var(--style-border-always);
+        box-shadow: var(--wjx-shadow-border)
+    }
+
+    #pagination .pagination .extend i {
+        display: none;
+    }
+
+    #pagination .pagination .extend:hover {
+        background: var(--wjx-theme);
+        color: var(--wjx-white);
+    }
+
+    #pagination .pagination {
+        background: var(--wjx-background);
+        transition: 0.3s;
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #pagination .page-number {
+        width: 2rem;
+        background: var(--wjx-card-bg);
+        height: 2rem;
+        line-height: calc(2rem - 2px);
+        border-radius: 8px !important;
+        margin: 0 0.3rem;
+        box-shadow: var(--wjx-shadow-border);
+        border: var(--style-border);
+        transition: 0.3s;
+    }
+
+    #pagination .page-number.current {
+        background: var(--wjx-theme);
+        border: var(--style-border-hover);
+        box-shadow: var(--wjx-shadow-theme);
+    }
+
+    #pagination .page-number.current:hover {
+        background: var(--wjx-theme);
+        box-shadow: var(--wjx-shadow-theme);
+        color: var(--wjx-white);
+    }
+
+    #pagination .page-number:hover {
+        color: var(--wjx-theme);
+        border: var(--style-border-hover);
+        box-shadow: var(--wjx-shadow-main);
+        transform: scale(1.03);
+    }
+
+
+    #pagination a.extend.next:hover,
+    #pagination a.extend.prev:hover {
+        color: var(--wjx-theme);
+        border: var(--style-border-hover);
+        box-shadow: var(--wjx-shadow-main);
+        transform: scale(1.03);
+    }
+
+
+    @media screen and (min-width: 1300px) {
+        #pagination .page-number:hover {
+            transform: scale(1.03);
+        }
+
+
+        #pagination a.extend.next:hover,
+        #pagination a.extend.prev:hover {
+            transform: scale(1.03);
+        }
+
+        #pagination .page-number:active {
+            transform: scale(0.97);
+        }
+
+        #pagination a.extend.next:active,
+        #pagination a.extend.prev:active {
+            transform: scale(0.97);
+        }
+
+    }
+
+    #pagination span.space {
+        margin: 0 0.3rem;
+    }
+
+    #pagination a.extend.next,
+    #pagination a.extend.prev {
+        width: 4rem;
+        height: 2rem;
+        line-height: 1.9rem;
+        border-radius: 8px !important;
+        background: var(--wjx-card-bg);
+        box-shadow: var(--wjx-shadow-border);
+        position: absolute;
+        border: var(--style-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
+    #pagination a.extend.next i,
+    #pagination a.extend.prev i {
+        transition: 0.3s;
+    }
+
+    #pagination a.extend.next {
+        overflow: hidden;
+    }
+
+    #pagination a.extend.next .pagination_tips_next {
+        margin-left: -32px;
+        transition: .3s ease-out 0s;
+        opacity: 0;
+    }
+
+    #pagination a.extend.next:hover .pagination_tips_next {
+        margin-left: 2px;
+        opacity: 1;
+        white-space: nowrap;
+    }
+
+    #pagination a.extend.prev .pagination_tips_prev {
+        margin-right: -32px;
+        transition: .3s ease-out 0s;
+        opacity: 0;
+    }
+
+    #pagination a.extend.prev:hover .pagination_tips_prev {
+        margin-right: 2px;
+        opacity: 1;
+        white-space: nowrap;
+    }
+
+    #pagination {
+        overflow: visible;
+    }
+
+    #pagination .pagination {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+}

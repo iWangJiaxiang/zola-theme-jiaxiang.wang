@@ -1,0 +1,49 @@
+/* 文章图片 */
+#article-container img,
+#article-container picture {
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+}
+
+#article-container img.error,
+#article-container picture.error {
+    content: url(/img/404.svg)
+}
+
+/* -------------------- 文章长图 -------------------- */
+
+.long-img .img-alt {
+    display: none;
+}
+
+.long-img img {
+    border-radius: 0 !important;
+    margin: 0 !important;
+}
+
+/* -------------------- 内联图片保持一行 -------------------- */
+
+.inline-image {
+    display: flex;
+    margin: 8px auto;
+    width: fit-content;
+    justify-content: center;
+}
+
+.inline-image a:hover {
+    background: 0 0 !important;
+    box-shadow: none !important;
+}
+
+.inline-image img {
+    margin: 0;
+    display: inline-flex;
+    margin-bottom: 0 !important;
+}
+
+/* -------------------- 文章视频 -------------------- */
+
+.doge-inner-player {
+    border-radius: 12px !important;
+}

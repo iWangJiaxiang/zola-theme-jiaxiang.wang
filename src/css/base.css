@@ -1,0 +1,19 @@
+/* 自动生成的 CSS 模块索引 */
+@import "tailwindcss";
+
+/* COMMON */
+@import "./components/common/index.css";
+
+/* COMPONENTS */
+@import "./components/sidebar/index.css";
+@import "./components/comment/index.css";
+
+/* PAGES */
+@import "./pages/404-page.css";
+
+@import "./pages/about/index.css";
+@import "./pages/index/index.css";
+@import "./pages/post/index.css";
+@import "./pages/collection/index.css";
+@import "./pages/friend/index.css";
+

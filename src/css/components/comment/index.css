@@ -1,0 +1,18 @@
+/* ========================================
+   评论样式入口文件
+   ======================================== */
+
+/* 评论区主体 */
+@import "./comment.css";
+
+/* 输入框 */
+@import "./comment-input.css";
+
+/* 按钮 */
+@import "./comment-button.css";
+
+/* 标签 */
+@import "./comment-tag.css";
+
+/* 表情 */
+@import "./comment-emoji.css";

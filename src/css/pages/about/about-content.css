@@ -1,0 +1,188 @@
+/* 关于页面我的生涯图片 */
+.author-content-item.careers {
+    min-height: 400px;
+}
+
+.author-content-item.careers img {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    width: 100%;
+    height: auto;
+    transition: 0.6s;
+}
+
+.author-content-item.careers .careers-group {
+    margin-top: 12px;
+}
+
+.author-content-item.careers .careers-item {
+    display: flex;
+    align-items: center;
+}
+
+.author-content-item.careers .careers-item .circle {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border-radius: 16px;
+}
+
+.author-content-item.careers .careers-item .name {
+    color: var(--wjx-secondtext);
+}
+/* 关于页面我的性格 */
+
+.author-content-item.personalities {
+    overflow: hidden;
+    position: relative;
+    width: 59%;
+}
+
+.author-content-item.personalities .title2 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.author-content-item.personalities .image {
+    position: absolute;
+    right: -40px;
+    bottom: -10rem;
+    transition: transform 2s cubic-bezier(0.13, 0.45, 0.21, 1.02);
+}
+
+.author-content-item.personalities:hover .image {
+    transform: rotate(-10deg);
+}
+
+@media screen and (max-width: 768px) {
+    .author-content-item.personalities {
+        min-height: 360px;
+    }
+
+    .author-content-item.personalities .image {
+        right: -70px;
+    }
+}
+/* 关于页面我的照片 */
+
+.author-content-item.myphoto {
+    height: 60%;
+    min-height: 240px;
+    position: relative;
+    overflow: hidden;
+    width: 39%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author-content-item.myphoto picture {
+    position: absolute;
+    height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    transition: 0.6s;
+}
+
+.author-content-item.myphoto:hover picture {
+    min-width: 105%;
+    transition: 2s;
+}
+
+.author-content-item.myphoto .myphoto-title {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background: var(--wjx-maskbgdeep);
+    padding: 0.5rem 2rem;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+/* 关于页面我的技能 */
+.author-content-item.skills {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 49%;
+    min-height: 450px;
+}
+
+.author-content-item.skills .tags-group-all {
+    display: flex;
+    transform: rotate(0deg);
+    transition: 0.3s;
+}
+
+.author-content-item.skills .tags-group-wrapper {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: nowrap;
+    animation: rowleft 60s linear infinite;
+}
+
+.author-content-item.skills .skills-style-group {
+    position: relative;
+}
+
+.author-content-item.skills .skills-list {
+    display: flex;
+    opacity: 0;
+    transition: 0.3s;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.author-content-item.skills:hover .skills-style-group .tags-group-all {
+    opacity: 0;
+}
+
+.author-content-item.skills:hover .skills-style-group .skills-list {
+    opacity: 1;
+}
+
+.author-content-item.skills .skill-info {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: 10px;
+    background: var(--wjx-background);
+    border-radius: 40px;
+    padding: 4px 12px 4px 8px;
+    border: var(--style-border);
+    box-shadow: var(--wjx-shadow-border);
+}
+
+.author-content-item.skills .etc {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.author-content-item.skills .skill-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    user-select: none
+}
+
+.author-content-item.skills .skill-icon img, .author-content-item.skills .skill-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.author-content-item.skills .skill-name {
+    font-weight: bold;
+    line-height: 1
+}

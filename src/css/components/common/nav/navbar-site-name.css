@@ -1,0 +1,286 @@
+/* ========================================
+   站点名称和Logo样式
+   合并自: navbar-name-style.css
+          navbar-text.css
+          navbar-logo.css
+          navbar-icon.css (site-name相关部分)
+   ======================================== */
+
+/* -------------------- 站点名称基础样式 -------------------- */
+
+#nav #site-name {
+    color: var(--wjx-fontcolor);
+    padding: 0 8px;
+    transition: 0.3s;
+    display: flex;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    text-shadow: rgba(0, 0, 0, 0.15) 0.1rem 0.1rem 0.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.page #nav #site-name {
+    color: var(--wjx-white);
+}
+
+.page #nav #site-name span {
+    color: var(--wjx-fontcolor);
+}
+
+body[data-type=music] .page #nav #site-name span {
+    color: var(--wjx-white);
+}
+
+@media screen and (max-width: 768px) {
+    .page #nav #site-name span:hover {
+        color: var(--wjx-card-bg);
+    }
+}
+
+/* -------------------- 站点名称图标 -------------------- */
+
+#nav #site-name i {
+    font-size: 50px;
+    line-height: 35px;
+    padding: 0 12px;
+}
+
+#site-name .iconfont {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 48px;
+}
+
+/* -------------------- 站点Logo -------------------- */
+
+#site-logo {
+    width: 121px;
+}
+
+#site-logo:hover {
+    transform: scale(1.03);
+}
+
+/* -------------------- 博客名称容器 -------------------- */
+
+#nav #blog_name {
+    flex-wrap: nowrap;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 102;
+    transition: 0.3s;
+}
+
+/* -------------------- 大屏幕站点名称动画效果 -------------------- */
+
+@media screen and (min-width: 900px) {
+    #nav #site-name {
+        opacity: 1;
+        transition: 0.3s;
+        overflow: hidden;
+    }
+
+    #nav #site-name i {
+        transition: 0.3s;
+    }
+
+    #nav #site-name:hover i {
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    #nav #site-name span {
+        transition: 0.3s;
+    }
+
+    #nav #site-name:hover span {
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    #page-header.nav-fixed #nav #site-name {
+        opacity: 1;
+        transition: 0.1s;
+        border-radius: 40px;
+    }
+
+    #page-header.nav-visible #nav #site-name {
+        opacity: 1;
+        transition: 0.1s;
+    }
+
+    #nav #site-name:after {
+        opacity: 0;
+        position: absolute;
+        display: flex;
+        z-index: 1;
+        content: "\e69a";
+        transition: 0.1s;
+        font-family: icon !important;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        line-height: 1;
+    }
+
+    .post #nav #site-name:hover {
+        background: var(--wjx-white-op);
+        color: var(--wjx-white);
+    }
+
+    .nav-fixed #nav #site-name:hover {
+        background: var(--wjx-lighttext);
+        color: var(--wjx-card-bg);
+    }
+
+    #nav #site-name:hover:after {
+        opacity: 1;
+    }
+
+    #nav .back-home-button:hover {
+        box-shadow: var(--wjx-shadow-main);
+    }
+}
+
+/* -------------------- 页面名称文字 -------------------- */
+
+@media screen and (min-width: 900px) {
+    #nav #page-name-text {
+        display: inline;
+        font-weight: bold;
+        padding: 4px 8px;
+        opacity: 0;
+        transition: 0.1s;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        top: 0;
+        font-size: 0.9rem;
+        animation-timing-function: ease-in;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    #nav #page-name-text:hover {
+        color: var(--wjx-main) !important;
+        background: var(--wjx-none);
+        box-shadow: none;
+    }
+
+    #page-header.nav-fixed #nav #page-name-text {
+        display: inline;
+        opacity: 1;
+        transition: 0.3s;
+        line-height: 1;
+        border-radius: 100px;
+        min-width: 100px;
+    }
+
+    #page-header.nav-fixed #nav #page-name-text:hover:after {
+        opacity: 1;
+        line-height: 36px;
+        color: var(--wjx-card-bg);
+    }
+
+    #page-header.nav-fixed #nav div.menus_items {
+        transition: 0.15s;
+        position: relative;
+        top: -60px;
+    }
+
+    #page-header.nav-fixed.nav-visible #nav #page-name-text {
+        display: inline;
+        transition: 0.15s;
+    }
+
+    #page-header.nav-fixed.nav-visible #nav div.menus_items {
+        opacity: 1;
+        transition: 0.15s;
+        position: relative;
+        top: 0px;
+    }
+
+    #page-name {
+        align-items: center;
+        display: flex;
+        border-radius: 12px;
+        height: 40px;
+        position: absolute;
+        top: 62px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+        justify-content: center;
+        animation-timing-function: ease-out;
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    #page-header.nav-fixed #nav #menus {
+        z-index: 100;
+    }
+
+    #page-header.nav-fixed.nav-visible #nav #menus {
+        z-index: 101;
+    }
+
+    #page-header.nav-fixed #page-name {
+        z-index: 101;
+        transition: 0.3s;
+        top: 10px;
+    }
+
+    #page-header.nav-fixed.nav-visible #page-name {
+        z-index: 100;
+        top: 62px;
+        transition: 0.3s;
+    }
+
+    #page-name-mask {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 899px) {
+    #nav #page-name-mask {
+        display: none !important;
+    }
+}
+
+/* -------------------- 通用标题 -------------------- */
+
+.title-h2-a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.title-h2-a a {
+    margin-left: 0.5rem;
+    color: var(--wjx-secondtext);
+    font-weight: bold;
+}
+
+.title-h2-a a:hover {
+    color: var(--wjx-lighttext)
+}
+
+.title-h2-a-left {
+    display: flex;
+    align-items: center;
+}
+
+.title-h2-a-left h2 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}

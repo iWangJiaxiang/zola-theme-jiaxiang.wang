@@ -1,0 +1,316 @@
+/* 文章头部 */
+#page-header #post-info {
+    top: 0;
+    position: absolute;
+    padding: 0 3rem;
+    margin: 0 auto;
+    z-index: 10;
+    color: var(--wjx-white);
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: calc(100% + 0px);
+    justify-content: center;
+    animation: slide-in 0.6s 0s backwards;
+}
+
+@media screen and (max-width: 768px) {
+    #page-header #post-info {
+        padding: 0 6%;
+        justify-content: normal;
+        padding-top: 18rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    #page-header #post-info {
+        height: calc(100% + 0px);
+        top: 0;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+#post-info #post-meta > .meta-secondline > span:first-child {
+    margin-right: 0.8rem;
+}
+
+.meta-secondline span {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .meta-secondline span {
+        line-height: 1.5;
+    }
+}
+
+/* -------------------- 文章头图 -------------------- */
+
+#page-header.post-bg::before {
+    transition: 0.3s;
+    opacity: 0.93;
+    height: 20rem;
+    background-color: var(--wjx-main);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: block;
+    width: 100%;
+    content: "";
+}
+
+@media screen and (max-width: 768px) {
+    #page-header.post-bg {
+        height: 30rem !important;
+        margin-bottom: -12px;
+    }
+
+    #page-header.post-bg:before {
+        height: 15rem;
+    }
+
+    .post-bg #post-cover {
+        min-height: 15rem !important;
+        height: 70% !important;
+        opacity: 1 !important;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    #page-header.post-bg {
+        height: 25rem;
+    }
+
+    #page-header {
+        height: 25rem;
+    }
+
+    #page-header.post-bg:before {
+        height: 25rem;
+        /* opacity: 0; */
+        background-color: var(--wjx-main);
+        animation: slide-in-op 0.6s 0s forwards;
+    }
+
+    #post-info .post-title {
+        width: 1100px;
+        font-size: 2.6rem !important;
+    }
+}
+
+#page-header.post-bg {
+    /* backdrop-filter: blur(500px); */
+    background-color: var(--wjx-background);
+    transition: 0.6s;
+    overflow: hidden;
+}
+
+.post-bg #post-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-width: 50vw;
+    min-height: 20rem;
+    opacity: 0.8;
+}
+
+.coverdiv {
+    width: 70%;
+    height: 100%;
+    position: relative;
+    margin: 0 -20% 0 auto;
+    overflow: hidden;
+    margin-bottom: 0;
+    transform: rotate(10deg) translateY(-10%) scale(2);
+    filter: blur(10px);
+}
+
+.coverdiv.loaded {
+    display: block;
+}
+
+.coverdiv:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 110px -130px 300px 60px var(--wjx-main) inset;
+}
+
+@media screen and (max-width: 768px) {
+    .coverdiv {
+        margin: 0 0 0 auto;
+        transform: rotate(0) translateY(0) scale(1);
+        filter: blur(0);
+        width: 100%;
+        position: fixed;
+        height: 30rem;
+        z-index: 1
+    }
+
+    .coverdiv:after {
+        box-shadow: 0 0 105px 99px var(--wjx-main) inset;
+        height: 70%
+    }
+
+}
+
+@media screen and (min-width: 1300px) {
+    .coverdiv {
+        width: 70%;
+        height: 100%;
+        position: relative;
+        margin: 0 -20% 0 auto;
+        overflow: hidden;
+        margin-bottom: 0;
+        transform: rotate(10deg) translateY(-8%) scale(1.8);
+        filter: blur(10px);
+        opacity: 0;
+    }
+
+    .coverdiv.loaded {
+        display: block;
+        opacity: 0.5;
+        animation: showCover 1s 0.3s backwards;
+        transform: rotate(10deg) translateY(-10%) scale(2);
+    }
+
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .coverdiv {
+        width: 70%;
+        height: 100%;
+        position: relative;
+        margin: 0 -20% 0 auto;
+        overflow: hidden;
+        margin-bottom: 0;
+        transform: rotate(10deg) translateY(-8%) scale(1.8);
+        filter: blur(10px);
+        opacity: 0;
+    }
+
+
+    .coverdiv.loaded {
+        display: block;
+        opacity: 0.5;
+        animation: showCover 1s 0.3s backwards;
+        transform: rotate(10deg) translateY(-10%) scale(2);
+    }
+
+    @keyframes showCover {
+        from {
+            opacity: 0;
+            transform: rotate(10deg) translateY(-8%) scale(1.8);
+        }
+        to {
+            opacity: 0.5;
+            transform: rotate(10deg) translateY(-10%) scale(2);
+        }
+    }
+}
+
+#page-header {
+    background-image: none !important;
+    display: flex;
+    justify-content: center;
+}
+
+/* -------------------- 文章顶部其他信息 -------------------- */
+
+#post-meta > div {
+    text-align: left;
+}
+
+#post-info #post-meta {
+    color: var(--wjx-white);
+    margin-top: 0.4rem;
+    transition: 0.3s;
+    display: flex;
+    -webkit-user-select: none;
+}
+
+#post-info #post-meta a {
+    text-decoration: none;
+    color: var(--wjx-fontcolor);
+    line-height: 1;
+    border-radius: 12px
+}
+
+#post-info #post-meta a:hover {
+    text-decoration: none;
+    color: var(--wjx-white)
+}
+
+#post-info #post-meta i {
+    line-height: 1
+}
+/* 波浪css */
+.main-hero-waves-area {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -11px;
+    z-index: 5;
+}
+
+.waves-area .waves-svg {
+    width: 100%;
+    height: 60px;
+}
+
+.parallax > use {
+    animation: move-forever 30s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+    fill: var(--wjx-background);
+    opacity: 0.5;
+}
+
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+    fill: var(--wjx-background);
+    opacity: 0.6;
+}
+
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+    fill: var(--wjx-background);
+    opacity: 0.7;
+}
+
+.parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+    fill: var(--wjx-background);
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+    .main-hero-waves-area {
+        display: none;
+    }
+}

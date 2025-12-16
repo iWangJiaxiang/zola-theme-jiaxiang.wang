@@ -1,0 +1,192 @@
+/* ========================================
+   杂项样式
+   合并自: misc.css, announcement.css, scrollbar.css, code-style.css,
+          image-description.css, progressive-picture.css, this-need-to-be-here.css
+   ======================================== */
+
+/* -------------------- 公告 -------------------- */
+
+.announcement_content p {
+    margin: 0.5rem 0 0 0;
+    line-height: 1.38;
+}
+
+/* -------------------- TOC链接 -------------------- */
+
+#aside-content #card-toc .toc-content .toc-link:hover {
+    background: var(--wjx-main-op-light)
+}
+
+#passage-tip {
+    display: none;
+    transition: all 0.5s ease-in;
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1 !important;
+}
+
+#beian-icon {
+    height: 14px;
+    width: auto;
+}
+
+/* -------------------- 粒子效果 -------------------- */
+
+[data-theme="dark"] #universe {
+    display: block;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+canvas#universe {
+    display: none;
+}
+
+/* -------------------- 滚动条 -------------------- */
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 6px
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--wjx-main-op);
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid var(--wjx-background)
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--wjx-main);
+    opacity: 1;
+    display: block!important
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--wjx-background)
+}
+
+html {
+    overflow-y: overlay;
+}
+
+/* -------------------- 代码样式 -------------------- */
+
+code:not([class]) {
+    color: var(--wjx-white);
+    padding: 0.25rem 0.4rem;
+    border-radius: 4px;
+    margin: 0px 4px;
+    background: var(--wjx-pink);
+    line-height: 2;
+    box-shadow: var(--wjx-shadow-border);
+    font-size: 17.5px;
+    font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", sans-serif !important;
+}
+
+/* -------------------- 图片描述 -------------------- */
+
+.img-alt {
+    font-size: 12px;
+    margin: 0;
+    color: var(--wjx-secondtext);
+}
+
+/* -------------------- 渐进式图片 -------------------- */
+
+@charset "UTF-8";
+
+.progressive-picture {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  background: radial-gradient(circle, #c3c3c3 0%, #d9dee4 100%);
+  transition: filter 0.3s ease-out;
+  filter: blur(50px);
+  transform: scale(1);
+}
+
+.progressive-picture.loaded {
+  filter: none;
+  background: none;
+}
+
+.progressive-thumbnail {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transition: opacity 0.3s ease-out;
+}
+
+.progressive-thumbnail.loaded {
+  opacity: 0;
+}
+
+.progressive-content {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transition: opacity 0.3s ease-out;
+}
+
+.progressive-content.loaded {
+  opacity: 1;
+}
+
+/* -------------------- 翻转效果 -------------------- */
+
+#flip-wrapper {
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+
+#flip-content {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: cubic-bezier(0, 0, 0, 1.29) 0.3s;
+}
+
+#flip-wrapper:hover #flip-content {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-size: 100%;
+}
+
+.back.face {
+    display: block;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    background-size: 100%;
+}

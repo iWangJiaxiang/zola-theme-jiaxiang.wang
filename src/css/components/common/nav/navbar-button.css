@@ -1,0 +1,157 @@
+/* ========================================
+   导航栏按钮交互样式
+   合并自: navbar-button.css
+          navbar-button-hover.css
+   ======================================== */
+
+/* -------------------- 按钮基础状态 -------------------- */
+
+#nav .nav-item {
+    border-radius: 8px;
+    color: var(--wjx-white);
+    transition: 0.3s;
+}
+
+.nav-fixed #nav .nav-item {
+    color: var(--wjx-fontcolor);
+    transition: 0.3s;
+}
+
+/* -------------------- 按钮悬浮效果 -------------------- */
+
+#nav .nav-item:hover {
+    color: var(--wjx-white);
+    background: var(--wjx-white-op);
+    transition: 0.3s;
+}
+
+.page #nav .nav-item:hover {
+    color: var(--wjx-card-bg) !important;
+    background: var(--wjx-lighttext);
+    transition: 0.3s;
+    box-shadow: var(--wjx-shadow-main);
+}
+
+.nav-fixed #nav .nav-item:hover {
+    background: var(--wjx-lighttext);
+    color: var(--wjx-card-bg);
+    transition: 0.3s;
+}
+
+/* -------------------- 菜单项悬浮效果 -------------------- */
+
+@media screen and (min-width: 768px) {
+    .menus_item:hover > .site-page {
+        color: var(--wjx-card-bg);
+        background: var(--wjx-white-op);
+        transition: 0.3s;
+        box-shadow: var(--wjx-shadow-main);
+    }
+
+    .page .menus_item:hover > .site-page {
+        color: var(--wjx-card-bg);
+        background: var(--wjx-main);
+        transition: 0.3s;
+        box-shadow: var(--wjx-shadow-main);
+    }
+
+    .nav-fixed .menus_item:hover > .site-page {
+        background-color: var(--wjx-lighttext);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #sidebar #sidebar-menus .menus_items li .site-page:hover {
+        background: var(--wjx-main);
+        color: var(--wjx-white);
+    }
+
+    #sidebar #sidebar-menus .menus_items li .site-page span:hover {
+        color: var(--wjx-white);
+    }
+}
+
+/* -------------------- 站点名称图标悬浮 -------------------- */
+
+.nav-fixed #nav #site-name i {
+    color: var(--wjx-fontcolor);
+    transition: 0.3s;
+}
+
+#nav #site-name:hover i {
+    color: var(--wjx-white);
+}
+
+/* -------------------- 辅助按钮悬浮 -------------------- */
+
+#assist-open a {
+    padding: 0;
+    pointer-events: none;
+}
+
+#assist-open {
+    transition: 0.3s;
+    border-radius: 40px;
+}
+
+#assist-open:hover {
+    color: var(--wjx-white) !important;
+    background: var(--wjx-white-op);
+}
+
+#page-header.nav-fixed #assist-open:hover {
+    background: var(--wjx-main);
+}
+
+#page-header.nav-fixed #assist-open:hover i,
+.page #nav #assist-open.nav-button:hover i {
+    color: var(--wjx-white);
+}
+
+.page #nav #assist-open:hover {
+    background: var(--wjx-main);
+}
+
+/* -------------------- 顶部栏 -------------------- */
+
+.topbar-html {
+    background: #aeaeae !important;
+}
+
+/* -------------------- 品牌图标放大 -------------------- */
+
+i.fab {
+    font-size: 20px;
+    vertical-align: middle;
+    margin-bottom: 4px;
+}
+
+/* -------------------- 传送门 -------------------- */
+
+#travellings_button {
+    display: inline;
+    padding: 0 0.4rem;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    #page-header.nav-fixed #travellings_button {
+        opacity: 0;
+    }
+
+    #page-header.nav-fixed #randomPost_button {
+        opacity: 0;
+    }
+}
+
+/* -------------------- 小角标 -------------------- */
+
+.el-input.el-input--small.el-input-group.el-input-group--prepend::after {
+    display: none;
+    content: '';
+    position: absolute;
+    border: 15px solid transparent;
+    border-top-color: #444;
+    left: 50%;
+    transform: translate(-50%, -46px);
+}

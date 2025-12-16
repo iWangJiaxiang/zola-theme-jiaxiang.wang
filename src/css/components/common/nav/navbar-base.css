@@ -1,0 +1,317 @@
+/* ========================================
+   导航栏基础样式
+   合并自: navbar-center.css (nav相关部分)
+          navbar-disable-hidden.css
+          navbar-style.css
+          no-header-image-when-navbar-spacing.css
+   ======================================== */
+
+/* -------------------- 导航栏核心布局 -------------------- */
+
+#nav {
+    position: absolute;
+    top: 0px;
+    z-index: 90;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px;
+    width: 100%;
+    height: 60px;
+    font-size: 1.3em;
+    opacity: 0;
+    transition: all 0.5s ease 0s;
+    outline: 1px solid var(--wjx-none);
+}
+
+@media screen and (max-width: 768px) {
+    #nav {
+        padding: 0px;
+    }
+}
+
+#nav.show {
+    opacity: 1;
+    filter: none;
+    transform: translate3d(0px, 0px, 0px) !important;
+    top: 0;
+    transition: 0.2s;
+    position: fixed;
+    z-index: 91;
+}
+
+/* -------------------- 导航栏固定状态 -------------------- */
+
+#page-header #nav {
+    box-shadow: none;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    z-index: 999 !important;
+    -webkit-user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+    #page-header #nav {
+        background: linear-gradient(to top, var(--wjx-main-none) 0%, var(--wjx-main) 100%);
+        transition: 0s;
+    }
+}
+
+#page-header.nav-fixed #nav {
+    position: fixed;
+    top: 0;
+    z-index: 91;
+    background: var(--wjx-card-bg);
+    box-shadow: none;
+    outline: 1px solid var(--wjx-card-border);
+    transition: transform 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s;
+}
+
+#page-header.nav-fixed #nav,
+#page-header.not-top-img > #nav {
+    box-shadow: none;
+}
+
+#page-header.nav-fixed #nav #site-name,
+#page-header.nav-fixed #nav #toggle-menu,
+#page-header.nav-fixed #nav .nav-item {
+    text-shadow: none;
+}
+
+#page-header.nav-visible #nav {
+    transition: all 0.5s ease 0s;
+    transform: translate3d(0px, 100%, 0px);
+}
+
+#page-header.nav-visible + .layout > .aside-content > .sticky_layout {
+    top: 70px;
+    transition: top 0.5s ease 0s;
+}
+
+/* -------------------- 导航栏分组容器 -------------------- */
+
+#page-header #nav #nav-group {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    padding: 0 1.5rem;
+    align-items: center;
+}
+
+#page-header #nav #nav-right {
+    position: absolute;
+    right: 0;
+    z-index: 102;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+#page-header #nav #nav-left {
+    z-index: 102;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    margin-right: 1.5rem;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1300px) {
+    #page-header #nav #nav-left {
+        display: none;
+    }
+}
+
+#page-header #nav #nav-right div,
+#page-header #nav #nav-left div {
+    margin-left: 0.5rem;
+    padding: 0;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    #nav #menus {
+        display: none !important;
+    }
+
+    #nav.hide-menu #toggle-menu .site-page {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #page-header #nav #nav-group {
+        width: 100%;
+        display: flex;
+        position: relative;
+        padding: 0 12px;
+    }
+
+    #page-header #nav #nav-right {
+        margin-right: 12px;
+    }
+}
+
+/* -------------------- 无顶图时样式 -------------------- */
+
+#page-header.not-top-img #nav {
+    transition: 0.3s;
+    background: var(--wjx-card-bg);
+}
+
+@media screen and (max-width: 768px) {
+    #page-header.not-top-img #nav {
+        background: var(--wjx-card-bg) !important;
+    }
+
+    #page-header.not-top-img:not(.nav-fixed) #nav {
+        background: var(--wjx-background) !important;
+    }
+
+    div#travellings_button {
+        display: none !important;
+    }
+
+    div#darkmode_button {
+        display: none !important;
+    }
+}
+
+#page-header.not-top-img:not(.nav-fixed) #nav {
+    background: var(--wjx-none);
+}
+
+#page-header.not-top-img {
+    margin-bottom: 0rem;
+    height: 60px;
+    background: 0 center
+}
+
+#page-header.no-top-img {
+    margin-bottom: 0rem;
+}
+
+/* -------------------- 导航栏按钮通用样式 -------------------- */
+
+.nav-button {
+    cursor: pointer;
+}
+
+#nav-left .nav-item,
+#nav-right .nav-item {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+}
+
+#nav-left .nav-icon,
+#nav-right .nav-icon {
+    line-height: 1;
+    font-size: 22px;
+}
+
+#nav .nav-item {
+    color: var(--light-grey);
+    padding: 0.3rem 0.4rem 0px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#nav .nav-item:hover {
+    color: var(--white);
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* -------------------- 切换菜单按钮 -------------------- */
+
+#nav #toggle-menu {
+    display: none;
+    padding: 0 0.4rem;
+    vertical-align: top;
+}
+
+#nav #toggle-menu:hover {
+    color: var(--white);
+}
+
+#nav.hide-menu #toggle-menu {
+    display: inline-block !important;
+}
+
+#nav.hide-menu #toggle-menu .site-page {
+    font-size: inherit;
+}
+
+#nav.hide-menu .menus_items {
+    position: absolute;
+    left: 0px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#nav.hide-menu #search-button span {
+    display: none !important;
+}
+
+/* -------------------- 搜索按钮 -------------------- */
+
+#nav #search-button {
+    display: inline;
+    padding: 0px 0.4rem;
+}
+
+/* -------------------- 页面布局 -------------------- */
+
+.layout {
+    padding: 1rem 1.5rem;
+}
+
+@media screen and (min-width: 1300px) {
+    .layout {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* -------------------- 字体图标通用样式 -------------------- */
+
+.fa,
+.fa-brands,
+.fas,
+.fa-light,
+.fa-regular,
+.fa-solid,
+.fa-thin,
+.fab,
+.fad,
+.fal,
+.far,
+.fas,
+.fat,
+.iconfont {
+    line-height: 1;
+}
+
+/* -------------------- 手机端导航 -------------------- */
+
+#sidebar #sidebar-menus .site-data {
+    margin: 1rem 0;
+    padding: 0.6rem 0.5rem;
+}
+
+#sidebar-menus > hr {
+    display: none;
+}

@@ -1,0 +1,212 @@
+/* ========================================
+   评论区主体样式
+   合并自: post-comment.css, content.css, comment-between-spacing.css,
+          hidden-no-comment.css, comment-count-font-size.css,
+          comment-module-title-font-size.css, comment-time.css,
+          like-comment.css, nickname.css, loading-when-background-color.css,
+          mod-tutorial-entry.css
+   ======================================== */
+
+/* -------------------- 评论区容器 -------------------- */
+
+div#post-comment {
+    margin-top: 2rem;
+}
+
+#post-comment > div.comment-head > div.comment-privacy {
+    display: block;
+    justify-content: space-between;
+    margin-left: 8px;
+    font-size: 13px;
+    margin-left: auto;
+}
+
+#post-comment > div.comment-head > div.comment-privacy a:hover {
+    color: var(--wjx-theme);
+}
+
+#post-comment .comment-tips {
+    background-color: rgba(103, 194, 58, 0.13);
+    border: var(--style-border-always);
+    border-color: var(--wjx-green);
+    color: var(--wjx-green);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 0.5rem;
+    display: none;
+    width: 100%;
+}
+
+#post-comment .comment-tips.show {
+    display: flex;
+    font-weight: bold;
+}
+
+#post-comment::before {
+    content: '';
+    display: block;
+    height: 75px;
+    margin-top: -75px;
+    visibility: hidden;
+}
+
+/* -------------------- 评论标题 -------------------- */
+
+#post-comment .comment-head {
+    font-size: 0.8em !important;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.comment-randomInfo {
+    margin-left: auto;
+    font-size: 13px;
+}
+
+#twikoo > div.tk-comments > div.tk-comments-container > div.tk-comments-title > span:nth-child(1) {
+    font-size: 1.0rem;
+}
+
+/* -------------------- 评论内容 -------------------- */
+
+#post-comment blockquote {
+    background: var(--wjx-secondbg);
+    border: var(--style-border);
+    box-shadow: none;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.6rem;
+    color: var(--wjx-secondtext);
+    border-radius: 8px;
+}
+
+.tk-content img {
+    max-height: 1100px !important;
+    max-width: 100% !important;
+    border-radius: 12px
+}
+
+.tk-content p {
+    margin: 0px !important;
+}
+
+.tk-replies .tk-content {
+    margin-top: 0rem !important;
+}
+
+.tk-replies .tk-content span:first-child:not(.token) {
+    font-size: 0.5rem;
+    color: var(--wjx-secondtext);
+}
+
+/* -------------------- 头像 -------------------- */
+
+.tk-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    box-shadow: var(--wjx-shadow-border);
+    margin-right: 0.5rem !important;
+}
+
+.tk-avatar.tk-has-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 32px !important;
+}
+
+.tk-avatar.tk-has-avatar img {
+    border-radius: 32px !important;
+}
+
+.tk-row .tk-avatar {
+    display: none;
+}
+
+.tk-avatar .tk-avatar-img {
+    height: 32px !important;
+}
+
+.tk-avatar .tk-avatar-img:hover {
+    transform: rotate(360deg);
+}
+
+img.tk-avatar-img {
+    height: 32px !important;
+}
+
+/* -------------------- 昵称 -------------------- */
+
+.tk-nick {
+    font-size: 1rem !important;
+    line-height: 32px;
+}
+
+/* -------------------- 评论时间 -------------------- */
+
+.tk-time {
+    color: var(--wjx-secondtext) !important;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+/* -------------------- 评论间距 -------------------- */
+
+.tk-comments-container > .tk-comment {
+    margin-top: 0rem !important;
+    margin-bottom: 0.5rem !important;
+    background: var(--wjx-card-bg);
+    transition: 0.3s;
+    border-radius: 12px;
+    padding: 0rem;
+    padding-top: 0.5rem;
+    border: none;
+    border-top: var(--style-border-dashed);
+}
+
+#page .tk-comments-container > .tk-comment {
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    border: var(--style-border);
+    border-top: var(--style-border);
+    box-shadow: var(--wjx-shadow-border);
+}
+
+@media screen and (max-width: 768px) {
+    .tk-comments-container > .tk-comment {
+        padding: 1rem;
+        border: var(--style-border-always);
+        box-shadow: var(--wjx-shadow-border);
+    }
+}
+
+.tk-replies > .tk-comment {
+    background: var(--wjx-card-bg);
+    border-top: var(--style-border-dashed);
+    border-radius: 12px;
+    padding: 0;
+    transition: 0.3s;
+    padding-top: 1rem;
+    margin-top: 0;
+}
+
+/* -------------------- 点赞和评论 -------------------- */
+
+.tk-action-link {
+    color: var(--wjx-lighttext) !important;
+}
+
+.tk-action-icon svg {
+    fill: var(--wjx-lighttext) !important;
+}
+
+/* -------------------- 加载和其他 -------------------- */
+
+.el-loading-mask {
+    background-color: none !important;
+}
+
+.twikoo-info {
+    color: var(--wjx-secondtext);
+}

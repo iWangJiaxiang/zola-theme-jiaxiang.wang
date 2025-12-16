@@ -1,0 +1,22 @@
+/* 文章列表 */
+.article-sort-item-info {
+    padding: 0 0.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-sort-item-time {
+    order: 1;
+    margin-top: 4px;
+    color: var(--wjx-secondtext);
+}
+
+.article-sort-item-title {
+    order: 0;
+    font-weight: bold;
+}
+
+.article-sort-item-title:hover {
+    transform: translateX(0px);
+    color: var(--wjx-lighttext);
+}

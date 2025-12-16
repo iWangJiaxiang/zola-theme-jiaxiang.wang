@@ -1,0 +1,485 @@
+/* ========================================
+   UI组件样式
+   合并自: button-style.css, switch.css, bottom-right-settings-button-spacing.css,
+          rightmenu-context-menu-menu.css, message-modal.css, cookies.css, 
+          progress-bar.css, loading-more-multi.css
+   ======================================== */
+
+/* -------------------- 按钮样式 -------------------- */
+
+.button--animated {
+    border-radius: 8px !important;
+    transition: 0.3s;
+}
+
+#error-wrap .error-content .error-info a:hover {
+    background-color: var(--wjx-blue);
+    transition: 0.3s;
+    box-shadow: var(--wjx-shadow-blue);
+}
+
+.button--animated:before {
+    display: none;
+}
+
+/* -------------------- 加载更多 -------------------- */
+
+.load-btn.button-load {
+    background: var(--wjx-card-btn-bg);
+    color: var(--wjx-fontcolor);
+    padding: 12px 12px;
+    margin: 1.5rem 0 0 0;
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.load-btn.button-load:hover {
+    background: var(--wjx-blue);
+    color: var(--wjx-white);
+    transition: 0.3s;
+    box-shadow: var(--wjx-shadow-blue);
+}
+
+/* -------------------- 开关 -------------------- */
+
+#widget-tree-button {
+    background-color: var(--wjx-secondbg) !important;
+    box-shadow: var(--wjx-shadow-light2black) !important;
+    color: var(--wjx-fontcolor);
+}
+
+#widget-tree:hover #widget-tree-button {
+    opacity: 0;
+    left: -1.5rem;
+}
+
+#widget-tree {
+    background-color: var(--wjx-maskbg) !important;
+}
+
+#widget-tree:hover {
+    left: 0 !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+#widget-tree a {
+    -webkit-line-clamp: 2;
+    color: var(--wjx-fontcolor) !important;
+}
+
+#widget-tree a:hover {
+    color: var(--wjx-hovertext) !important;
+}
+
+.toggle-post-icon,
+.toggle-toc-icon {
+    color: var(--wjx-fontcolor) !important;
+}
+
+@media screen and (max-width: 768px) {
+    #widget-tree {
+        display: none !important;
+    }
+}
+
+/* -------------------- 右下角设置按钮 -------------------- */
+
+#rightside {
+    position: fixed;
+    right: -48px;
+    bottom: 100px;
+    z-index: 100;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    transition: all .5s
+}
+
+@media screen and (max-width: 768px) {
+    #rightside #switch-commentBarrage {
+        display: none
+    }
+}
+
+
+#rightside #rightside-config-hide {
+    height: 0;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -webkit-transition: -webkit-transform .4s;
+    -moz-transition: -moz-transform .4s;
+    -o-transition: -o-transform .4s;
+    -ms-transition: -ms-transform .4s;
+    transition: transform .4s;
+    -webkit-transform: translate(45px, 0);
+    -moz-transform: translate(45px, 0);
+    -o-transform: translate(45px, 0);
+    -ms-transform: translate(45px, 0);
+    transform: translate(45px, 0)
+}
+
+#rightside #rightside-config-hide.show {
+    height: auto;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0)
+}
+
+#rightside #rightside-config-hide.status {
+    height: auto;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none
+}
+
+#rightside > div > a, #rightside > div > button {
+    display: block;
+    margin-bottom: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: var(--wjx-main);
+    color: var(--btn-color);
+    text-align: center;
+    font-size: 16px;
+    line-height: 35px
+}
+
+#rightside > div > a:hover, #rightside > div > button:hover {
+    background-color: var(--btn-hover-color)
+}
+
+#rightside #mobile-toc-button {
+    display: none
+}
+
+@media screen and (max-width: 900px) {
+    #rightside #mobile-toc-button {
+        display: block
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #rightside #hide-aside-btn {
+        display: none
+    }
+}
+
+.read-mode #rightside {
+    display: none !important
+}
+
+#rightside > div > button {
+    border-radius: 5px
+}
+
+/* -------------------- 右键菜单 -------------------- */
+
+#rightMenu {
+    display: none;
+    position: fixed;
+    padding: 0 0.25rem;
+    width: 9rem;
+    height: fit-content;
+    top: 10%;
+    left: 10%;
+    background-color: var(--wjx-maskbgdeep);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    color: var(--wjx-fontcolor);
+    border-radius: 12px;
+    z-index: 99994;
+    border: var(--style-border);
+    user-select: none;
+    box-shadow: var(--wjx-shadow-black);
+}
+
+#rightMenu:hover {
+    border: var(--style-border-hover);
+    box-shadow: var(--wjx-shadow-theme);
+}
+
+#rightMenu .rightMenu-group {
+    padding: 0.35rem 0.3rem;
+    transition: 0.3s;
+}
+
+#rightMenu .rightMenu-line {
+    border-top: 2px dashed var(--wjx-theme-op);
+}
+
+#rightMenu .rightMenu-group.rightMenu-small {
+    display: flex;
+    justify-content: space-between;
+}
+
+#rightMenu .rightMenu-group .rightMenu-item {
+    border-radius: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#rightMenu .rightMenu-line .rightMenu-item {
+    margin: 0.25rem 0;
+    padding: 0.25rem 0;
+}
+
+#rightMenu .rightMenu-group.rightMenu-line .rightMenu-item {
+    display: flex;
+}
+
+#rightMenu .rightMenu-group .rightMenu-item:hover {
+    background-color: var(--wjx-lighttext);
+    color: var(--wjx-card-bg);
+    box-shadow: var(--wjx-shadow-main);
+}
+
+#rightMenu .rightMenu-group .rightMenu-item:active {
+    transform: scale(0.97);
+}
+
+#rightMenu .rightMenu-group .rightMenu-item i {
+    display: inline-block;
+    text-align: center;
+    line-height: 1.5rem;
+    width: 1.5rem;
+    padding: 0 0.25rem;
+    font-size: 0.9rem;
+}
+
+#rightMenu .rightMenu-line .rightMenu-item i {
+    margin: 0 0.25rem;
+}
+
+#rightMenu .rightMenu-group .rightMenu-item span {
+    line-height: 1.5rem;
+}
+
+.rightMenu-small .rightMenu-item {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#rightmenu-mask {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: none;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 101;
+    margin: 0 !important;
+    z-index: 99993;
+}
+
+/* -------------------- 消息弹窗 -------------------- */
+
+.snackbar-container {
+    background: var(--wjx-lighttext) !important;
+    color: var(--wjx-card-bg) !important;
+    border-radius: 0 !important;
+    display: flex;
+    justify-content: center !important;
+    max-width: none !important;
+    min-width: 100% !important;
+    margin: 0px !important;
+    left: 0px !important;
+    height: 60px !important;
+    transform: none !important;
+}
+
+.snackbar-container p {
+    color: var(--wjx-card-bg) !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    font-size: 0.8rem !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.snackbar-container .action {
+    color: var(--wjx-card-bg) !important;
+    padding: 4px 6px !important;
+    font-weight: bold;
+    border-radius: 8px !important;
+    transition: 0.3s;
+    border: var(--style-border) !important;
+}
+
+.snackbar-container .action:hover {
+    color: var(--wjx-lighttext) !important;
+    background: var(--wjx-card-bg) !important
+}
+
+.snackbar-container::after {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: var(--wjx-white);
+    opacity: 0.1;
+    content: "";
+    animation: snackbar-progress var(--wjx-snackbar-time) linear forwards;
+    pointer-events: none;
+}
+
+@keyframes snackbar-progress {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* -------------------- Cookies弹窗 -------------------- */
+
+#cookies-window {
+    min-width: 300px;
+    background: var(--wjx-maskbgdeep);
+    color: var(--wjx-fontcolor);
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    bottom: 20px;
+    right: 20px;
+    position: fixed;
+    border-radius: 12px;
+    transition: 0.3s;
+    z-index: 1002;
+    user-select: none;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    transform: translateZ(0);
+    border: var(--style-border);
+    animation: barrageIn 0.6s cubic-bezier(0.42, 0, 0.3, 1.11);
+}
+
+#cookies-window.cw-hide {
+    opacity: 0;
+    animation: barrageOut 0.6s cubic-bezier(0.42, 0, 0.3, 1.11);
+    z-index: -1;
+}
+
+#cookies-window .cookies-window-title {
+    padding-bottom: 4px;
+    border-bottom: var(--style-border);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#cookies-window .cookies-window-content {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cookie-to {
+    margin-right: 4px;
+    font-weight: bold;
+}
+
+.cookies-link {
+    margin-left: auto;
+    font-size: 16px;
+}
+
+.cookies-link i.wjxfont {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1300px) {
+    #cookies-window {
+        display: none;
+    }
+}
+
+.wjx-tag {
+    padding: 1px 6px;
+    border-radius: 6px 6px 6px 0;
+    margin-left: 4px;
+    height: 20px;
+    line-height: 19px;
+}
+
+/* -------------------- 进度条 -------------------- */
+
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+
+    z-index: 2000;
+    position: fixed;
+    margin: auto;
+    top: 4px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    border-radius: 8px;
+    width: 4rem;
+    background: var(--wjx-secondbg);
+    border: var(--style-border);
+
+    overflow: hidden;
+}
+
+.pace-inactive .pace-progress {
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+
+.pace .pace-progress {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+    max-width: 200px;
+    position: fixed;
+    z-index: 2000;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    height: 100%;
+    width: 100%;
+    background: var(--wjx-logo-color);
+    animation: gradient 2s ease infinite;
+    background-size: 200%;
+}
+
+.pace.pace-inactive {
+    opacity: 0;
+    transition: 0.3s;
+    top: -8px;
+}

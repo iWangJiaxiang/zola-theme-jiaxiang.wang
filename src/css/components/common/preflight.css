@@ -1,0 +1,529 @@
+/* ========================================
+   CSS 重置和基础样式
+   ======================================== */
+
+/* 最小网页大小 */
+#page {
+    min-height: calc(100vh - 464px);
+}
+
+@media screen and (min-width: 900px) {
+    html.hide-aside .layout {
+        -webkit-box-pack: center;
+        justify-content: center;
+    }
+
+    html.hide-aside .layout > .aside-content {
+        display: none;
+    }
+
+    html.hide-aside .layout > div:first-child {
+        width: 100%;
+    }
+}
+
+.page .sticky_layout {
+    display: flex;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+}
+
+.li-style {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+}
+
+li, ul {
+    list-style: none;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.inline-word {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+img, picture {
+    width: 100%;
+    height: 100%;
+}
+
+::selection {
+    background: var(--wjx-fontcolor);
+    color: var(--wjx-background);
+}
+
+/* HTML5 规范化 */
+html {
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+
+main {
+    display: block;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0px;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0px;
+    overflow: visible;
+    position: relative;
+    margin: 2rem auto;
+    border: 2px dashed var(--hr-border);
+}
+
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+a, button {
+    background-color: transparent;
+    color: var(--wjx-fontcolor);
+    text-decoration: none;
+    transition: all .3s ease-out 0s;
+    overflow-wrap: break-word;
+    -webkit-user-drag: none;
+}
+
+a:hover, button:hover {
+    color: var(--wjx-lighttext)
+}
+
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline dotted;
+}
+
+b, strong {
+    font-weight: bolder;
+}
+
+code, kbd, samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+img {
+    border-style: none;
+    max-width: 100%;
+    transition: all 0.2s ease 0s;
+}
+
+img:not([src]), img[src=""] {
+    opacity: 0;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0px;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, select {
+    text-transform: none;
+}
+
+[type="button"], [type="reset"], [type="submit"], button {
+    appearance: button;
+}
+
+fieldset {
+    padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0px;
+    white-space: normal;
+}
+
+progress {
+    vertical-align: baseline;
+}
+
+textarea {
+    overflow: auto;
+}
+
+[type="checkbox"], [type="radio"] {
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+[type="search"] {
+    appearance: textfield;
+    outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+    appearance: none;
+}
+
+::-webkit-file-upload-button {
+    appearance: button;
+    font: inherit;
+}
+
+summary {
+    display: list-item;
+}
+
+template {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+    background: var(--wjx-background);
+    color: var(--wjx-fontcolor);
+    font-size: var(--global-font-size);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei";
+    line-height: 2;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0px;
+}
+
+input::placeholder {
+    color: var(--wjx-fontcolor);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    margin: 1rem 0px 0.7rem;
+    color: var(--text-highlight-color);
+    font-weight: 700;
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+    font-size: inherit !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.table-wrap {
+    overflow-x: scroll;
+    margin: 0px 0px 1rem;
+}
+
+table {
+    display: table;
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    empty-cells: show;
+}
+
+table thead {
+    background: rgba(153, 169, 191, 0.1);
+}
+
+table td, table th {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--light-grey);
+    vertical-align: middle;
+}
+
+.fa-spin {
+    animation: wjx-spin 1.2s linear infinite;
+    opacity: .6
+}
+
+button {
+    padding: 0px;
+    outline: 0px;
+    border: none;
+    background: 0px 0px;
+    cursor: pointer;
+}
+
+#aside-content .author-info__description,
+#aside-content .author-info__name,
+#site-name, #site-subtitle, #site-title {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* 通用工具类 */
+.is-center {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center
+}
+
+.card-info-avatar.is-center {
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start
+}
+
+.copy-true {
+    user-select: all;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.button--animated {
+    position: relative;
+    z-index: 1;
+    transition: color 1s ease 0s;
+}
+
+.button--animated::before {
+    position: absolute;
+    inset: 0px;
+    z-index: -1;
+    background: var(--btn-hover-color);
+    content: "";
+    transition: transform 0.5s ease-out 0s;
+    transform: scaleX(0);
+    transform-origin: 0px 50%;
+}
+
+.button--animated:hover::before {
+    transition-timing-function: cubic-bezier(0.45, 1.64, 0.47, 0.66);
+    transform: scaleX(1);
+}
+
+.img-alt {
+    margin: -0.5rem 0px 0.5rem;
+    color: rgb(133, 133, 133);
+}
+
+.img-alt:hover {
+    text-decoration: none !important;
+}
+
+blockquote {
+    margin: 0px 0px 1rem;
+    padding: 0.1rem 0.8rem;
+    border-left: 0.2rem solid rgb(73, 177, 245);
+    background-color: var(--blockquote-bg);
+    color: var(--blockquote-color);
+}
+
+blockquote a {
+    word-break: break-all;
+}
+
+blockquote p {
+    padding: 0.5rem 0px;
+    margin: 0px !important;
+}
+
+blockquote footer {
+    padding: 0px 0px 0.5rem;
+}
+
+blockquote footer cite::before {
+    padding: 0px 0.3em;
+    content: "—";
+}
+
+/* 文章容器 */
+#article-container .gutter {
+    user-select: none;
+}
+
+#article-container .gist table {
+    width: auto;
+}
+
+#article-container .gist table td {
+    border: none;
+}
+
+/* 文本溢出隐藏 */
+#aside-content .card-archives ul.card-archive-list > .card-archive-list-item a span,
+#aside-content .card-categories ul.card-category-list > .card-category-list-item a span,
+#aside-content .card-info .card-info-data > .card-info-data-item a .headline,
+#pagination .next_info,
+#pagination .prev_info,
+#sidebar #sidebar-menus .menus_items .site-page,
+#sidebar #sidebar-menus .site-data .data-item .data-item-link > a > div,
+.flink#friend-container .flink-list > .flink-list-item a .flink-item-desc,
+.flink#friend-container .flink-list > .flink-list-item a .flink-item-name,
+.limit-one-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* FontAwesome 图标 */
+#article-container h1::before,
+#article-container h2::before,
+#article-container h3::before,
+#article-container h4::before,
+#article-container h5::before,
+#article-container h6::before,
+#post .post-copyright::before,
+#post .post-outdate-notice::before,
+.fontawesomeIcon {
+    display: inline-block;
+    font-weight: 600;
+    font-style: normal;
+    font-variant: normal;
+    font-family: "Font Awesome 5 Free";
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 动画应用 */
+.card-announcement-animation {
+    color: red;
+    animation: 0.8s linear 0s infinite normal none running announ_animation;
+}
+
+.scroll-down-effects {
+    animation: 1.5s ease 0s infinite normal none running scroll-down-effect;
+}
+
+.reward-main {
+    animation: slide-in .3s ease 0s 1 normal none running
+}
+
+.page-title {
+    display: none;
+}
+
+i.{
+    line-height: 1;
+}
+
+.todolist-item i.{
+    display: var(--fa-display, inline-block);
+}
+
+#page p a:hover {
+    text-decoration: none
+}
+
+#page #post-comment p a:not(.headerlink):not(.fancybox) {
+    text-decoration: none;
+    border-bottom: 2px solid var(--wjx-lighttext);
+    font-weight: 700;
+    padding: 0 4px;
+    border-radius: 4px 4px 0 0
+}
+
+/* ========================================
+   布局样式 (合并自 layout.css)
+   ======================================== */
+
+.layout.hide-aside {
+    max-width: 1400px;
+}
+
+.layout {
+    display: flex;
+    margin: 0px auto;
+    padding: 2rem 15px;
+    max-width: 1200px;
+}
+
+@media screen and (max-width: 900px) {
+    .layout {
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .layout {
+        padding: 1rem 5px;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .layout {
+        max-width: 1500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .layout > div:first-child:not(.recent-posts) {
+        padding: 1.8rem 0.7rem !important;
+    }
+}
+
+.layout > div:first-child {
+    width: 75%;
+    transition: all 0.3s ease 0s;
+}
+
+@media screen and (max-width: 1200px) {
+    .layout > div:first-child {
+        width: 100% !important
+    }
+}
+
+.layout.hide-aside {
+    max-width: 1000px;
+}
+
+@media screen and (min-width: 2000px) {
+    .layout.hide-aside {
+        max-width: 1300px;
+    }
+}
+
+.layout.hide-aside > div {
+    width: 100% !important;
+}

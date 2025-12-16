@@ -1,0 +1,74 @@
+/* ========================================
+   音乐播放器样式
+   合并自: a-player.css, music-player.css, music-promo.css
+   ======================================== */
+
+/* -------------------- APlayer 基础样式 -------------------- */
+
+.aplayer .aplayer-list ol {
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+}
+
+.aplayer .aplayer-lrc:after {
+    display: none !important;
+}
+
+.aplayer.aplayer-withlrc.aplayer-withlist {
+    border-radius: 12px;
+}
+
+#article-container .aplayer {
+    border-radius: 12px;
+    min-height: 90px;
+    background: var(--wjx-card-bg);
+    border: var(--style-border);
+    box-shadow: var(--wjx-shadow-border);
+}
+
+#article-container.flink {
+    margin-top: 1rem;
+}
+
+#article-container.flink h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* -------------------- 播放器尺寸 -------------------- */
+
+.aplayer.aplayer-narrow .aplayer-body,
+.aplayer.aplayer-narrow .aplayer-pic {
+    height: 66px;
+    width: 66px;
+}
+
+/* -------------------- 音乐推广卡片 -------------------- */
+
+#aside-content .card-widget#card-music {
+    background: var(--wjx-pink);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+}
+
+#aside-content .card-widget#card-music img {
+    max-height: 110px;
+    object-fit: cover;
+}
+
+#aside-content .card-widget#card-music:hover img {
+    transform: scale(1.03);
+    transition: 0.5s;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+}
+
+.music-link {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

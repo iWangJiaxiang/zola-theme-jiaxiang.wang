@@ -1,0 +1,55 @@
+/* 文章目录 */
+#aside-content #card-toc .toc-content .toc-link.active {
+    line-height: 24px;
+    border-radius: 12px;
+    border-left-color: var(--wjx-hovertext);
+    background-color: var(--wjx-card-bg);
+    color: var(--wjx-lighttext);
+    font-weight: 700;
+    font-size: 20px;
+    position: relative;
+}
+
+[data-theme=dark].toc-list .toc-item.active .toc-link {
+    color: var(--wjx-white);
+}
+
+#aside-content #card-toc .toc-content .toc-item.active .toc-link {
+    opacity: 1;
+    border-radius: 8px;
+}
+
+#aside-content #card-toc .toc-content .toc-link {
+    line-height: 24px;
+    padding: 8px;
+    border-left: 0 solid transparent;
+    border-radius: 12px;
+    color: var(--wjx-secondtext);
+    cursor: default;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+
+}
+
+#aside-content #card-toc .toc-content a.toc-link:not(.active) {
+    opacity: 0.6;
+    cursor: pointer;
+    filter: blur(1px);
+    transition: 0.3s;
+}
+
+#aside-content #card-toc:hover .toc-content a.toc-link:not(.active) {
+    filter: blur(0px);
+    opacity: 1;
+}
+
+#aside-content #card-toc .toc-content a:hover.toc-link:not(.active) {
+    color: var(--wjx-lighttext);
+}
+
+/* -------------------- 目录卡片边距 -------------------- */
+
+#card-toc {
+    padding: 0.5rem 0.5rem !important;
+}

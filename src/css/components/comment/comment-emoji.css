@@ -1,0 +1,155 @@
+/* ========================================
+   评论表情样式
+   合并自: emoji.css, emoji-window-owo.css
+   ======================================== */
+
+/* -------------------- 表情基础样式 -------------------- */
+
+.tk-content .tk-owo-emotion {
+    width: 3em;
+    margin: 0px 2px 0px 2px;
+}
+
+.tk-owo-emotion,
+.twikoo .OwO-item img {
+    pointer-events: none;
+}
+
+/* -------------------- 表情窗口 -------------------- */
+
+.OwO .OwO-body {
+    border: var(--style-border-always) !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    background-color: var(--wjx-maskbg) !important;
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 102;
+    width: 500px;
+}
+
+.OwO .OwO-body .OwO-bar {
+    border-top: none !important;
+}
+
+.OwO .OwO-body .OwO-items .OwO-item:hover {
+    box-shadow: var(--wjx-shadow-lightblack) !important;
+    border-radius: 8px;
+}
+
+#twikoo > div.tk-comments > div.tk-submit > div.tk-row.actions > div > div.tk-action-icon.OwO.OwO-open > div.OwO-body > div > ul > li > span {
+    line-height: 48px;
+    font-size: 28px;
+}
+
+.OwO .OwO-body .OwO-items-show {
+    margin: 12px 8px !important;
+    min-height: 197px;
+}
+
+.OwO-packages {
+    background: var(--wjx-background);
+    padding-left: 8px !important;
+}
+
+.OwO.OwO-open .OwO-body {
+    animation: .3s ease .1s 1 normal both running donate_effcet
+}
+
+@media screen and (max-width: 768px) {
+    .OwO .OwO-body {
+        width: 300px;
+    }
+}
+
+/* -------------------- 表情放大预览 -------------------- */
+
+#owo-big {
+    position: fixed;
+    align-items: center;
+    background-color: var(--wjx-card-bg);
+    border: var(--style-border-always);
+    border-radius: 10px;
+    z-index: 9999;
+    display: none;
+    transform: translate(0, -105%);
+    overflow: hidden;
+    animation: owoIn 0.3s cubic-bezier(0.42, 0, 0.3, 1.11);
+    padding: 1rem;
+}
+
+#owo-big img {
+    width: 100%;
+}
+
+@keyframes owoIn {
+    0% {
+        transform: translate(0, -95%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, -105%);
+        opacity: 1;
+    }
+}
+
+/* -------------------- 额外信息和展开 -------------------- */
+
+.tk-extra {
+    background: var(--wjx-card-bg);
+    border: var(--style-border-always);
+    padding: 1px 5px 1px 2px;
+    border-radius: 8px;
+    margin-right: 4px !important;
+    color: var(--wjx-secondtext) !important;
+    display: inline !important;
+    margin-top: 6px !important;
+    font-size: 0.5rem;
+}
+
+.tk-extra .tk-icon {
+    display: none;
+}
+
+.tk-expand {
+    background: var(--wjx-card-bg) !important;
+    color: var(--wjx-fontcolor) !important;
+    border: var(--style-border-always);
+    box-shadow: var(--wjx-shadow-border);
+    border-radius: 12px;
+    -webkit-user-select: none;
+    position: relative;
+    z-index: 2
+}
+
+@media screen and (min-width: 769px) {
+    .tk-expand:hover {
+        background: var(--wjx-theme) !important;
+        color: var(--wjx-white) !important
+    }
+}
+
+.tk-comments-container > .tk-expand {
+    margin: 12px;
+    width: calc(100% - 24px) !important;
+    position: absolute;
+    bottom: 52px;
+    left: 0
+}
+
+.tk-expand::after {
+    background: linear-gradient(to bottom, var(--wjx-none) 0, var(--wjx-card-bg) 100%);
+    content: '';
+    width: 100%;
+    height: 100px;
+    bottom: 43px;
+    left: 0;
+    display: flex;
+    position: absolute;
+    z-index: -1
+}
+
+.tk-expand._collapse::after {
+    display: none
+}

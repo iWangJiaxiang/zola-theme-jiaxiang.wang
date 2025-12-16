@@ -1,0 +1,175 @@
+/* ========================================
+   返回首页按钮样式
+   来自: navbar-icon.css (返回按钮相关部分)
+   ======================================== */
+
+/* -------------------- 返回首页按钮 -------------------- */
+
+.back-home-button {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    padding: 0 !important;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    transition: 0.3s;
+    border-radius: 40px;
+    color: var(--wjx-white);
+}
+
+.page .back-home-button {
+    color: var(--wjx-fontcolor);
+}
+
+.page .back-home-button:hover {
+    color: var(--wjx-card-bg);
+}
+
+@media screen and (max-width: 768px) {
+    .back-home-button {
+        display: none;
+    }
+}
+
+.nav-fixed #nav .back-home-button {
+    color: var(--wjx-fontcolor);
+}
+
+#page-header.not-top-img #nav .back-home-button i {
+    font-size: 20px;
+}
+
+.back-home-button:hover {
+    background: var(--wjx-main);
+    color: var(--wjx-white);
+}
+
+.post .back-home-button:hover {
+    background: var(--wjx-white-op);
+    color: var(--wjx-white);
+}
+
+.nav-fixed #nav .back-home-button:hover {
+    background: var(--wjx-lighttext);
+    color: var(--wjx-card-bg);
+}
+
+/* -------------------- 返回菜单列表 -------------------- */
+
+.back-menu-list-groups .back-menu-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 340px;
+    justify-content: space-between;
+}
+
+.back-menu-list-groups .back-menu-list::before {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    content: '';
+}
+
+.back-menu-list-groups .back-menu-list .back-menu-item {
+    display: flex;
+    align-items: center;
+    margin: 4px 8px;
+    padding: 4px 8px !important;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.back-menu-list-groups .back-menu-list .back-menu-item:hover {
+    background: var(--wjx-lighttext) !important;
+    transform: scale(1) !important;
+}
+
+.back-menu-list-groups .back-menu-list .back-menu-item .back-menu-item-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    background: var(--wjx-none);
+}
+
+.back-menu-list-groups .back-menu-list .back-menu-item .back-menu-item-text {
+    font-size: 16px;
+    margin-left: 0.5rem;
+    color: var(--wjx-fontcolor);
+}
+
+@media screen and (max-width: 768px) {
+    .back-menu-list-groups .back-menu-list .back-menu-item .back-menu-item-text {
+        font-size: 14px;
+    }
+}
+
+.back-menu-list-groups .back-menu-list .back-menu-item:hover .back-menu-item-text {
+    color: var(--wjx-card-bg);
+}
+
+.back-home-button .back-menu-list-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.back-home-button .back-menu-list-groups {
+    position: absolute;
+    top: 45px;
+    transform: scale(0.8);
+    transform-origin: top left;
+    left: 1.5rem;
+    background-color: var(--wjx-maskbgdeep);
+    border-radius: 12px;
+    border: var(--style-border);
+    flex-direction: column;
+    font-size: 12px;
+    color: var(--wjx-secondtext);
+    box-shadow: var(--wjx-shadow-border);
+    transition: 0.1s;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(20px);
+}
+
+.back-home-button .back-menu-list-groups:hover {
+    border: var(--style-border-hover);
+}
+
+.back-home-button .back-menu-list-group .back-menu-list-title {
+    margin: 8px 0 0 16px;
+    transition: 0.3s;
+}
+
+.back-home-button .back-menu-list-group:hover .back-menu-list-title {
+    color: var(--wjx-lighttext);
+}
+
+.back-home-button:hover .back-menu-list-groups {
+    display: flex;
+    opacity: 1;
+    transition: 0.3s;
+    top: 55px;
+    pointer-events: auto;
+    left: 1.5rem;
+    transform: scale(1);
+}
+
+.back-home-button .back-menu-list .back-menu-item {
+    width: 150px;
+}
+
+@media screen and (max-width: 768px) {
+    .back-home-button .back-menu-list-groups {
+        left: 0;
+    }
+
+    .back-home-button:hover .back-menu-list-groups {
+        padding-bottom: 8px;
+        box-shadow: var(--wjx-shadow-border);
+        left: 0;
+    }
+}
