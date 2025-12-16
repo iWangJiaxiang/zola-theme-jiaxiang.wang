@@ -1,0 +1,32 @@
+# Project Context
+
+## Tech Stack
+- **Static Site Generator**: Zola (Rust-based)
+- **Templating Engine**: Tera
+- **Styling**: Tailwind CSS v4
+  - Source: `./src/css/main.css`
+  - Output: `./static/dist/css/main.css`
+  - Build Command: `npm run css:build`
+  - Watch Command: `npm run css:watch`
+- **Development Server**: `zola serve` (via `npm run server`)
+- **Package Manager**: pnpm
+
+## File Structure
+- `templates/`: HTML templates using Tera syntax (`*.html`).
+- `content/`: Markdown content files (`*.md`).
+- `static/`: Static assets (images, JS, compiled CSS).
+- `src/css/`: Source CSS files for Tailwind.
+- `theme.toml`: Theme configuration and metadata.
+- `config.toml`: Site-wide Zola configuration.
+
+## Coding Guidelines
+- **HTML/Templates**: Use semantic HTML5. Use Tera macros for reusable components if applicable.
+- **CSS**: Use Tailwind CSS utility classes. Avoid inline styles.
+  - **Important**: This project uses Tailwind CSS v4.
+- **Configuration**: Respect settings in `theme.toml` and `config.toml`.
+- **Language**: Theme comments and documentation appear to be in Chinese (Simplified).
+
+## Development Workflow
+1. Install dependencies: `pnpm install`
+2. Start dev server: `npm run server`
+3. Watch CSS: `npm run css:watch`
