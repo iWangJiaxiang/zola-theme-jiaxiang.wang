@@ -379,15 +379,15 @@
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    padding: 0.3rem 0px;
+    padding: 6px 8px !important;
+    border-radius: 12px;
+    transition: 0.3s;
+    margin: 4px 0;
+    cursor: pointer;
 }
 
 #aside-content .aside-list > .aside-list-item:first-child {
     padding-top: 0px;
-}
-
-#aside-content .aside-list > .aside-list-item:not(:last-child) {
-    border-bottom: 1px dashed rgb(245, 245, 245);
 }
 
 #aside-content .aside-list > .aside-list-item:last-child {

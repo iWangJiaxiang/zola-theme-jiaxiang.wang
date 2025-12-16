@@ -23,16 +23,6 @@
     display: none;
 }
 
-#aside-content .aside-list > .aside-list-item {
-    padding: 8px;
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-    border-radius: 12px;
-    transition: 0.3s;
-    margin: 4px 0;
-    cursor: pointer;
-}
-
 @media screen and (min-width: 1300px) {
     #aside-content .aside-list > .aside-list-item:active {
         transform: scale(0.97);
