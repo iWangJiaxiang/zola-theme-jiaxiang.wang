@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "csstools.postcss",
+        "tamasfe.even-better-toml",
+        "seatonjiang.gitmoji-vscode"
+    ]
+}
