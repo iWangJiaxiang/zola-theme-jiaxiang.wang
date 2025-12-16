@@ -10,7 +10,8 @@
         {
             "label": "css build",
             "type": "shell",
-            "command": "pnpm css:build"
+            "command": "pnpm css:build",
+            "problemMatcher": []
         },
         {
             "label": "css watch",
