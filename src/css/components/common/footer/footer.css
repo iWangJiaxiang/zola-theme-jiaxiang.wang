@@ -27,8 +27,7 @@
 
 #footer:before {
     position: absolute !important;
-    width: 100% !important;
-    height: 100% !important;
+    inset: 0;  /* 等价于 top: 0; right: 0; bottom: 0; left: 0; */
     content: '' !important;
     z-index: -1;
 }
