@@ -10,29 +10,6 @@
 
 /* -------------------- 侧边栏配置 -------------------- */
 
-@media screen and (min-width: 1300px) {
-    #aside-content {
-        padding-left: 1rem;
-        animation: slide-in .6s .3s backwards
-    }
-
-    #aside-content .sticky_layout {
-        top: calc(60px + 0.5rem);
-    }
-
-    #page-header.nav-visible + .layout > .aside-content > .sticky_layout {
-        top: calc(60px + 0.5rem);
-    }
-
-    [data-theme=dark] #aside-content > .card-widget.card-info {
-        border: var(--style-border);
-    }
-
-    .coverdiv {
-        height: 130%;
-    }
-}
-
 #aside-content #card-toc .toc-content {
     position: relative;
     overflow-y: auto;
@@ -180,6 +157,28 @@
     }
 }
 
+/* -------------------- 侧边栏固定位置 -------------------- */
+
+@media screen and (max-width: 1300px) {
+    #aside-content .sticky_layout {
+        top: 60px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #aside-content .sticky_layout {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #aside-content .sticky_layout {
+        position: sticky;
+        top: 20px;
+        transition: top 0.3s ease 0s;
+    }
+}
+
 /* -------------------- 布局对齐 -------------------- */
 
 @media screen and (min-width: 1300px) {
@@ -195,6 +194,29 @@
 #aside-content .sticky_layout {
     top: 80px;
     transition: top 0s;
+}
+
+@media screen and (min-width: 1300px) {
+    #aside-content {
+        padding-left: 1rem;
+        animation: slide-in .6s .3s backwards
+    }
+
+    #aside-content .sticky_layout {
+        top: calc(60px + 0.5rem);
+    }
+
+    #page-header.nav-visible + .layout > .aside-content > .sticky_layout {
+        top: calc(60px + 0.5rem);
+    }
+
+    [data-theme=dark] #aside-content > .card-widget.card-info {
+        border: var(--style-border);
+    }
+
+    .coverdiv {
+        height: 130%;
+    }
 }
 
 #aside-content .card-widget:hover {

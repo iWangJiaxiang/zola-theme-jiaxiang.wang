@@ -352,14 +352,6 @@
     padding-left: 0.5rem;
 }
 
-@media screen and (min-width: 900px) {
-    #aside-content .sticky_layout {
-        position: sticky;
-        top: 20px;
-        transition: top 0.3s ease 0s;
-    }
-}
-
 #aside-content .card-tag-cloud a {
     display: inline-block;
     padding: 0px 0.3rem;

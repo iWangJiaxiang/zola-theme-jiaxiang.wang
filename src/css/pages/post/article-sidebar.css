@@ -3,20 +3,6 @@
     background: var(--wjx-maskbg);
 }
 
-/* -------------------- 侧边栏固定位置 -------------------- */
-
-@media screen and (max-width: 1300px) {
-    #aside-content .sticky_layout {
-        top: 60px;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    #aside-content .sticky_layout {
-        margin-top: 1rem;
-    }
-}
-
 /* -------------------- 作者文章列表链接 -------------------- */
 
 #aside-content > div.card-widget.card-info > div > div.card-info-data > div:nth-child() > a > div.headline {
