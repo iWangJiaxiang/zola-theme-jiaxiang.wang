@@ -1,66 +1,59 @@
-/* 文章头部 */
+/* ========================================
+   文章头部样式 (Tailwind CSS v4 重构)
+   ======================================== */
+
+/* -------------------- 文章头部信息 -------------------- */
+
 #page-header #post-info {
-    top: 0;
-    position: absolute;
-    padding: 0 3rem;
-    margin: 0 auto;
-    z-index: 10;
+    @apply top-0 absolute px-12 mx-auto z-10 max-w-7xl flex flex-col items-start justify-center;
     color: var(--wjx-white);
-    max-width: 1400px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     height: calc(100% + 0px);
-    justify-content: center;
     animation: slide-in 0.6s 0s backwards;
 }
 
 @media screen and (max-width: 768px) {
     #page-header #post-info {
+        @apply justify-normal;
         padding: 0 6%;
-        justify-content: normal;
         padding-top: 18rem;
     }
 }
 
 @media screen and (min-width: 1300px) {
     #page-header #post-info {
+        @apply top-0 flex justify-center;
         height: calc(100% + 0px);
-        top: 0;
-        display: flex;
-        justify-content: center;
     }
 }
 
 #post-info #post-meta > .meta-secondline > span:first-child {
-    margin-right: 0.8rem;
+    @apply mr-3;
 }
 
 .meta-secondline span {
-    display: flex;
-    align-items: center;
-    line-height: 1;
+    @apply flex items-center leading-none;
 }
 
 @media screen and (max-width: 768px) {
     .meta-secondline span {
-        line-height: 1.5;
+        @apply leading-normal;
     }
 }
 
 /* -------------------- 文章头图 -------------------- */
 
+#page-header.post-bg {
+    @apply overflow-hidden h-80;
+    background-color: var(--wjx-background);
+    transition: 0.6s;
+}
+
 #page-header.post-bg::before {
+    @apply absolute top-0 left-0 block w-full;
     transition: 0.3s;
-    opacity: 0.93;
+    opacity: 1;
     height: 20rem;
     background-color: var(--wjx-main);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: block;
-    width: 100%;
     content: "";
 }
 
@@ -83,16 +76,15 @@
 
 @media screen and (min-width: 1300px) {
     #page-header.post-bg {
-        height: 25rem;
+        @apply h-100;
     }
 
     #page-header {
-        height: 25rem;
+        @apply h-100;
     }
 
     #page-header.post-bg:before {
-        height: 25rem;
-        /* opacity: 0; */
+        @apply h-100;
         background-color: var(--wjx-main);
         animation: slide-in-op 0.6s 0s forwards;
     }
@@ -103,106 +95,56 @@
     }
 }
 
-#page-header.post-bg {
-    /* backdrop-filter: blur(500px); */
-    background-color: var(--wjx-background);
-    transition: 0.6s;
-    overflow: hidden;
-}
-
 .post-bg #post-cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    @apply w-full h-full object-cover;
     min-width: 50vw;
     min-height: 20rem;
     opacity: 0.8;
 }
 
+/* -------------------- 封面容器 -------------------- */
+
 .coverdiv {
-    width: 70%;
-    height: 100%;
-    position: relative;
+    @apply w-[70%] h-full relative overflow-hidden mb-0;
     margin: 0 -20% 0 auto;
-    overflow: hidden;
-    margin-bottom: 0;
     transform: rotate(10deg) translateY(-10%) scale(2);
     filter: blur(10px);
 }
 
 .coverdiv.loaded {
-    display: block;
+    @apply block;
 }
 
 .coverdiv:after {
-    position: absolute;
+    @apply absolute w-full h-full top-0 left-0;
     content: '';
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
     box-shadow: 110px -130px 300px 60px var(--wjx-main) inset;
 }
 
 @media screen and (max-width: 768px) {
     .coverdiv {
-        margin: 0 0 0 auto;
+        @apply w-full fixed ml-auto mr-0 z-[1];
+        height: 30rem;
         transform: rotate(0) translateY(0) scale(1);
         filter: blur(0);
-        width: 100%;
-        position: fixed;
-        height: 30rem;
-        z-index: 1
     }
 
     .coverdiv:after {
+        @apply h-[70%];
         box-shadow: 0 0 105px 99px var(--wjx-main) inset;
-        height: 70%
     }
-
 }
-
-@media screen and (min-width: 1300px) {
-    .coverdiv {
-        width: 70%;
-        height: 100%;
-        position: relative;
-        margin: 0 -20% 0 auto;
-        overflow: hidden;
-        margin-bottom: 0;
-        transform: rotate(10deg) translateY(-8%) scale(1.8);
-        filter: blur(10px);
-        opacity: 0;
-    }
-
-    .coverdiv.loaded {
-        display: block;
-        opacity: 0.5;
-        animation: showCover 1s 0.3s backwards;
-        transform: rotate(10deg) translateY(-10%) scale(2);
-    }
-
-}
-
 
 @media screen and (min-width: 768px) {
-
     .coverdiv {
-        width: 70%;
-        height: 100%;
-        position: relative;
+        @apply w-[70%] h-full relative overflow-hidden mb-0 opacity-0;
         margin: 0 -20% 0 auto;
-        overflow: hidden;
-        margin-bottom: 0;
         transform: rotate(10deg) translateY(-8%) scale(1.8);
         filter: blur(10px);
-        opacity: 0;
     }
 
-
     .coverdiv.loaded {
-        display: block;
-        opacity: 0.5;
+        @apply block opacity-50;
         animation: showCover 1s 0.3s backwards;
         transform: rotate(10deg) translateY(-10%) scale(2);
     }
@@ -219,52 +161,177 @@
     }
 }
 
+@media screen and (min-width: 1300px) {
+    .coverdiv {
+        @apply w-[70%] h-full relative overflow-hidden mb-0 opacity-0;
+        margin: 0 -20% 0 auto;
+        transform: rotate(10deg) translateY(-8%) scale(1.8);
+        filter: blur(10px);
+    }
+
+    .coverdiv.loaded {
+        @apply block opacity-50;
+        animation: showCover 1s 0.3s backwards;
+        transform: rotate(10deg) translateY(-10%) scale(2);
+    }
+}
+
+/* -------------------- 页面头部 -------------------- */
+
 #page-header {
-    background-image: none !important;
-    display: flex;
-    justify-content: center;
+    @apply relative w-full bg-center bg-cover bg-no-repeat transition-all duration-500 ease-linear;
+}
+
+#page-header #scroll-down .scroll-down-effects,
+#page-header #site-subtitle,
+#page-header #site-title {
+    @apply text-center leading-normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+#page-header #site-title {
+    @apply m-0;
+    color: var(--white);
+    font-size: 1.85em;
+}
+
+@media screen and (min-width: 768px) {
+    #page-header #site-title {
+        font-size: 2.85em;
+    }
+}
+
+#page-header #site-subtitle {
+    color: var(--light-grey);
+    font-size: 1.15em;
+}
+
+@media screen and (min-width: 768px) {
+    #page-header #site-subtitle {
+        font-size: 1.72em;
+    }
+}
+
+#page-header #site_social_icons {
+    @apply hidden mx-auto w-60 text-center;
+}
+
+@media screen and (max-width: 768px) {
+    #page-header #site_social_icons {
+        @apply block;
+    }
+}
+
+#page-header #site_social_icons .social-icon {
+    @apply mx-2 cursor-pointer;
+    color: var(--light-grey);
+    text-shadow: rgba(0, 0, 0, 0.15) 0.1rem 0.1rem 0.2rem;
+    font-size: 1.43em;
+}
+
+#page-header #scroll-down .scroll-down-effects {
+    @apply relative w-full text-3xl;
+    color: var(--light-grey);
+}
+
+#page-header.not-home-page {
+    @apply h-80;
+}
+
+@media screen and (max-width: 768px) {
+    #page-header.not-home-page {
+        @apply h-56;
+    }
+}
+
+#page-header #page-site-info {
+    @apply absolute top-40 px-2 w-full;
+}
+
+@media screen and (max-width: 768px) {
+    #page-header #page-site-info {
+        @apply top-28;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #page-header.post-bg {
+        @apply h-72 transition-none;
+        background-color: var(--wjx-main) !important;
+    }
+}
+
+#page-header #post-info {
+    @apply absolute w-full text-center;
+    padding: 0px 8%;
+}
+
+@media screen and (max-width: 900px) {
+    #page-header #post-info {
+        @apply bottom-6 text-left;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #page-header #post-info {
+        @apply px-4;
+        bottom: 1.1rem;
+    }
+}
+
+#page-header.not-top-img {
+    @apply mb-2 h-[60px];
+    background: 0px center;
+}
+
+#page-header.not-top-img #nav {
+    @apply bg-white/80;
+}
+
+#page-header.not-top-img #nav .nav-item {
+    color: var(--wjx-fontcolor);
+    text-shadow: none;
+}
+
+#page-header.not-top-img #travellings_button::after {
+    background: var(--wjx-main) !important;
 }
 
 /* -------------------- 文章顶部其他信息 -------------------- */
 
 #post-meta > div {
-    text-align: left;
+    @apply text-left;
 }
 
 #post-info #post-meta {
+    @apply mt-1.5 flex select-none;
     color: var(--wjx-white);
-    margin-top: 0.4rem;
     transition: 0.3s;
-    display: flex;
-    -webkit-user-select: none;
 }
 
 #post-info #post-meta a {
-    text-decoration: none;
+    @apply no-underline leading-none rounded-xl;
     color: var(--wjx-fontcolor);
-    line-height: 1;
-    border-radius: 12px
 }
 
 #post-info #post-meta a:hover {
-    text-decoration: none;
-    color: var(--wjx-white)
+    @apply no-underline;
+    color: var(--wjx-white);
 }
 
 #post-info #post-meta i {
-    line-height: 1
+    @apply leading-none;
 }
-/* 波浪css */
+
+/* -------------------- 波浪动画 -------------------- */
+
 .main-hero-waves-area {
-    width: 100%;
-    position: absolute;
-    left: 0;
+    @apply w-full absolute left-0 z-[5];
     bottom: -11px;
-    z-index: 5;
 }
 
 .waves-area .waves-svg {
-    width: 100%;
+    @apply w-full;
     height: 60px;
 }
 
@@ -308,9 +375,9 @@
     }
 }
 
-/*Shrinking for mobile*/
+/* 移动端隐藏波浪 */
 @media (max-width: 768px) {
     .main-hero-waves-area {
-        display: none;
+        @apply hidden;
     }
 }
