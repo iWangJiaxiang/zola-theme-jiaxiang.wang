@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{{ macro::get_production_path(path="/css/wechat.css") }}">
+<link rel="stylesheet" href="/dist/css/wechat.css" />
 <!-- 头部导航栏 -->
 <header class="{% if config.extra.top.above.enable_above %}full_page{% else %}not-top-img{% endif %}" id="page-header">
     {{ macro::nav(title = config.title) }}

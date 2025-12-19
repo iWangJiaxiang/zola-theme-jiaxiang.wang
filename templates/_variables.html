@@ -13,44 +13,6 @@
         --wjx-theme-none: {{config.extra.style.theme_dark_skin}}00 !important;
     }
 
-    :root {
-        --halo-comment-widget-component-card-bg: var(--wjx-card-bg);
-        --halo-comment-widget-component-theme-op: var(--wjx-theme-op);
-        --halo-comment-widget-component-card-border: var(--wjx-card-border);
-        --halo-comment-widget-component-shadow-border: var(--wjx-shadow-border);
-        --halo-comment-widget-component-secondtext: var(--wjx-secondtext);
-        --halo-comment-widget-component-lighttext: var(--wjx-lighttext);
-        --halo-comment-widget-component-secondbg: var(--wjx-secondbg);
-        --halo-comment-widget-component-fontcolor: var(--wjx-fontcolor);
-        --halo-comment-widget-component-main: var(--wjx-main);
-        --halo-comment-widget-component-background: var(--wjx-background);
-        --halo-comment-widget-component-white: var(--wjx-white);
-        --halo-comment-widget-component-shadow-black: var(--wjx-shadow-black);
-    }
-    #page {
-        --halo-comment-widget-component-padding: 1rem;
-    }
-
-    .color-scheme-dark,.dark,[data-color-scheme=dark] {
-        --halo-search-widget-color-modal-layer: var(--wjx-maskbgdeep);
-        --halo-search-widget-color-modal-content-bg: var(--wjx-card-bg);
-        --halo-search-widget-color-form-input: rgb(255 255 255 / 79.9%);
-        --halo-search-widget-color-form-input-placeholder: #6b7280d9;
-        --halo-search-widget-color-form-input-bg: var(--wjx-card-bg);
-        --halo-search-widget-color-form-divider: #bbbbbb0f;
-        --halo-search-widget-color-result-item-bg: var(--wjx-card-bg);
-        --halo-search-widget-color-result-item-hover-bg: #90939914;
-        --halo-search-widget-color-result-item-title: rgb(255 255 255 / 79.9%);
-        --halo-search-widget-color-result-item-content: #ffffff82;
-        --halo-search-widget-color-command-kbd-item: #c0c4ccb3;
-        --halo-search-widget-color-command-kbd-border: #bbbbbb0f;
-        --halo-search-widget-color-result-empty: #6b7280d9
-    }
-
-    [data-theme=light] {
-        --halo-search-widget-color-result-item-title : #4B5563
-    }
-
     {% if not config.extra.post.opacity %}
     #aside-content #card-toc .toc-content a.toc-link:not(.active) {
         opacity: 1;

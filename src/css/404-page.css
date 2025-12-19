@@ -1,3 +1,6 @@
+@reference "tailwindcss/theme";
+@reference "tailwindcss/utilities";
+
 /* 404页面 */
 #error-wrap .error-content {
     box-shadow: none !important;

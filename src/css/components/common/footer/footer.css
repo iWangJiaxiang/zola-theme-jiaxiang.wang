@@ -490,3 +490,64 @@ div#footer_deal {
         order: 2;
     }
 }
+
+
+@media screen and (max-width: 768px) {
+    picture.footer_mini_logo {
+        display: none;
+    }
+
+    div#footer_deal {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}
+
+a.deal_link {
+    display: flex;
+    margin: 1rem 27px;
+    color: var(--wjx-card-bg);
+    border-radius: 3rem;
+    width: 32px;
+    height: 32px;
+    background: var(--wjx-fontcolor);
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+a.deal_link:hover {
+    color: var(--wjx-card-bg);
+    background: var(--wjx-main);
+    transform: scale(1.1)
+}
+
+a.custom_socials {
+    display: flex;
+    margin: 1rem 27px;
+    border-radius: 3rem;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+a.custom_socials:hover {
+    transform: scale(1.1)
+}
+
+
+picture.footer_mini_logo {
+    width: 50px;
+    height: 50px;
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: cubic-bezier(0, 0, 0, 1.29) .5s;
+}
+
+picture.footer_mini_logo:hover {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform: scale(1.2)
+}

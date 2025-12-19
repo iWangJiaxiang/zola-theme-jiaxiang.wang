@@ -1,0 +1,20 @@
+/* ========================================
+   关于页面样式入口文件
+   ======================================== */
+@reference "tailwindcss/theme";
+@reference "tailwindcss/utilities";
+
+/* 页面主体 */
+@import "./pages/about/base.css";
+
+/* 通用组件 */
+@import "./pages/about/about-components.css";
+
+/* 内容区块 */
+@import "./pages/about/about-content.css";
+
+/* 赞赏 */
+@import "./pages/about/about-reward.css";
+
+/* 兴趣爱好 */
+@import "./pages/about/about-hobby.css";

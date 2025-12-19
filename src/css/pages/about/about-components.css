@@ -7,50 +7,6 @@
     width: 100%;
     margin-top: 1rem;
 }
-/* 一行内容，横向组件 */
-
-.author-content-item {
-    width: 49%;
-    border-radius: 24px;
-    background: var(--wjx-card-bg);
-    border: var(--style-border-always);
-    box-shadow: var(--wjx-shadow-border);
-    position: relative;
-    padding: 1rem 2rem;
-    overflow: hidden;
-}
-
-.author-content-item.single {
-    width: 100%;
-}
-
-.author-content-item .author-content-item-title {
-    font-size: 36px;
-    font-weight: bold;
-    line-height: 1;
-}
-
-.author-content-item .author-content-item-tips {
-    opacity: 0.8;
-    font-size: 0.6rem;
-    margin-bottom: 0.5rem;
-}
-
-@media screen and (max-width: 768px) {
-    .author-content-item {
-        width: 100% !important;
-        margin-top: 1rem;
-        padding: 1rem;
-    }
-
-    .author-content-item-group.column {
-        width: 100% !important;
-    }
-
-    .author-content {
-        margin-top: 0rem;
-    }
-}
 
 .card-background-icon {
     font-size: 12rem;
@@ -377,64 +333,4 @@ div#poem_dynasty {
     background: var(--wjx-card-btn-bg);
     color: var(--wjx-fontcolor);
     border-radius: 8px;
-}
-
-@media screen and (max-width: 768px) {
-    picture.footer_mini_logo {
-        display: none;
-    }
-
-    div#footer_deal {
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-}
-
-a.deal_link {
-    display: flex;
-    margin: 1rem 27px;
-    color: var(--wjx-card-bg);
-    border-radius: 3rem;
-    width: 32px;
-    height: 32px;
-    background: var(--wjx-fontcolor);
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-}
-
-a.deal_link:hover {
-    color: var(--wjx-card-bg);
-    background: var(--wjx-main);
-    transform: scale(1.1)
-}
-
-a.custom_socials {
-    display: flex;
-    margin: 1rem 27px;
-    border-radius: 3rem;
-    width: 32px;
-    height: 32px;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-}
-
-a.custom_socials:hover {
-    transform: scale(1.1)
-}
-
-
-picture.footer_mini_logo {
-    width: 50px;
-    height: 50px;
-    margin: 0 1rem;
-    cursor: pointer;
-    transition: cubic-bezier(0, 0, 0, 1.29) .5s;
-}
-
-picture.footer_mini_logo:hover {
-    -webkit-backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform: scale(1.2)
 }

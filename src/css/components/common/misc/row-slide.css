@@ -1,0 +1,90 @@
+@keyframes rowleft {
+    from {
+        transform: translateX(0)
+    }
+
+    to {
+        transform: translateX(-50%)
+    }
+}
+
+@keyframes rowup {
+    from {
+        transform: translateY(0)
+    }
+
+    to {
+        transform: translateY(-50%)
+    }
+}
+
+.tags-group-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 30px
+}
+
+.tags-group-all {
+    display: flex;
+    transform: rotate(0);
+}
+
+.tags-group-all.nowrapMove {
+    transform: rotate(0);
+    padding-bottom: 2rem
+}
+
+.nowrapMove .tags-group-wrapper {
+    margin-top: 7rem;
+    animation: rowleft 120s linear infinite;
+    display: flex
+}
+
+.tags-group-icon-pair .tags-group-icon:nth-child(even) {
+    margin-top: 1rem;
+    transform: translate(-60px)
+}
+
+#bannerGroup .tags-group-icon-pair {
+    display: flex
+}
+
+#bannerGroup .tags-group-icon-pair .tags-group-icon:nth-child(even) {
+    margin-left: 4rem
+}
+
+.tags-group-icon-pair {
+    margin-left: 1rem;
+    user-select: none
+}
+
+.tags-group-icon-pair a img {
+    border-radius: 50%!important
+}
+
+.tags-group-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 66px;
+    font-weight: 700;
+    box-shadow: var(--wjx-shadow-blackdeep)
+}
+
+.nowrapMove .tags-group-icon {
+    border-radius: 50%;
+}
+
+.tags-group-icon img, .tags-group-icon svg{
+    width: 60%;
+    height: 60%;
+    /*rotate: -50deg;*/
+}
+
+.nowrapMove .tags-group-icon img {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}

@@ -12,3 +12,12 @@
 
 /* 杂项 */
 @import "./misc.css";
+
+/* 滑动标签 */
+@import "./row-slide.css";
+
+/* 分类导航条 */
+@import "./category-bar.css";
+
+/* Banner */
+@import "./banner.css";

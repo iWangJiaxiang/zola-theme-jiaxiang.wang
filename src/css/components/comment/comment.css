@@ -210,3 +210,7 @@ img.tk-avatar-img {
 .twikoo-info {
     color: var(--wjx-secondtext);
 }
+
+.post-comment {
+    background: var(--wjx-card-bg);
+}

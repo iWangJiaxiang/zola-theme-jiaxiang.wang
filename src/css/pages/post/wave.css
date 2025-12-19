@@ -1,0 +1,59 @@
+
+/* -------------------- 波浪动画 -------------------- */
+
+.main-hero-waves-area {
+    @apply w-full absolute left-0 z-[5];
+    bottom: -11px;
+}
+
+.waves-area .waves-svg {
+    @apply w-full;
+    height: 60px;
+}
+
+.parallax > use {
+    animation: move-forever 30s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+    fill: var(--wjx-background);
+    opacity: 0.5;
+}
+
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+    fill: var(--wjx-background);
+    opacity: 0.6;
+}
+
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+    fill: var(--wjx-background);
+    opacity: 0.7;
+}
+
+.parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+    fill: var(--wjx-background);
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/* 移动端隐藏波浪 */
+@media (max-width: 768px) {
+    .main-hero-waves-area {
+        @apply hidden;
+    }
+}

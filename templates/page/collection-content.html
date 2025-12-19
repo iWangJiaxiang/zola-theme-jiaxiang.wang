@@ -28,6 +28,8 @@
 {% endblock %}
 
 {% block content %}
+    <link rel="stylesheet" href="/dist/css/collection.css" />
+    <link rel="stylesheet" href="/dist/css/post.css" />
     {% set post = page %}
     {# 第三级路径是合集名称 #}
     {% set collection = get_section(path=page.ancestors[3]) %}

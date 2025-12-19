@@ -10,7 +10,8 @@
 
 #nav {
     position: absolute;
-    top: 0px;
+    /* top: 0px; */
+    inset: 0;
     z-index: 90;
     display: flex;
     flex-wrap: nowrap;

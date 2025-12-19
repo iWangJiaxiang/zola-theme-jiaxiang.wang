@@ -126,7 +126,6 @@
 #console .console-mask {
     background: var(--wjx-maskbgdeep);
     backdrop-filter: saturate(100%) blur(0px);
-    -webkit-backdrop-filter: blur(0px);
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -140,7 +139,6 @@
 
 #console.show .console-mask {
     backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: blur(20px);
 }
 
 #card-newest-comments .aside-list-item .thumbnail img,
@@ -510,7 +508,6 @@
     opacity: 0;
     pointer-events: none;
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px)
 }
 
 .console-button .back-menu-list-groups:hover {
@@ -563,7 +560,6 @@
     display: flex;
     flex-direction: column;
     backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     pointer-events: none;
     box-shadow: var(--wjx-shadow-border);
     opacity: 0;

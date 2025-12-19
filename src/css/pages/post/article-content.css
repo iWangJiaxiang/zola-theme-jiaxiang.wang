@@ -311,23 +311,6 @@ figure.gallery-group:hover .gallery-group-name::after {
     transform: translate3d(0, 0, 0);
 }
 
-#aside-content .aside-list > .aside-list-item .content > .comment,
-#aside-content .aside-list > .aside-list-item .content > .name,
-#aside-content .aside-list > .aside-list-item .content > .title,
-#error-wrap .error-content .error-info .error_subtitle,
-#post-info .post-title,
-#recent-posts > .recent-post-item > .recent-post-info > .article-title,
-#recent-posts > .recent-post-item > .recent-post-info > .content,
-.article-sort-item-title,
-.limit-more-line,
-.relatedPosts > .relatedPosts-list .content .title,
-figure.gallery-group .gallery-group-name,
-figure.gallery-group p {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-}
-
 figure.gallery-group:hover p {
     opacity: 1;
     -ms-filter: none;

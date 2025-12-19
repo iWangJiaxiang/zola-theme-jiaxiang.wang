@@ -26,6 +26,7 @@
 {% endblock %}
 
 {% block content %}
+    <link rel="stylesheet" href="/dist/css/about.css" />
     {% set doc = page | default(value=section) %}
     <!-- 头部导航栏 -->
     <header class="{% if config.extra.top.above.enable_above %}full_page{% else %}not-top-img{% endif %}" id="page-header">

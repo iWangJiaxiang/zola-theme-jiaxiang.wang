@@ -23,7 +23,6 @@
     overflow: hidden;
     background-color: var(--wjx-maskbg) !important;
     backdrop-filter: saturate(180%) blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     z-index: 102;
     width: 500px;
 }

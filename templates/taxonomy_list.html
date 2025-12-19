@@ -14,14 +14,14 @@
 {% endblock %}
 
 {% block content %}
-    <div class="page" id="body-wrap">
-        <!-- 头部导航栏 -->
-        <header class="{% if config.extra.top.above.enable_above %}full_page{% else %}not-top-img{% endif %}" id="page-header">
-            {{ macro::nav(title = config.title) }}
-        </header>
+    <link rel="stylesheet" href="/dist/css/taxonomy.css" />
+    <!-- 头部导航栏 -->
+    <header class="{% if config.extra.top.above.enable_above %}full_page{% else %}not-top-img{% endif %}" id="page-header">
+        {{ macro::nav(title = config.title) }}
+    </header>
 
         
-        <main class="layout hide-aside" id="content-inner">
+    <main class="layout hide-aside" id="content-inner">
         <div id="page">
             <h1 class="page-title" style="display: inline;">{{ macro::taxonomy_name(taxonomy=taxonomy.name) }}</h1>
             <div class="category-lists">
@@ -43,8 +43,8 @@
         </div>
     </main>
 
-        {% include "partial/common/footer.html" %}
-    </div>
+    {% include "partial/common/footer.html" %}
+
 {% endblock %}
 
 

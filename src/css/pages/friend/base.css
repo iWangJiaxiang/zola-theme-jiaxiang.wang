@@ -71,6 +71,10 @@
     .flink#friend-container .flink-list > .flink-list-item {
         width: calc(25% - 12px) !important;
     }
+
+    .flink#friend-container .site-card {
+        width: calc(20% - 16px) !important;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -161,10 +165,15 @@
     height: 100%;
 }
 
-@media screen and (max-width: 1200px) {
-    .flink#friend-container .site-card {
-        width: calc(20% - 16px) !important;
+@media screen and (min-width: 1200px) {
+    #banners.flink {
+        margin-bottom: .5rem
     }
+
+    .flink .banners-title {
+        top: 1.5rem;
+    }
+
 }
 
 @media screen and (max-width: 1024px) {

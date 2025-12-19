@@ -5,24 +5,24 @@
 /* -------------------- 文章头部信息 -------------------- */
 
 #page-header #post-info {
-    @apply top-0 absolute px-12 mx-auto z-10 max-w-7xl flex flex-col items-start justify-center;
+    @apply absolute px-12 mx-auto z-10 flex flex-col items-start justify-center w-full h-full text-center inset-0;
     color: var(--wjx-white);
-    height: calc(100% + 0px);
+    max-width: 1400px;
     animation: slide-in 0.6s 0s backwards;
 }
 
 @media screen and (max-width: 768px) {
     #page-header #post-info {
-        @apply justify-normal;
+        @apply justify-normal px-4;
         padding: 0 6%;
         padding-top: 18rem;
+        bottom: 1.1rem;
     }
 }
 
 @media screen and (min-width: 1300px) {
     #page-header #post-info {
-        @apply top-0 flex justify-center;
-        height: calc(100% + 0px);
+        @apply flex justify-center h-full;
     }
 }
 
@@ -179,7 +179,7 @@
 /* -------------------- 页面头部 -------------------- */
 
 #page-header {
-    @apply relative w-full bg-center bg-cover bg-no-repeat transition-all duration-500 ease-linear;
+    @apply flex relative w-full bg-center bg-cover bg-no-repeat transition-all duration-500 ease-linear;
 }
 
 #page-header #scroll-down .scroll-down-effects,
@@ -252,30 +252,16 @@
     #page-header #page-site-info {
         @apply top-28;
     }
-}
 
-@media screen and (max-width: 768px) {
     #page-header.post-bg {
         @apply h-72 transition-none;
         background-color: var(--wjx-main) !important;
     }
 }
 
-#page-header #post-info {
-    @apply absolute w-full text-center;
-    padding: 0px 8%;
-}
-
 @media screen and (max-width: 900px) {
     #page-header #post-info {
         @apply bottom-6 text-left;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #page-header #post-info {
-        @apply px-4;
-        bottom: 1.1rem;
     }
 }
 
@@ -321,63 +307,4 @@
 
 #post-info #post-meta i {
     @apply leading-none;
-}
-
-/* -------------------- 波浪动画 -------------------- */
-
-.main-hero-waves-area {
-    @apply w-full absolute left-0 z-[5];
-    bottom: -11px;
-}
-
-.waves-area .waves-svg {
-    @apply w-full;
-    height: 60px;
-}
-
-.parallax > use {
-    animation: move-forever 30s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-}
-
-.parallax > use:nth-child(1) {
-    animation-delay: -2s;
-    animation-duration: 7s;
-    fill: var(--wjx-background);
-    opacity: 0.5;
-}
-
-.parallax > use:nth-child(2) {
-    animation-delay: -3s;
-    animation-duration: 10s;
-    fill: var(--wjx-background);
-    opacity: 0.6;
-}
-
-.parallax > use:nth-child(3) {
-    animation-delay: -4s;
-    animation-duration: 13s;
-    fill: var(--wjx-background);
-    opacity: 0.7;
-}
-
-.parallax > use:nth-child(4) {
-    animation-delay: -5s;
-    animation-duration: 20s;
-    fill: var(--wjx-background);
-}
-
-@keyframes move-forever {
-    0% {
-        transform: translate3d(-90px, 0, 0);
-    }
-    100% {
-        transform: translate3d(85px, 0, 0);
-    }
-}
-
-/* 移动端隐藏波浪 */
-@media (max-width: 768px) {
-    .main-hero-waves-area {
-        @apply hidden;
-    }
 }

@@ -1,9 +1,11 @@
 /* ========================================
    友链页面样式入口文件
    ======================================== */
+@reference "tailwindcss/theme";
+@reference "tailwindcss/utilities";
 
 /* 友链列表 */
-@import "./friend-link.css";
+@import "./pages/friend/base.css";
 
 /* 友链卡片 */
-@import "./friend-card.css";
+@import "./pages/friend/friend-card.css";

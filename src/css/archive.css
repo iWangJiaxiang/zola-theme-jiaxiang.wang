@@ -1,5 +1,7 @@
 /* ========================================
    归档页面样式入口文件
    ======================================== */
+@reference "tailwindcss/theme";
+@reference "tailwindcss/utilities";
 
-@import "./archive.css";
+@import "./pages/archive/base.css";

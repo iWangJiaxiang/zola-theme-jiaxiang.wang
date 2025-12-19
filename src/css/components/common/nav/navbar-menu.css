@@ -97,7 +97,6 @@
     white-space: nowrap;
     transition: 0.3s;
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     top: 35px;
 }
 

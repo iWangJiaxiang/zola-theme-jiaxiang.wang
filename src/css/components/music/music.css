@@ -7,7 +7,6 @@
 
 .aplayer .aplayer-list ol {
     backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
 }
 
 .aplayer .aplayer-lrc:after {

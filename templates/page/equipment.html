@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block content %}
+    <link rel="stylesheet" href="/dist/css/equipment.css" />
     {% set doc = page | default(value=section) %}
     {% set data = load_data(path="data.toml") %}
     <!-- 头部导航栏 -->

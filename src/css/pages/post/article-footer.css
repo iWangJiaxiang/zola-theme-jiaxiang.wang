@@ -564,7 +564,8 @@
         overflow: hidden;
         cursor: pointer;
         opacity: 0;
-        z-index: 999
+        z-index: 999;
+        background: 0 0;
     }
 
 
@@ -598,17 +599,12 @@
         transform: none
     }
 
-    #post #pagination {
-        background: 0 0
-    }
-
     #pagination .next_info, #post #pagination .prev_info {
         color: var(--wjx-fontcolor);
     }
 
     #pagination .next-post, #pagination .prev-post, .next-post.pull-right, .prev-post.pull-left {
         background: var(--wjx-maskbgdeep);
-        -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
         transform: translateZ(0)
     }

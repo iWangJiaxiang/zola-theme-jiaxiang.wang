@@ -1,51 +1,53 @@
 /* ========================================
    Post 页面样式索引
    ======================================== */
-
-/* AI 摘要推荐 */
-@import "./ai.css";
-
-/* 摘要容器 */
-@import "./abstract.css";
-
-/* 文章卡片（含封面、置顶卡片、标签底部） */
-@import "./article-card.css";
-
-/* 文章内容（含加粗文本、列表样式、超链接、引用、表格、tips） */
-@import "./article-content.css";
-
-/* 文章 details 折叠 */
-@import "./article-details-collapse.css";
-
-/* 文章底部（含推荐、标签、版权链接、复制按钮、上下篇） */
-@import "./article-footer.css";
-
-/* 文章头部（含头图、顶部信息、波浪效果） */
-@import "./article-header.css";
-
-/* 文章图片（含长图、内联图片、视频） */
-@import "./article-image.css";
-
-/* 文章布局（背景阴影） */
-@import "./article-layout.css";
-
-/* 文章列表 */
-@import "./article-list.css";
-
-/* 文章元信息（含作者时间、分类信息、透明度、数值） */
-@import "./article-meta.css";
-
-/* 文章侧边栏（含固定位置、作者链接、树形导航） */
-@import "./article-sidebar.css";
-
-/* 文章 Tab 样式 */
-@import "./article-tab.css";
+@reference "tailwindcss/theme";
+@reference "tailwindcss/utilities";
 
 /* 文章标题（含字号、内标题、前图标、链接标签） */
-@import "./article-title.css";
+@import "./pages/post/base.css";
+
+/* AI 摘要推荐 */
+@import "./pages/post/ai.css";
+
+/* 摘要容器 */
+@import "./pages/post/abstract.css";
+
+/* 文章卡片（含封面、置顶卡片、标签底部） */
+@import "./pages/post/article-card.css";
+
+/* 文章内容（含加粗文本、列表样式、超链接、引用、表格、tips） */
+@import "./pages/post/article-content.css";
+
+/* 文章 details 折叠 */
+@import "./pages/post/article-details-collapse.css";
+
+/* 文章底部（含推荐、标签、版权链接、复制按钮、上下篇） */
+@import "./pages/post/article-footer.css";
+
+/* 文章头部（含头图、顶部信息、波浪效果） */
+@import "./pages/post/article-header.css";
+
+/* 文章图片（含长图、内联图片、视频） */
+@import "./pages/post/article-image.css";
+
+/* 文章列表 */
+@import "./pages/post/article-list.css";
+
+/* 文章元信息（含作者时间、分类信息、透明度、数值） */
+@import "./pages/post/article-meta.css";
+
+/* 文章侧边栏（含固定位置、作者链接、树形导航） */
+@import "./pages/post/article-sidebar.css";
+
+/* 文章 Tab 样式 */
+@import "./pages/post/article-tab.css";
 
 /* 文章目录（含卡片边距） */
-@import "./article-toc.css";
+@import "./pages/post/article-toc.css";
 
 /* Fancybox 灯箱 */
-@import "./fancybox.css";
+@import "./pages/post/fancybox.css";
+
+/* 波浪动画 */
+@import "./pages/post/wave.css";

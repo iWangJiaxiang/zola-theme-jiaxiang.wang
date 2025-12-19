@@ -4,7 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "buildtw:main": "npx tailwindcss -i ./src/css/base.css -o ./static/dist/css/base.css --minify",
+    "buildtw:base": "npx tailwindcss -i ./src/css/base.css -o ./static/dist/css/base.css --minify",
+    "buildtw:index": "npx tailwindcss -i ./src/css/index.css -o ./static/dist/css/index.css --minify",
+    "buildtw:post": "npx tailwindcss -i ./src/css/post.css -o ./static/dist/css/post.css --minify",
+    "buildtw:about": "npx tailwindcss -i ./src/css/about.css -o ./static/dist/css/about.css --minify",
+    "buildtw:archive": "npx tailwindcss -i ./src/css/archive.css -o ./static/dist/css/archive.css --minify",
+    "buildtw:equipment": "npx tailwindcss -i ./src/css/equipment.css -o ./static/dist/css/equipment.css --minify",
+    "buildtw:friend": "npx tailwindcss -i ./src/css/friend.css -o ./static/dist/css/friend.css --minify",
+    "buildtw:collection": "npx tailwindcss -i ./src/css/collection.css -o ./static/dist/css/collection.css --minify",
+    "buildtw:taxonomy": "npx tailwindcss -i ./src/css/taxonomy.css -o ./static/dist/css/taxonomy.css --minify",
+    "buildtw:wechat": "npx tailwindcss -i ./src/css/wechat.css -o ./static/dist/css/wechat.css --minify",
+    "buildtw:error404": "npx tailwindcss -i ./src/css/404-page.css -o ./static/dist/css/404.css --minify",
     "css:build": "npx npm-run-all --parallel buildtw:*",
     "css:watch": "npx npm-run-all --parallel \"buildtw:* -- --watch\"",
     "server": "zola serve"

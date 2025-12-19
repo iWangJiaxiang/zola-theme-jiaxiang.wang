@@ -285,3 +285,32 @@ span.post-meta-pv-cv {
 #post-info #post-meta .post-meta-icon {
     margin-right: 0.2rem;
 }
+
+.post-meta-date .far {
+    opacity: 0.6;
+}
+
+.post-meta-date .article-meta-label {
+    display: none;
+}
+
+#post-meta .post-meta-date, #post-meta .post-meta-author {
+    opacity: .6;
+    margin-right: 0.8rem;
+}
+
+#post-info #post-meta a.post-meta-pv,
+#post-info #post-meta a.post-meta-commentcount,
+#post-info #post-meta a.post-meta-editor {
+    color: var(--wjx-white);
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+#post-info #post-meta a.post-meta-pv:hover,
+#post-info #post-meta a.post-meta-commentcount:hover,
+#post-info #post-meta a.post-meta-editor:hover {
+    opacity: 1;
+    background: var(--wjx-white-op)
+}

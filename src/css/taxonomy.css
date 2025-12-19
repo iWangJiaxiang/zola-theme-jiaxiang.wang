@@ -1,0 +1,5 @@
+@reference "tailwindcss/theme";
+@reference "tailwindcss/utilities";
+
+@import "./pages/taxonomy/base.css";
+@import "./pages/index/home-card.css";

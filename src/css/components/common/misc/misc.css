@@ -190,3 +190,150 @@ code:not([class]) {
     box-sizing: border-box;
     background-size: 100%;
 }
+
+/* 页首卡片 */
+.author-content.author-content-item.essayPage {
+    height: 19rem;
+    /* background: url(https://im02.jpg) no-repeat center; */
+    background-color: #A9C9FF;
+    background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+    background-size: cover;
+    color: var(--wjx-white);
+    overflow: hidden;
+    margin-top: 0;
+}
+
+/* 一行内容，横向组件 */
+
+.author-content-item {
+    width: 49%;
+    border-radius: 24px;
+    background: var(--wjx-card-bg);
+    border: var(--style-border-always);
+    box-shadow: var(--wjx-shadow-border);
+    position: relative;
+    padding: 1rem 2rem;
+    overflow: hidden;
+}
+
+.author-content-item.single {
+    width: 100%;
+}
+
+.author-content-item .author-content-item-title {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.author-content-item .author-content-item-tips {
+    opacity: 0.8;
+    font-size: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .author-content-item {
+        width: 100% !important;
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+
+    .author-content-item-group.column {
+        width: 100% !important;
+    }
+
+    .author-content {
+        margin-top: 0rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .author-content-item {
+        animation: slide-in .6s 0s backwards
+    }
+}
+
+.card-background-img {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.author-content-item .card-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .author-content-item .card-content {
+        padding: 1rem;
+    }
+}
+
+.author-content-item .card-content .author-content-item-title {
+    margin-bottom: 0.5rem;
+}
+
+.author-content-item .card-content .banner-button-group {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+}
+
+.author-content-item .card-content .banner-button-group .banner-button {
+    height: 40px;
+    width: 118px;
+    border-radius: 20px;
+    justify-content: center;
+    background: var(--wjx-black-op);
+    color: var(--wjx-white);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    transition: .3s;
+    cursor: pointer;
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+.author-content-item .card-content .banner-button-group .banner-button:hover {
+    background: var(--wjx-lighttext);
+    color: var(--wjx-card-bg)
+}
+
+.author-content-item .card-content .banner-button-group .banner-button i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .author-content-item .card-content .banner-button-group {
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .author-content-item .card-content .banner-button-group .banner-button {
+        background: none;
+        color: var(--wjx-white);
+        padding: 0;
+        width: fit-content;
+    }
+
+    .author-content-item .card-content .banner-button-group .banner-button i {
+        margin-right: 0;
+        font-size: 1.5rem;
+    }
+
+    .author-content-item .card-content .banner-button-group .banner-button-text {
+        display: none;
+    }
+}

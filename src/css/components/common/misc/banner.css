@@ -1,0 +1,377 @@
+.recent-post-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: space-between
+}
+
+@media screen and (max-width: 768px) {
+    a.categoryButton i {
+        display:none
+    }
+
+    .recent-post-top .categoryGroup {
+        min-width: 130px!important;
+        margin-bottom: .5rem;
+        margin-left: 1rem;
+        max-height: 164px;
+        overflow: hidden;
+        position: relative
+    }
+}
+
+.topGroup {
+    display: flex;
+}
+
+#bannerGroup {
+    display: flex;
+}
+
+div#banners {
+    display: none;
+}
+
+.topGroup .todayCard {
+    display: none;
+}
+
+@media screen and (min-width: 1200px) {
+    .topGroup {
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: calc(328px + .5rem);
+        align-content: space-between;
+        width: calc(50% - .25rem);
+        position: relative;
+        animation: slide-in .6s .1s backwards
+    }
+
+    div#bannerGroup {
+        width: calc(50% - .5rem);
+        margin-right: 1rem;
+        height: calc(328px + .5rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    div#banners {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background: var(--wjx-card-bg);
+        border: var(--style-border);
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: var(--wjx-shadow-border);
+        flex-direction: column;
+        overflow: hidden;
+        transition: .3s;
+        will-change: transform;
+        animation: slide-in .6s .1s backwards
+    }
+
+    #banners .banner-button-group {
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+        display: flex
+    }
+
+    #banners .banner-button {
+        padding: 8px 12px;
+        background: var(--wjx-fontcolor);
+        border-radius: 12px;
+        color: var(--wjx-card-bg);
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        transition: 0.3s;
+        cursor: pointer;
+        box-shadow: var(--wjx-shadow-black);
+    }
+
+    #banners .banner-button.secondary {
+        background: var(--wjx-secondbg);
+        border: var(--style-border-always);
+        color: var(--wjx-lighttext);
+        margin-right: 1rem;
+        box-shadow: var(--wjx-shadow-border);
+    }
+
+    #banners .banner-button:hover {
+        background: var(--wjx-theme);
+        color: var(--wjx-white);
+    }
+
+    #banners .banner-button i {
+        margin-right: 8px;
+        /*font-size: 1rem;*/
+    }
+
+    .banners-title {
+        top: 2rem;
+        left: 1.5rem;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .banners-title-big {
+        font-size: 36px;
+        line-height: 1;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .banners-title-small {
+        font-size: 12px;
+        line-height: 1;
+        color: var(--wjx-secondtext);
+        margin-top: 8px;
+        margin-bottom: 0.5rem;
+    }
+    #banner-hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: var(--wjx-lighttext);
+        color: var(--wjx-card-bg);
+        padding-left: .5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        transition: cubic-bezier(.71,.15,.16,1.15) .6s
+    }
+
+    .bannerText {
+        font-size: 4rem;
+        line-height: 4rem;
+        font-weight: 700
+    }
+
+    .banner-righticon {
+        font-size: 4rem;
+        opacity: 0.6;
+    }
+
+    #banners:hover #banner-hover {
+        opacity: 1;
+        padding-left: 2rem;
+        background: var(--wjx-theme-op-deep);
+        backdrop-filter: blur(15px);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        -webkit-transform-style: preserve-3d;
+        transition: .3s;
+        background-size: 200%;
+        cursor: pointer
+    }
+
+    #banners #banner-hover i {
+        font-size: 80px;
+        opacity: .4
+    }
+
+    .topGroup .todayCard {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background: var(--wjx-card-bg);
+        border-radius: 12px;
+        margin-left: 1rem;
+        overflow: hidden;
+        transition: .3s;
+        display: flex;
+        cursor: pointer;
+        pointer-events: all;
+        box-shadow: var(--wjx-shadow-border)
+    }
+
+    .topGroup .todayCard::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .topGroup.hideCard .todayCard {
+        opacity: 0;
+        pointer-events: none
+    }
+
+    .topGroup .todayCard .todayCard-info {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 2rem;
+        z-index: 2;
+        color: var(--wjx-white);
+        max-width: 60%;
+        transition: .3s
+    }
+
+    .topGroup.hideCard .todayCard .todayCard-info {
+        bottom: 1rem;
+        opacity: 0
+    }
+
+    .topGroup .todayCard .todayCard-info .todayCard-tips {
+        opacity: .8;
+        font-size: .6rem;
+        margin-left: 3px;
+        margin-top: 4px
+    }
+
+    .topGroup .todayCard .todayCard-info .todayCard-title {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 40px
+    }
+
+    .topGroup .banner-button-group {
+        position: absolute;
+        right: 2rem;
+        bottom: 2rem;
+        display: flex;
+        transition: .3s
+    }
+
+    .topGroup.hideCard .todayCard .banner-button-group {
+        bottom: 1rem
+    }
+
+    .topGroup .banner-button {
+        background: var(--wjx-white-op);
+        border-radius: 20px;
+        color: var(--wjx-white);
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        transition: .3s;
+        cursor: pointer;
+        backdrop-filter: saturate(180%) blur(20px);
+        transform: translateZ(0);
+        height: 40px;
+        width: 118px;
+        justify-content: center
+    }
+
+    .topGroup .banner-button:hover {
+        background: var(--wjx-lighttext);
+        color: var(--wjx-card-bg)
+    }
+
+    .topGroup .banner-button i {
+        margin-right: 8px;
+        font-size: 22px
+    }
+
+    .topGroup .todayCard .todayCard-cover {
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        z-index: -1;
+        transition: .3s
+    }
+
+    .topGroup.hideCard .todayCard .todayCard-cover {
+        transform: scale(1.2)
+    }
+
+    .topGroup.hideCard .recent-post-group {
+        display: flex
+    }
+
+    .recent-post-group {
+        flex-wrap: wrap
+    }
+
+    .banners-link {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        bottom: 20px;
+        left: 40px
+    }
+
+    .banners-link-btn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 18px 8px 14px;
+        border-radius: 60px;
+        margin-bottom: 12px;
+        color: var(--wjx-white);
+        max-width: 170px;
+        position: relative
+    }
+
+    .banners-link-title {
+        margin-left: auto;
+        padding-left: 5px;
+    }
+}
+
+.recent-post-top .categoryGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 200px;
+}
+
+.categoryGroup .categoryItem:nth-child(3) {
+    display: none
+}
+
+@media screen and (min-width: 1200px) {
+    .recent-post-top .categoryGroup {
+        flex-direction:row;
+        height: 24%;
+        animation: slide-in .6s .2s backwards;
+        display: none
+    }
+
+    .categoryItem {
+        width: calc(100% / 3 - 0.33rem);
+        height: 100%;
+        margin-right: 0.5rem;
+    }
+
+    .categoryItem:last-child {
+        margin-right: 0;
+    }
+
+    .categoryItem:hover {
+        width: 50%;
+    }
+
+    .categoryGroup .categoryItem:nth-child(4) {
+        display: flex;
+    }
+}
+
+#bannerGroup .tags-group-wrapper {
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    animation: rowup 60s linear infinite;
+    width: 320px;
+    margin-left: auto
+}

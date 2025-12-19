@@ -14,50 +14,47 @@
 {% endblock %}
 
 {% block content %}
-    <div class="page" id="body-wrap">
-        <!-- 头部导航栏 -->
-        <header class="{% if config.extra.top.above.enable_above %}full_page{% else %}not-top-img{% endif %}" id="page-header">
-            {{ macro::nav(title = config.title) }}
-        </header>
-
-        <main class="layout" id="content-inner">
-            <div id="category">
-                <div id="category-bar">
-                    <div class="category-bar-items" id="category-bar-items">
-                        <div class="category-bar-item select"
-                            id="{{ term.name }}">
-                            <a href="{{ term.permalink }}" target="_self"
-                                >{{ macro::taxonomy_map(taxonomy=taxonomy.name, term=term.name) }}</a>
-                        </div>                        
-                        <div class="category-bar-item" id="category-bar-home">
-                            <a href="/">首页</a>
-                        </div>
-                        {% set data = load_data(path="data.toml") %}
-                        {% set taxonomies = data.post[taxonomy.name] | sort(attribute="index") %}
-                        {% for item in taxonomies %}
-                            {% if term.name != item.id %}
-                                {% set term = get_taxonomy_term(kind=taxonomy.name, term=item.id, include_pages=false, required=false) %}
-                                {% if term %}
-                                <div class="category-bar-item" id="{{ item.id }}">
-                                    <a href="{{ term.permalink }}" target="_self">
-                                        {{ item.name }}
-                                    </a>
-                                </div>
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
+    <link rel="stylesheet" href="/dist/css/taxonomy.css" />
+    <!-- 头部导航栏 -->
+    <header class="{% if config.extra.top.above.enable_above %}full_page{% else %}not-top-img{% endif %}" id="page-header">
+        {{ macro::nav(title = config.title) }}
+    </header>
+    <main class="layout" id="content-inner">
+        <div id="category">
+            <div id="category-bar">
+                <div class="category-bar-items" id="category-bar-items">
+                    <div class="category-bar-item select"
+                        id="{{ term.name }}">
+                        <a href="{{ term.permalink }}" target="_self"
+                            >{{ macro::taxonomy_map(taxonomy=taxonomy.name, term=term.name) }}</a>
+                    </div>                        
+                    <div class="category-bar-item" id="category-bar-home">
+                        <a href="/">首页</a>
                     </div>
-                    <!-- 跳转到分类页 -->
-                    <a class="category-bar-more" target="_self" href="/{{ taxonomy.name | safe}}">更多</a>
+                    {% set data = load_data(path="data.toml") %}
+                    {% set taxonomies = data.post[taxonomy.name] | sort(attribute="index") %}
+                    {% for item in taxonomies %}
+                        {% if term.name != item.id %}
+                            {% set term = get_taxonomy_term(kind=taxonomy.name, term=item.id, include_pages=false, required=false) %}
+                            {% if term %}
+                            <div class="category-bar-item" id="{{ item.id }}">
+                                <a href="{{ term.permalink }}" target="_self">
+                                    {{ item.name }}
+                                </a>
+                            </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
                 </div>
-                <!-- 文章 -->
-                {{ macro_post_list::post_list(_path=paginator.pages) }}
+                <!-- 跳转到分类页 -->
+                <a class="category-bar-more" target="_self" href="/{{ taxonomy.name | safe}}">更多</a>
             </div>
+            <!-- 文章 -->
+            {{ macro_post_list::post_list(_path=paginator.pages) }}
+        </div>
+        {# 侧边栏生成 #}
+        {{ macro::aside(widgets=config.extra.sidebar.widgets.taxonomyWidget) }}
+    </main>
 
-            {# 侧边栏生成 #}
-            {{ macro::aside(widgets=config.extra.sidebar.widgets.taxonomyWidget) }}
-        </main>
-    
-        {% include "partial/common/footer.html" %}
-    </div>
+    {% include "partial/common/footer.html" %}
 {% endblock %}

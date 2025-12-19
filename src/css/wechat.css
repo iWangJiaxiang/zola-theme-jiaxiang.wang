@@ -1,0 +1,4 @@
+@reference "tailwindcss/theme";
+@reference "tailwindcss/utilities";
+
+@import "./pages/wechat/base.css";

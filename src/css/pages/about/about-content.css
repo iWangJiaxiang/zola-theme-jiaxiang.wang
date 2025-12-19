@@ -99,7 +99,6 @@
     background: var(--wjx-maskbgdeep);
     padding: 0.5rem 2rem;
     backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: blur(20px);
 }
 /* 关于页面我的技能 */
 .author-content-item.skills {

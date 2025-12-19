@@ -1,0 +1,10 @@
+/* ========================================
+   合集页面样式入口文件
+   ======================================== */
+@reference "tailwindcss/theme";
+@reference "tailwindcss/utilities";
+
+@import "./pages/collection/base.css";
+
+/* 波浪动画 */
+@import "./pages/post/wave.css";
