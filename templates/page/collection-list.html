@@ -8,7 +8,9 @@
 {% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="/dist/css/collection.css" />
+    {% if config.extra.style.package_type == "split" %}
+        <link rel="stylesheet" href="/dist/css/collection.css" />
+    {% endif %}
     {% set doc = page | default(value=section) %}
 
     <header class="not-top-img" id="page-header">

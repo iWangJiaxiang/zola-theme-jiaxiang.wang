@@ -9,7 +9,9 @@
 {% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="/dist/css/archive.css" />
+    {% if config.extra.style.package_type == "split" %}
+        <link rel="stylesheet" href="/dist/css/archive.css" />
+    {% endif %}
     {% set section = get_section(path="articles/_index.md", lang=lang) %}
     {% set posts = section.pages %}
     <!-- 头部导航栏 -->

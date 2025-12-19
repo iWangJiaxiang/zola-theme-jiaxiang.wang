@@ -792,6 +792,11 @@ theme_dark_skin = "#f2b94b"
 universe = true
 # 全局字体 PingFang SC, Hiragino Sans GB, Microsoft YaHei
 font_family = "PingFang SC"
+# 打包类型：global - 契合 Pjax 打包成一个 css 文件
+#         split - 按照通用样式加每页专有样式打包成多个 css文件
+package_type = "global"
+# 是否将关键 CSS 嵌入到 HTML 文件中，提升首页加载效率
+embed_critical = true
 
 # 繁简转换
 [extra.style.translate]

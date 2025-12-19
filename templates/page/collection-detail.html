@@ -31,8 +31,10 @@
 {% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="/dist/css/collection.css" />
-    <link rel="stylesheet" href="/dist/css/post.css" />
+    {% if config.extra.style.package_type == "split" %}
+        <link rel="stylesheet" href="/dist/css/collection.css" />
+        <link rel="stylesheet" href="/dist/css/post.css" />
+    {% endif %}
     {% set doc = page | default(value=section) %}
 
     {% set collection = doc %}

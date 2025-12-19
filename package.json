@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "buildtw:global": "npx tailwindcss -i ./src/css/global.css -o ./static/dist/css/global.css --minify",
     "buildtw:base": "npx tailwindcss -i ./src/css/base.css -o ./static/dist/css/base.css --minify",
     "buildtw:index": "npx tailwindcss -i ./src/css/index.css -o ./static/dist/css/index.css --minify",
     "buildtw:post": "npx tailwindcss -i ./src/css/post.css -o ./static/dist/css/post.css --minify",

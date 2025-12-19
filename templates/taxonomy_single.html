@@ -14,7 +14,9 @@
 {% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="/dist/css/taxonomy.css" />
+    {% if config.extra.style.package_type == "split" %}
+        <link rel="stylesheet" href="/dist/css/taxonomy.css" />
+    {% endif %}
     <!-- 头部导航栏 -->
     <header class="{% if config.extra.top.above.enable_above %}full_page{% else %}not-top-img{% endif %}" id="page-header">
         {{ macro::nav(title = config.title) }}

@@ -27,9 +27,10 @@
 {% endblock %}
 
 {% block content %}
-    {% set data = load_data(path="data.toml") %} 
     {% set post = page %}
-    <link rel="stylesheet" href="/dist/css/post.css" />
+    {% if config.extra.style.package_type == "split" %}
+        <link rel="stylesheet" href="/dist/css/post.css" />
+    {% endif %}
     <header class="post-bg" id="page-header">
         {{ macro::nav(title = config.title) }}
         {% set img = macro::thumbnail_s(url=macro::post_cover(post=post)) %}

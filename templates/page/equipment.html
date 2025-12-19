@@ -12,7 +12,9 @@
 {% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="/dist/css/equipment.css" />
+    {% if config.extra.style.package_type == "split" %}
+        <link rel="stylesheet" href="/dist/css/equipment.css" />
+    {% endif %}
     {% set doc = page | default(value=section) %}
     {% set data = load_data(path="data.toml") %}
     <!-- 头部导航栏 -->
