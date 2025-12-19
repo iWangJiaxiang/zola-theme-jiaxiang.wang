@@ -1,7 +1,7 @@
 # On every push this script is executed
 on:
   workflow_run:
-    workflows: ["Minify JS/CSS on Change"]
+    workflows: ["Minify JS/CSS on Change", "Build Tailwind CSS"]
     types:
       - completed
 
@@ -17,12 +17,41 @@ jobs:
         run: echo ${CNAME} > static/CNAME
         env:
           CNAME: ${{ secrets.GH_PAGES_CNAME }}
-      - name: build_and_deploy
-        uses: shalzz/zola-deploy-action@v0.20.0
+      
+      # 步骤 1: 只构建 zola 站点，不部署
+      - name: Build Zola site
+        uses: shalzz/zola-deploy-action@v0.21.0
         env:
-          # Target branch
-          PAGES_BRANCH: gh-pages
-          # Provide personal access token
-          #TOKEN: ${{ secrets.TOKEN }}
-          # Or if publishing to the same repo, use the automatic token
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BUILD_ONLY: true
+      
+      # 步骤 2: 运行 CSS 优化脚本 (PurgeCSS + Critical CSS)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: true
+      
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+      
+      - name: Optimize CSS
+        run: node scripts/build-optimize.js
+        env:
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome-stable
+      
+      # 步骤 3: 推送到 gh-pages 分支
+      - name: Deploy to GitHub Pages
+        run: |
+          cd public
+          git init
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "Deploy to GitHub Pages"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:gh-pages
