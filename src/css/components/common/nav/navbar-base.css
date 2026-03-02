@@ -10,13 +10,11 @@
 
 #nav {
     position: absolute;
-    /* top: 0px; */
     inset: 0;
     z-index: 90;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    -webkit-box-align: center;
     align-items: center;
     padding: 0px;
     width: 100%;
@@ -25,12 +23,6 @@
     opacity: 0;
     transition: all 0.5s ease 0s;
     outline: 1px solid var(--wjx-none);
-}
-
-@media screen and (max-width: 768px) {
-    #nav {
-        padding: 0px;
-    }
 }
 
 #nav.show {
@@ -52,13 +44,6 @@
     justify-content: center;
     z-index: 999 !important;
     -webkit-user-select: none;
-}
-
-@media screen and (max-width: 768px) {
-    #page-header #nav {
-        background: linear-gradient(to top, var(--wjx-main-none) 0%, var(--wjx-main) 100%);
-        transition: 0s;
-    }
 }
 
 #page-header.nav-fixed #nav {
@@ -124,12 +109,6 @@
     overflow: hidden;
 }
 
-@media screen and (max-width: 1300px) {
-    #page-header #nav #nav-left {
-        display: none;
-    }
-}
-
 #page-header #nav #nav-right div,
 #page-header #nav #nav-left div {
     margin-left: 0.5rem;
@@ -137,54 +116,11 @@
     position: relative;
 }
 
-@media screen and (max-width: 768px) {
-    #nav #menus {
-        display: none !important;
-    }
-
-    #nav.hide-menu #toggle-menu .site-page {
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #page-header #nav #nav-group {
-        width: 100%;
-        display: flex;
-        position: relative;
-        padding: 0 12px;
-    }
-
-    #page-header #nav #nav-right {
-        margin-right: 12px;
-    }
-}
-
 /* -------------------- 无顶图时样式 -------------------- */
 
 #page-header.not-top-img #nav {
     transition: 0.3s;
     background: var(--wjx-card-bg);
-}
-
-@media screen and (max-width: 768px) {
-    #page-header.not-top-img #nav {
-        background: var(--wjx-card-bg) !important;
-    }
-
-    #page-header.not-top-img:not(.nav-fixed) #nav {
-        background: var(--wjx-background) !important;
-    }
-
-    div#travellings_button {
-        display: none !important;
-    }
-
-    div#darkmode_button {
-        display: none !important;
-    }
 }
 
 #page-header.not-top-img:not(.nav-fixed) #nav {
@@ -279,14 +215,6 @@
     padding: 1rem 1.5rem;
 }
 
-@media screen and (min-width: 1300px) {
-    .layout {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 1.5rem;
-    }
-}
-
 /* -------------------- 字体图标通用样式 -------------------- */
 
 .fa,
@@ -315,4 +243,80 @@
 
 #sidebar-menus > hr {
     display: none;
+}
+
+/* ========================================
+   响应式样式 - 按断点统一组织
+   ======================================== */
+
+/* -------------------- max-width: 768px -------------------- */
+
+@media screen and (max-width: 768px) {
+    #nav {
+        padding: 0px;
+    }
+
+    #page-header #nav {
+        background: linear-gradient(to top, var(--wjx-main-none) 0%, var(--wjx-main) 100%);
+        transition: 0s;
+    }
+
+    #nav #menus {
+        display: none !important;
+    }
+
+    #nav.hide-menu #toggle-menu .site-page {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #page-header #nav #nav-group {
+        width: 100%;
+        display: flex;
+        position: relative;
+        padding: 0 12px;
+    }
+
+    #page-header #nav #nav-right {
+        margin-right: 12px;
+    }
+
+    #page-header.not-top-img #nav {
+        background: var(--wjx-card-bg) !important;
+    }
+
+    #page-header.not-top-img:not(.nav-fixed) #nav {
+        background: var(--wjx-background) !important;
+    }
+
+    div#travellings_button {
+        display: none !important;
+    }
+
+    div#darkmode_button {
+        display: none !important;
+    }
+}
+
+/* -------------------- min-width: 1300px -------------------- */
+
+@media screen and (min-width: 1300px) {
+    .layout {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+    }
+
+    #page-header #nav #nav-left {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #page-header #nav #nav-left {
+        display: none;
+    }
 }

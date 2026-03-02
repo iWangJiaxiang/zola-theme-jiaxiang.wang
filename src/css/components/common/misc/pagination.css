@@ -53,7 +53,6 @@
 
 #pagination .next-post .label,
 #pagination .prev-post .label {
-    /* color: var(--light-grey); */
     text-transform: uppercase;
     font-size: 90%;
 }
@@ -61,14 +60,6 @@
 #pagination .next-post,
 #pagination .prev-post {
     width: 50%;
-}
-
-@media screen and (max-width: 768px) {
-
-    #pagination .next-post,
-    #pagination .prev-post {
-        width: 100%;
-    }
 }
 
 #pagination .next-post a,
@@ -92,7 +83,6 @@
     background: rgb(0, 0, 0);
 }
 
-
 /* 翻页 */
 a.extend.next {
     right: 0;
@@ -102,28 +92,27 @@ a.extend.prev {
     left: 0;
 }
 
-@media screen and (max-width: 768px) {
-    #pagination {
-        margin-bottom: 0rem;
-        margin-top: 0;
-    }
-}
-
-@media screen and (min-width: 1300px) {
-    #pagination {
-        margin-top: 0.25rem;
-    }
-}
-
 .lg-container {
     display: none;
 }
 
-/* 文章页
----------------------------------------------------------------- */
+/* ========================================
+   响应式样式 - 按断点统一组织
+   ======================================== */
 
-/* 翻页 */
+/* -------------------- max-width: 768px -------------------- */
+
 @media screen and (max-width: 768px) {
+    #pagination .next-post,
+    #pagination .prev-post {
+        width: 100%;
+    }
+
+    #pagination {
+        margin-bottom: 0rem;
+        margin-top: 0;
+    }
+
     #pagination .page-number {
         display: none;
     }
@@ -159,6 +148,8 @@ a.extend.prev {
     }
 }
 
+/* -------------------- min-width: 768px -------------------- */
+
 @media screen and (min-width: 768px) {
     #pagination .page-number {
         width: 2rem;
@@ -191,36 +182,12 @@ a.extend.prev {
         transform: scale(1.03);
     }
 
-
     #pagination a.extend.next:hover,
     #pagination a.extend.prev:hover {
         color: var(--wjx-theme);
         border: var(--style-border-hover);
         box-shadow: var(--wjx-shadow-main);
         transform: scale(1.03);
-    }
-
-
-    @media screen and (min-width: 1300px) {
-        #pagination .page-number:hover {
-            transform: scale(1.03);
-        }
-
-
-        #pagination a.extend.next:hover,
-        #pagination a.extend.prev:hover {
-            transform: scale(1.03);
-        }
-
-        #pagination .page-number:active {
-            transform: scale(0.97);
-        }
-
-        #pagination a.extend.next:active,
-        #pagination a.extend.prev:active {
-            transform: scale(0.97);
-        }
-
     }
 
     #pagination span.space {
@@ -285,5 +252,31 @@ a.extend.prev {
         position: relative;
         display: flex;
         justify-content: center;
+    }
+}
+
+/* -------------------- min-width: 1300px -------------------- */
+
+@media screen and (min-width: 1300px) {
+    #pagination {
+        margin-top: 0.25rem;
+    }
+
+    #pagination .page-number:hover {
+        transform: scale(1.03);
+    }
+
+    #pagination a.extend.next:hover,
+    #pagination a.extend.prev:hover {
+        transform: scale(1.03);
+    }
+
+    #pagination .page-number:active {
+        transform: scale(0.97);
+    }
+
+    #pagination a.extend.next:active,
+    #pagination a.extend.prev:active {
+        transform: scale(0.97);
     }
 }

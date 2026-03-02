@@ -16,20 +16,8 @@
     max-height: calc(100vh - 300px);
 }
 
-@media screen and (max-width: 900px) {
-    #aside-content #card-toc .toc-content {
-        max-height: calc(100vh - 140px);
-    }
-}
-
 #aside-content #card-toc .toc-content .toc-child {
     display: none;
-}
-
-@media screen and (max-width: 900px) {
-    #aside-content #card-toc .toc-content .toc-child {
-        display: block !important;
-    }
 }
 
 #aside-content #card-toc .toc-content .toc-item.active .toc-child {
@@ -122,6 +110,10 @@ figure.gallery-group p {
     padding: 1rem 1.2rem;
 }
 
+#aside-content .card-widget:hover {
+    box-shadow: var(--wjx-shadow-border);
+}
+
 /* -------------------- 卡片标题 -------------------- */
 
 #aside-content .item-headline {
@@ -147,87 +139,11 @@ figure.gallery-group p {
     -webkit-user-select: none;
 }
 
-@media screen and (min-width: 1300px) {
-    #aside-content .card-widget {
-        margin-top: 1rem;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #aside-content .card-widget {
-        border-radius: 12px;
-    }
-}
-
 /* -------------------- 侧边栏固定位置 -------------------- */
-
-@media screen and (max-width: 1300px) {
-    #aside-content .sticky_layout {
-        top: 60px;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    #aside-content .sticky_layout {
-        margin-top: 1rem;
-    }
-}
-
-@media screen and (min-width: 900px) {
-    #aside-content .sticky_layout {
-        position: sticky;
-        top: 20px;
-        transition: top 0.3s ease 0s;
-    }
-}
-
-/* -------------------- 布局对齐 -------------------- */
-
-@media screen and (min-width: 1300px) {
-    #aside-content:has(+ .card-widget) .sticky_layout {
-        margin-top: 1rem;
-    }
-
-    #aside-content .sticky_layout {
-        margin-top: 0rem;
-    }
-}
 
 #aside-content .sticky_layout {
     top: 80px;
     transition: top 0s;
-}
-
-@media screen and (min-width: 1300px) {
-    #aside-content {
-        padding-left: 1rem;
-        animation: slide-in .6s .3s backwards
-    }
-
-    #aside-content .sticky_layout {
-        top: calc(60px + 0.5rem);
-    }
-
-    #page-header.nav-visible + .layout > .aside-content > .sticky_layout {
-        top: calc(60px + 0.5rem);
-    }
-
-    [data-theme=dark] #aside-content > .card-widget.card-info {
-        border: var(--style-border);
-    }
-
-    .coverdiv {
-        height: 130%;
-    }
-}
-
-#aside-content .card-widget:hover {
-    box-shadow: var(--wjx-shadow-border);
-}
-
-#aside-content #card-funds {
-    margin-bottom: 1rem;
-    min-height: 260px;
 }
 
 #page-header.nav-visible + .layout > .aside-content > .sticky_layout {
@@ -236,18 +152,6 @@ figure.gallery-group p {
 
 #aside-content {
     width: 300px;
-}
-
-@media screen and (max-width: 1300px) {
-    #aside-content {
-        width: 300px;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    #aside-content {
-        display: none
-    }
 }
 
 #aside-content > .card-widget:first-child {
@@ -264,17 +168,7 @@ figure.gallery-group p {
     display: none;
 }
 
-/* -------------------- pad端响应式 -------------------- */
-
-@media screen and (max-width: 900px) {
-    #aside-content .card-announcement {
-        display: none;
-    }
-
-    #aside-content #card-funds {
-        display: none;
-    }
-}
+/* -------------------- 卡片数据悬浮效果 -------------------- */
 
 #aside-content .card-info .card-info-data > .card-info-data-item:hover {
     background: var(--wjx-post-blockquote-bg);
@@ -286,12 +180,121 @@ figure.gallery-group p {
     color: var(--wjx-blue);
 }
 
+#aside-content .card-info .card-info-data > .card-info-data-item {
+    transition: .3s;
+}
+
+#aside-content #card-funds {
+    margin-bottom: 1rem;
+    min-height: 260px;
+}
+
 /* -------------------- 手机端菜单背景 -------------------- */
 
 #mobile-sidebar #mobile-sidebar-menus.open {
     background: var(--wjx-maskbg);
 }
 
-#aside-content .card-info .card-info-data > .card-info-data-item {
-    transition: .3s;
+/* ========================================
+   响应式样式 - 按断点统一组织
+   ======================================== */
+
+/* -------------------- max-width: 768px -------------------- */
+
+@media screen and (max-width: 768px) {
+    #aside-content .card-widget {
+        border-radius: 12px;
+    }
+}
+
+/* -------------------- min-width: 768px -------------------- */
+
+@media screen and (min-width: 768px) {
+    #aside-content .sticky_layout {
+        margin-top: 1rem;
+    }
+}
+
+/* -------------------- max-width: 900px -------------------- */
+
+@media screen and (max-width: 900px) {
+    #aside-content #card-toc .toc-content {
+        max-height: calc(100vh - 140px);
+    }
+
+    #aside-content #card-toc .toc-content .toc-child {
+        display: block !important;
+    }
+
+    #aside-content .card-announcement {
+        display: none;
+    }
+
+    #aside-content #card-funds {
+        display: none;
+    }
+}
+
+/* -------------------- min-width: 900px -------------------- */
+
+@media screen and (min-width: 900px) {
+    #aside-content .sticky_layout {
+        position: sticky;
+        top: 20px;
+        transition: top 0.3s ease 0s;
+    }
+}
+
+/* -------------------- max-width: 1200px -------------------- */
+
+@media screen and (max-width: 1200px) {
+    #aside-content {
+        display: none
+    }
+}
+
+/* -------------------- max-width: 1300px -------------------- */
+
+@media screen and (max-width: 1300px) {
+    #aside-content .sticky_layout {
+        top: 60px;
+    }
+
+    #aside-content {
+        width: 300px;
+    }
+}
+
+/* -------------------- min-width: 1300px -------------------- */
+
+@media screen and (min-width: 1300px) {
+    #aside-content .card-widget {
+        margin-top: 1rem;
+    }
+
+    #aside-content:has(+ .card-widget) .sticky_layout {
+        margin-top: 1rem;
+    }
+
+    #aside-content .sticky_layout {
+        margin-top: 0rem;
+        top: calc(60px + 0.5rem);
+    }
+
+    #aside-content {
+        padding-left: 1rem;
+        animation: slide-in .6s .3s backwards
+    }
+
+    #page-header.nav-visible + .layout > .aside-content > .sticky_layout {
+        top: calc(60px + 0.5rem);
+    }
+
+    [data-theme=dark] #aside-content > .card-widget.card-info {
+        border: var(--style-border);
+    }
+
+    .coverdiv {
+        height: 130%;
+    }
 }

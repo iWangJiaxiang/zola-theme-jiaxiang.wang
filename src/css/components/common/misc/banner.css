@@ -6,21 +6,6 @@
     align-content: space-between
 }
 
-@media screen and (max-width: 768px) {
-    a.categoryButton i {
-        display:none
-    }
-
-    .recent-post-top .categoryGroup {
-        min-width: 130px!important;
-        margin-bottom: .5rem;
-        margin-left: 1rem;
-        max-height: 164px;
-        overflow: hidden;
-        position: relative
-    }
-}
-
 .topGroup {
     display: flex;
 }
@@ -37,9 +22,52 @@ div#banners {
     display: none;
 }
 
+.recent-post-top .categoryGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 200px;
+}
+
+.categoryGroup .categoryItem:nth-child(3) {
+    display: none
+}
+
+#bannerGroup .tags-group-wrapper {
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    animation: rowup 60s linear infinite;
+    width: 320px;
+    margin-left: auto
+}
+
+/* ========================================
+   响应式样式 - 按断点统一组织
+   ======================================== */
+
+/* -------------------- max-width: 768px -------------------- */
+
+@media screen and (max-width: 768px) {
+    a.categoryButton i {
+        display: none
+    }
+
+    .recent-post-top .categoryGroup {
+        min-width: 130px !important;
+        margin-bottom: .5rem;
+        margin-left: 1rem;
+        max-height: 164px;
+        overflow: hidden;
+        position: relative
+    }
+}
+
+/* -------------------- min-width: 1200px -------------------- */
+
 @media screen and (min-width: 1200px) {
     .topGroup {
-        display:flex;
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -70,7 +98,6 @@ div#banners {
         position: relative;
         box-shadow: var(--wjx-shadow-border);
         flex-direction: column;
-        overflow: hidden;
         transition: .3s;
         will-change: transform;
         animation: slide-in .6s .1s backwards
@@ -111,7 +138,6 @@ div#banners {
 
     #banners .banner-button i {
         margin-right: 8px;
-        /*font-size: 1rem;*/
     }
 
     .banners-title {
@@ -136,6 +162,7 @@ div#banners {
         margin-top: 8px;
         margin-bottom: 0.5rem;
     }
+
     #banner-hover {
         position: absolute;
         width: 100%;
@@ -327,22 +354,9 @@ div#banners {
         margin-left: auto;
         padding-left: 5px;
     }
-}
 
-.recent-post-top .categoryGroup {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: 200px;
-}
-
-.categoryGroup .categoryItem:nth-child(3) {
-    display: none
-}
-
-@media screen and (min-width: 1200px) {
     .recent-post-top .categoryGroup {
-        flex-direction:row;
+        flex-direction: row;
         height: 24%;
         animation: slide-in .6s .2s backwards;
         display: none
@@ -365,13 +379,4 @@ div#banners {
     .categoryGroup .categoryItem:nth-child(4) {
         display: flex;
     }
-}
-
-#bannerGroup .tags-group-wrapper {
-    margin-top: 0;
-    display: flex;
-    flex-wrap: wrap;
-    animation: rowup 60s linear infinite;
-    width: 320px;
-    margin-left: auto
 }

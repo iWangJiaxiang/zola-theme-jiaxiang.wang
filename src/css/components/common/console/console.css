@@ -37,7 +37,6 @@
     transition-delay: 0.1s;
 }
 
-
 #console .console-card-group-left {
     margin-right: 0.5rem;
     width: 40%;
@@ -52,57 +51,6 @@
     width: 60%;
     overflow: hidden;
 }
-
-@media screen and (max-width: 1300px) {
-    #console .console-card-group {
-        justify-content: center;
-    }
-
-    #console .console-card-group-left {
-        display: none;
-    }
-
-    #console .console-card-group-right {
-        width: 100%;
-        margin: 0;
-    }
-
-    #consoleMusic {
-        display: none;
-    }
-
-    #consoleCommentBarrage {
-        display: none;
-    }
-}
-
-
-@media screen and (max-width: 768px) {
-    #console .console-card-group {
-        display: none;
-    }
-
-    #consoleHideAside {
-        display: none;
-    }
-
-}
-
-
-@media screen and (max-height: 800px) {
-    #console .console-card-group {
-        display: none;
-    }
-
-    #consoleMusic {
-        display: none;
-    }
-
-    #consoleCommentBarrage {
-        display: none;
-    }
-}
-
 
 #console .console-card {
     background: var(--wjx-maskbg);
@@ -121,7 +69,6 @@
 #console .console-card.tags {
     height: calc(100% - 172px);
 }
-
 
 #console .console-mask {
     background: var(--wjx-maskbgdeep);
@@ -148,7 +95,6 @@
     margin-right: 8px;
     border-radius: 20px;
 }
-
 
 #card-newest-comments .aside-list-item {
     background: var(--wjx-card-bg);
@@ -194,7 +140,6 @@
 #console .aside-list-item .thumbnail {
     display: flex;
     align-items: center;
-
 }
 
 #console .aside-list-item:hover .thumbnail {
@@ -350,10 +295,9 @@
     font-size: 32px;
     margin-right: 1.5rem;
     margin-left: auto;
-    transition: 0.3s;
+    transition: 0.6s;
     line-height: 1;
     transform: rotate(-30deg);
-    transition: 0.6s;
 }
 
 #console.show .close-btn i {
@@ -428,29 +372,6 @@
     margin: .625rem;
 }
 
-@media screen and (max-width: 867px) {
-    #console .close-btn {
-        display: none
-    }
-
-    #console .console-card-group {
-        display: none
-    }
-
-    #consoleHideAside {
-        display: none
-    }
-
-    .console-card-group-reward .reward-all .reward-item img {
-        width: 130px;
-        height: 130px
-    }
-
-    #console #consoleKeyboard {
-        display: none
-    }
-}
-
 /* -------------------- 登录按钮 -------------------- */
 
 #page-header #nav #nav-right div .back-menu-list-groups {
@@ -499,7 +420,6 @@
     left: 1.8rem;
     background-color: var(--wjx-maskbgdeep);
     border-radius: 7.8px;
-    /* border: var(--style-border); */
     flex-direction: column;
     font-size: 12px;
     color: var(--wjx-secondtext);
@@ -508,10 +428,6 @@
     opacity: 0;
     pointer-events: none;
     backdrop-filter: blur(20px);
-}
-
-.console-button .back-menu-list-groups:hover {
-    /* border: var(--style-border-hover); */
 }
 
 .console-button .back-menu-list-group .back-menu-list-title {
@@ -531,19 +447,6 @@
     pointer-events: auto;
     left: 1.8rem;
     transform: scale(1);
-}
-
-@media screen and (max-width: 768px) {
-
-    .console-button .back-menu-list-groups {
-        left: 0;
-    }
-
-    .console-button:hover .back-menu-list-groups {
-        padding-bottom: 8px;
-        box-shadow: var(--wjx-shadow-border);
-        left: 0;
-    }
 }
 
 /* -------------------- 快捷键窗口 -------------------- */
@@ -614,10 +517,104 @@
     height: 24px;
 }
 
+/* ========================================
+   响应式样式 - 按断点统一组织
+   ======================================== */
+
+/* -------------------- min-width: 768px -------------------- */
+
 @media screen and (min-width: 768px) {
     /* 隐藏弹窗 */
     .needEndHide.hide {
         bottom: -200px !important;
         opacity: 0;
+    }
+}
+
+/* -------------------- max-width: 768px -------------------- */
+
+@media screen and (max-width: 768px) {
+    #console .console-card-group {
+        display: none;
+    }
+
+    #consoleHideAside {
+        display: none;
+    }
+
+    .console-button .back-menu-list-groups {
+        left: 0;
+    }
+
+    .console-button:hover .back-menu-list-groups {
+        padding-bottom: 8px;
+        box-shadow: var(--wjx-shadow-border);
+        left: 0;
+    }
+}
+
+/* -------------------- max-width: 800px (height) -------------------- */
+
+@media screen and (max-height: 800px) {
+    #console .console-card-group {
+        display: none;
+    }
+
+    #consoleMusic {
+        display: none;
+    }
+
+    #consoleCommentBarrage {
+        display: none;
+    }
+}
+
+/* -------------------- max-width: 867px -------------------- */
+
+@media screen and (max-width: 867px) {
+    #console .close-btn {
+        display: none
+    }
+
+    #console .console-card-group {
+        display: none
+    }
+
+    #consoleHideAside {
+        display: none
+    }
+
+    .console-card-group-reward .reward-all .reward-item img {
+        width: 130px;
+        height: 130px
+    }
+
+    #console #consoleKeyboard {
+        display: none
+    }
+}
+
+/* -------------------- max-width: 1300px -------------------- */
+
+@media screen and (max-width: 1300px) {
+    #console .console-card-group {
+        justify-content: center;
+    }
+
+    #console .console-card-group-left {
+        display: none;
+    }
+
+    #console .console-card-group-right {
+        width: 100%;
+        margin: 0;
+    }
+
+    #consoleMusic {
+        display: none;
+    }
+
+    #consoleCommentBarrage {
+        display: none;
     }
 }

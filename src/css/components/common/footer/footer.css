@@ -12,26 +12,16 @@
     margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
-    /* z-index: 1002; */
-}
-
-@media screen and (max-width: 768px) {
-    #footer {
-        background: linear-gradient(180deg, var(--wjx-background) 0%, var(--wjx-card-bg) 25%);
-        margin-top: 0;
-        z-index: 3;
-    }
 }
 
 /* -------------------- 页脚底层背景 -------------------- */
 
 #footer:before {
     position: absolute !important;
-    inset: 0;  /* 等价于 top: 0; right: 0; bottom: 0; left: 0; */
+    inset: 0;
     content: '' !important;
     z-index: -1;
 }
-
 
 div#wjx-footer-bar {
     display: none
@@ -74,6 +64,13 @@ div#wjx-footer-bar .footer-bar-description {
 
 #footer-wrap {
     color: var(--wjx-fontcolor);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 50px 0px 50px;
+    text-align: left !important;
+    max-width: 1200px;
+    margin: 0px auto;
 }
 
 #footer-wrap a {
@@ -131,7 +128,6 @@ div#footer_deal {
     100% {
         transform: scale(1);
     }
-
     10%,
     30% {
         transform: scale(0.9);
@@ -172,38 +168,12 @@ div#footer_deal {
 
 /* -------------------- 新页脚布局 -------------------- */
 
-@media screen and (max-width: 768px) {
-    #letlink {
-        flex-direction: column !important;
-        text-align: center !important;
-    }
-
-    #letlogo {
-        display: none !important;
-    }
-
-    #footer-wrap {
-        margin-top: 1rem !important;
-    }
-    
-}
-
 .footer-bar-right {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-}
-
-#footer-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px 50px 0px 50px;
-    text-align: left !important;
-    max-width: 1200px;
-    margin: 0px auto;
 }
 
 #footer-wrap h1 {
@@ -325,7 +295,6 @@ div#footer_deal {
     font-size: 12px;
 }
 
-
 #wjx-footer .footer-title-group a:hover i,
 #wjx-footer .footer-title-group button:hover i {
     color: var(--wjx-main);
@@ -420,7 +389,6 @@ div#footer_deal {
     height: 0.9rem;
 }
 
-
 #footer-bar .copyright-group {
     display: flex;
     flex-direction: row;
@@ -478,31 +446,6 @@ div#footer_deal {
     justify-content: center;
 }
 
-@media screen and (max-width: 768px) {
-    #footer-bar .copyright-group,
-    #footer-bar .compliance-group {
-        justify-content: center;
-    }
-    #footer-bar .footer-bar-right {
-        order: 1;
-    }
-    #footer-bar .footer-bar-left {
-        order: 2;
-    }
-}
-
-
-@media screen and (max-width: 768px) {
-    picture.footer_mini_logo {
-        display: none;
-    }
-
-    div#footer_deal {
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-}
-
 a.deal_link {
     display: flex;
     margin: 1rem 27px;
@@ -537,7 +480,6 @@ a.custom_socials:hover {
     transform: scale(1.1)
 }
 
-
 picture.footer_mini_logo {
     width: 50px;
     height: 50px;
@@ -550,4 +492,53 @@ picture.footer_mini_logo:hover {
     -webkit-backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
     transform: scale(1.2)
+}
+
+/* ========================================
+   响应式样式 - 按断点统一组织
+   ======================================== */
+
+/* -------------------- max-width: 768px -------------------- */
+
+@media screen and (max-width: 768px) {
+    #footer {
+        background: linear-gradient(180deg, var(--wjx-background) 0%, var(--wjx-card-bg) 25%);
+        margin-top: 0;
+        z-index: 3;
+    }
+
+    #letlink {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    #letlogo {
+        display: none !important;
+    }
+
+    #footer-wrap {
+        margin-top: 1rem !important;
+    }
+
+    #footer-bar .copyright-group,
+    #footer-bar .compliance-group {
+        justify-content: center;
+    }
+
+    #footer-bar .footer-bar-right {
+        order: 1;
+    }
+
+    #footer-bar .footer-bar-left {
+        order: 2;
+    }
+
+    picture.footer_mini_logo {
+        display: none;
+    }
+
+    div#footer_deal {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
 }

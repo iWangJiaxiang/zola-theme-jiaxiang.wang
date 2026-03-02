@@ -34,12 +34,6 @@ body[data-type=music] .page #nav #site-name span {
     color: var(--wjx-white);
 }
 
-@media screen and (max-width: 768px) {
-    .page #nav #site-name span:hover {
-        color: var(--wjx-card-bg);
-    }
-}
-
 /* -------------------- 站点名称图标 -------------------- */
 
 #nav #site-name i {
@@ -75,9 +69,59 @@ body[data-type=music] .page #nav #site-name span {
     transition: 0.3s;
 }
 
-/* -------------------- 大屏幕站点名称动画效果 -------------------- */
+/* -------------------- 通用标题 -------------------- */
+
+.title-h2-a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.title-h2-a a {
+    margin-left: 0.5rem;
+    color: var(--wjx-secondtext);
+    font-weight: bold;
+}
+
+.title-h2-a a:hover {
+    color: var(--wjx-lighttext)
+}
+
+.title-h2-a-left {
+    display: flex;
+    align-items: center;
+}
+
+.title-h2-a-left h2 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* ========================================
+   响应式样式 - 按断点统一组织
+   ======================================== */
+
+/* -------------------- max-width: 768px -------------------- */
+
+@media screen and (max-width: 768px) {
+    .page #nav #site-name span:hover {
+        color: var(--wjx-card-bg);
+    }
+}
+
+/* -------------------- max-width: 899px -------------------- */
+
+@media screen and (max-width: 899px) {
+    #nav #page-name-mask {
+        display: none !important;
+    }
+}
+
+/* -------------------- min-width: 900px -------------------- */
 
 @media screen and (min-width: 900px) {
+    /* 站点名称动画效果 */
     #nav #site-name {
         opacity: 1;
         transition: 0.3s;
@@ -144,11 +188,8 @@ body[data-type=music] .page #nav #site-name span {
     #nav .back-home-button:hover {
         box-shadow: var(--wjx-shadow-main);
     }
-}
 
-/* -------------------- 页面名称文字 -------------------- */
-
-@media screen and (min-width: 900px) {
+    /* 页面名称文字 */
     #nav #page-name-text {
         display: inline;
         font-weight: bold;
@@ -248,39 +289,4 @@ body[data-type=music] .page #nav #site-name span {
         overflow: hidden;
         left: 0;
     }
-}
-
-@media screen and (max-width: 899px) {
-    #nav #page-name-mask {
-        display: none !important;
-    }
-}
-
-/* -------------------- 通用标题 -------------------- */
-
-.title-h2-a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 0.5rem;
-}
-
-.title-h2-a a {
-    margin-left: 0.5rem;
-    color: var(--wjx-secondtext);
-    font-weight: bold;
-}
-
-.title-h2-a a:hover {
-    color: var(--wjx-lighttext)
-}
-
-.title-h2-a-left {
-    display: flex;
-    align-items: center;
-}
-
-.title-h2-a-left h2 {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
 }
