@@ -1,0 +1,59 @@
+name: Sync theme to CNB
+
+on:
+  workflow_dispatch:
+  # GitHub does not start another workflow for pushes made with GITHUB_TOKEN.
+  # Reconcile bot-generated CSS/minification commits as well.
+  schedule:
+    - cron: '17 */6 * * *'
+  push:
+    branches: ['**']
+    tags: ['**']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-cnb
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: vars.CNB_MIRROR_REPOSITORY != ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Fetch current GitHub branches and tags
+        run: git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*' --tags
+      - name: Sync branches and tags without force or deletion
+        env:
+          CNB_MIRROR_REPOSITORY: ${{ vars.CNB_MIRROR_REPOSITORY }}
+          CNB_MIRROR_TOKEN: ${{ secrets.CNB_MIRROR_TOKEN }}
+        shell: bash
+        run: |
+          set +x
+          set -euo pipefail
+          test -n "$CNB_MIRROR_TOKEN" || { echo 'Configure CNB_MIRROR_TOKEN first.'; exit 1; }
+          [[ "$CNB_MIRROR_REPOSITORY" =~ ^[a-zA-Z0-9_-]+(/[a-zA-Z0-9_.-]+)+$ ]] || { echo 'Invalid CNB repository slug.'; exit 1; }
+          askpass="$(mktemp)"
+          trap 'rm -f "$askpass"' EXIT
+          cat > "$askpass" <<'SH'
+          #!/bin/sh
+          case "$1" in
+            *Username*) printf '%s\n' cnb ;;
+            *Password*) printf '%s\n' "$CNB_MIRROR_TOKEN" ;;
+            *) exit 1 ;;
+          esac
+          SH
+          chmod 700 "$askpass"
+          export GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0
+          refspecs=()
+          while IFS= read -r ref; do
+            test "$ref" = refs/remotes/origin/HEAD && continue
+            refspecs+=("$ref:refs/heads/${ref#refs/remotes/origin/}")
+          done < <(git for-each-ref --format='%(refname)' refs/remotes/origin/)
+          git -c credential.helper= -c http.followRedirects=false push \
+            "https://cnb.cool/$CNB_MIRROR_REPOSITORY" "${refspecs[@]}" 'refs/tags/*:refs/tags/*'

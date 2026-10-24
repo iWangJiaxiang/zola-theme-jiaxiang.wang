@@ -1,0 +1,29 @@
+# Copy to .github/workflows/studio-build.yml in the THEME repository.
+name: Build Creator Studio
+on:
+  workflow_dispatch:
+  push:
+    paths: ['studio/**', 'src/css/components/common/variables.css', 'static/icon/**', 'static/img/icons/**']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: studio
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.21.1'
+          cache: npm
+          cache-dependency-path: studio/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:deployment
+      - uses: actions/upload-artifact@v4
+        with:
+          name: creator-studio-makers
+          path: studio/dist/makers

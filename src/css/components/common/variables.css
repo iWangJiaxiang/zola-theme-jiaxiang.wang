@@ -1,0 +1,167 @@
+/* ========================================
+   CSS 变量定义
+   包含主题色、阴影、边框等全局变量
+   ======================================== */
+
+:root {
+    --offset: 0px;
+    --wjx-white: #fff;
+    --wjx-white-op: rgba(255, 255, 255, 0.2);
+    --wjx-black: #000;
+    --wjx-black-op: rgba(0, 0, 0, 0.2);
+    --wjx-none: #00000000;
+    --wjx-gray: #999999;
+    --wjx-gray-op: #9999992b;
+    --wjx-vip: #e5a80d;
+    --wjx-main: var(--wjx-theme);
+    --wjx-main-op: var(--wjx-theme-op);
+    --wjx-main-op-deep: var(--wjx-theme-op-deep);
+    --wjx-main-op-light: var(--wjx-theme-op-light);
+    --wjx-main-none: var(--wjx-theme-none);
+    --wjx-shadow-theme: 0 8px 12px -3px var(--wjx-theme-op);
+    --wjx-shadow-blackdeep: 0 2px 16px -3px rgba(0, 0, 0, 0.15);
+    --wjx-shadow-main: 0 8px 12px -3px var(--wjx-main-op);
+    --wjx-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, 0.2);
+    --wjx-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, 0.2);
+    --wjx-shadow-black: 0 0 12px 4px rgba(0, 0, 0, 0.05);
+    --wjx-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, 0.12);
+    --wjx-shadow-red: 0 8px 12px -3px #ee7d7936;
+    --wjx-shadow-green: 0 8px 12px -3px #87ee7936;
+    --wjx-green: #57bd6a;
+    --wjx-green-op-deep: #57bd6a56;
+    --wjx-logo-color: linear-gradient(215deg, #4584ff 0%, #cf0db9 100%);
+    --wjx-snackbar-time: 5s;
+    --style-border: 1px solid var(--wjx-card-border);
+    --style-border-always: 1px solid var(--wjx-card-border);
+    --style-border-hover: 1px solid var(--wjx-main);
+    --style-border-hover-always: 1px solid var(--wjx-main);
+    --style-border-dashed: 1px dashed var(--wjx-theme-op);
+    --wjx-radius-full: 50px;
+    --global-font-size: 16px;
+    --global-bg: #fff;
+    --font-color: #4c4948;
+    --hr-border: #97bcfb;
+    --hr-before-color: #6ea2f9;
+    --search-bg: #f6f8fa;
+    --search-input-color: #4c4948;
+    --search-result-title: #4c4948;
+    --preloader-bg: #37474f;
+    --preloader-color: #fff;
+    --tab-border-color: #f0f0f0;
+    --tab-botton-bg: #f0f0f0;
+    --tab-botton-color: #1f2d3d;
+    --tab-button-hover-bg: #dcdcdc;
+    --tab-button-active-bg: #fff;
+    --card-bg: #fff;
+    --sidebar-bg: #f6f8fa;
+    --btn-hover-color: #ff7242;
+    --btn-color: #fff;
+    --btn-bg: #307af6;
+    --text-bg-hover: #307af6;
+    --light-grey: #eee;
+    --white: #fff;
+    --text-highlight-color: #1f2d3d;
+    --blockquote-color: #6a737d;
+    --blockquote-bg: rgba(73, 177, 245, 0.1);
+    --reward-pop: #f5f5f5;
+    --toc-link-color: #666261;
+    --card-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
+    --card-hover-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.15);
+    --hl-color: #eff;
+    --hl-bg: #212121;
+    --hltools-bg: #1c1c1c;
+    --hltools-color: rgba(238, 255, 255, 0.8);
+    --hlnumber-bg: #212121;
+    --hlnumber-color: rgba(238, 255, 255, 0.5);
+    --hlscrollbar-bg: #121212;
+    --hlexpand-bg: linear-gradient(180deg, rgba(33, 33, 33, 0.6), rgba(33, 33, 33, 0.9));
+}
+
+/* 亮色主题 */
+[data-theme=light] {
+    --wjx-theme: #425AEF;
+    --wjx-theme-op: #4259ef23;
+    --wjx-theme-op-deep: #4259efdd;
+    --wjx-theme-op-light: #4259ef0d;
+    --wjx-theme-none: #4259ef01;
+    --wjx-blue: #425AEF;
+    --wjx-red: #f04a63;
+    --wjx-pink: #FF7C7C;
+    --wjx-green: #57bd6a;
+    --wjx-yellow: #c28b00;
+    --wjx-yellow-op: #d99c001a;
+    --wjx-orange: #e38100;
+    --wjx-fontcolor: #363636;
+    --wjx-background: #f7f9fe;
+    --wjx-reverse: #000;
+    --wjx-maskbg: rgba(255, 255, 255, 0.6);
+    --wjx-maskbgdeep: rgba(255, 255, 255, 0.85);
+    --wjx-hovertext: var(--wjx-main);
+    --wjx-ahoverbg: #F7F7FA;
+    --wjx-lighttext: var(--wjx-main);
+    --wjx-secondtext: rgba(60, 60, 67, 0.8);
+    --wjx-scrollbar: rgba(60, 60, 67, 0.4);
+    --wjx-card-btn-bg: #edf0f7;
+    --wjx-post-blockquote-bg: #fafcff;
+    --wjx-post-tabs-bg: #f2f5f8;
+    --wjx-secondbg: #f7f7f9;
+    --wjx-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
+    --wjx-card-bg: #fff;
+    --wjx-card-bg-op: var(--wjx-black-op);
+    --wjx-card-bg-none: rgba(255, 255, 255, 0);
+    --wjx-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --wjx-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --wjx-card-border: #e3e8f7;
+    --wjx-shadow-border: 0 8px 16px -4px #2c2d300c;
+    --style-border-forever: 2px solid var(--wjx-main);
+}
+
+/* 暗色主题 */
+[data-theme=dark] {
+    --wjx-theme: #ffc848;
+    --wjx-theme-op: #f2b94b23;
+    --wjx-theme-op-deep: #f2b94bdd;
+    --wjx-theme-none: #f2b94b00;
+    --wjx-blue: #0084FF;
+    --wjx-red: #FF3842;
+    --wjx-pink: #d44040;
+    --wjx-green: #3e9f50;
+    --wjx-yellow: #ffc93e;
+    --wjx-yellow-op: #ffc93e30;
+    --wjx-orange: #ff953e;
+    --wjx-fontcolor: #F7F7FA;
+    --wjx-background: #18171d;
+    --wjx-reverse: #fff;
+    --wjx-maskbg: rgba(0, 0, 0, 0.6);
+    --wjx-maskbgdeep: rgba(0, 0, 0, 0.85);
+    --wjx-hovertext: #0A84FF;
+    --wjx-ahoverbg: #fff;
+    --wjx-lighttext: var(--wjx-theme);
+    --wjx-secondtext: #a1a2b8;
+    --wjx-scrollbar: rgba(200, 200, 223, 0.4);
+    --wjx-card-btn-bg: #30343f;
+    --wjx-post-blockquote-bg: #000;
+    --wjx-post-tabs-bg: #121212;
+    --wjx-secondbg: #21232a;
+    --wjx-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
+    --wjx-card-bg: #1d1e22;
+    --wjx-card-bg-op: var(--wjx-white-op);
+    --wjx-card-bg-none: #1d1b2600;
+    --wjx-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --wjx-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --wjx-card-border: #3d3d3f;
+    --wjx-shadow-border: 0 8px 16px -4px #00000050;
+    --style-border: 1px solid var(--wjx-card-border);
+    --style-border-always: 1px solid var(--wjx-card-border);
+    --style-border-hover: 1px solid var(--wjx-lighttext);
+    --style-border-dashed: 1px dashed var(--wjx-theme-op);
+    --style-border-forever: 2px solid var(--wjx-lighttext);
+}
+
+/* 移动端边框覆盖 */
+@media screen and (max-width: 768px) {
+    :root {
+        --style-border: 1px solid var(--wjx-none);
+        --style-border-hover: 1px solid var(--wjx-none)
+    }
+}

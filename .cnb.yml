@@ -1,0 +1,4 @@
+# Keep this file in the GitHub source repository; CNB receives the same commit.
+# Configure the deployment secret described in studio/docs/ci.zh-CN.md first.
+include:
+  - studio/deploy/cnb-build.yml
