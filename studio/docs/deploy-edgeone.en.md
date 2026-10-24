@@ -98,6 +98,14 @@ Uncommitted theme files are not available to remote builds. Updating the parent 
 - Official function runtime: Node v20.x. The packaged handler was verified on Node 20.19.0; confirm the platform's actual runtime.
 - Git uses temporary shallow checkouts. Persistent authentication uses Blob. Images remain in Git.
 
+### Loading performance
+
+The workspace loads configuration and content in parallel. Within one function instance, configuration, documents and media share a read-only Git checkout for 30 seconds, including concurrent reads. Cold starts and other instances still need their own initial clone.
+
+Writes, deletes and uploads use a separate fresh checkout for revision checks and invalidate that instance's read cache afterward. Other instances and changes made outside Studio can remain cached for up to 30 seconds. **Refresh content** and **Refresh repository** explicitly fetch a new snapshot.
+
+Loading views display skeletons, switch to a longer-wait hint after eight seconds, and provide retries after errors. Read-only API requests have a 60-second timeout. Counts and empty-library messages wait for successful data. Animations respect reduced-motion preferences. Run `npm run build` followed by `npm run test:loading` to verify slow and failed reads against a disposable local site without production OIDC or Git credentials. No additional environment variables are required. Large image repositories and slow Git connections still affect the first clone.
+
 After deployment:
 
 1. `/` shows the login UI; `/api/auth/config` returns JSON, not an HTML fallback.

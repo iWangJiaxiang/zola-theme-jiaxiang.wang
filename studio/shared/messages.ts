@@ -1,5 +1,12 @@
 // Application copy only. Site content and stored configuration values are never translated.
 export const english: Record<string, string> = {
+  "首次打开可能需要稍等片刻。": "The first load may take a moment.",
+  "加载比平时久一些，仍在等待服务器响应。": "This is taking longer than usual. Waiting for the server to respond.",
+  "刷新内容": "Refresh content",
+  "正在加载站点…": "Loading your site…",
+  "连接超时，请重试。": "The connection timed out. Please try again.",
+  "网络连接失败，请检查网络后重试。": "Could not connect. Check your connection and try again.",
+
   "每张图片不能超过 {limit} MB": "Each image must be {limit} MB or smaller.",
   "图片超过当前部署的预览限制，请压缩后使用": "This image exceeds this deployment's preview limit. Compress it before use.",
   "拖拽图片到这里，或选择文件。支持多选，每张最多 {limit} MB。": "Drop images here or choose files. Up to {limit} MB per image.",

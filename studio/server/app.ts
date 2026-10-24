@@ -72,11 +72,16 @@ export function createApp(options: AppOptions) {
     const session = await auth.read(c);
     if (!session) throw new StudioError(401, '请先登录');
     c.set('session', session);
-    if (!['GET', 'HEAD', 'OPTIONS'].includes(c.req.method)) auth.checkCsrf(c, session);
+    if (!['GET', 'HEAD', 'OPTIONS'].includes(c.req.method)) {
+      auth.checkCsrf(c, session);
+      // Preflight revision checks must see fresh data even on a previously warm instance.
+      options.repository.clearReadCache?.();
+    }
     await next();
   });
   app.post('/api/auth/logout', async c => { await auth.revoke(c); return c.json({ ok: true }); });
   app.get('/api/bootstrap', async c => {
+    if (c.req.query('refresh') === '1') options.repository.clearReadCache?.();
     const [site, appearance] = await Promise.all([content.settings('site'), content.settings('appearance')]);
     return c.json({ site: site.values, appearance: appearance.values, mode: options.repository.mode,
       groups: settingsSchemas.map(({ id, title, description }) => ({ id, title, description })) });
@@ -106,7 +111,10 @@ export function createApp(options: AppOptions) {
     c.header('Content-Disposition', 'inline');
     return c.body(new Uint8Array(image.data).buffer);
   });
-  app.get('/api/content', async c => c.json(await content.list()));
+  app.get('/api/content', async c => {
+    if (c.req.query('refresh') === '1') options.repository.clearReadCache?.();
+    return c.json(await content.list());
+  });
   app.get('/api/document', async c => c.json(await content.document(c.req.query('path') || '')));
   app.put('/api/document', async c => {
     const input = await c.req.json<{ path: string; changes: unknown; body: string; revision: string | null }>();

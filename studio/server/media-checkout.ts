@@ -1,4 +1,4 @@
-// Reuse a private, short-lived Git checkout across concurrent thumbnail requests.
+// Reuse a private, short-lived read-only Git checkout across concurrent requests.
 // Leases prevent refresh/expiry cleanup from removing files still being read.
 export class MediaCheckout<T> {
   private current?: { promise: Promise<T>; expires: number; readers: number; retired: boolean; disposed: boolean; timer?: ReturnType<typeof setTimeout> };

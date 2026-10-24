@@ -84,3 +84,18 @@ test('Markdown insertion escapes parentheses so legal image filenames stay intac
     assert.ok(html.includes('src="/img/' + name.replaceAll('(', '%28').replaceAll(')', '%29') + '"'));
   }
 });
+
+
+test('read checkout expires and recovers after a failed clone', async t => {
+  let created = 0;
+  const disposed: number[] = [];
+  const cache = new MediaCheckout(async () => { if (++created === 1) throw new Error('offline'); return created; }, async id => { disposed.push(id); }, 30_000);
+  t.after(() => cache.clear());
+  await assert.rejects(() => cache.use(async id => id), /offline/);
+  assert.equal(await cache.use(async id => id), 2, 'failed snapshots are not retained');
+  t.mock.timers.enable({ apis: ['Date'], now: Date.now() });
+  t.mock.timers.tick(30_001);
+  assert.equal(await cache.use(async id => id), 3, 'expired reads fetch a fresh snapshot');
+  await Promise.resolve();
+  assert.deepEqual(disposed, [2]);
+});

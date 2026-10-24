@@ -37,20 +37,21 @@ export class GitRepository implements Repository {
     return { url: response.url, method: request.method!, statusCode: response.status, statusMessage: response.statusText,
       headers: Object.fromEntries(response.headers.entries()), body: body() };
   } };
-  private mediaCheckout = new MediaCheckout(async () => {
-    const directory = await mkdtemp(join(tmpdir(), 'wondershine-media-'));
+  private readCheckout = new MediaCheckout(async () => {
+    const directory = await mkdtemp(join(tmpdir(), 'wondershine-read-'));
     try {
       await git.clone({ fs, http: this.http, dir: directory, url: this.options.url, ref: this.options.branch,
         singleBranch: true, depth: 1, onAuth: () => ({ username: this.options.username, password: this.options.token }) });
       return { directory, repo: new LocalRepository(directory) };
     } catch {
       await rm(directory, { recursive: true, force: true });
-      throw new StudioError(502, '图片仓库连接失败，请检查仓库权限并重试');
+      throw new StudioError(502, 'Git 操作失败，请检查仓库连接、权限和分支；本次修改尚未确认发布');
     }
-  }, value => rm(value.directory, { recursive: true, force: true }));
-  async listMedia(refresh = false): Promise<MediaListing> { return this.mediaCheckout.use(value => value.repo.listMedia(), refresh); }
-  async readMedia(path: string): Promise<MediaFile | null> { validateMediaPath(path); return this.mediaCheckout.use(value => value.repo.readMedia(path)); }
-  clearMediaCache() { this.mediaCheckout.clear(); }
+  }, value => rm(value.directory, { recursive: true, force: true }), 30_000);
+  async listMedia(refresh = false): Promise<MediaListing> { return this.readCheckout.use(value => value.repo.listMedia(), refresh); }
+  async readMedia(path: string): Promise<MediaFile | null> { validateMediaPath(path); return this.readCheckout.use(value => value.repo.readMedia(path)); }
+  clearReadCache() { this.readCheckout.clear(); }
+  clearMediaCache() { this.clearReadCache(); }
   async uploadMedia(directory: string, name: string, data: Uint8Array): Promise<MediaUploadResult> {
     validateUpload(directory, name, data);
     return this.checkout(async (repo, dir) => {
@@ -76,10 +77,10 @@ export class GitRepository implements Repository {
     } catch (error) {
       if (error instanceof StudioError) throw error;
       throw new StudioError(502, 'Git 操作失败，请检查仓库连接、权限和分支；本次修改尚未确认发布');
-    } finally { await rm(directory, { recursive: true, force: true }); }
+    } finally { this.clearReadCache(); await rm(directory, { recursive: true, force: true }); }
   }
-  async read(path: string): Promise<FileSnapshot | null> { validatePath(path); return this.checkout(repo => repo.read(path)); }
-  async list(): Promise<FileSnapshot[]> { return this.checkout(repo => repo.list()); }
+  async read(path: string): Promise<FileSnapshot | null> { validatePath(path); return this.readCheckout.use(value => value.repo.read(path)); }
+  async list(): Promise<FileSnapshot[]> { return this.readCheckout.use(value => value.repo.list()); }
   async write(path: string, text: string | null, expectedRevision: string | null): Promise<SaveResult> {
     validatePath(path);
     return this.checkout(async (repo, dir) => {

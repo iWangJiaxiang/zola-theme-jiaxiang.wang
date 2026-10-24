@@ -10,7 +10,7 @@ import { hashPassword } from '../server/password.js';
 
 const password = 'test-admin-long-password';
 const hash = hashPassword(password);
-async function fixture(t: test.TestContext, mediaLimit?: number) {
+async function fixture(t: test.TestContext, mediaLimit?: number, repositoryFactory = (root: string) => new LocalRepository(root)) {
   const root = await mkdtemp(join(tmpdir(), 'studio-api-'));
   t.after(() => rm(root, { force: true, recursive: true }));
   await writeFile(join(root, 'config.toml'), '# keep\ntitle="Original"\nsecret="not-returned"\n[extra.style]\ntheme_light_skin="#425AEF"\n');
@@ -18,7 +18,7 @@ async function fixture(t: test.TestContext, mediaLimit?: number) {
   await mkdir(join(root, 'content/articles/example'), { recursive: true });
   await writeFile(join(root, 'content/articles/example/index.md'), '+++\ntitle="Example"\ndraft=true\n[extra]\ncustom="keep"\n+++\n\n{{ image(src="cover.png") }}\n');
   const app = createApp({ config: { origin: 'http://localhost:5173', secureCookies: false, sessionSecret: 'x'.repeat(32),
-    sessionSeconds: 3600, username: 'owner', passwordHash: await hash }, repository: new LocalRepository(root), state: new FileState(join(root, '.state')), mediaLimit });
+    sessionSeconds: 3600, username: 'owner', passwordHash: await hash }, repository: repositoryFactory(root), state: new FileState(join(root, '.state')), mediaLimit });
   const login = () => app.request('/api/auth/login', { method: 'POST', headers: { origin: 'http://localhost:5173', 'content-type': 'application/json' }, body: JSON.stringify({ username: 'owner', password }) });
   return { app, root, login };
 }
@@ -132,4 +132,37 @@ test('cloud media capability limits uploads and previews while preserving normal
   assert.deepEqual((await rejected.json()).params, { limit: 4 });
   const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNwinr/HwAE+AKLJh4rzQAAAABJRU5ErkJggg==', 'base64');
   assert.equal((await app.request(path, { method: 'POST', headers, body: png })).status, 201);
+});
+
+
+test('authenticated mutations refresh cached preflight reads before checking revisions', async t => {
+  let clears = 0;
+  class CachedRepository extends LocalRepository {
+    private snapshots = new Map<string, Awaited<ReturnType<LocalRepository['read']>>>();
+    override async read(path: string) {
+      if (!this.snapshots.has(path)) this.snapshots.set(path, await super.read(path));
+      return this.snapshots.get(path)!;
+    }
+    clearReadCache() { clears++; this.snapshots.clear(); }
+  }
+  const { app, root, login } = await fixture(t, undefined, root => new CachedRepository(root));
+  const logged = await login(), session = await logged.json();
+  const headers = { cookie: logged.headers.get('set-cookie')!.split(';')[0], origin: 'http://localhost:5173', 'x-csrf-token': session.csrf, 'content-type': 'application/json' };
+  for (const item of [
+    { file: 'config.toml', endpoint: '/api/settings/site', read: '/api/settings/site' },
+    { file: 'content/articles/example/index.md', endpoint: '/api/document', read: '/api/document?path=content/articles/example/index.md' },
+  ]) {
+    const old = await (await app.request(item.read, { headers })).json();
+    const raw = await readFile(join(root, item.file), 'utf8');
+    await writeFile(join(root, item.file), raw.replace(/title="[^"]*"/, 'title="External edit"'));
+    const latest = await new LocalRepository(root).read(item.file);
+    const input = { path: item.file, revision: latest!.revision, changes: { title: 'Saved latest' }, body: 'Latest body' };
+    const before = clears;
+    assert.equal((await app.request(item.endpoint, { method: 'PUT', headers: { ...headers, 'x-csrf-token': '' }, body: JSON.stringify(input) })).status, 403);
+    assert.equal(clears, before, 'unauthorized writes cannot invalidate snapshots');
+    const saved = await app.request(item.endpoint, { method: 'PUT', headers, body: JSON.stringify(input) });
+    assert.equal(saved.status, 200, 'a current revision must not be rejected by a stale instance cache');
+    assert.match(await readFile(join(root, item.file), 'utf8'), /Saved latest/);
+    assert.equal((await app.request(item.endpoint, { method: 'PUT', headers, body: JSON.stringify({ ...input, revision: old.revision }) })).status, 409, 'actually stale writes still conflict');
+  }
 });

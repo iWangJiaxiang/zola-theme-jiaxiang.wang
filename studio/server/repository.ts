@@ -18,6 +18,7 @@ export function validatePath(path: string): void {
 }
 export interface Repository {
   readonly mode: 'local' | 'git';
+  clearReadCache?(): void;
   read(path: string): Promise<FileSnapshot | null>;
   list(): Promise<FileSnapshot[]>;
   listMedia(refresh?: boolean): Promise<MediaListing>;

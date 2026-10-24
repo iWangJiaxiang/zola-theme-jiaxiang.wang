@@ -58,8 +58,23 @@ test('HTTPS Git adapter clones, pushes only edited paths and rejects stale revis
   for (const picture of pictures) assert.deepEqual(Buffer.from(picture!.data), image);
   assert.equal(cloneRequests - before, 1, 'media list and thumbnails share a single Git checkout');
   await repo.listMedia(true); assert.equal(cloneRequests - before, 2, 'refresh fetches the remote again');
-  const first = await repo.read('content/articles/first/index.md'); assert.ok(first);
+  const readsBefore = cloneRequests;
+  repo.clearReadCache();
+  const [first, config, listing] = await Promise.all([
+    repo.read('content/articles/first/index.md'), repo.read('config.toml'), repo.list(), repo.listMedia(),
+  ]);
+  assert.ok(first); assert.equal(config?.text, 'title="Sample"\n'); assert.equal(listing.length, 1);
+  assert.equal(cloneRequests - readsBefore, 1, 'content, settings and media share one concurrent checkout');
   assert.equal((await repo.list()).length, 1);
+  // External commits remain protected even while readers have a cached snapshot.
+  const oldConfig = await repo.read('config.toml');
+  await writeFile(join(root, 'seed/config.toml'), 'title="External"\n');
+  run(['add', 'config.toml'], join(root, 'seed'));
+  run(['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '-m', 'external change'], join(root, 'seed'));
+  run(['push', '../repo.git', 'main'], join(root, 'seed'));
+  await assert.rejects(() => repo.write('config.toml', 'title="Stale overwrite"\n', oldConfig!.revision), /已更新/);
+  assert.equal((await repo.read('config.toml'))!.text, 'title="External"\n', 'conflict clears cached reads');
+  await repo.write('config.toml', oldConfig!.text, (await repo.read('config.toml'))!.revision);
   const saved = await repo.write(first.path, first.text.replace('Hello', 'Updated'), first.revision);
   assert.ok(saved.commit); assert.ok(receivedAuth);
   assert.match((await repo.read(first.path))!.text, /Updated/);

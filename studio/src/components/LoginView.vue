@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LoadingState from './LoadingState.vue';
 import { t, type Message } from '../i18n';
 import { onMounted, ref } from 'vue';
 import { api, session, reauthentication, errorMessage } from '../api';
@@ -42,7 +43,7 @@ async function login() {
         <button class="primary wide" :disabled="busy">{{ busy ? t("正在登录…") : t("进入创作中心") }}<Icon name="arrow" /></button>
       </form>
       <template v-if="methods?.oidc"><div v-if="methods.password" class="divider">{{ t("或使用统一身份") }}</div><a class="button secondary wide" href="/api/auth/oidc/start"><Icon name="lock" />{{ methods.oidc.label === '统一身份登录' ? t('统一身份登录') : methods.oidc.label }}</a></template>
-      <p v-if="!methods && !error" role="status">{{ t("正在连接管理中心…") }}</p>
+      <LoadingState v-if="!methods && !error" label="正在连接管理中心…" compact />
       <details class="login-help"><summary>{{ t("首次使用或无法登录？") }}</summary><p>{{ t("使用 npm run setup 时设置的管理员账号和密码。这里没有公开注册入口，Git 账号不能直接用于登录。") }}</p><p>{{ t("忘记密码时，管理员可运行 npm run password 生成新哈希，更新服务端配置并重启。OIDC 用户请使用统一身份入口。") }}</p><p>{{ t("连接失败时运行 npm run doctor；完整步骤见 studio/docs/setup.md。") }}</p></details>
       <p class="login-note">{{ t("仅向站点管理员开放 · 内容仓库凭据由服务端保管") }}</p>
     </section>
