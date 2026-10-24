@@ -1,0 +1,13 @@
+<script setup lang="ts">
+import { t } from '../i18n';
+import { ref, computed, watch } from 'vue';
+import { mediaURL, formatBytes, type MediaItem } from '../../shared/media';
+import { mediaListing, mediaVersion } from '../media-store';
+import MediaBrowser from './MediaBrowser.vue';
+const selected = ref<MediaItem>(), message = ref(''), copied = ref(''), failed = ref(false);
+const publicPath = computed(() => selected.value?.path.startsWith('static/') ? '/' + selected.value.path.slice(7) : '');
+watch(mediaVersion, () => { if (selected.value) selected.value = mediaListing.value.items.find(item => item.path === selected.value?.path); failed.value = false; message.value = ''; copied.value = ''; });
+function choose(item: MediaItem) { selected.value = item; message.value = ''; copied.value = ''; failed.value = false; }
+async function copy(value: string) { try { await navigator.clipboard.writeText(value); copied.value = value; message.value = '路径已复制'; } catch { copied.value = value; message.value = '可选中下方路径手动复制'; } }
+</script>
+<template><section class="media-library"><div class="page-heading"><div><p class="eyebrow">{{ t("内容管理") }}</p><h1>{{ t("媒体库") }}</h1><p class="muted">{{ t("上传和管理仓库图片，预览、复制路径或在表单中选用。") }}</p></div></div><div class="media-library-layout"><section class="card media-library-browser"><MediaBrowser :selected="selected?.path" @select="choose" /></section><aside class="card media-details"><template v-if="selected"><h2>{{ selected.name }}</h2><img v-if="!failed" :src="mediaURL(selected.path, mediaVersion)" :alt="selected.name" decoding="async" @error="failed = true" /><p v-else class="muted">{{ t("暂时无法预览") }}</p><dl><dt>{{ t("类型与大小") }}</dt><dd>{{ selected.mime }} · {{ formatBytes(selected.size) }}</dd><dt>{{ t("仓库路径") }}</dt><dd>{{ selected.path }}</dd><template v-if="publicPath"><dt>{{ t("站点路径") }}</dt><dd>{{ publicPath }}</dd></template></dl><div class="row"><button v-if="publicPath" type="button" class="primary" @click="copy(publicPath)">{{ t("复制站点路径") }}</button><button type="button" class="secondary" @click="copy(selected.path)">{{ t("复制仓库路径") }}</button><button v-if="!publicPath" type="button" class="secondary" @click="copy(selected.name)">{{ t("复制文件名") }}</button></div><p v-if="!publicPath" class="muted small">{{ t("文章配图请在对应文稿中选择；同目录封面使用文件名。") }}</p><p v-if="message" role="status" class="muted small">{{ t(message) }}</p><input v-if="copied" :aria-label="t('已复制的图片路径')" :value="copied" readonly @focus="($event.target as HTMLInputElement).select()" /></template><p v-else class="muted">{{ t("选择一张图片，查看大图与路径。") }}</p></aside></div></section></template>

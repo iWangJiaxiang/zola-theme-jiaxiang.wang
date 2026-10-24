@@ -1,0 +1,51 @@
+# Included by the theme repository's .cnb.yml. Production comes only from main.
+main:
+  push: &studio_production
+    - name: Build and deploy Creator Studio
+      docker:
+        image: node:22.21.1-bookworm
+      lock:
+        key: studio-production
+        wait: true
+        expires: 3600
+        timeout: 3600
+      stages:
+        - name: Install Studio
+          timeout: 10m
+          script: npm ci --prefix studio
+        - name: Test Studio
+          timeout: 5m
+          script: npm test --prefix studio
+        - name: Build Studio
+          timeout: 5m
+          script: npm run build --prefix studio
+        - name: Check Makers artifact
+          timeout: 2m
+          script: npm run test:deployment --prefix studio
+        - name: Install pinned EdgeOne CLI
+          timeout: 5m
+          script: npm install --global edgeone@1.6.46
+        - name: Deploy Studio to EdgeOne
+          timeout: 10m
+          lock:
+            key: studio-production-upload
+            wait: true
+            expires: 1200
+            timeout: 1200
+          imports:
+            - https://cnb.cool/wangjiaxiang/studio-secrets/-/blob/main/edgeone.yml
+          script: |
+            set +x
+            set -eu
+            test -n "${EDGEONE_API_TOKEN:-}" || { echo 'Configure EDGEONE_API_TOKEN in the CNB secret repository.'; exit 1; }
+            test -n "${EDGEONE_PROJECT_NAME:-}" || { echo 'Configure EDGEONE_PROJECT_NAME in the CNB secret repository.'; exit 1; }
+            current="$(git ls-remote origin refs/heads/main | cut -f1)"
+            test -n "$current" || { echo 'Cannot verify the current main commit.'; exit 1; }
+            if [ "$current" != "$(git rev-parse HEAD)" ]; then
+              echo 'A newer main commit exists; skip this outdated deployment.'
+              exit 0
+            fi
+            edgeone makers deploy ./studio/dist/makers \
+              --name "$EDGEONE_PROJECT_NAME" --token "$EDGEONE_API_TOKEN" \
+              --env production --skip-ai-gateway-sync
+  web_trigger_studio: *studio_production

@@ -21,6 +21,14 @@
 
 > 本主题由 [王嘉祥](https://blog.jiaxiang.wang) 移植自 [Halo](https://github.com/halo-dev/halo) 主题 [Halo-Theme-Hao](https://github.com/chengzhongxue/halo-theme-hao)，[Halo-Theme-Hao](https://github.com/chengzhongxue/halo-theme-hao) 主题移植自 [Hexo](https://hexo.io/zh-cn/index.html) 社区中 [张洪 Heo](https://blog.zhheo.com/) 对 [Hexo-Theme-Butterfly](https://github.com/chengzhongxue/halo-theme-hao) 主题的魔改与重设计版本。
 
+## 创作中心
+
+主题提供独立的 [创作中心](studio/README.md)，支持账号密码与 OIDC 登录、文章与专栏/合集编辑，以及站点信息、导航、友链、关于页、标签和外观表单。可以连接本地站点或 GitHub、CNB 等 HTTPS Git 内容仓库，部署到 Node 环境或 EdgeOne Makers Cloud Functions。公开主站继续由 Zola 构建。
+
+首次安装在 `studio/` 运行 `npm ci`、`npm run setup`、`npm run doctor`、`npm run dev`。向导自动生成管理员配置并保留已有 `.env`。
+
+[中文快速开始](studio/docs/quick-start.zh-CN.md) · [English quick start](studio/docs/quick-start.en.md) · [配置与排错](studio/docs/setup.md) · [EdgeOne 部署指南](studio/docs/deploy-edgeone.zh-CN.md) · [完整文档](studio/README.md)。
+
 ## 🔥 预览
 
 > 如果你的站点也使用了本主题，欢迎通过 PR 的形式在 `readme.md` 和 `/static/data/friends.json` 中添加站点信息

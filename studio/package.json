@@ -1,0 +1,45 @@
+{
+  "name": "@wondershine/studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "tsx --env-file-if-exists=.env server/dev.ts",
+    "build": "vue-tsc --noEmit && vite build && tsx scripts/build-server.ts",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "start": "node --env-file-if-exists=.env dist/server.mjs",
+    "password": "tsx scripts/password.ts",
+    "test:browser": "tsx tests/browser/smoke.mjs",
+    "setup": "tsx scripts/setup.ts",
+    "doctor": "tsx --env-file-if-exists=.env scripts/doctor.ts",
+    "test:deployment": "node scripts/check-deployment.mjs"
+  },
+  "dependencies": {
+    "@edgeone/pages-blob": "0.0.18",
+    "@hono/node-server": "2.1.5",
+    "dompurify": "3.4.17",
+    "hono": "4.13.13",
+    "isomorphic-git": "1.44.4",
+    "marked": "18.1.1",
+    "openid-client": "6.8.8",
+    "saxes": "6.0.0",
+    "smol-toml": "1.9.1",
+    "toml-eslint-parser": "1.0.3",
+    "vditor": "4.0.1",
+    "vue": "3.5.44"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@vitejs/plugin-vue": "6.0.10",
+    "esbuild": "0.28.2",
+    "puppeteer-core": "25.16.0",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vue-tsc": "3.3.13"
+  }
+}

@@ -1,0 +1,110 @@
+import assert from 'node:assert/strict';
+import { mkdir, cp, readFile, writeFile } from 'node:fs/promises';
+import { parse } from 'smol-toml';
+import { splitDocument } from '../../server/content.ts';
+
+export async function checkMedia({ page, base, theme, screenshots, click, heading, fill }) {
+  const shared = 'static/img/媒体 配图.webp', local = 'content/articles/studio-browser-test/封面 配图.webp';
+  await mkdir(base + '/site/static/img', { recursive: true });
+  await cp(theme + '/static/img/logo.webp', base + '/site/' + shared);
+  await cp(theme + '/static/img/logo.webp', base + '/site/' + local);
+  await writeFile(base + '/site/static/img/preview.svg', '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><script>parent.mediaScriptExecuted=true</script><rect width="32" height="32" fill="#425aef"/></svg>');
+  const chooseImage = async (name, path, confirm = true) => {
+    await page.waitForSelector(`[data-image-field="${name}"] .secondary`);
+    await page.click(`[data-image-field="${name}"] .secondary`);
+    await page.waitForSelector('dialog.media-dialog[open]');
+    await fill('dialog.media-dialog[open] [aria-label="搜索仓库图片"]', path.split('/').at(-1));
+    await page.waitForSelector(`dialog.media-dialog[open] [data-media-path="${path}"]`);
+    await page.click(`dialog.media-dialog[open] [data-media-path="${path}"]`);
+    if (confirm) { await click('使用这张图片'); await page.waitForFunction(() => !document.querySelector('dialog.media-dialog[open]')); }
+  };
+  await click('媒体库'); await heading('媒体库');
+  await fill('[aria-label="搜索仓库图片"]', '媒体 配图');
+  await page.waitForSelector(`[data-media-path="${shared}"] img`);
+  await page.waitForFunction(path => document.querySelector(`[data-media-path="${path}"] img`)?.naturalWidth > 0, {}, shared);
+  await page.click(`[data-media-path="${shared}"]`);
+  await click('复制站点路径');
+  await page.waitForSelector('[aria-label="已复制的图片路径"]');
+  assert.equal(await page.$eval('[aria-label="已复制的图片路径"]', el => el.value), '/img/媒体 配图.webp');
+  await page.screenshot({ path: screenshots + '/media-library.png', fullPage: true });
+  await fill('[aria-label="搜索仓库图片"]', 'preview.svg');
+  await page.waitForSelector('[data-media-path="static/img/preview.svg"] img');
+  await page.waitForFunction(() => document.querySelector('[data-media-path="static/img/preview.svg"] img')?.naturalWidth > 0);
+  assert.equal(await page.evaluate(() => window.mediaScriptExecuted), undefined, 'SVG previews must not execute scripts');
+  await cp(theme + '/static/img/logo.webp', base + '/site/static/img/new-from-git.webp');
+  await click('刷新仓库'); await fill('[aria-label="搜索仓库图片"]', 'new-from-git');
+  await page.waitForSelector('[data-media-path="static/img/new-from-git.webp"]');
+
+  await click('站点信息'); await heading('站点信息');
+  await page.waitForSelector('[name="extra.site.logo"]');
+  const originalLogo = await page.$eval('[name="extra.site.logo"]', el => el.value);
+  await chooseImage('extra.site.logo', shared, false);
+  await page.keyboard.press('Escape'); await page.waitForFunction(() => !document.querySelector('dialog.media-dialog[open]'));
+  assert.equal(await page.$eval('[name="extra.site.logo"]', el => el.value), originalLogo, 'cancel must preserve field value');
+  assert.equal(await page.$eval('.page-heading .primary', el => el.disabled), true);
+  await chooseImage('extra.site.logo', shared);
+  assert.equal(await page.$eval('[name="extra.site.logo"]', el => el.value), '/img/媒体 配图.webp');
+  await page.waitForFunction(() => document.querySelector('[data-image-field="extra.site.logo"] img')?.naturalWidth > 0);
+  await click('保存更改'); await page.waitForSelector('.notice.success');
+  assert.equal(parse(await readFile(base + '/site/config.toml', 'utf8')).extra.site.logo, '/img/媒体 配图.webp');
+
+  const friendsFile = base + '/site/static/data/friends.json';
+  const friends = JSON.parse(await readFile(friendsFile, 'utf8'));
+  friends.groups[0].links[0].logo = 'https://backup-icon.invalid/original.png';
+  friends.groups[0].links[0].local_logo = '/img/媒体 配图.webp';
+  await writeFile(friendsFile, JSON.stringify(friends));
+  const backupRequests = [];
+  const trackBackup = request => { if (request.url().startsWith('https://backup-icon.invalid/')) backupRequests.push(request.url()); };
+  page.on('request', trackBackup);
+  await click('友链管理'); await heading('友链管理');
+  await page.$eval('[name="groups.0.links.0.logo"]', el => el.scrollIntoView());
+  await page.waitForFunction(() => document.querySelector('[data-image-field="groups.0.links.0.local_logo"] img')?.naturalWidth > 0);
+  assert.equal(await page.$eval('[data-image-field="groups.0.links.0.logo"] label', el => el.textContent), '备用图标地址');
+  assert.equal(await page.$('[data-image-field="groups.0.links.0.logo"] .image-field-preview'), null);
+  await fill('[name="groups.0.links.0.logo"]', 'https://backup-icon.invalid/edited.png');
+  await click('保存更改'); await page.waitForSelector('.notice.success');
+  assert.equal(JSON.parse(await readFile(friendsFile, 'utf8')).groups[0].links[0].logo, 'https://backup-icon.invalid/edited.png');
+  assert.deepEqual(backupRequests, [], 'backup URLs must not be requested on load or edit');
+  page.off('request', trackBackup);
+  await chooseImage('groups.0.links.0.logo', shared);
+  assert.equal(await page.$('[data-image-field="groups.0.links.0.logo"] .image-field-preview'), null);
+  await click('保存更改'); await page.waitForSelector('.notice.success');
+  assert.equal(JSON.parse(await readFile(base + '/site/static/data/friends.json', 'utf8')).groups[0].links[0].logo, '/img/媒体 配图.webp');
+  await click('关于页设置'); await heading('关于页设置');
+  await chooseImage('extra.about.photos.0.url', shared);
+  await click('保存更改'); await page.waitForSelector('.notice.success');
+  assert.equal(parse(await readFile(base + '/site/config.toml', 'utf8')).extra.about.photos[0].url, '/img/媒体 配图.webp');
+
+  await click('文章'); await heading('文章');
+  await page.waitForSelector('.content-row[data-path="content/articles/studio-browser-test/index.md"]');
+  await page.click('.content-row[data-path="content/articles/studio-browser-test/index.md"]'); await page.waitForSelector('.markdown-source');
+  // A previously conflicted writing draft is intentionally left untouched unless restored.
+  await chooseImage('extra.cover', local);
+  assert.equal(await page.$eval('[name="extra.cover"]', el => el.value), '封面 配图.webp');
+  await chooseImage('extra.global_cover', shared);
+  assert.equal(await page.$eval('[name="extra.global_cover"]', el => el.value), '/img/媒体 配图.webp');
+  await page.$eval('.markdown-source', el => { el.focus(); el.setSelectionRange(el.value.length, el.value.length); });
+  await click('插入图片'); await page.waitForSelector('dialog.media-dialog[open]');
+  await fill('dialog.media-dialog[open] [aria-label="搜索仓库图片"]', '媒体 配图');
+  await page.waitForSelector(`dialog.media-dialog[open] [data-media-path="${shared}"]`);
+  await page.click(`dialog.media-dialog[open] [data-media-path="${shared}"]`); await click('使用这张图片');
+  await click('保存内容'); await page.waitForSelector('.editor-page > .notice.success');
+  const saved = splitDocument(await readFile(base + '/site/content/articles/studio-browser-test/index.md', 'utf8'));
+  assert.equal(parse(saved.header).extra.cover, '封面 配图.webp');
+  assert.equal(parse(saved.header).extra.global_cover, '/img/媒体 配图.webp');
+  assert.match(saved.body, /!\[媒体 配图.webp\]\(\/img\/%E5%AA%92%E4%BD%93%20%E9%85%8D%E5%9B%BE.webp\)/);
+  await click('正文预览'); await page.waitForSelector('.markdown-preview img');
+  await page.waitForFunction(() => document.querySelector('.markdown-preview img')?.naturalWidth > 0);
+
+  await click('站点信息'); await heading('站点信息');
+  await page.setViewport({ width: 390, height: 844 });
+  await page.waitForFunction(() => document.querySelector('.sidebar').getBoundingClientRect().right <= 0);
+  await page.waitForSelector('[data-image-field="extra.site.logo"] .secondary');
+  await page.click('[data-image-field="extra.site.logo"] .secondary'); await page.waitForSelector('dialog.media-dialog[open]');
+  assert.ok(await page.$eval('dialog.media-dialog[open]', el => el.getBoundingClientRect().width <= innerWidth));
+  await fill('dialog.media-dialog[open] [aria-label="搜索仓库图片"]', '媒体 配图');
+  await page.waitForSelector(`dialog.media-dialog[open] [data-media-path="${shared}"] img`);
+  await page.screenshot({ path: screenshots + '/media-picker-mobile.png' });
+  await page.keyboard.press('Escape'); await page.setViewport({ width: 1440, height: 1000 });
+  console.log('PASS: media library previews, authenticated SVG, refresh, clipboard fallback, nested image forms, colocated/global paths, Markdown insertion and mobile picker.');
+}

@@ -3,3 +3,7 @@ public
 /static/processed_images/*
 
 .DS_Store
+
+# Creator Studio local content history and write lock
+.studio-history/
+.studio-write-lock/
