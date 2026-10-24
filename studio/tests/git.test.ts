@@ -11,7 +11,8 @@ test('HTTPS Git adapter clones, pushes only edited paths and rejects stale revis
   const root = await mkdtemp(join(tmpdir(), 'studio-git-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   const run = (args: string[], cwd = root) => execFileSync('git', args, { cwd, stdio: 'pipe' }).toString().trim();
-  run(['init', '--bare', 'repo.git']); run(['-C', 'repo.git', 'config', 'http.receivepack', 'true']);
+  // The bare remote HEAD must match the seeded branch regardless of host defaults.
+  run(['init', '--bare', '-b', 'main', 'repo.git']); run(['-C', 'repo.git', 'config', 'http.receivepack', 'true']);
   run(['init', '-b', 'main', 'seed']);
   await mkdir(join(root, 'seed/content/articles/first'), { recursive: true });
   await writeFile(join(root, 'seed/content/articles/first/index.md'), '+++\ntitle="First"\n+++\nHello\n');
