@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LoadingState from './LoadingState.vue';
 import { t, type Message } from '../i18n';
 import { ref, shallowRef, computed, watch, onBeforeUnmount, provide } from 'vue';
 import type { Settings, Json, SaveResult, ArticleSummary } from '../../shared/types';
@@ -87,5 +88,5 @@ async function save() {
     <p class="muted small">{{ t("仅修改对应字段，保留其他配置。列表内容发生修改时会重新排版该列表。") }}</p>
   </section>
   <p v-else-if="error" class="notice error" role="alert">{{ t(error) }} <button @click="load">{{ t("重试") }}</button></p>
-  <div v-else class="loading-state" role="status">{{ t("正在读取配置…") }}</div>
+  <LoadingState v-else label="正在读取配置…" />
 </template>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LoadingState from './LoadingState.vue';
 import { t, translateOptions, type Message } from '../i18n';
 import { ref, computed, onMounted, watch } from 'vue';
 import type { ArticleSummary, Json, Settings } from '../../shared/types';
@@ -52,18 +53,20 @@ function startCreate() {
   parent.value = folder.value === collectionRoot ? '' : sectionDirectory(folder.value).slice('content/collections/'.length, -1);
   creating.value = true;
 }
-onMounted(async () => {
+async function load(refresh = false) {
+  loading.value = true; error.value = '';
   const labels = api<Settings>('/settings/taxonomies').then(settings => {
     tagLabels.value = new Map(taxonomyChoices(settings.values['post.tags'], []).map(option => [option.value, option.label]));
     categoryLabels.value = new Map(taxonomyChoices(settings.values['post.categories'], []).map(option => [option.value, option.label]));
   }).catch(() => { /* Keep stored labels visible if the dictionary cannot be read. */ });
   try {
-    items.value = await api('/content');
+    items.value = await api('/content' + (refresh ? '?refresh=1' : ''));
     if (!items.value.some(item => item.path === folder.value)) browse(collectionRoot);
   } catch (e) { error.value = errorMessage(e); }
   finally { loading.value = false; }
   await labels;
-});
+}
+onMounted(() => load());
 function create() {
   if (!title.value.trim() || !/^[a-z0-9][a-z0-9-]*$/.test(slug.value)) { error.value = '请填写标题，网址标识使用小写字母、数字和连字符。'; return; }
   const metadata: Record<string, Json> = { title: title.value.trim(), draft: true };
@@ -88,17 +91,17 @@ function create() {
 }
 </script>
 <template>
-  <section class="content-library"><div class="page-heading"><div><p class="eyebrow">{{ t("内容管理") }}</p><h1>{{ t(names[kind]) }}</h1><p class="muted">{{ kind === 'collection' ? t("按专栏、合集和章节整理内容。") : kind === 'page' ? t("选择页面，编辑正文和对应模板的专属设置。") : t("按时间整理文章，继续未完成的创作。") }}</p></div><button class="primary" :disabled="loading" @click="startCreate"><Icon name="plus" />{{ t(kind === 'article' ? t("新建文章") : kind === 'page' ? t("新建页面") : t("新建内容")) }}</button></div>
-    <p v-if="error && !creating" class="notice error" role="alert">{{ t(error) }}</p>
+  <section class="content-library"><div class="page-heading"><div><p class="eyebrow">{{ t("内容管理") }}</p><h1>{{ t(names[kind]) }}</h1><p class="muted">{{ kind === 'collection' ? t("按专栏、合集和章节整理内容。") : kind === 'page' ? t("选择页面，编辑正文和对应模板的专属设置。") : t("按时间整理文章，继续未完成的创作。") }}</p></div><div class="row"><button class="secondary" :disabled="loading" @click="load(true)">{{ t("刷新内容") }}</button><button class="primary" :disabled="loading || !!error" @click="startCreate"><Icon name="plus" />{{ t(kind === 'article' ? t("新建文章") : kind === 'page' ? t("新建页面") : t("新建内容")) }}</button></div></div>
+    <p v-if="error && !creating" class="notice error" role="alert">{{ t(error) }} <button class="text-button" :disabled="loading" @click="load(true)">{{ t("重试") }}</button></p>
     <div v-if="kind === 'collection'" class="collection-navigation"><nav :aria-label="t('专栏层级')"><button class="text-button" @click="browse(collectionRoot)">{{ t("全部专栏") }}</button><template v-for="section in trail" :key="section.path"><span aria-hidden="true">/</span><button class="text-button" @click="browse(section.path)">{{ displayTitle(section) }}</button></template></nav><button v-if="currentSection" class="secondary" @click="emit('open', currentSection.path)">{{ folder === collectionRoot ? t("合集首页设置") : t("当前分组设置") }}</button></div>
     <div class="card"><div class="library-toolbar"><div class="search-box"><Icon name="search" /><input v-model="search" :aria-label="t('搜索内容')" :placeholder="kind === 'collection' ? t('搜索全部专栏、合集和章节…') : t('搜索标题、标签或分类…')" /></div><SelectionField :model-value="status" name="status" :label="t('筛选状态')" :options="[{value:'all',label:t('全部状态')},{value:'draft',label:t('草稿')},{value:'published',label:t('已发布')}]" @update:model-value="status = String($event)" /></div>
-      <div v-if="loading" class="empty-state">{{ t("正在读取内容…") }}</div>
-      <div v-else-if="!filtered.length" class="empty-state"><Icon name="book" :size="36" /><h2>{{ searchable ? t("没有找到匹配内容") : t("这里还没有内容") }}</h2><p class="muted">{{ searchable ? t("试试其他关键词或筛选条件。") : t("点击上方按钮，新建内容。") }}</p></div>
+      <LoadingState v-if="loading" label="正在读取内容…" />
+      <div v-else-if="!filtered.length && !error" class="empty-state"><Icon name="book" :size="36" /><h2>{{ searchable ? t("没有找到匹配内容") : t("这里还没有内容") }}</h2><p class="muted">{{ searchable ? t("试试其他关键词或筛选条件。") : t("点击上方按钮，新建内容。") }}</p></div>
       <div v-for="item in rows" :key="item.path" class="library-row">
         <button class="content-row" :data-path="item.path" @click="openItem(item)"><span class="content-icon"><Icon :name="isSection(item) ? 'folder' : 'file'" /></span><span class="content-info"><span class="content-title"><strong>{{ displayTitle(item) }}</strong><span v-if="kind === 'collection'" class="content-kind">{{ t(contentLabel(item)) }}</span></span><small>{{ summary(item) }}</small><span v-if="item.description" class="content-description">{{ item.description }}</span><span v-if="item.tags.length" class="tags"><span v-for="tag in item.tags.slice(0, 5)" :key="tag"># {{ tagLabels.get(tag) || tag }}</span><span v-if="item.tags.length > 5">+{{ item.tags.length - 5 }}</span></span></span><span :class="['badge', { draft: item.draft, invalid: item.error }]">{{ item.error ? t("需要检查") : item.render === false ? t("仅作分组") : item.draft ? t("草稿") : t("已发布") }}</span><Icon name="arrow" /></button>
         <button v-if="kind === 'collection' && isSection(item)" class="text-button section-edit" :aria-label="t('编辑{p0}设置', { p0: displayTitle(item) })" @click="emit('open', item.path)">{{ t("设置") }}</button>
       </div>
-      <div class="list-footer library-footer"><span>{{ t("共 {count} 项", { count: filtered.length }) }}{{ kind === 'collection' && !searchable ? t(" · 当前层级") : '' }} · {{ t("网站内容将在下次部署后更新") }}</span><div v-if="pages > 1" class="row"><button class="text-button" :disabled="pageNumber <= 1" @click="pageNumber--">{{ t("上一页") }}</button><span>{{ pageNumber }} / {{ pages }}</span><button class="text-button" :disabled="pageNumber >= pages" @click="pageNumber++">{{ t("下一页") }}</button></div></div>
+      <div v-if="!loading && !error" class="list-footer library-footer"><span>{{ t("共 {count} 项", { count: filtered.length }) }}{{ kind === 'collection' && !searchable ? t(" · 当前层级") : '' }} · {{ t("网站内容将在下次部署后更新") }}</span><div v-if="pages > 1" class="row"><button class="text-button" :disabled="pageNumber <= 1" @click="pageNumber--">{{ t("上一页") }}</button><span>{{ pageNumber }} / {{ pages }}</span><button class="text-button" :disabled="pageNumber >= pages" @click="pageNumber++">{{ t("下一页") }}</button></div></div>
     </div>
     <div v-if="creating" class="modal-backdrop" @click.self="creating = false"><form class="card modal" @submit.prevent="create"><div class="card-heading"><h2>{{ t("新建内容") }}</h2><button type="button" class="text-button" @click="creating = false">{{ t("取消") }}</button></div>
       <p v-if="error" class="notice error" role="alert">{{ t(error) }}</p>

@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer-core';
+import { checkLoading } from './loading.mjs';
 import { checkLanguages } from './languages.mjs';
 import { checkOnboarding } from './onboarding.mjs';
 import { checkMedia } from './media.mjs';
@@ -64,8 +65,9 @@ try {
  await page.goto(origin,{waitUntil:'networkidle0'});
  await page.screenshot({path:screenshots+'/login-desktop.png'});
  await page.type('[name=username]','owner');await page.type('[name=password]','studio-browser-test-2026');await click('进入创作中心');await heading('今天，写点什么？');
+ await checkLoading({ browser, origin, screenshots });
  await checkOnboarding({ page, click, heading, screenshots });
- await page.waitForFunction(()=>document.querySelector('.stat-card strong')?.textContent!=='0');
+ await page.waitForFunction(()=>Number(document.querySelector('.stat-card strong')?.textContent)>0);
  await page.screenshot({path:screenshots+'/dashboard-desktop.png'});
  await click('站点信息');await heading('站点信息');await fill('.settings-grid .field input','Studio integration fixture');await click('保存更改');await page.waitForSelector('.notice.success');
  assert.match(await readFile(base+'/site/config.toml','utf8'),/Studio integration fixture/);

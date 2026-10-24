@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LoadingState from './LoadingState.vue';
 import { t } from '../i18n';
 import { computed, ref, watch, onMounted } from 'vue';
 import { mediaListing, mediaLoading, mediaError, mediaVersion, mediaUploading, loadMedia } from '../media-store';
@@ -31,12 +32,12 @@ function choose(item: MediaItem) { const value = mediaValue(item, props.mode, pr
     <p v-else-if="mode === 'document'" class="muted small">{{ supportsColocatedMedia(documentPath) ? t("可以选择公共图片或当前文稿目录中的配图。") : t("此文稿使用公共图片，选中后自动填写站点路径。") }}</p>
     <p v-if="mediaError" class="notice error" role="alert">{{ t(mediaError) }} <button type="button" class="text-button" @click="loadMedia(true)">{{ t("重试") }}</button></p>
     <p v-if="mediaListing.truncated" class="notice">{{ t("图片或目录数量超过本次扫描上限，当前仅显示部分结果。") }}</p>
-    <div v-if="mediaLoading && !mediaListing.items.length" class="loading-state" role="status">{{ t("正在读取仓库图片…") }}</div>
-    <div v-else-if="!filtered.length && !mediaError" class="empty-state"><Icon name="image" :size="34" /><h3>{{ t("没有找到图片") }}</h3><p class="muted small">{{ search || folder ? t("试试其他关键词或文件夹。") : mode === 'colocated' ? (supportsColocatedMedia(documentPath) ? t("上传图片后即可在这里选择。") : t("请改用公共封面选择公共图片。")) : t("上传第一张图片，或刷新仓库查看已有图片。") }}</p></div>
+    <LoadingState v-if="mediaLoading" label="正在读取仓库图片…" :compact="!!mediaListing.items.length" />
+    <div v-if="!mediaLoading && !filtered.length && !mediaError" class="empty-state"><Icon name="image" :size="34" /><h3>{{ t("没有找到图片") }}</h3><p class="muted small">{{ search || folder ? t("试试其他关键词或文件夹。") : mode === 'colocated' ? (supportsColocatedMedia(documentPath) ? t("上传图片后即可在这里选择。") : t("请改用公共封面选择公共图片。")) : t("上传第一张图片，或刷新仓库查看已有图片。") }}</p></div>
     <div v-else class="media-grid"><button v-for="item in items" :key="item.path" type="button" class="media-card" :class="{ selected: selected === item.path }" :data-media-path="item.path" :aria-label="t('选择图片：{p0}', { p0: item.path })" :aria-pressed="selected === item.path" :disabled="!!item.unavailable || mediaLoading || mediaUploading || !!mediaError" @click="choose(item)">
       <span class="media-thumbnail"><img v-if="!item.unavailable && !failed.has(item.path)" :src="mediaURL(item.path, mediaVersion)" alt="" loading="lazy" decoding="async" @error="failed.add(item.path)" /><span v-else class="muted small">{{ t(item.unavailable) || t("暂时无法预览") }}</span><span v-if="selected === item.path" class="media-selected-mark"><Icon name="check" :size="16" /></span></span>
       <span class="media-name">{{ item.name }}</span><span class="media-path">{{ item.directory }}</span><span class="media-size">{{ imageExtension(item.path).toUpperCase() }} · {{ formatBytes(item.size) }}</span>
     </button></div>
-    <div class="media-pagination"><small class="muted">{{ t("共 {count} 张图片", { count: filtered.length }) }}</small><div v-if="pages > 1" class="row"><button type="button" class="text-button" :disabled="page <= 1" @click="page--">{{ t("上一页") }}</button><small>{{ page }} / {{ pages }}</small><button type="button" class="text-button" :disabled="page >= pages" @click="page++">{{ t("下一页") }}</button></div></div>
+    <div v-if="!mediaLoading && !mediaError" class="media-pagination"><small class="muted">{{ t("共 {count} 张图片", { count: filtered.length }) }}</small><div v-if="pages > 1" class="row"><button type="button" class="text-button" :disabled="page <= 1" @click="page--">{{ t("上一页") }}</button><small>{{ page }} / {{ pages }}</small><button type="button" class="text-button" :disabled="page >= pages" @click="page++">{{ t("下一页") }}</button></div></div>
   </div>
 </template>

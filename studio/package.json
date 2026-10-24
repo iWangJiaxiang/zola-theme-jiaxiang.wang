@@ -14,6 +14,7 @@
     "start": "node --env-file-if-exists=.env dist/server.mjs",
     "password": "tsx scripts/password.ts",
     "test:browser": "tsx tests/browser/smoke.mjs",
+    "test:loading": "tsx tests/browser/loading-runner.mjs",
     "setup": "tsx scripts/setup.ts",
     "doctor": "tsx --env-file-if-exists=.env scripts/doctor.ts",
     "test:deployment": "node scripts/check-deployment.mjs"

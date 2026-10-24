@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LoadingState from './LoadingState.vue';
 import { t, locale, translateOptions, type Message } from '../i18n';
 import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import DOMPurify from 'dompurify';
@@ -83,7 +84,8 @@ const get = (data: Record<string, Json>, path: string): Json | undefined => path
 function snapshot() { return JSON.stringify({ body: body.value, values: values.value, revision: revision.value, baseline: baseline.value, originalBody: originalBody.value }); }
 watch([dirty, settingsDirty], ([documentDirty, configurationDirty]) => emit('dirty', documentDirty || configurationDirty), { flush: 'sync' });
 watch([body, values], () => { if (!ready.value || !dirty.value) return; try { localStorage.setItem(storageKey, snapshot()); } catch { message.value = '浏览器草稿备份不可用，请及时保存或下载。'; } }, { deep: true });
-onMounted(async () => {
+async function loadDocument() {
+  loading.value = true; error.value = ''; ready.value = false;
   void loadChoices();
   try {
     if (props.initial) {
@@ -98,8 +100,9 @@ onMounted(async () => {
     }
     try { recovery.value = !!localStorage.getItem(storageKey); } catch { /* Storage can be disabled. */ }
   } catch (e) { error.value = errorMessage(e); }
-  finally { loading.value = false; await nextTick(); ready.value = true; }
-});
+  finally { loading.value = false; await nextTick(); ready.value = !error.value; }
+}
+onMounted(loadDocument);
 function restore() {
   if (settingsDirty.value) { error.value = '页面设置还有未保存的更改，请先保存或放弃这些设置，再恢复正文草稿'; return; }
   try {
@@ -171,7 +174,8 @@ watch(locale, () => { if (mode.value === 'rich') void changeMode('rich'); });
 onBeforeUnmount(() => { flush(); alive = false; destroyEditor(false); emit('dirty', false); });
 </script>
 <template>
-  <div v-if="loading" class="loading-state">{{ t("正在载入文稿…") }}</div>
+  <LoadingState v-if="loading" label="正在载入文稿…" />
+  <div v-else-if="!ready" class="notice error" role="alert">{{ t(error) }} <button class="text-button" @click="loadDocument">{{ t("重试") }}</button> <button class="text-button" @click="emit('back')">{{ t("← 返回内容库") }}</button></div>
   <section v-else class="editor-page"><div class="page-heading"><div><button class="text-button" @click="emit('back')">{{ t("← 返回内容库") }}</button><h1>{{ values.title || t("未命名内容") }}</h1><p class="muted path-label">{{ path }}</p></div><div class="row"><button class="secondary" @click="download">{{ t("下载备份") }}</button><button class="primary" :disabled="busy || !dirty" @click="save">{{ busy ? t("正在保存…") : t("保存内容") }}</button></div></div>
     <p v-if="error" class="notice error" role="alert">{{ t(error) }} {{ t("编辑内容已保留。如有版本冲突，请先下载备份，再重新打开文件合并。") }}</p><p v-if="message" class="notice success" role="status">{{ t(message) }}</p>
     <div v-if="recovery" class="notice row">{{ t("发现本地草稿备份。") }}<button class="text-button" @click="restore">{{ t("恢复草稿") }}</button><button class="text-button" @click="discardBackup">{{ t("丢弃备份") }}</button></div>
