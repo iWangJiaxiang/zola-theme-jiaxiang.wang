@@ -23,7 +23,7 @@ GitHub 主题源码更新
 
 `.github/workflows/sync-cnb.yml` 在代码/标签推送后同步，也可以在 Actions 中手动运行。每 6 小时补同步一次，用于收集由 `GITHUB_TOKEN` 生成、不会触发后续 Actions 的 CSS 等机器人提交。定时和手动入口需要工作流先进入 GitHub 默认分支，计划任务不保证准点。
 
-同步的是最新的 GitHub 分支和标签，保留提交 SHA。不执行 force push，不删除 CNB 多出来的分支或标签。因此这是保守的单向同步，不是包含删除操作的严格 `git push --mirror`。分支分叉、同名标签冲突时任务会失败；不要直接在 CNB 修改镜像中的主题代码。若其中一个 ref 冲突，其他 ref 可能已经同步，应按失败日志核对。
+同步的是除 `gh-pages` 外的最新 GitHub 分支及全部标签，保留提交 SHA。`gh-pages` 是演示站构建产物，既不触发同步，也不进入手动或定时同步的推送列表；CNB 已有的同名分支保留，不再更新。不执行 force push，不删除 CNB 多出来的分支或标签。因此这是保守的单向同步，不是包含删除操作的严格 `git push --mirror`。分支分叉、同名标签冲突时任务会失败；不要直接在 CNB 修改镜像中的主题代码。若其中一个 ref 冲突，其他 ref 可能已经同步，应按失败日志核对。
 
 没有设置 variable 时同步任务跳过。设置 variable 后缺少 Token 会明确失败。此 Token 与运行中 Studio 访问**博客仓库**的 `STUDIO_GIT_TOKEN` 分开管理。
 
