@@ -103,16 +103,19 @@ function percent() {
     let e = document.documentElement.scrollTop || window.pageYOffset
         ,
         t = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight) - document.documentElement.clientHeight
-        , o = Math.round(e / t * 100)
+        , o = t > 0 ? Math.round(e / t * 100) : 0
         , n = document.querySelector("#percent");
     var a = window.scrollY + document.documentElement.clientHeight
         , i = document.getElementById("post-comment") || document.getElementById("footer");
-    i.offsetTop + i.offsetHeight / 2 < a || o > 90 ? (document.querySelector("#nav-totop").classList.add("long"),
-        n.innerHTML = "返回顶部") : (document.querySelector("#nav-totop").classList.remove("long"),
-            o >= 0 && (n.innerHTML = o)),
-        endresult = t - e,
-        endresult < 100 ? $(".needEndHide").addClass("hide") : $(".needEndHide").removeClass("hide"),
-        window.onscroll = percent
+    const navToTop = document.querySelector("#nav-totop");
+    if (navToTop && n) {
+        const nearEnd = Boolean(i && i.offsetTop + i.offsetHeight / 2 < a) || o > 90;
+        navToTop.classList.toggle("long", nearEnd);
+        n.textContent = nearEnd ? "返回顶部" : Math.max(0, o);
+    }
+    const endresult = t - e;
+    endresult < 100 ? $(".needEndHide").addClass("hide") : $(".needEndHide").removeClass("hide");
+    window.onscroll = percent;
 }
 
 // 今日推荐展示更多
@@ -288,7 +291,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 滚动条小于 0 的时候
-    if (document.body.scrollHeight <= innerHeight) {
+    const $rightside = document.getElementById('rightside')
+    if ($rightside && document.body.scrollHeight <= innerHeight) {
         $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
     }
 

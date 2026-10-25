@@ -5,7 +5,8 @@ import { checkOnboarding } from './onboarding.mjs';
 import { checkMedia } from './media.mjs';
 import { checkUploads } from './uploads.mjs';
 import { chooser, checkControls } from './controls.mjs';
-import { checkPageManagement } from './pages.mjs';
+import { checkPageManagement, wechatPageSettings } from './pages.mjs';
+import { checkRenderedTheme } from './theme.mjs';
 import assert from 'node:assert/strict';
 import { mkdtemp, rm, cp, mkdir, readFile, writeFile, symlink } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -167,6 +168,7 @@ try {
   if (zola.error?.code === 'ENOENT') console.log('SKIP: Zola build (zola executable is not installed).');
   else {
     assert.equal(zola.status, 0, zola.stdout + zola.stderr);
+    await checkRenderedTheme({ browser, base, screenshots });
     const html = async path => readFile(base + '/site/public/' + path + '/index.html', 'utf8');
     const articleHTML = await html('articles/studio-browser-test');
     const insertedSource = await page.evaluate(html => new DOMParser().parseFromString(html, 'text/html').querySelector('img[alt="媒体 配图.webp"]')?.getAttribute('src'), articleHTML);
@@ -179,6 +181,20 @@ try {
     assert.match(await html('equipment'), /Studio laptop/);
     assert.match(await html('about'), /Studio skill/);
     assert.match(await html('wechat'), /Studio WeChat/);
+    const wechat = await page.evaluate(html => {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      return {
+        name: doc.querySelector('.wechatOA-name')?.textContent,
+        description: doc.querySelector('.wechatOA-description')?.textContent,
+        tips: doc.querySelector('.wechat .tips')?.textContent,
+        qrcode: doc.querySelector('.qrcode img, img.qrcode')?.getAttribute('src'),
+        avatar: doc.querySelector('.wechatOA-head')?.getAttribute('src'),
+        help_text: doc.querySelector('.wechatOA > .footer-item')?.textContent,
+        help_url: doc.querySelector('.wechatOA > .footer-item')?.getAttribute('href'),
+      };
+    }, await html('wechat'));
+    assert.deepEqual(wechat, wechatPageSettings);
+    console.log('PASS: Zola builds published uncategorized fixtures and renders all seven saved WeChat settings.');
     assert.match(await html('subscribe'), /studio-subscription/);
     // Verify the optional TOML friend source is also buildable.
     const currentConfig = await readFile(base + '/site/config.toml', 'utf8');

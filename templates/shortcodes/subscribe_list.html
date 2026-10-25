@@ -1,5 +1,8 @@
+{% set wechat_url = config.extra.subscribe.wechat_url | default(value="/wechat/") %}
+{% set follow_url = config.extra.subscribe.follow_url | default(value="https://app.follow.is/share/feeds/89889813571729408") %}
+{% set rss_url = config.extra.subscribe.rss_url | default(value="/rss.xml") %}
 <div class="rss-plan-list">
-  <a class="rss-plan-item rss-plan-wechat" href="/wechat/" title="公众号" target="_blank">
+  <a class="rss-plan-item rss-plan-wechat" href="{{ wechat_url }}" title="公众号" target="_blank">
     <div class="rss-plan-description">推送精选文章<br />推送全文</div>
     <div class="rss-plan-info-group">
       <div class="rss-plan-title">公众号订阅</div>
@@ -7,7 +10,7 @@
       <img class="rss-plan-icon no-lightbox" src="/img/wechat.svg" alt="WeChat" loading="lazy" decoding="async"/>
     </div>
   </a>
-  <a class="rss-plan-item rss-plan-mail" href="https://app.follow.is/share/feeds/89889813571729408"
+  <a class="rss-plan-item rss-plan-mail" href="{{ follow_url }}"
     rel="external nofollow" title="Follow 订阅" target="_blank">
     <div class="rss-plan-description">推送全部文章<br />推送封面与简介</div>
     <div class="rss-plan-info-group">
@@ -16,7 +19,7 @@
       <img class="rss-plan-icon no-lightbox" src="/img/mail.svg" alt="Mail" loading="lazy" decoding="async"/>
     </div>
   </a>
-  <a class="rss-plan-item rss-plan-rss" href="/rss.xml" title="rss" target="_blank">
+  <a class="rss-plan-item rss-plan-rss" href="{{ rss_url }}" title="rss" target="_blank">
     <div class="rss-plan-description">推送全部文章<br />推送简介</div>
     <div class="rss-plan-info-group">
       <div class="rss-plan-title">RSS</div>

@@ -10,6 +10,17 @@
 {% endblock %}
 
 {% block content %}
+{% set wechat_name = config.author %}
+{% if config.extra.wechat.name %}
+    {% set wechat_name = config.extra.wechat.name %}
+{% endif %}
+{% set wechat_avatar = config.extra.site.logo %}
+{% if config.extra.wechat.avatar %}
+    {% set wechat_avatar = config.extra.wechat.avatar %}
+{% endif %}
+{% set wechat_help_url = config.extra.wechat.help_url | default(value="https://kf.qq.com/touch/wxappfaq/1208117b2mai141113jaqAnU.html?platform=14") %}
+{% set wechat_qrcode = config.extra.wechat.qrcode | default(value="/img/wechat/qr.jpg") %}
+{% set wechat_qrcode_lower = wechat_qrcode | lower %}
 <link rel="stylesheet" href="{{ macro::get_production_path(path="/css/wechat.css") }}">
 <!-- 头部导航栏 -->
 <header class="{% if config.extra.top.above.enable_above %}full_page{% else %}not-top-img{% endif %}" id="page-header">
@@ -18,18 +29,22 @@
 <div class="wechatOA" style="margin-top: 10%;">
     <div class="wechat">
       <div class="wechat-card">
-        {{ macro::img_progressive_loading_single_size(src="/img/wechat/qr.jpg",class="qrcode", alt="qrcode") }}
-        <div class="tips">扫描二维码关注公众号</div>
+        {% if wechat_qrcode_lower is starting_with("https://") or wechat_qrcode_lower is starting_with("http://") %}
+          <img class="qrcode" src="{{ wechat_qrcode }}" alt="qrcode" loading="lazy" decoding="async">
+        {% else %}
+          {{ macro::img_progressive_loading_single_size(src=wechat_qrcode,class="qrcode", alt="qrcode") }}
+        {% endif %}
+        <div class="tips">{{ config.extra.wechat.tips | default(value="扫描二维码关注公众号") }}</div>
         <div class="wechatOA-card">
-          <div class="wechatOA-head" style="background-image: url(/img/logo.webp);"></div>
+          <img class="wechatOA-head" src="{{ wechat_avatar }}" alt="" style="object-fit: contain;" loading="lazy" decoding="async">
           <div class="wechatOA-info">
-            <div class="wechatOA-name">王嘉祥</div>
-            <div class="wechatOA-description">跨界 无极限</div>
+            <div class="wechatOA-name">{{ wechat_name }}</div>
+            <div class="wechatOA-description">{{ config.extra.wechat.description | default(value="跨界 无极限") }}</div>
           </div>
         </div>
       </div>              
     </div>
-    <a class="footer-item" rel="noopener noreferrer external" href="https://kf.qq.com/touch/wxappfaq/1208117b2mai141113jaqAnU.html?platform=14" title="帮助" target="_blank">不会扫码？</a>
+    <a class="footer-item" rel="noopener noreferrer external" href="{{ wechat_help_url }}" title="帮助" target="_blank">{{ config.extra.wechat.help_text | default(value="不会扫码？") }}</a>
 </div>
 {% endblock %}
 

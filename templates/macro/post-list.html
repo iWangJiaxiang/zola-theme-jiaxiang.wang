@@ -19,7 +19,7 @@
                 <div class="recent-post-info">
                     <div class="recent-post-info-top">
                         <div class="recent-post-info-top-tips">
-                            {% set post_categories = post.taxonomies | get(key="categories") %}
+                            {% set post_categories = post.taxonomies | get(key="categories", default=[]) %}
                             {% if post_categories %}
                                 {% for category in post_categories %}
                                     {% set category_url = get_taxonomy_url(kind="categories", name=category, lang=lang) %}
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="article-meta-wrap">
-                        {% set post_tags = post.taxonomies | get(key="tags") %}
+                        {% set post_tags = post.taxonomies | get(key="tags", default=[]) %}
                         {% if post_tags %}
                             <span class="article-meta tags">
                                 {% for tag in post_tags %}

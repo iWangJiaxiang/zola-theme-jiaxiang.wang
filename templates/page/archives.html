@@ -50,7 +50,7 @@
                                 <a class="article-sort-item-title" onclick="window.event.cancelBubble=!0" 
                                    href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }}</a>
                                 <div class="article-sort-item-tags">
-                                    {% for tag in post.taxonomies.tags %}
+                                    {% for tag in post.taxonomies.tags | default(value=[]) %}
                                         <a class="article-meta__tags" href="/tags/{{ tag }}">
                                             <span class="tags-punctuation">{{ macro::tag_name(tag=tag) }}</span>
                                         </a>
