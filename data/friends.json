@@ -1,0 +1,29 @@
+{
+  "groups": [
+    {
+      "display_name": "推荐",
+      "description": "使用本主题的博客",
+      "display_style": "beautify",
+      "links": [
+        {
+          "display_name": "王嘉祥",
+          "description": "专注于科技、音乐等领域跨界创新，分享经验与见解",
+          "url": "https://blog.jiaxianag.wang/",
+          "logo": "/img/friends/wangjiaxiang.webp"
+        },
+        {
+          "display_name": "王嘉祥",
+          "description": "专注于科技、音乐等领域跨界创新，分享经验与见解",
+          "url": "https://blog.jiaxianag.wang/",
+          "logo": "/img/friends/wangjiaxiang.webp"
+        },
+        {
+          "display_name": "王嘉祥",
+          "description": "专注于科技、音乐等领域跨界创新，分享经验与见解",
+          "url": "https://blog.jiaxianag.wang/",
+          "logo": "/img/friends/wangjiaxiang.webp"
+        }
+      ]
+    }
+  ]
+}
