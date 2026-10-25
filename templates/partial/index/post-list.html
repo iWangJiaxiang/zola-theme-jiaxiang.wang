@@ -21,7 +21,7 @@
                     {% if post.extra.pinned %}
                         <span class="sticky-warp sticky">置顶</span>
                     {% endif %}
-                    {% set categories = post.taxonomies | get(key="categories") %}
+                    {% set categories = post.taxonomies | get(key="categories", default=[]) %}
                     {% for category in categories %}
                         <a href="{{ get_taxonomy_url(kind="categories", name=category, lang=lang) }}"
                               title="{{ category }}"
@@ -38,7 +38,7 @@
             </div>
             
             <div class="article-meta-wrap">
-                {% set tags = post.taxonomies | get(key="tags") %}
+                {% set tags = post.taxonomies | get(key="tags", default=[]) %}
                 {% if tags %}
                     <span class="article-meta tags">
                         {% for tag in tags %}

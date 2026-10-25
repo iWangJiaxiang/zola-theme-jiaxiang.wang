@@ -241,9 +241,11 @@ npm run build
 npm run test:deployment
 # 安装了 Chrome/Chromium 时，运行浏览器回归；自动使用临时站点，不修改你的内容。
 npm run test:browser
+# 安装 Zola 后，独立验证无分类文章、相关推荐、公众号与订阅配置的实际 HTML 输出。
+npm run test:templates
 ```
 
-浏览器不在默认位置时，设置 `STUDIO_TEST_BROWSER` 为可执行文件绝对路径。截图写入 `test-results/`。若系统安装了 Zola，浏览器测试还会构建新增文章、专栏、合集与章节。
+浏览器不在默认位置时，设置 `STUDIO_TEST_BROWSER` 为可执行文件绝对路径。截图写入 `test-results/`。若系统安装了 Zola，浏览器测试还会构建新增文章、专栏、合集与章节，并访问生成的主站页面检查 production 脚本错误、图片加载及公众号桌面/移动布局。
 
 测试涵盖 TOML 精确修改、主题文档 roundtrip、真实配置加载、路径与 symlink 限制、并发保存、密码/CSRF/会话，以及带真实 RSA 签名的模拟 OIDC provider。Git 集成测试通过本地 `git http-backend` 运行真实克隆和推送，需要系统 `git`。
 

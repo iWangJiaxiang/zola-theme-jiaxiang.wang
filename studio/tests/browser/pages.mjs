@@ -2,6 +2,12 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { parse } from 'smol-toml';
 
+export const wechatPageSettings = {
+  name: 'Studio WeChat', description: 'Studio WeChat description', tips: 'Studio scan tips',
+  qrcode: '/img/wechat.svg', avatar: '/img/wechat.svg',
+  help_text: 'Studio scan help', help_url: 'https://example.com/wechat-help',
+};
+
 export async function checkPageManagement({ page, base, screenshots, click, heading, fill, delayNextDocumentSave }) {
   const openPage = async path => {
     await click('页面'); await heading('页面');
@@ -43,8 +49,9 @@ export async function checkPageManagement({ page, base, screenshots, click, head
 
   await openPage('content/pages/wechat.md');
   await page.waitForSelector('[name="extra.wechat.name"]');
-  await fill('[name="extra.wechat.name"]', 'Studio WeChat'); await saveSettings();
-  assert.equal((await config()).extra.wechat.name, 'Studio WeChat');
+  for (const [key, value] of Object.entries(wechatPageSettings)) await fill(`[name="extra.wechat.${key}"]`, value);
+  await saveSettings();
+  assert.deepEqual({ ...(await config()).extra.wechat }, wechatPageSettings);
 
   await openPage('content/pages/music.md');
   await page.waitForSelector('[name="extra.tool.nav_music.id"]');

@@ -61,7 +61,7 @@
                         {% endif %}
                     {% endif %}
                     
-                    {% set post_categories = page.taxonomies.categories %}
+                    {% set post_categories = page.taxonomies.categories | default(value=[]) %}
                     {% if post_categories %}
                         {% for category in post_categories %}
                         {% set category_url = get_taxonomy_url(kind="categories", name=category, lang=lang) %}
@@ -73,7 +73,7 @@
                             </span>
                         {% endfor %}
                     {% endif %}
-                    {% set post_tags = page.taxonomies.tags %}
+                    {% set post_tags = page.taxonomies.tags | default(value=[]) %}
                     {% if post_tags %}
                         <div class="tag_share">
                             <div class="post-meta__tag-list">

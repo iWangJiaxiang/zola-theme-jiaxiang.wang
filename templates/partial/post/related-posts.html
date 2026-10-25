@@ -1,10 +1,12 @@
 {% import "_macros.html" as macro %}
  {# 同分类文章推荐 #}
 
-{% set category =page.taxonomies.categories | first %}
-
-{% set posts = get_taxonomy_term(kind="categories", term=category)  %}
-{% set posts = posts.pages  %}
+{% set posts = [] %}
+{% if page.taxonomies.categories %}
+    {% set category = page.taxonomies.categories | first %}
+    {% set posts = get_taxonomy_term(kind="categories", term=category) %}
+    {% set posts = posts.pages %}
+{% endif %}
 
 {% if posts and posts | length > 1 %}
     {% set recommendQuantity = config.extra.post.recommendQuantity %}
